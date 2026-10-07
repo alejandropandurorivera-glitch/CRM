@@ -1,0 +1,69 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function isOwner(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+    function isAdministrator() {
+      return signedIn()
+        && request.auth.token.firebase.sign_in_provider == 'password';
+    }
+
+    // Clientes, ventas, reportes y cortes del sistema principal.
+    match /users/{userId}/clients/{clientId} {
+      allow read, create, update, delete: if isOwner(userId);
+    }
+    match /users/{userId}/cuts/{cutId} {
+      allow read, create, update, delete: if isOwner(userId);
+    }
+    match /users/{userId}/expenses/{expenseId} {
+      allow read, create, update, delete: if isOwner(userId);
+    }
+    match /users/{userId}/tasks/{taskId} {
+      allow read, create, update, delete: if isOwner(userId);
+    }
+
+    // Cada dispositivo del reloj escribe únicamente su propio perfil.
+    // Las cuentas administrativas de correo pueden consultar todos los perfiles.
+    match /timeclockEmployees/{userId} {
+      allow create: if isOwner(userId)
+        && request.resource.data.ownerUid == userId;
+      allow read: if isOwner(userId) || isAdministrator();
+      allow update: if isOwner(userId)
+        && request.resource.data.ownerUid == userId;
+      allow delete: if isOwner(userId);
+    }
+
+    match /timeclockRecords/{recordId} {
+      allow create: if signedIn()
+        && request.resource.data.ownerUid == request.auth.uid;
+      allow read: if (signedIn() && resource.data.ownerUid == request.auth.uid)
+        || isAdministrator();
+      allow update: if signedIn()
+        && resource.data.ownerUid == request.auth.uid
+        && request.resource.data.ownerUid == request.auth.uid;
+      allow delete: if signedIn()
+        && resource.data.ownerUid == request.auth.uid;
+    }
+
+    match /timeclockWeeklyCuts/{cutId} {
+      allow create: if signedIn()
+        && request.resource.data.ownerUid == request.auth.uid;
+      allow read: if (signedIn() && resource.data.ownerUid == request.auth.uid)
+        || isAdministrator();
+      allow update: if signedIn()
+        && resource.data.ownerUid == request.auth.uid
+        && request.resource.data.ownerUid == request.auth.uid;
+      allow delete: if signedIn()
+        && resource.data.ownerUid == request.auth.uid;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
