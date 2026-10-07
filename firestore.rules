@@ -10,7 +10,7 @@ service cloud.firestore {
     }
     function isAdministrator() {
       return signedIn()
-        && request.auth.token.firebase.sign_in_provider == 'password';
+        && request.auth.token.admin == true;
     }
 
     // Clientes, ventas, reportes y cortes del sistema principal.
