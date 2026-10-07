@@ -1,5 +1,5 @@
-const CACHE='darkis-suite-v13-gatitos';
-const LOCAL=['./','./index.html','./repartidor.html','./reloj-checador.html','./manifest.webmanifest','./logo.png','./cat-icon.png','./icon-192.png','./icon-512.png','./sofia.jpg','./tania.jpg'];
+const CACHE='darkis-suite-v14-perfiles-y-roles';
+const LOCAL=['./','./index.html','./repartidor.html','./reloj-checador.html','./manifest.webmanifest','./logo.png','./cat-icon.png','./icon-192.png','./icon-512.png','./sofia.jpg','./tania.jpg','./role-production.png','./role-repartidor.png','./role-administrador.png'];
 
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(LOCAL)).then(()=>self.skipWaiting()));

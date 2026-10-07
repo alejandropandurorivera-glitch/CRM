@@ -17,13 +17,10 @@
     h1{margin:5px 0 7px;text-align:center;color:#713b28;font-size:28px}
     .copy{margin:0 0 19px;text-align:center;color:#718690;font-size:12px}
     nav{display:grid;gap:10px}
-    .role{min-height:70px;padding:10px 13px;display:grid;grid-template-columns:48px minmax(0,1fr) 18px;align-items:center;gap:12px;border:1px solid #d7e5eb;border-radius:19px;color:#173244;background:#fff;box-shadow:0 7px 18px rgba(0,64,95,.07);text-align:left;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+    .role{min-height:84px;padding:10px 13px;display:grid;grid-template-columns:62px minmax(0,1fr) 18px;align-items:center;gap:12px;border:1px solid #d7e5eb;border-radius:19px;color:#173244;background:#fff;box-shadow:0 7px 18px rgba(0,64,95,.07);text-align:left;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
     a.role:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,64,95,.14)}
     a.role:focus-visible{outline:3px solid #087eae;outline-offset:3px}
-    .icon{width:46px;height:46px;display:grid;place-items:center;border-radius:15px;color:#fff;background:linear-gradient(145deg,#f15a24,#ff8258);font-size:21px}
-    .icon.cat-icon{object-fit:contain;border-radius:0;background:none}
-    .role:nth-child(2) .icon{background:linear-gradient(145deg,#087eae,#13a4d7)}
-    .role:nth-child(3) .icon{background:linear-gradient(145deg,#713b28,#a96549)}
+    .icon{width:60px;height:60px;object-fit:contain}
     strong{display:block;font-size:13px}
     small{display:block;margin-top:3px;color:#82949d;font-size:9px}
     .arrow{color:#91a3ac;font-size:25px}
@@ -38,9 +35,9 @@
     <h1>¿Cómo vas a entrar?</h1>
     <p class="copy">Selecciona tu área para abrir las herramientas correspondientes.</p>
     <nav aria-label="Áreas de Darkis">
-      <a class="role" href="reloj-checador.html"><img class="icon cat-icon" src="cat-icon.png" alt="" aria-hidden="true"><span><strong>Darkita</strong><small>Reloj checador, entradas y salidas</small></span><span class="arrow">›</span></a>
-      <a class="role" href="repartidor.html"><span class="icon">⌖</span><span><strong>Repartidor</strong><small>Clientes, visitas, ventas y cambios</small></span><span class="arrow">›</span></a>
-      <div class="role disabled" aria-disabled="true"><span class="icon">▥</span><span><strong>Administrador</strong><small>Disponible en una versión posterior</small></span><span class="arrow">—</span></div>
+      <a class="role" href="reloj-checador.html"><img class="icon" src="role-production.png" alt="" aria-hidden="true"><span><strong>Darkita</strong><small>Reloj checador, entradas y salidas</small></span><span class="arrow">›</span></a>
+      <a class="role" href="repartidor.html"><img class="icon" src="role-repartidor.png" alt="" aria-hidden="true"><span><strong>Repartidor</strong><small>Clientes, visitas, ventas y cambios</small></span><span class="arrow">›</span></a>
+      <div class="role disabled" aria-disabled="true"><img class="icon" src="role-administrador.png" alt="" aria-hidden="true"><span><strong>Administrador</strong><small>Disponible en una versión posterior</small></span><span class="arrow">—</span></div>
     </nav>
     <footer>Darkis Brownies · Todo el negocio en un solo lugar</footer>
   </main>

@@ -1,8 +1,10 @@
-# Sistema Darkis v13 · perfiles e íconos de gatitos
+# Sistema Darkis v14 · ubicación, perfiles e íconos de áreas
 
 La portada `index.html` contiene enlaces directos: **Darkita** abre `reloj-checador.html` y **Repartidor** abre `repartidor.html`. Los enlaces funcionan sin JavaScript. La interfaz de repartidor incluye los formularios de clientes, visitas e historial que faltaban en el archivo anterior.
 
 Las fichas de **Sofia** y **Tania** muestran sus fotos respectivas, recortadas en círculo, tanto en la selección de usuario como en el encabezado del reloj. El gatito con brownie del logotipo se usa sin el aro ni las letras como ícono de la aplicación y sustituye al gato anterior en la portada, el reloj y los cortes del repartidor.
+
+En **Mi perfil**, cada persona puede elegir una foto propia. La imagen se recorta y reduce antes de guardarse en su perfil. Los tres accesos de la portada tienen ilustraciones distintas: Darkita con globo repostero, repartidor en un Vento marrón inspirado en la foto proporcionada y administrador frente a una computadora. El acceso de administrador sigue reservado.
 
 ## Cambios de esta revisión
 
@@ -27,7 +29,7 @@ Aplicación móvil unificada enfocada por ahora en dos áreas operativas:
 
 ## Publicación
 
-Sube **todos los archivos descomprimidos**, incluidos `cat-icon.png`, `icon-192.png`, `icon-512.png`, `sofia.jpg` y `tania.jpg`, juntos a la raíz de GitHub Pages o Firebase Hosting. La entrada principal es `index.html`. Tras reemplazar una versión anterior, recarga la página para que el service worker actualice su caché.
+Sube **todos los archivos descomprimidos**, incluidos los nuevos `role-production.png`, `role-repartidor.png` y `role-administrador.png`, juntos a la raíz de GitHub Pages o Firebase Hosting. La entrada principal es `index.html`. Tras reemplazar una versión anterior, recarga la página para que el service worker actualice su caché.
 
 ## PWA
 
@@ -42,7 +44,7 @@ La versión frontend puede emitir la alerta de cierre de las 20:30 mientras la P
 ## Reloj checador
 
 - Ubicación autorizada: `20.814514, -102.775042`.
-- Radio de entrada: 10 metros.
-- Precisión máxima admitida para entrada: 30 metros.
+- Radio de entrada: 30 metros desde `20.814514, -102.775042`.
+- Precisión máxima admitida para entrada: 50 metros. El reloj muestra distancia y precisión para explicar un rechazo.
 - Sueldo de cálculo del PDF: $50 MXN por hora.
 - Sofia y Tania están precargadas con PIN inicial `1234`. Los perfiles existentes del dispositivo se conservan.
