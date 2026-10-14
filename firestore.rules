@@ -5,63 +5,140 @@ service cloud.firestore {
     function signedIn() {
       return request.auth != null;
     }
-    function isOwner(userId) {
-      return signedIn() && request.auth.uid == userId;
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
     }
-    function isAdministrator() {
+
+    function isAdmin() {
       return signedIn()
-        && request.auth.token.admin == true;
+        && request.auth.uid == 'darkis-admin'
+        && request.auth.token.get('role', '') == 'admin';
     }
 
-    // Clientes, ventas, reportes y cortes del sistema principal.
-    match /users/{userId}/clients/{clientId} {
-      allow read, create, update, delete: if isOwner(userId);
-    }
-    match /users/{userId}/cuts/{cutId} {
-      allow read, create, update, delete: if isOwner(userId);
-    }
-    match /users/{userId}/expenses/{expenseId} {
-      allow read, create, update, delete: if isOwner(userId);
-    }
-    match /users/{userId}/tasks/{taskId} {
-      allow read, create, update, delete: if isOwner(userId);
+    function isRoute() {
+      return signedIn()
+        && request.auth.uid == 'darkis-route'
+        && request.auth.token.get('role', '') == 'route'
+        && request.auth.token.get('profileId', '') == 'repartidor';
     }
 
-    // Cada dispositivo del reloj escribe únicamente su propio perfil.
-    // Las cuentas administrativas de correo pueden consultar todos los perfiles.
-    match /timeclockEmployees/{userId} {
-      allow create: if isOwner(userId)
-        && request.resource.data.ownerUid == userId;
-      allow read: if isOwner(userId) || isAdministrator();
-      allow update: if isOwner(userId)
-        && request.resource.data.ownerUid == userId;
-      allow delete: if isOwner(userId);
+    function isSocio(profileId) {
+      return signedIn()
+        && request.auth.uid == 'darkis-socio-' + profileId
+        && request.auth.token.get('role', '') == 'socio'
+        && request.auth.token.get('profileId', '') == profileId;
     }
 
+    function isSocioCaller() {
+      return signedIn()
+        && request.auth.token.get('role', '') == 'socio'
+        && request.auth.token.get('profileId', '') in ['tania', 'sofia', 'juan-pablo']
+        && request.auth.uid == 'darkis-socio-'
+          + request.auth.token.get('profileId', '');
+    }
+
+    function actorOfWrite() {
+      return request.resource.data.get('data', {}).get('actorProfileId', '');
+    }
+
+    function hasOwnSocioActor() {
+      return actorOfWrite() == request.auth.token.get('profileId', '');
+    }
+
+    function hasRouteActor() {
+      return actorOfWrite() == 'repartidor';
+    }
+
+    function ownsRecord() {
+      return signedIn() && resource.data.ownerUid == request.auth.uid;
+    }
+
+    function createsOwnRecord() {
+      return signedIn()
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.data is map;
+    }
+
+    function updatesOwnRecord() {
+      return ownsRecord()
+        && request.resource.data.ownerUid == resource.data.ownerUid
+        && request.resource.data.data is map;
+    }
+
+    // Existing CRM records. The administrator may read data belonging to
+    // an earlier email/password UID during migration.
+    match /users/{uid}/clients/{id} {
+      allow read, write: if isOwner(uid) || isAdmin();
+    }
+    match /users/{uid}/cuts/{id} {
+      allow read, write: if isOwner(uid) || isAdmin();
+    }
+    match /users/{uid}/expenses/{id} {
+      allow read, write: if isOwner(uid) || isAdmin();
+    }
+    match /users/{uid}/tasks/{id} {
+      allow read, write: if isOwner(uid) || isAdmin();
+    }
+
+    // The courier's customer book is separate from the administrator's CRM.
+    match /routeClients/{clientId} {
+      allow read: if isAdmin() || (isRoute() && ownsRecord());
+      allow create: if isRoute() && createsOwnRecord();
+      allow update: if isRoute() && updatesOwnRecord();
+      allow delete: if isRoute() && ownsRecord();
+    }
+
+    // Contributions made by couriers and socios feed administrator reporting.
+    // Socios may only attribute records to their own authenticated profile.
+    match /routeContributions/{contributionId} {
+      allow read: if isAdmin()
+        || ((isRoute() || isSocioCaller()) && ownsRecord());
+      allow create: if ((isRoute() && hasRouteActor())
+        || (isSocioCaller() && hasOwnSocioActor()))
+        && createsOwnRecord();
+      allow update: if ((isRoute() && hasRouteActor())
+        || (isSocioCaller() && hasOwnSocioActor()))
+        && updatesOwnRecord();
+      allow delete: if (isRoute() || isSocioCaller()) && ownsRecord();
+    }
+
+    // A Darkisocio identity can access only its own clients and sales.
+    // The administrator can review all profiles without impersonating them.
+    match /socioProfiles/{profileId}/clients/{clientId} {
+      allow read: if isAdmin() || (isSocio(profileId) && ownsRecord());
+      allow create: if isSocio(profileId) && createsOwnRecord();
+      allow update: if isSocio(profileId) && updatesOwnRecord();
+      allow delete: if isSocio(profileId) && ownsRecord();
+    }
+    match /socioProfiles/{profileId}/sales/{saleId} {
+      allow read: if isAdmin() || (isSocio(profileId) && ownsRecord());
+      allow create: if isSocio(profileId) && createsOwnRecord();
+      allow update: if isSocio(profileId) && updatesOwnRecord();
+      allow delete: if isSocio(profileId) && ownsRecord();
+    }
+
+    // Legacy employee-clock accounts remain anonymous per device.
+    match /timeclockEmployees/{uid} {
+      allow read: if isAdmin() || isOwner(uid);
+      allow create: if isOwner(uid) && createsOwnRecord();
+      allow update: if isOwner(uid) && updatesOwnRecord();
+      allow delete: if isOwner(uid);
+    }
     match /timeclockRecords/{recordId} {
-      allow create: if signedIn()
-        && request.resource.data.ownerUid == request.auth.uid;
-      allow read: if (signedIn() && resource.data.ownerUid == request.auth.uid)
-        || isAdministrator();
-      allow update: if signedIn()
-        && resource.data.ownerUid == request.auth.uid
-        && request.resource.data.ownerUid == request.auth.uid;
-      allow delete: if signedIn()
-        && resource.data.ownerUid == request.auth.uid;
+      allow read: if isAdmin() || ownsRecord();
+      allow create: if createsOwnRecord();
+      allow update: if updatesOwnRecord();
+      allow delete: if ownsRecord();
     }
-
     match /timeclockWeeklyCuts/{cutId} {
-      allow create: if signedIn()
-        && request.resource.data.ownerUid == request.auth.uid;
-      allow read: if (signedIn() && resource.data.ownerUid == request.auth.uid)
-        || isAdministrator();
-      allow update: if signedIn()
-        && resource.data.ownerUid == request.auth.uid
-        && request.resource.data.ownerUid == request.auth.uid;
-      allow delete: if signedIn()
-        && resource.data.ownerUid == request.auth.uid;
+      allow read: if isAdmin() || ownsRecord();
+      allow create: if createsOwnRecord();
+      allow update: if updatesOwnRecord();
+      allow delete: if ownsRecord();
     }
 
+    // Includes private rate-limit counters under _pinAttempts.
     match /{document=**} {
       allow read, write: if false;
     }

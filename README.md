@@ -1,50 +1,33 @@
-# Sistema Darkis v14 · ubicación, perfiles e íconos de áreas
+# Sistema Darkis v12
 
-La portada `index.html` contiene enlaces directos: **Darkita** abre `reloj-checador.html` y **Repartidor** abre `repartidor.html`. Los enlaces funcionan sin JavaScript. La interfaz de repartidor incluye los formularios de clientes, visitas e historial que faltaban en el archivo anterior.
+La entrada es **index.html**. Desde ahí se abre Darkita, Repartidor o Administrador.
 
-Las fichas de **Sofia** y **Tania** muestran sus fotos respectivas, recortadas en círculo, tanto en la selección de usuario como en el encabezado del reloj. El gatito con brownie del logotipo se usa sin el aro ni las letras como ícono de la aplicación y sustituye al gato anterior en la portada, el reloj y los cortes del repartidor.
+| Área | Archivo | Acceso y uso |
+| --- | --- | --- |
+| Darkita | reloj-checador.html | Perfiles de personal, PIN individual, GPS, horas y PDF semanal |
+| Repartidor | index.html | PIN 2024, ruta móvil, clientes, visitas, cambios y vencimientos |
+| Darkisocio | darkisocio.html | Enlace pequeño al pie de Repartidor, perfiles Tania, Sofis y Juan Pablo, ventas propias |
+| Administrador | administrador.html | PIN 1016, finanzas de escritorio, cortes y rutas recibidas |
 
-En **Mi perfil**, cada persona puede elegir una foto propia. La imagen se recorta y reduce antes de guardarse en su perfil. Los tres accesos de la portada tienen ilustraciones distintas: Darkita con globo repostero, repartidor en un Vento marrón inspirado en la foto proporcionada y administrador frente a una computadora. El acceso de administrador sigue reservado.
+Cada perfil Darkisocio guarda sus propios clientes e historial. Sus ventas se suman una vez al administrador y sus reportes; el repartidor conserva el balance entre cobrados, cambios y piezas dejadas. Cuando no se conoce el sabor realmente vendido en una visita de ruta, el administrador usa “Brownie sin especificar” para los cobrados y mantiene los cambios por sabor aparte. No asigna sabores vendidos a partir del surtido dejado.
 
-## Cambios de esta revisión
+## Cómo abrirlo
 
-- La sincronización principal inicia al autenticarse y concilia cambios locales con la última versión conocida de Firebase.
-- Los clientes nuevos usan identificadores únicos entre dispositivos.
-- Los enlaces de mapas sólo aceptan direcciones HTTPS de Google Maps.
-- Los cortes semanales del reloj se recalculan al corregir horarios o cambiar la semana laboral; los cortes antiguos se eliminan de Firebase al sincronizar.
-- Los PIN del reloj permanecen en el dispositivo y ya no se envían en las nuevas sincronizaciones. Cambia el PIN inicial de cada empleado antes de usar el reloj.
-- Las reglas de Firestore sólo consideran administradora a una cuenta con el custom claim `admin: true`. El tipo de inicio de sesión ya no concede acceso administrativo.
+Abre **index.html** desde un servidor HTTPS y usa **Agregar a pantalla de inicio** para instalar la PWA. La primera carga requiere internet; después las pantallas y los cambios locales funcionan sin conexión. Este paquete contiene el histórico financiero completo dentro de `administrador.html`; **no lo publiques en un repositorio o sitio accesible al público** mientras uses el PIN visible en el HTML. Para publicarlo con privacidad real, hay que llevar ese histórico a una base protegida detrás de autenticación del servidor.
 
-Antes de publicar, despliega `firestore.rules` en el proyecto Firebase. El custom claim `admin: true` debe asignarse desde un entorno confiable con el Admin SDK, nunca desde esta aplicación. Si no hay cuentas administrativas configuradas, nadie podrá leer los registros del reloj de otros dispositivos.
+## Histórico de finanzas
 
-**Límite de seguridad:** esta PWA sigue recibiendo GPS y horarios del navegador. Una aplicación sólo de cliente no puede comprobar de forma confiable la presencia física ni impedir que un usuario manipule esos datos. No uses los registros como única base para pagar sueldos hasta incorporar un servicio de servidor con auditoría y validaciones independientes.
+Las **1,357 ventas, 166 gastos y 75 cortes históricos** están precargados en `administrador.html`; no hace falta importarlos. La primera apertura combina esos registros con cualquier dato administrativo anterior de este navegador mediante sus ID. El archivo **darkis-admin-private-seed.json** se entrega aparte como copia de seguridad y también puede importarse desde **Datos y respaldo** si necesitas restaurarlo. Guarda respaldos periódicos de los movimientos nuevos.
 
-Los documentos de perfiles guardados por versiones anteriores pueden conservar PIN antiguos en Firebase hasta que cada dispositivo sincronice con esta versión. Si necesitas eliminarlos de inmediato, realiza una migración administrativa de esos documentos.
+## Sincronización real entre equipos
 
-Aplicación móvil unificada enfocada por ahora en dos áreas operativas:
+El uso local y el puente entre pantallas del mismo navegador funcionan desde el primer momento. Para que las ventas y clientes nuevos de Repartidor y Darkisocio lleguen al administrador en otros equipos, despliega la Cloud Function y las reglas siguiendo [FIREBASE.md](FIREBASE.md). Hasta hacerlo, la app muestra modo local y deja las operaciones pendientes. El resto de movimientos financieros capturados directamente en Administrador continúa en el navegador y debe respaldarse en JSON.
 
-- **Darkita:** reloj checador, horas semanales, GPS y reporte PDF.
-- **Repartidor:** clientes, rutas, visitas, ventas, cambios, vencimientos y pendientes.
-- **Administrador:** reservado y desactivado en esta versión.
+Los PIN del HTML controlan la interfaz local. La protección de Firestore entre equipos depende de la función del servidor y sus reglas. Como el histórico está dentro del HTML, esas reglas **no protegen el archivo** si se pone en una web pública.
 
-## Publicación
+## Observaciones operativas
 
-Sube **todos los archivos descomprimidos**, incluidos los nuevos `role-production.png`, `role-repartidor.png` y `role-administrador.png`, juntos a la raíz de GitHub Pages o Firebase Hosting. La entrada principal es `index.html`. Tras reemplazar una versión anterior, recarga la página para que el service worker actualice su caché.
-
-## PWA
-
-Incluye manifest, iconos y service worker. El aviso de instalación aparece como máximo 3 veces por navegador/dispositivo y deja de mostrarse al instalar. Para limitarlo realmente por IP se necesita una función/endpoint de servidor que registre el contador; el navegador por sí solo no puede garantizar identidad por IP.
-
-## Notificaciones
-
-En Configuración se puede elegir: todo encendido, sólo una al día, sólo ventana dentro del sistema o apagadas. También se puede solicitar permiso y lanzar una alerta de prueba.
-
-La versión frontend puede emitir la alerta de cierre de las 20:30 mientras la PWA está activa: cuenta los clientes creados ese día y no muestra nada cuando el conteo es cero. Para que llegue de forma fiable con la app cerrada se requiere Firebase Cloud Messaging (FCM), una clave VAPID y una Cloud Function/Scheduler a las 20:30 America/Mexico_City. Esa parte no se simula en cliente.
-
-## Reloj checador
-
-- Ubicación autorizada: `20.814514, -102.775042`.
-- Radio de entrada: 30 metros desde `20.814514, -102.775042`.
-- Precisión máxima admitida para entrada: 50 metros. El reloj muestra distancia y precisión para explicar un rechazo.
-- Sueldo de cálculo del PDF: $50 MXN por hora.
-- Sofia y Tania están precargadas con PIN inicial `1234`. Los perfiles existentes del dispositivo se conservan.
+- La app del repartidor conserva los clientes existentes guardados en este navegador. No importa automáticamente ventas antiguas al administrador, para evitar duplicados con el histórico previo.
+- Los cortes de caja existentes no se recalculan retrospectivamente. Las ventas nuevas entran a los reportes y al corte del día que corresponda.
+- El reloj mantiene su almacenamiento y su PDF semanal; en Firebase usa la identidad anónima de cada dispositivo.
+- El service worker guarda las tres pantallas y las fotos de perfil para uso offline. La sincronización y el primer inicio con PIN en Firebase necesitan conexión.
