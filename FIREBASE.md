@@ -1,58 +1,65 @@
-# Firebase de Sistema Darkis
+# Firebase Spark — Sistema Darkis v14
 
-Este proyecto usa la función `darkisPinLogin` para comprobar el PIN en el servidor. El navegador recibe un token de Firebase con el rol correspondiente. Los PIN `1016` y `2024` aparecen en el HTML para abrir la interfaz local, así que **no son secretos**: la protección de los datos compartidos depende de los secretos del servidor, los tokens y las reglas. Antes de publicar datos sensibles, conviene cambiar estos PIN por credenciales privadas individuales y un control de acceso más fuerte.
+Esta versión funciona con Authentication (Google) y Firestore en Spark, dentro de sus cuotas gratuitas. No usa Cloud Functions, Secret Manager ni facturación Blaze. Google comprueba la cuenta; los permisos se leen de documentos protegidos en Firestore. Los PIN 1016 y 2024 abren la interfaz local y no conceden permisos de nube.
 
-## Preparación
+## 1. Publicar las reglas nuevas
 
-1. Usa el proyecto Firebase `darkis-brownies`, con Authentication y Cloud Firestore habilitados. Las Cloud Functions de segunda generación y Secret Manager requieren el plan Blaze.
-2. En la raíz de este directorio crea `firebase.json` si todavía no existe:
+En el proyecto **darkis-brownies**, abre **Firestore Database → Reglas**, sustituye todo por `firestore.rules` de esta versión y pulsa **Publicar**. Son distintas de las reglas de v13: ya no esperan tokens emitidos por Functions.
 
-   ```json
-   {
-     "functions": { "source": "functions" },
-     "firestore": { "rules": "firestore.rules" }
-   }
-   ```
+## 2. Dominio y proveedor Google
 
-3. Desde esta carpeta instala dependencias y registra tres secretos. La CLI pedirá los valores sin guardarlos en el HTML o en el repositorio:
+Google ya debe estar habilitado en **Authentication → Método de acceso**. Conserva también **Anónimo** para Darkita.
 
-   ```sh
-   npm install --prefix functions
-   firebase functions:secrets:set DARKIS_ADMIN_PIN --project darkis-brownies
-   firebase functions:secrets:set DARKIS_ROUTE_PIN --project darkis-brownies
-   firebase functions:secrets:set DARKIS_PIN_PEPPER --project darkis-brownies
-   ```
+En **Authentication → Configuración → Dominios autorizados**, añade el dominio desde el que abrirás la app si no está en la lista. Usa una dirección HTTPS; abrir el HTML como archivo local o dentro de una vista previa ajena no sirve para comprobar Google. Puedes alojar la app con Firebase Hosting o en el alojamiento web que ya uses. Este paso no debe publicar el histórico financiero en un sitio de acceso público sin resolver primero la nota de privacidad al final.
 
-   Configura los PIN acordados para administrador y repartidor y una cadena aleatoria de al menos 32 caracteres para `DARKIS_PIN_PEPPER` (por ejemplo, generada con `openssl rand -hex 32`). Evita escribir estos valores en archivos publicados.
+## 3. Autorizar la primera cuenta administradora (una sola vez)
 
-4. Despliega desde la misma carpeta:
+1. Abre Administrador, entra con el PIN 1016 y pulsa **Continuar con Google**.
+2. La app mostrará **Cuenta pendiente de autorización**. Copia **mi ID** (UID).
+3. En **Firestore → Datos → Iniciar colección**, crea la colección `accessRoles`.
+4. Usa ese UID completo como **ID del documento**. No uses ID automático ni correo como ID.
+5. Agrega exactamente estos campos y guarda:
 
-   ```sh
-   firebase deploy --project darkis-brownies --only functions:darkisPinLogin,functions:darkisInstallPrompt,firestore:rules
-   ```
+   | Campo | Tipo | Valor |
+   | --- | --- | --- |
+   | `role` | string | `admin` |
+   | `profileId` | string | cadena vacía |
+   | `enabled` | boolean | `true` |
 
-Si la firma de tokens falla por permisos, concede `iam.serviceAccounts.signBlob` a la cuenta de servicio que ejecuta la función, según el mensaje de Firebase. La función usa `us-central1`; el frontend debe elegir esa misma región.
+6. Vuelve a la app y pulsa **Ya me autorizaron**. El foquito se pondrá verde cuando Firestore responda.
 
-## Contrato del acceso
+Sólo una persona con acceso a la consola del proyecto puede crear este primer permiso. La app no puede nombrarse administradora a sí misma. El ejemplo anterior no cambia credenciales de Google ni necesita una contraseña nueva.
 
-Llama a `httpsCallable(getFunctions(app, 'us-central1'), 'darkisPinLogin')` y después a `signInWithCustomToken(auth, result.data.token)`:
+## 4. Autorizar las otras cuentas desde la app
 
-| Pantalla | Argumentos de la llamada | UID y rol resultantes |
+Cada persona abre su área, entra con su PIN, conecta su Google y pulsa **Solicitar acceso**. Desde tu cuenta administradora abre el engrane → **Cuenta Google y permisos → Administrar accesos**. Selecciona el área y pulsa **Autorizar**:
+
+| Acceso | `role` | `profileId` |
 | --- | --- | --- |
-| Administrador | `{role: 'admin', pin}` | `darkis-admin`, `admin` |
-| Repartidor | `{role: 'route', profileId: 'repartidor', pin}` | `darkis-route`, `route` |
-| Darkisocio | `{role: 'route', profileId: 'tania' \| 'sofia' \| 'juan-pablo', pin}` | `darkis-socio-{profileId}`, `socio` |
+| Administrador | `admin` | vacío |
+| Repartidor | `route` | vacío |
+| Tania | `socio` | `tania` |
+| Sofi | `socio` | `sofia` |
+| Juan Pablo | `socio` | `juan-pablo` |
 
-La función responde `{token, uid, role, profileId}`. El PIN de repartidor abre cualquiera de los tres perfiles Darkisocio; si posteriormente cada persona necesita privacidad entre socios, configura credenciales individuales en el servidor. Cinco PIN incorrectos desde la misma dirección IP y rol bloquean nuevos intentos durante una ventana de quince minutos. El límite usa un HMAC de la IP en Firestore, dentro de `_pinAttempts`, inaccesible a los clientes. Puedes activar la política TTL de Firestore para el campo `expiresAt` y limpiar esos contadores automáticamente.
+La cuenta administradora puede usar todas las áreas. Una cuenta de repartidor consulta la ruta; un socio, sólo su perfil. Conocer el PIN de otro perfil no permite leer sus datos de Firebase. Desde el mismo panel se puede desactivar una cuenta, excepto la administradora que estás usando. Los permisos pueden modificarse directamente en la consola si necesitas recuperar el acceso.
 
-`darkisInstallPrompt` cuenta hasta tres apariciones automáticas del botón instalador por IP en `_installPromptCounts`. No guarda la IP en claro. Sin desplegar la función, la PWA usa un límite provisional de tres veces por dispositivo. Varias personas que comparten una IP comparten el límite; una IP que cambia puede recibir otro conjunto de apariciones.
+Google queda recordado en ese navegador/dispositivo hasta cerrar su sesión o borrar los datos del navegador. Al cambiar de perfil, la app no cierra Google automáticamente; para otra persona en un dispositivo compartido usa **Cambiar Google**. Un permiso revocado bloquea nuevas lecturas/escrituras online; no borra copias que ya existan offline.
 
-Los ajustes de avisos se guardan en cada dispositivo. Las alertas de vencimiento, clientes pendientes y corte se revisan mientras la app está abierta. El botón «Validar permiso» solicita autorización del sistema y «Probar aviso» comprueba el resultado. Para avisos push **con la app cerrada** todavía se requiere registrar los dispositivos en Firebase Cloud Messaging, configurar su clave VAPID y programar el envío desde el servidor; esta versión no afirma que esos envíos ya estén activos.
+## Datos y continuidad
 
-## Formato de documentos
+- Se conservan los clientes, ventas, gastos y cortes locales de versiones anteriores. Las operaciones pendientes se envían con IDs estables cuando la cuenta queda autorizada.
+- La ruta se comparte entre cuentas autorizadas como Repartidor y Administrador. Cada Darkisocio comparte sus propios datos entre sus dispositivos autorizados.
+- Los movimientos de Repartidor y Darkisocio alimentan al Administrador; el resto de la base financiera del Administrador sigue guardándose localmente y requiere respaldos JSON.
+- Darkita conserva su identificación anónima por dispositivo, perfiles PIN, GPS y PDF. No se necesita Google para checar el turno. El administrador autorizado puede leer el reloj en Firestore.
+- Las colecciones `accessRequests` contienen solicitudes; nunca otorgan acceso. Sólo `accessRoles` tiene permisos efectivos y sólo el administrador o la consola pueden escribirla.
 
-El repartidor escribe en `routeClients/{id}` y `routeContributions/{id}`. Cada socio escribe en `socioProfiles/{profileId}/clients/{id}`, `socioProfiles/{profileId}/sales/{id}` y también en `routeContributions/{id}` para incluir su venta en el corte común. Cada documento lleva `{ownerUid: auth.currentUser.uid, data: {...}, updatedAt: serverTimestamp()}`. En una contribución, `data.actorProfileId` debe ser `repartidor` para la ruta principal o coincidir con el socio autenticado. El administrador puede leer todas esas colecciones. Las reglas conservan `users/{uid}/clients|cuts|expenses|tasks` y el reloj checador anterior.
+## Instalación y avisos
 
-El UID administrativo nuevo es diferente del UID usado antes con correo y contraseña. Haz una migración explícita o carga la ruta del UID anterior antes de reemplazar datos: un primer inicio de sesión no debe subir un estado vacío sobre la información histórica. Las cuentas anteriores sólo pueden acceder a sus propios documentos y ya no reciben permisos administrativos generales.
+En Spark esta versión ofrece la instalación automática hasta **tres veces por dispositivo**, no por IP. Siempre se puede instalar manualmente desde Ajustes. Se retiraron las llamadas a las funciones de v13.
 
-La primera entrada por PIN requiere internet. Una sesión Firebase ya iniciada puede usar la caché offline; al cambiar PIN, cierra las sesiones anteriores y revoca los tokens de las identidades compartidas para impedir que sigan usando el acceso anterior. Esta versión incluye el histórico financiero precargado en `administrador.html` por petición del propietario. No publiques ese archivo en un sitio accesible al público: el PIN de la interfaz no cifra ni protege el contenido HTML. Para un despliegue público posterior, mueve el histórico a Firestore con lectura exclusiva del administrador y retira la copia del HTML.
+Los avisos y su prueba funcionan con la app abierta, de acuerdo con el permiso del navegador y el modo elegido. Para avisos nuevos con la app cerrada todavía se requiere un servicio de envío push y su configuración. No se prometen recordatorios en segundo plano desde un simple temporizador de una página cerrada.
+
+## Privacidad del histórico precargado
+
+Por solicitud del propietario, `administrador.html` incluye todo el histórico financiero. Google y las reglas protegen las colecciones de Firebase, pero no cifran los datos incluidos en ese HTML ni los guardados localmente. No publiques ese archivo en un repositorio o sitio accesible al público si necesitas mantener privado el histórico. Para un despliegue público con privacidad real hay que retirar el histórico del HTML y migrarlo a documentos exclusivos del administrador.

@@ -77,6 +77,7 @@
   <script>
     (()=>{
       'use strict';
+      sessionStorage.removeItem('darkis_suite_role_v12');sessionStorage.removeItem('darkis_pin_pending_v12');sessionStorage.removeItem('darkis_socio_profile_v12');
       const STORE='darkis_v12_socio',CONTRIBUTIONS='darkis_v12_contributions',PIN='2024';
       const PEOPLE=[{id:'tania',name:'Tania',subtitle:'La máquina de chambear',photo:'avatar-tania.jpg'},{id:'sofia',name:'Sofi',subtitle:'La artista desviada',photo:'avatar-sofia.jpg'},{id:'juan-pablo',name:'Juan Pablo',subtitle:'El padre ausente',photo:'avatar-juan-pablo.jpg'}];
       const FLAVORS=[['Clásicos','#9d5937'],['Red velvet','#ba4353'],['Oreo','#343743'],["M&M's",'#f39c36'],['Intenso','#42261f'],['Galleta blanca','#e0ba75'],['Galleta amargo','#6c443c']];
@@ -129,5 +130,6 @@
     })();
   </script>
 <script src="./suite-experience.js" defer></script>
+<script src="./google-access.js" defer></script>
 </body>
 </html>

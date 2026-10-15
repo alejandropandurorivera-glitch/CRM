@@ -1,37 +1,34 @@
-# Sistema Darkis v13.1
+# Sistema Darkis v14 — Firebase Spark
 
-La entrada es **index.html**. Desde ahí se abre Darkita, Repartidor o Administrador.
+La entrada sigue siendo **index.html**. Esta versión reemplaza el acceso de nube que dependía de Functions por Google y permisos de Firestore. No necesita activar Blaze; se sujeta a las cuotas del plan Spark.
 
-| Área | Archivo | Acceso y uso |
+| Área | Archivo | Uso |
 | --- | --- | --- |
-| Darkita | reloj-checador.html | Perfiles de personal, PIN individual, GPS, horas y PDF semanal |
-| Repartidor | index.html | PIN 2024, ruta móvil, clientes, visitas, cambios y vencimientos |
-| Darkisocio | darkisocio.html | Enlace en la pantalla de PIN de Repartidor, antes de entrar, perfiles Tania, Sofis y Juan Pablo, ventas propias |
-| Administrador | administrador.html | PIN 1016, finanzas de escritorio, cortes y rutas recibidas |
+| Darkita | reloj-checador.html | PIN individual, GPS, horas y reporte PDF; conserva su sesión anónima |
+| Repartidor | index.html | PIN 2024, clientes, visitas, ventas, cambios y vencimientos |
+| Darkisocio | darkisocio.html | Enlace en la pantalla del PIN de Repartidor, antes de entrar; datos propios de Tania, Sofi y Juan Pablo |
+| Administrador | administrador.html | PIN 1016, finanzas, reportes, cortes y autorización de cuentas Google |
 
-Cada perfil Darkisocio guarda sus propios clientes e historial. Sus ventas se suman una vez al administrador y sus reportes; el repartidor conserva el balance entre cobrados, cambios y piezas dejadas. Cuando no se conoce el sabor realmente vendido en una visita de ruta, el administrador usa “Brownie sin especificar” para los cobrados y mantiene los cambios por sabor aparte. No asigna sabores vendidos a partir del surtido dejado.
+## Primer uso con Firebase
 
-El logo transparente se muestra completo. Las ilustraciones de producción, repartidor y administrador identifican sus accesos; las fotos de gatos entregadas por Alejandro son los avatares de Tania, Sofis, Alejandro y Juan Pablo.
+Publica las reglas **nuevas** de `firestore.rules`. Abre la app desde una dirección HTTPS autorizada en Firebase. En Administrador, conecta tu cuenta Google, copia el UID que aparece y crea una sola vez su permiso `accessRoles/{UID}` en la consola, con `role: admin`, `profileId: ""` y `enabled: true`. Sigue [FIREBASE.md](FIREBASE.md) para los pasos exactos y tipos de campo.
 
-## Cómo abrirlo
+Después, las otras personas conectan Google y solicitan acceso. Desde el engrane → **Cuenta Google y permisos → Administrar accesos**, les asignas Repartidor o su perfil Darkisocio. Google queda recordado en el dispositivo; el PIN sigue abriendo la interfaz. El PIN por sí solo no autoriza datos en Firestore. No se abre ninguna cuenta ni se concede el rol administrador automáticamente.
 
-Abre **index.html** desde un servidor HTTPS y usa **Agregar a pantalla de inicio** para instalar la PWA. La primera carga requiere internet; después las pantallas y los cambios locales funcionan sin conexión. Este paquete contiene el histórico financiero completo dentro de `administrador.html`; **no lo publiques en un repositorio o sitio accesible al público** mientras uses el PIN visible en el HTML. Para publicarlo con privacidad real, hay que llevar ese histórico a una base protegida detrás de autenticación del servidor.
+## Datos
 
-## Histórico de finanzas
+Se conservan las claves de almacenamiento de versiones anteriores. El administrador incluye **1,357 ventas, 166 gastos y 75 cortes históricos**, además de movimientos de caja, tickets y catálogos. Los registros nuevos se combinan por ID sin duplicar el histórico. El respaldo original separado permite restaurarlo.
 
-Las **1,357 ventas, 166 gastos y 75 cortes históricos** están precargados en `administrador.html`; no hace falta importarlos. La primera apertura combina esos registros con cualquier dato administrativo anterior de este navegador mediante sus ID. El archivo **darkis-admin-private-seed.json** se entrega aparte como copia de seguridad y también puede importarse desde **Datos y respaldo** si necesitas restaurarlo. Guarda respaldos periódicos de los movimientos nuevos.
+Las ventas nuevas de Repartidor y Darkisocio llegan al administrador cuando las cuentas están autorizadas y conectadas. Los movimientos financieros capturados directamente en Administrador permanecen en ese navegador: descarga respaldos JSON periódicos. Para un sabor vendido desconocido en una visita de ruta se usa «Brownie sin especificar», sin inventarlo a partir del surtido dejado.
 
-## Sincronización real entre equipos
+El archivo `administrador.html` contiene el histórico financiero completo por petición del propietario. **No lo publiques en un sitio o repositorio abierto** si necesitas privacidad: Google protege Firestore, pero no el contenido del HTML. Hace falta migrar ese histórico a Firestore y retirar su copia pública antes de un despliegue público protegido.
 
-El uso local y el puente entre pantallas del mismo navegador funcionan desde el primer momento. Para que las ventas y clientes nuevos de Repartidor y Darkisocio lleguen al administrador en otros equipos, despliega la Cloud Function y las reglas siguiendo [FIREBASE.md](FIREBASE.md). Hasta hacerlo, la app muestra modo local y deja las operaciones pendientes. El resto de movimientos financieros capturados directamente en Administrador continúa en el navegador y debe respaldarse en JSON.
+## Instalación, imágenes y avisos
 
-Los PIN del HTML controlan la interfaz local. La protección de Firestore entre equipos depende de la función del servidor y sus reglas. Como el histórico está dentro del HTML, esas reglas **no protegen el archivo** si se pone en una web pública.
-
-## Observaciones operativas
-
-- La app del repartidor conserva los clientes existentes guardados en este navegador. No importa automáticamente ventas antiguas al administrador, para evitar duplicados con el histórico previo.
-- Los cortes de caja existentes no se recalculan retrospectivamente. Las ventas nuevas entran a los reportes y al corte del día que corresponda.
-- El reloj mantiene su almacenamiento y su PDF semanal; en Firebase usa la identidad anónima de cada dispositivo.
-- El service worker guarda las cuatro pantallas, el logo y las fotos de perfil para uso offline. La sincronización y el primer inicio con PIN en Firebase necesitan conexión.
-- El foquito verde indica que Firestore respondió; amarillo, que se está intentando conectar; rojo, que los cambios permanecen locales. La instalación se ofrece hasta tres veces por IP cuando se despliega `darkisInstallPrompt`, o tres veces por dispositivo antes de ese despliegue.
-- En el engrane de cada pantalla se elige entre avisos completos, uno diario, ventana dentro de la app y apagados. Las alertas programadas se revisan mientras la app está abierta. Para recibirlas con la app cerrada aún falta configurar Firebase Cloud Messaging y el envío del servidor.
+- Logo transparente completo e ilustraciones de los tres accesos; gatos entregados por el usuario como avatares.
+- Foquito verde cuando Firestore responde, amarillo al conectar y rojo si sólo hay datos locales.
+- Ventana de instalación hasta tres veces **por dispositivo**. Spark no usa el contador por IP de la versión anterior.
+- Ajustes de avisos: todos, uno diario, sólo ventana o apagados, con botones de validar permiso y probar.
+- Se revisan alertas de caducidad y visitas de ruta, turnos abiertos de más de ocho horas en Darkita y cortes de ruta después de las 22:00 en Administrador, mientras la app esté abierta.
+- Para notificaciones nuevas con la app cerrada todavía se necesita configurar un servicio de envío push.
+- La PWA almacena las pantallas y sus imágenes para uso offline. Los cambios quedan pendientes hasta comprobar los permisos y sincronizar; no es necesario repetir Google si la sesión del navegador sigue guardada.

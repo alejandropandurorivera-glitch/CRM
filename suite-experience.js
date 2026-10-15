@@ -96,7 +96,7 @@
   function close(id) { document.getElementById(id)?.classList.remove('open'); }
   addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.dx-modal.open').forEach(el => el.classList.remove('open')); });
   const settings = modal('dxSettings', `<img src="logo.png" alt="Darkis Brownies"><h2>Avisos e instalación</h2><p id="dxConnectionDetail">Comprobando Firebase…</p><label for="dxMode">¿Cómo quieres recibir alertas?</label><select id="dxMode"><option value="all">Todo encendido · avisos del dispositivo</option><option value="daily">Sólo una al día</option><option value="window">Sólo ventana dentro de la app</option><option value="off">Apagadas</option></select><div class="dx-actions"><button type="button" id="dxPermission">Validar permiso</button><button type="button" id="dxTest" class="secondary">Probar aviso</button></div><div class="dx-actions"><button type="button" id="dxInstallFromSettings" class="orange">Instalar app</button></div><div class="dx-note" id="dxPermissionNote">Los avisos de esta versión se revisan mientras la app está abierta. Para recibirlos con la app cerrada hace falta activar el envío push desde Firebase.</div>`);
-  const install = modal('dxInstall', `<img src="logo.png" alt="Darkis Brownies"><h2>Darkis en tu celular</h2><p>Instala la app para abrirla desde tu pantalla de inicio y conservar las pantallas disponibles sin conexión.</p><div class="dx-actions"><button type="button" class="orange" id="dxInstallNow">Instalar aplicación</button><button type="button" class="secondary" id="dxMaybeLater">Ahora no</button></div><div class="dx-note" id="dxInstallHelp">Este aviso aparece hasta tres veces por dirección IP cuando el servidor está activo.</div>`);
+  const install = modal('dxInstall', `<img src="logo.png" alt="Darkis Brownies"><h2>Darkis en tu celular</h2><p>Instala la app para abrirla desde tu pantalla de inicio y conservar las pantallas disponibles sin conexión.</p><div class="dx-actions"><button type="button" class="orange" id="dxInstallNow">Instalar aplicación</button><button type="button" class="secondary" id="dxMaybeLater">Ahora no</button></div><div class="dx-note" id="dxInstallHelp">Este aviso aparece hasta tres veces en este dispositivo. Siempre puedes instalar desde Ajustes.</div>`);
   install.querySelector('#dxMaybeLater').onclick = () => close('dxInstall');
   const mode = settings.querySelector('#dxMode');
   mode.value = ['all', 'daily', 'window', 'off'].includes(localStorage.getItem(MODE_KEY)) ? localStorage.getItem(MODE_KEY) : 'all';
@@ -195,27 +195,13 @@
     }
   }
   install.querySelector('#dxInstallNow').onclick = installNow;
-  async function claimInstallView() {
-    const config = {apiKey:'AIzaSyAzpjktTdrIBt-I89ZX98icGEMmhluXlo8',authDomain:'darkis-brownies.firebaseapp.com',projectId:'darkis-brownies',appId:'1:66959378357:web:a059509bea57560a243bfc'};
-    const prefix = 'https://www.gstatic.com/firebasejs/12.19.0/';
-    const [appSdk, fnSdk] = await Promise.all([import(prefix + 'firebase-app.js'), import(prefix + 'firebase-functions.js')]);
-    const app = appSdk.getApps().find(a => a.name === 'darkis-install-v13') || appSdk.initializeApp(config, 'darkis-install-v13');
-    const call = fnSdk.httpsCallable(fnSdk.getFunctions(app, 'us-central1'), 'darkisInstallPrompt');
-    const result = await Promise.race([call({action:'claim'}), new Promise((_,reject) => setTimeout(() => reject(Error('timeout')), 6500))]);
-    return !!result.data?.allowed;
-  }
   async function maybeShowInstall() {
     if (matchMedia('(display-mode: standalone)').matches || navigator.standalone || sessionStorage.getItem(SEEN_KEY)) return;
     sessionStorage.setItem(SEEN_KEY, '1');
-    let allowed = false;
-    try { if (navigator.onLine) allowed = await claimInstallView(); else throw Error('offline'); }
-    catch {
-      const count = Math.max(0, Number(localStorage.getItem(INSTALL_KEY)) || 0);
-      allowed = count < 3;
-      if (allowed) localStorage.setItem(INSTALL_KEY, String(count + 1));
-      install.querySelector('#dxInstallHelp').textContent = 'Este aviso aparece hasta tres veces en este dispositivo. El límite por IP se activa al desplegar Firebase.';
-    }
-    if (allowed) open('dxInstall');
+    const count = Math.max(0, Number(localStorage.getItem(INSTALL_KEY)) || 0);
+    if (count >= 3) return;
+    localStorage.setItem(INSTALL_KEY, String(count + 1));
+    open('dxInstall');
   }
   setTimeout(maybeShowInstall, 1800);
   window.DarkisExperience = {notify, setConnection, scanAlerts, openSettings:() => open('dxSettings')};
