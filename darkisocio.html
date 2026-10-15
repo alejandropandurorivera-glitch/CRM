@@ -16,8 +16,15 @@
     .stat:last-child strong{font-size:clamp(15px,5vw,22px);overflow-wrap:anywhere}.sale-money{font-size:13px}.overlay{position:fixed;inset:0;z-index:35;background:rgba(12,35,45,.55);backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;animation:fadeIn .2s ease}.sheet{width:min(540px,100%);max-height:94vh;max-height:94dvh;overflow:auto;background:var(--paper);border-radius:25px 25px 0 0;padding:19px 18px calc(24px + env(safe-area-inset-bottom));box-shadow:0 -15px 50px rgba(0,20,30,.15);animation:sheetIn .34s cubic-bezier(.2,.85,.2,1)}.sheet-handle{height:5px;width:38px;background:#cbd8dd;border-radius:99px;margin:0 auto 19px}.sheet-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:18px}.sheet-head h2{font-size:22px;letter-spacing:-.04em;line-height:1.1;margin:0}.sheet-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.icon-button{width:35px;height:35px;border:0;background:#eef4f5;border-radius:12px;font-size:23px;color:#5c7179}.field{display:grid;gap:6px;margin:0 0 14px}.field label{font-size:12px;font-weight:800;color:#52636b}.field input,.field select,.field textarea{width:100%;border:1px solid #cfdddf;border-radius:13px;background:white;padding:11px 12px;color:var(--ink);min-height:45px}.field textarea{min-height:70px;resize:vertical}.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.flavor-list{display:grid;gap:7px;margin:8px 0 16px}.flavor{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:14px;background:white;padding:8px 10px}.flavor-dot{width:27px;height:27px;border-radius:9px;background:var(--flavor);flex:none;box-shadow:inset 0 -5px 0 rgba(0,0,0,.08)}.flavor label{font-weight:700;flex:1;line-height:1.1;font-size:13px}.flavor input{width:74px;padding:8px;border-radius:10px;border:1px solid #ccdce0;text-align:center;min-height:39px;font-size:17px;font-weight:800}.sale-total{display:flex;justify-content:space-between;align-items:center;background:#e9f6f4;border:1px solid #cae5df;border-radius:15px;padding:12px 13px;margin:10px 0 16px}.sale-total strong{font-size:23px;color:var(--green)}.sale-total small{display:block;color:#54766b}.sheet-footer{display:flex;gap:9px}.sheet-footer .button{flex:1}.toast{position:fixed;left:50%;bottom:calc(94px + env(safe-area-inset-bottom));transform:translate(-50%,18px);width:max-content;max-width:calc(100vw - 32px);background:#1f343d;color:#fff;padding:11px 16px;border-radius:14px;font-size:13px;font-weight:650;box-shadow:0 12px 25px rgba(0,0,0,.2);z-index:50;opacity:0;pointer-events:none;transition:opacity .23s,transform .23s}.toast.show{opacity:1;transform:translate(-50%,0)}
     @keyframes floatIn{from{opacity:0;transform:translateY(13px) scale(.985)}to{opacity:1;transform:none}}@keyframes sheetIn{from{transform:translateY(100%)}to{transform:translateY(0)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@media(min-width:640px){.shell{margin:20px auto;min-height:calc(100vh - 40px);border-radius:32px}.bottom-nav{bottom:0;border-radius:18px 18px 0 0}.overlay{align-items:center}.sheet{border-radius:25px;max-height:min(750px,90vh);padding-bottom:23px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
   </style>
+<style>
+
+  .entry-logo,.header-logo{height:auto;object-fit:contain!important;object-position:center!important}
+  .app-header .header-actions{flex-wrap:wrap;justify-content:flex-end}
+  #profileScreen .dx-controls,#pinScreen .dx-controls{margin-top:14px}
+
+</style>
 </head>
-<body>
+<body data-darkis-page="darkisocio">
   <div class="shell">
     <section class="screen" id="pinScreen">
       <form class="entry-card" id="pinForm" autocomplete="off">
@@ -33,7 +40,7 @@
     <section class="screen" id="profileScreen" hidden>
       <div class="entry-card">
         <img class="entry-logo" src="logo.png" alt="Darkis Brownies">
-        <div class="eyebrow">Tu espacio</div><h1>¿Quién vende hoy?</h1><p>Elige tu perfil. Sólo verás los clientes y las ventas que registraste tú.</p>
+        <div class="eyebrow">Tu espacio</div><h1>¿Quién vende hoy?</h1>
         <div class="profile-list" id="profileList"></div>
         <div class="profile-caption">Cada gato cuida su propio historial 🐾<br><a href="index.html" style="display:inline-block;margin-top:11px;color:var(--blue-dark);font-weight:750">← Inicio</a></div>
       </div>
@@ -71,7 +78,7 @@
     (()=>{
       'use strict';
       const STORE='darkis_v12_socio',CONTRIBUTIONS='darkis_v12_contributions',PIN='2024';
-      const PEOPLE=[{id:'tania',name:'Tania',subtitle:'La jefa de la ruta',photo:'cat-tania.webp'},{id:'sofia',name:'Sofis',subtitle:'La de las buenas ideas',photo:'cat-sofis.webp'},{id:'juan-pablo',name:'Juan Pablo',subtitle:'El de la mirada épica',photo:'cat-juan-pablo.webp'}];
+      const PEOPLE=[{id:'tania',name:'Tania',subtitle:'La máquina de chambear',photo:'avatar-tania.jpg'},{id:'sofia',name:'Sofi',subtitle:'La artista desviada',photo:'avatar-sofia.jpg'},{id:'juan-pablo',name:'Juan Pablo',subtitle:'El padre ausente',photo:'avatar-juan-pablo.jpg'}];
       const FLAVORS=[['Clásicos','#9d5937'],['Red velvet','#ba4353'],['Oreo','#343743'],["M&M's",'#f39c36'],['Intenso','#42261f'],['Galleta blanca','#e0ba75'],['Galleta amargo','#6c443c']];
       const $=id=>document.getElementById(id),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
       const money=n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:2}).format(Number(n)||0);
@@ -121,5 +128,6 @@
       if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
     })();
   </script>
+<script src="./suite-experience.js" defer></script>
 </body>
 </html>

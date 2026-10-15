@@ -38,12 +38,21 @@
   .route-summary{margin-bottom:16px}.route-note{padding:12px 16px;background:#fff5dc;border:1px solid #f5ddb3;border-radius:12px;color:#825309;margin-bottom:16px}
   @media (prefers-reduced-motion:reduce){.admin-gate-card{animation:none}.admin-home,.admin-gate button{transition:none}}
 </style>
+<style>
+
+  .sidebar .brand{display:block}.sidebar .brand img{width:158px;height:auto;max-height:72px;border-radius:0;object-fit:contain;object-position:left center;box-shadow:none;margin-bottom:9px}
+  .admin-role-art{display:block;width:90px;height:90px;object-fit:contain;margin:6px auto 8px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.2))}
+  .admin-gate-card img:first-child{width:170px;height:auto;max-height:75px;object-fit:contain}
+  .admin-gate-card .gate-role-art{width:90px;height:90px;object-fit:contain;margin:0 auto 4px}
+  .top-actions .dx-controls{margin-right:5px}
+
+</style>
 </head>
-<body class="admin-locked">
-<div class="admin-gate" id="adminGate"><div class="admin-gate-card"><img src="logo.png" alt="Darkis"><span class="gate-eyebrow">ADMINISTRADOR</span><h1>Finanzas Darkis</h1><p>Ingresa tu PIN para abrir el panel de escritorio.</p><form id="adminGateForm"><label for="adminGatePin">PIN</label><input id="adminGatePin" type="password" inputmode="numeric" autocomplete="off" maxlength="4" pattern="[0-9]{4}" required placeholder="••••"><button type="submit">Entrar</button><small id="adminGateError" role="alert" aria-live="polite"></small></form><a href="index.html">← Inicio</a></div></div>
+<body class="admin-locked" data-darkis-page="administrador">
+<div class="admin-gate" id="adminGate"><div class="admin-gate-card"><img src="logo.png" alt="Darkis"><img class="gate-role-art" src="role-administrador.webp" alt="Gato administrador"><span class="gate-eyebrow">ADMINISTRADOR</span><h1>Finanzas Darkis</h1><p>Ingresa tu PIN para abrir el panel de escritorio.</p><form id="adminGateForm"><label for="adminGatePin">PIN</label><input id="adminGatePin" type="password" inputmode="numeric" autocomplete="off" maxlength="4" pattern="[0-9]{4}" required placeholder="••••"><button type="submit">Entrar</button><small id="adminGateError" role="alert" aria-live="polite"></small></form><a href="index.html">← Inicio</a></div></div>
 <div class="app">
   <aside class="sidebar" id="sidebar">
-    <div class="brand"><img src="logo.png" alt="Darkis Brownies"><div><strong>Darkis Finanzas</strong><small>Control del negocio</small></div></div>
+    <div class="brand"><img src="logo.png" alt="Darkis Brownies"><div><strong>Darkis Finanzas</strong><small>Control del negocio</small></div></div><img class="admin-role-art" src="role-administrador.webp" alt="Gato administrador Darkis">
     <a class="admin-home" href="index.html">← Inicio</a>
     <nav class="nav" id="nav">
       <button class="active" data-page="dashboard">⌂ <span>Dashboard</span></button>
@@ -320,5 +329,6 @@ renderReports=function(){const {sales,expenses}=filtered(),revenue=sum(sales,'to
 })();
 </script>
 <script src="./shared-sync.js" defer></script>
+<script src="./suite-experience.js" defer></script>
 </body>
 </html>

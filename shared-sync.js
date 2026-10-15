@@ -15,11 +15,13 @@
   const CONTRIBUTIONS = 'darkis_v12_contributions';
   let role = sessionStorage.getItem('darkis_suite_role_v12') || '';
   let profileId = sessionStorage.getItem('darkis_socio_profile_v12') || '';
-  let auth, db, functions, sdk, currentUser, syncing = false, flushTimer;
+  let auth, db, functions, sdk, currentUser, syncing = false, flushTimer, lastServerAck = 0, checkingSince = Date.now();
   let unsubscribers = [];
   let pending = null;
 
   function announce(state, detail) {
+    if (state === 'online') lastServerAck = Date.now();
+    if (state === 'connecting') checkingSince = Date.now();
     dispatchEvent(new CustomEvent('darkis-sync-status', {detail: {state, detail}}));
     const node = document.querySelector('[data-darkis-cloud-status]');
     if (node) node.textContent = detail;
@@ -74,7 +76,10 @@
   function listen(path, handler, ownOnly = false) {
     const base = sdk.collection(db, ...path);
     const source = ownOnly ? sdk.query(base, sdk.where('ownerUid', '==', currentUser.uid)) : base;
-    unsubscribers.push(sdk.onSnapshot(source, snapshot => {
+    unsubscribers.push(sdk.onSnapshot(source, {includeMetadataChanges:true}, snapshot => {
+      if (snapshot.metadata.fromCache) {
+        if (navigator.onLine && !lastServerAck) announce('connecting', 'Comprobando Firebase…');
+      } else announce('online', 'Firebase conectado');
       handler(snapshot.docs.map(d => d.data()?.data).filter(Boolean));
     }, error => announce('error', 'No se pudieron leer los datos en Firebase: ' + error.code)));
   }
@@ -120,7 +125,7 @@
           break;
         }
       }
-      if (!safeArray(QUEUE).some(x => x.role === role)) announce('online', 'Sincronizado');
+      if (!failed && lastServerAck && !safeArray(QUEUE).some(x => x.role === role)) announce('online', 'Sincronizado');
     } finally {
       syncing = false;
       if (!failed && safeArray(QUEUE).some(x => x.role === role && (role !== 'socio' || x.profileId === profileId))) scheduleFlush();
@@ -156,6 +161,7 @@
       return true;
     },
     async activate(roleValue, pin, selectedProfile = '') {
+      announce('connecting', 'Validando acceso a Firebase…');
       role = roleValue;
       profileId = selectedProfile || '';
       sessionStorage.setItem('darkis_suite_role_v12', roleValue);
@@ -169,7 +175,7 @@
         pending = null;
         return true;
       } catch {
-        announce('local', 'Guardado localmente; conexión Firebase pendiente.');
+        announce('offline', 'Guardado localmente; conexión Firebase pendiente.');
         return false;
       }
     },
@@ -184,13 +190,14 @@
       sessionStorage.removeItem('darkis_socio_profile_v12');
       if (auth) await sdk.signOut(auth);
       currentUser = null;
-      announce('local', 'Perfil cerrado en este dispositivo.');
+      announce('offline', 'Perfil cerrado en este dispositivo.');
     },
     syncNow: flush,
     get status() { return currentUser ? 'online' : 'local'; }
   };
   window.darkisSharedSync = api;
   async function init() {
+    announce(navigator.onLine ? 'connecting' : 'offline', navigator.onLine ? 'Comprobando Firebase…' : 'Sin internet');
     try {
       const [appLib, authLib, firestoreLib, functionsLib] = await Promise.all([
         import(PREFIX + 'firebase-app.js'),
@@ -217,14 +224,15 @@
           if (claims.role !== role || (role === 'socio' && claims.profileId !== profileId)) {
             currentUser = null;
             subscribe();
+            announce('offline', 'Abre un perfil para conectar Firebase.');
             return;
           }
+          announce('connecting', 'Comprobando datos del servidor…');
           subscribe();
           flush();
-          announce('online', 'Sincronizado');
         } else {
           subscribe();
-          announce('local', 'Guardado en este dispositivo');
+          announce('offline', 'Guardado en este dispositivo');
         }
       });
       try {
@@ -237,15 +245,18 @@
           pending = null;
         }
       } catch (error) {
-        announce('local', 'Guardado localmente; conexión Firebase pendiente.');
+        announce('offline', 'Guardado localmente; conexión Firebase pendiente.');
       }
     } catch {
-      announce('local', 'Guardado localmente; sin conexión Firebase.');
+      announce('offline', 'Guardado localmente; sin conexión Firebase.');
     }
   }
   addEventListener('online', () => {
+    announce('connecting', 'Reintentando Firebase…');
     if (pending && functions && auth) api.login(pending.role, pending.pin, pending.profileId || '').then(() => {pending = null; flush()}).catch(() => {});
     else flush();
   });
+  addEventListener('offline', () => announce('offline', 'Sin internet'));
+  setInterval(() => {if (navigator.onLine && lastServerAck < checkingSince && Date.now() - checkingSince > 12000) announce('offline', 'Firebase no respondió; datos locales disponibles.');}, 5000);
   init();
 })();

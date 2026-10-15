@@ -28,7 +28,7 @@ Este proyecto usa la función `darkisPinLogin` para comprobar el PIN en el servi
 4. Despliega desde la misma carpeta:
 
    ```sh
-   firebase deploy --project darkis-brownies --only functions:darkisPinLogin,firestore:rules
+   firebase deploy --project darkis-brownies --only functions:darkisPinLogin,functions:darkisInstallPrompt,firestore:rules
    ```
 
 Si la firma de tokens falla por permisos, concede `iam.serviceAccounts.signBlob` a la cuenta de servicio que ejecuta la función, según el mensaje de Firebase. La función usa `us-central1`; el frontend debe elegir esa misma región.
@@ -44,6 +44,10 @@ Llama a `httpsCallable(getFunctions(app, 'us-central1'), 'darkisPinLogin')` y de
 | Darkisocio | `{role: 'route', profileId: 'tania' \| 'sofia' \| 'juan-pablo', pin}` | `darkis-socio-{profileId}`, `socio` |
 
 La función responde `{token, uid, role, profileId}`. El PIN de repartidor abre cualquiera de los tres perfiles Darkisocio; si posteriormente cada persona necesita privacidad entre socios, configura credenciales individuales en el servidor. Cinco PIN incorrectos desde la misma dirección IP y rol bloquean nuevos intentos durante una ventana de quince minutos. El límite usa un HMAC de la IP en Firestore, dentro de `_pinAttempts`, inaccesible a los clientes. Puedes activar la política TTL de Firestore para el campo `expiresAt` y limpiar esos contadores automáticamente.
+
+`darkisInstallPrompt` cuenta hasta tres apariciones automáticas del botón instalador por IP en `_installPromptCounts`. No guarda la IP en claro. Sin desplegar la función, la PWA usa un límite provisional de tres veces por dispositivo. Varias personas que comparten una IP comparten el límite; una IP que cambia puede recibir otro conjunto de apariciones.
+
+Los ajustes de avisos se guardan en cada dispositivo. Las alertas de vencimiento, clientes pendientes y corte se revisan mientras la app está abierta. El botón «Validar permiso» solicita autorización del sistema y «Probar aviso» comprueba el resultado. Para avisos push **con la app cerrada** todavía se requiere registrar los dispositivos en Firebase Cloud Messaging, configurar su clave VAPID y programar el envío desde el servidor; esta versión no afirma que esos envíos ya estén activos.
 
 ## Formato de documentos
 
