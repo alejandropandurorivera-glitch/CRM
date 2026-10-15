@@ -135,7 +135,7 @@
     if (preference === 'window' || !('Notification' in window) || Notification.permission !== 'granted' || !('serviceWorker' in navigator)) {
       windowAlert(title, body); return true;
     }
-    try { const reg = await Promise.race([navigator.serviceWorker.ready, new Promise((_, reject) => setTimeout(() => reject(Error('worker-timeout')), 5000))]); await reg.showNotification(title, {body, icon:'icon-192.png', badge:'icon-192.png', tag:key, renotify:false}); }
+    try { const reg = await Promise.race([navigator.serviceWorker.ready, new Promise((_, reject) => setTimeout(() => reject(Error('worker-timeout')), 5000))]); await reg.showNotification(title, {body, icon:'icon-darkis-original-v15.png', badge:'icon-darkis-original-v15.png', tag:key, renotify:false}); }
     catch { windowAlert(title, body); }
     return true;
   }

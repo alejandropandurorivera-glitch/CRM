@@ -1,0 +1,8 @@
+Actualización v15: icono original de Darkis.
+
+Sube los archivos de este paquete al repositorio CRM, reemplazando los existentes.
+El contenido del paquete va directamente en la raíz del repositorio.
+No se modifica la configuración de Firebase ni los datos.
+
+Abre la app con internet y vuelve a abrirla para activar la nueva caché.
+Si el icono instalado sigue igual, descarga un respaldo desde la app antes de quitar el acceso o reinstalarla. No borres los datos del navegador.
