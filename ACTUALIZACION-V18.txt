@@ -1,0 +1,36 @@
+SISTEMA DARKIS v18
+
+PUBLICACION
+1. Extraer este ZIP. Subir los archivos extraídos a la raíz del repositorio CRM, reemplazando los anteriores. No subir sólo el ZIP ni una carpeta anidada.
+2. Esperar a que GitHub Pages termine de publicar.
+3. Abrir https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v18.html y tocar Abrir Sistema Darkis. Luego cerrar y abrir la app instalada.
+4. El engrane debe indicar Sistema Darkis v18. Si no lo indica, todavía se está usando la versión anterior.
+5. No borrar datos de Safari/Chrome ni desinstalar sin respaldar los registros sin sincronizar.
+
+COMPROBACION DEL 15 DE OCTUBRE
+La URL publicada tenía la caché v15 y clock-location.js devolvía 404. Eso explica por qué la instalación seguía usando el GPS antiguo aunque existían paquetes nuevos.
+El archivo CNAME ya no estaba en el repositorio. El dominio personalizado debe permanecer vacío en GitHub Pages mientras no se configure el DNS.
+
+CONEXION FIREBASE
+Se conserva exactamente el proyecto darkis-brownies y la identidad anónima existente del reloj.
+La captura muestra una cuenta Google ya iniciada, pero sin área seleccionada: el estado anterior aparecía rojo por ese motivo. Esto no prueba un fallo de Firebase ni confirma permisos de Firestore.
+El inicio ahora comprueba desde el servidor el documento de permisos de la propia cuenta Google. Muestra verde sólo si el servidor responde. Sin sesión o con autorización pendiente muestra amarillo con su explicación.
+Elegir Administrador/Repartidor/Darkisocio sigue comprobando el rol en Firestore; la comprobación de conexión no otorga permisos.
+Darkita usa su propio acceso anónimo. En ajustes se muestra el código de error real y hay un botón de reintento. Los cambios realizados durante un envío se vuelven a enviar; los errores se reintentan sin borrar registros.
+Si aparece permission-denied, publicar firestore.rules del paquete y revisar permisos. Si aparece auth/operation-not-allowed o auth/admin-restricted-operation en Darkita, activar Anónimo en Authentication. No se cambiaron las reglas para hacer pública la base.
+La configuración NPM por sí sola no habilita proveedores ni concede roles. Las autorizaciones se mantienen según FIREBASE.md.
+
+GPS SOFIA
+Se conservan las mejoras de la v17: punto original de fábrica, radio operativo de 50 m, precisión máxima aceptada 100 m y tolerancia adicional máxima de 35 m. Esta política permite marcar en el entorno inmediato; no acredita presencia exacta.
+No se vuelve a ampliar el radio por este problema. Si la v18 sigue rechazando dentro, Copiar diagnóstico permite compartir versión, distancia al punto y precisión sin mostrar ni copiar latitud/longitud. Esto permitirá comprobar si el punto de fábrica coincide, en lugar de ampliar el radio sin medir.
+Las coordenadas quedan sólo en el registro interno. La pantalla distingue En la fábrica, Fuera de fábrica y Ubicación imprecisa.
+
+REDIRECCION TANIA
+El enlace nuevo utiliza un archivo distinto para evitar una redirección antigua guardada. El service worker no guarda respuestas redirigidas y actualiza pantallas desde la red cuando hay conexión.
+Si la nueva dirección falla en una pestaña privada, la causa no es el almacenamiento del navegador. Revisar Pages y el DNS. Si la app instalada pertenece al dominio abandonado, será necesario abrir CRM y crear el acceso correcto tras conservar sus datos; no es posible migrar almacenamiento entre dominios desde esta app.
+
+SE CONSERVA
+Logotipo Sistema Darkis de la v17 y gatito original como icono. Registro manual de entradas/salidas con motivo y marca individual por movimiento. PDF membretado con colores, logo y advertencias de cambios manuales. Histórico financiero y claves de almacenamiento previas.
+
+LIMITES DE VALIDACION
+Se verificó código, estados de acceso, rechazo de usuarios sin rol, lectura y escritura con dobles de Firebase, reintentos y diagnósticos. No se inició sesión en la consola del propietario ni se probó físicamente el iPhone de Sofía. Publicar el ZIP no concede automáticamente permisos ni confirma que los datos ya estén en Firebase.

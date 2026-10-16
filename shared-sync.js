@@ -9,7 +9,7 @@
   let accountState={state:'loading',role,profileId};
   const safeArray=key=>{try{const value=JSON.parse(localStorage.getItem(key));return Array.isArray(value)?value:[]}catch{return[]}};
   const timeout=(promise,ms=15000)=>Promise.race([promise,new Promise((_,reject)=>setTimeout(()=>reject(Error('timeout')),ms))]);
-  function announce(state,detail){if(state==='online')lastServerAck=Date.now();if(state==='connecting')checkingSince=Date.now();dispatchEvent(new CustomEvent('darkis-sync-status',{detail:{state,detail}}));document.querySelectorAll('[data-darkis-cloud-status]').forEach(node=>node.textContent=detail)}
+  function announce(state,detail){if(state==='online')lastServerAck=Date.now();if(state==='connecting')checkingSince=Date.now();window.darkisSyncStatus={state,detail};dispatchEvent(new CustomEvent('darkis-sync-status',{detail:window.darkisSyncStatus}));document.querySelectorAll('[data-darkis-cloud-status]').forEach(node=>node.textContent=detail)}
   function accessState(state,message=''){const user=auth?.currentUser;accountState={state,message,role,profileId,uid:user?.uid||'',email:user?.email||'',name:user?.displayName||'',grant};window.darkisAccessState=accountState;dispatchEvent(new CustomEvent('darkis-access-state',{detail:accountState}))}
   function clearSubscriptions(){unsubscribers.forEach(fn=>fn());unsubscribers=[]}
   function canUse(permission,area,profile){if(!permission||permission.enabled!==true)return false;if(permission.role==='admin')return true;return permission.role===area&&(area!=='socio'||permission.profileId===profile)}
@@ -36,8 +36,15 @@
   }
   async function resolveAccess(){
     const version=++generation,user=auth?.currentUser;currentUser=null;grant=null;clearSubscriptions();accessUnsubscribe?.();accessUnsubscribe=null;
-    if(!role){accessState('idle','Selecciona un área para conectar.');announce('offline','Selecciona un área para conectar Firebase.');return false}
-    if(!isGoogle(user)){accessState('needs-login','Conecta tu cuenta Google una vez en este dispositivo.');announce('offline','Falta conectar una cuenta Google.');return false}
+    if(!role){
+      accessState('idle','Selecciona tu área.');
+      if(!isGoogle(user)){announce('waiting','Selecciona un área para conectar tu cuenta.');return false}
+      announce('connecting','Comprobando Firebase…');
+      try{await timeout(sdk.getDocFromServer(sdk.doc(db,'accessRoles',user.uid)));if(version===generation){accessState('idle','Firebase respondió. Abre tu área para comprobar sus permisos.');announce('online','Firebase respondió. Los permisos se comprueban al entrar en tu área.')}}
+      catch(error){if(version===generation){const message=window.darkisFirebaseError(error);accessState('error',message);announce('offline',message)}}
+      return false;
+    }
+    if(!isGoogle(user)){accessState('needs-login','Conecta tu cuenta Google una vez en este dispositivo.');announce('waiting','Falta conectar una cuenta Google.');return false}
     announce('connecting','Comprobando permisos de Google…');
     try{
       const ref=sdk.doc(db,'accessRoles',user.uid);
@@ -49,17 +56,17 @@
         const permission=next.exists()?next.data():null;
         if(JSON.stringify(permission)!==JSON.stringify(grant))resolveAccess();
       },()=>{});
-      if(!grant){accessState('pending','Esta cuenta todavía necesita autorización.');announce('offline','Cuenta pendiente de autorización.');return false}
-      if(!canUse(grant,role,profileId)){accessState('denied','Esta cuenta no tiene permiso para abrir esta área.');announce('offline','Cuenta sin permiso para esta área.');return false}
+      if(!grant){accessState('pending','Esta cuenta todavía necesita autorización.');announce('waiting','Cuenta pendiente de autorización.');return false}
+      if(!canUse(grant,role,profileId)){accessState('denied','Esta cuenta no tiene permiso para abrir esta área.');announce('waiting','Cuenta sin permiso para esta área.');return false}
       currentUser=user;accessState('authorized','Cuenta autorizada.');subscribe();flush();return true;
-    }catch(error){if(version===generation){accessState('error',error.code==='permission-denied'?'Publica las reglas nuevas de la versión Spark.':'No se pudo comprobar la cuenta. Tus cambios siguen guardados en este dispositivo.');announce('offline','Sin conexión autorizada; datos locales disponibles.')}return false}
+    }catch(error){if(version===generation){accessState('error',window.darkisFirebaseError(error));announce('offline',window.darkisFirebaseError(error))}return false}
   }
   async function flush(){if(syncing||!currentUser||!db||!navigator.onLine||!canUse(grant,role,profileId))return;syncing=true;let failed=false;const user=currentUser,area=role,profile=profileId;
     try{for(const item of safeArray(QUEUE)){
       if(currentUser?.uid!==user.uid||role!==area||profileId!==profile)break;
       if(item.role!==area||(area==='socio'&&item.profileId!==profile))continue;
       try{const ref=sdk.doc(db,...item.parts);if(item.operation==='delete')await timeout(sdk.deleteDoc(ref));else await timeout(sdk.setDoc(ref,{ownerUid:user.uid,data:item.data,updatedAt:sdk.serverTimestamp()}));lastServerAck=Date.now();saveQueue(safeArray(QUEUE).filter(x=>x.opId!==item.opId))}
-      catch{failed=true;announce('offline','Hay cambios pendientes de sincronizar.');break}
+      catch(error){failed=true;announce('offline',window.darkisFirebaseError(error));break}
     }if(!failed&&currentUser?.uid===user.uid&&lastServerAck)announce('online','Sincronizado')}
     finally{syncing=false;if(!failed&&currentUser?.uid===user.uid&&role===area&&safeArray(QUEUE).some(x=>x.role===area&&(area!=='socio'||x.profileId===profile)))scheduleFlush()}
   }
@@ -78,7 +85,7 @@
     async setAccess(uid,permission){if(!currentUser||grant?.role!=='admin'||uid===currentUser.uid)throw Error('No se puede modificar este acceso.');await sdk.setDoc(sdk.doc(db,'accessRoles',uid),{role:permission.role,profileId:permission.profileId||'',enabled:permission.enabled===true,email:permission.email||'',updatedAt:sdk.serverTimestamp()});},
     refreshAccess:resolveAccess,syncNow:flush,
     openAccount(){dispatchEvent(new Event('darkis-open-account'))},
-    get accountState(){return accountState},get status(){return currentUser?'online':'local'}
+    get accountState(){return accountState},get status(){return window.darkisSyncStatus?.state||'local'}
   };
   window.darkisSharedSync=api;
   addEventListener('darkis-admin-unlocked',()=>api.activate('admin',''));
@@ -86,7 +93,7 @@
     const [appSdk,authSdk,firestoreSdk]=await Promise.all([import(PREFIX+'firebase-app.js'),import(PREFIX+'firebase-auth.js'),import(PREFIX+'firebase-firestore.js')]);sdk={...authSdk,...firestoreSdk};
     const app=appSdk.getApps().find(x=>x.name==='darkis-shared-v12')||appSdk.initializeApp(CONFIG,'darkis-shared-v12');auth=authSdk.getAuth(app);try{db=firestoreSdk.initializeFirestore(app,{localCache:firestoreSdk.persistentLocalCache({tabManager:firestoreSdk.persistentMultipleTabManager()})})}catch{db=firestoreSdk.getFirestore(app)}
     sessionStorage.removeItem('darkis_pin_pending_v12');await authSdk.setPersistence(auth,authSdk.browserLocalPersistence);authSdk.onAuthStateChanged(auth,()=>{resolveAccess()});
-  }catch{accessState('error','Firebase no está disponible. Puedes seguir guardando en este dispositivo.');announce('offline','Guardado localmente; Firebase no disponible.')}}
+  }catch(error){const message=window.darkisFirebaseError(error);accessState('error',message);announce('offline',message)}}
   addEventListener('online',()=>{if(role&&auth)resolveAccess()});addEventListener('offline',()=>announce('offline','Sin internet; cambios guardados en este dispositivo.'));
   setInterval(()=>{if(navigator.onLine&&lastServerAck<checkingSince&&Date.now()-checkingSince>15000)announce('offline','Firebase no respondió; datos locales disponibles.')},5000);
   init();

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <script src="./app-update.js?v=18" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0796d2">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="manifest" href="manifest.webmanifest?v=15">
+  <link rel="manifest" href="manifest.webmanifest?v=18">
   <link rel="icon" href="icon-darkis-original-v15.png" type="image/png">
   <link rel="apple-touch-icon" href="icon-darkis-original-v15.png">
   <title>Sistema Darkis</title>
@@ -84,10 +85,11 @@
   @media(max-width:720px){.route-role-art{width:65px;height:65px;right:12px;top:4px}.topbar>div:first-child{padding-right:62px}}
 
 </style>
+<style>.suite-logo.suite-system-logo{width:min(260px,75%);height:auto;margin:0 auto 14px;filter:drop-shadow(0 5px 8px rgba(113,59,40,.12))}</style>
 </head>
 <body class="route-locked" data-darkis-page="repartidor">
   <section class="suite-launcher" id="suiteLauncher" aria-label="Inicio Darkis">
-    <div class="suite-card"><img class="suite-logo" src="logo.png" alt="Darkis Brownies"><div class="suite-kicker">Sistema Darkis</div><h1>¿Cómo vas a entrar?</h1><p class="suite-copy">Selecciona tu área para abrir las herramientas correspondientes.</p><div class="suite-roles">
+    <div class="suite-card"><img class="suite-logo suite-system-logo" src="sistema-darkis-logo-v17.png" alt="Sistema Darkis"><h1>¿Cómo vas a entrar?</h1><p class="suite-copy">Selecciona tu área para abrir las herramientas correspondientes.</p><div class="suite-roles">
       <button class="suite-role" data-suite-role="darkita"><span class="suite-role-icon"><img class="dx-role-icon" src="role-production.webp" alt=""></span><span><strong>Darkita</strong><small>Reloj checador, entradas y salidas</small></span><span class="suite-role-arrow">›</span></button>
       <button class="suite-role" data-suite-role="repartidor"><span class="suite-role-icon"><img class="dx-role-icon" src="role-repartidor.webp" alt=""></span><span><strong>Repartidor</strong><small>Clientes, visitas, ventas y cambios</small></span><span class="suite-role-arrow">›</span></button>
       <button class="suite-role" data-suite-role="administrador"><span class="suite-role-icon"><img class="dx-role-icon" src="role-administrador.webp" alt=""></span><span><strong>Administrador</strong><small>Finanzas, reportes y cortes</small></span><span class="suite-role-arrow">›</span></button>
@@ -96,7 +98,7 @@
   <div class="app">
     <aside class="sidebar">
       <div class="brand"><img class="brand-logo" src="logo.png" alt="Darkis Brownies"></div>      <nav><div class="nav-label">Secciones</div><button class="nav-item active" data-main-view="clientes"><span class="nav-icon">●</span><span>Clientes</span></button><button class="nav-item" data-main-view="reportes"><span class="nav-icon">▥</span><span>Reportes y cortes</span></button><div class="nav-label">Atajos de clientes</div><button class="nav-item" data-side-view="vencidos"><span class="nav-icon">!</span><span>Por visitar</span></button><button class="nav-item" data-side-view="riesgo"><span class="nav-icon">⚑</span><span>Con alerta</span></button></nav>
-      <div class="install-hint"><strong>Modo offline + nube</strong><br>Los datos se guardan en este dispositivo y se sincronizan al iniciar sesión.</div><div class="version">Sistema Darkis · versión 1.0</div>
+      <div class="install-hint"><strong>Modo offline + nube</strong><br>Los datos se guardan en este dispositivo y se sincronizan al iniciar sesión.</div><div class="version">Sistema Darkis · v18</div>
     </aside>
     <main class="main">
       <header class="topbar"><div><div class="route-brand-mini"><img src="logo.png" alt="Darkis Brownies"></div><img class="route-role-art" src="role-repartidor.webp" alt="Gato repartidor Darkis"><div class="eyebrow">Ruta y puntos de venta</div><h1 id="pageTitle">Control de clientes</h1><div class="subtitle" id="pageSubtitle">Atenciones, ventas, cambios e historial por establecimiento.</div><div class="route-sync" data-darkis-cloud-status>Se guardan los cambios en este dispositivo</div></div><div class="header-actions"><input class="file-input" type="file" id="importFile" accept="application/json,.json"><button class="btn btn-secondary" id="systemSettingsBtn">⚙ Configuración</button><button class="btn btn-secondary cloud-btn" id="cloudBtn"><span class="cloud-dot" id="cloudDot"></span><span id="cloudBtnText">Nube</span></button><button class="btn btn-secondary" id="importBtn">Importar</button><button class="btn btn-secondary" id="exportBtn">Exportar</button><button class="btn btn-secondary" id="shareBackupBtn">Compartir respaldo</button><button class="btn btn-primary" id="addBtn">＋ Nuevo cliente</button></div></header>
@@ -267,12 +269,13 @@
     $('testNotificationBtn').addEventListener('click',async()=>{const mode=localStorage.getItem(NOTIFY_MODE_KEY)||'all';if(mode==='off')return toast('Las notificaciones están apagadas.');if(mode==='window')return toast('Alerta de prueba del Sistema Darkis.');if('Notification'in window&&Notification.permission==='granted'){const reg=await navigator.serviceWorker?.ready;reg?.showNotification('Sistema Darkis',{body:'Las notificaciones están funcionando en este dispositivo.',icon:'icon-192.png',badge:'icon-192.png'});return}toast('Primero valida el permiso de notificaciones.')});
     function dailyRegistrationAlert(){const mode=localStorage.getItem(NOTIFY_MODE_KEY)||'all';if(mode==='off')return;const now=new Date();if(now.getHours()!==20||now.getMinutes()<30)return;const key=`darkis_daily_registration_alert_${todayISO()}`;if(localStorage.getItem(key))return;const count=clients.filter(c=>String(c.createdAt||'').slice(0,10)===todayISO()).length;if(!count)return;localStorage.setItem(key,'1');const body=`Hoy se registraron ${count} ${count===1?'persona':'personas'} en rutas.`;if(mode==='window'||Notification.permission!=='granted')toast(body);else navigator.serviceWorker?.ready.then(reg=>reg.showNotification('Cierre del día · Darkis',{body,icon:'icon-192.png',badge:'icon-192.png'}))}
     // Las alertas del corte y el registro de personas se administran en el panel administrativo.
-    if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+    
   </script>
   <style>.economy-note{display:none}</style>
 
-  <script src="./shared-sync.js" defer></script>
-<script src="./suite-experience.js" defer></script>
-<script src="./google-access.js" defer></script>
+  <script src="./firebase-errors.js?v=18" defer></script>
+<script src="./shared-sync.js?v=18" defer></script>
+<script src="./suite-experience.js?v=18" defer></script>
+<script src="./google-access.js?v=18" defer></script>
 </body>
 </html>

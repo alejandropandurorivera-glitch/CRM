@@ -1,0 +1,41 @@
+SISTEMA DARKIS v17
+
+PUBLICAR
+1. Extrae este ZIP y sube su contenido a la raíz del repositorio CRM, reemplazando los archivos anteriores. No subas el ZIP sin extraer.
+2. Espera a que termine la publicación de GitHub Pages.
+3. Abre con internet:
+   https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v17.html
+   Después cierra y vuelve a abrir la app instalada.
+4. No borres datos de Safari/Chrome: podrían contener horarios o ventas sin sincronizar.
+
+TANIA / DOMINIO ANTIGUO
+El ZIP recibido no contiene redirecciones al dominio abandonado. El enlace público respondió HTTP 200 sin redirección en la revisión del 15 de octubre de 2026.
+Esta versión evita guardar redirecciones y cambia las pantallas y scripts a actualización desde la red, con respaldo offline.
+Si el enlace también redirige en una ventana privada, revisa en GitHub: CRM > Settings > Pages > Custom domain. Elimina el dominio anterior con Remove y elimina CNAME si todavía existe en el repositorio. Revisa también el repositorio alejandropandurorivera-glitch.github.io si tiene un dominio propio configurado.
+Si el enlace nuevo abre bien, pero el acceso instalado de Tania sigue abriendo el dominio antiguo, primero conserva o sincroniza sus datos desde ese acceso si todavía se puede abrir. Después crea un nuevo acceso desde CRM. Los datos de un dominio no se trasladan automáticamente a otro.
+Una redirección del servidor o un acceso instalado en otro dominio no se corrigen únicamente reemplazando este ZIP.
+Referencia: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+
+UBICACION / SOFIA
+Se conserva el centro de la fábrica; el radio operativo pasa de 10 a 50 metros. Las lecturas deben ser recientes y se espera brevemente a que mejore la señal.
+Se admite precisión de hasta 100 metros con tolerancia adicional acotada a 35 metros; nunca se acepta una lectura a más de 85 metros del centro con esta política. Si la incertidumbre no permite decidir, se informa Ubicación imprecisa en lugar de afirmar que está fuera.
+Este margen reduce rechazos en interiores, pero también permite marcar desde el entorno inmediato de la fábrica. No es una prueba exacta de presencia.
+Coordenadas, distancia y precisión se mantienen internas; no aparecen en el perfil ni en el PDF.
+Es necesario comprobar esta versión físicamente en el iPhone de Sofía. Si sigue fallando dentro, debe verificarse el punto de la fábrica contra una lectura reciente del dispositivo; el ZIP no contiene esa lectura para compararla.
+
+HORARIOS MANUALES
+En Movimientos aparece Agregar horario manual. Elige Entrada o Salida, fecha, hora y motivo. El lápiz modifica un movimiento existente. No requiere GPS para corregir un olvido.
+Las marcas quedan visibles en el historial y en cada fila del PDF: AGREGADA MANUALMENTE o MODIFICADA MANUALMENTE. Editar la entrada no marca la salida. Si ambas se editaron, ambas llevan su señal.
+La hora automática original se conserva; las ediciones sucesivas guardan un historial interno y no eliminan la advertencia. No se permiten horas futuras ni una nueva captura que repita el mismo tipo junto al movimiento vecino.
+Las horas y cortes se recalculan al guardar. El reporte abarca la semana configurada para el perfil.
+
+PDF Y DISENO
+Reporte con logo original Darkis, azul y naranja; fuentes incrustadas, nombres con acentos, horas, tarifa e importe estimado.
+Incluye todos los movimientos de la semana y agrega páginas según sea necesario; ya no se limita a 18 filas. Cada movimiento manual incluye motivo y hora original cuando existe.
+El inicio usa un nuevo logotipo Sistema Darkis inspirado en el trazo del logo original; no depende de una fuente instalada en el teléfono.
+
+VALIDACION
+Pruebas de código: altas y ediciones, marca individual, conservación de hora original, secuencia, cálculo de horas y política GPS; lectura GPS reciente y cierre del seguimiento.
+Pruebas del service worker: precarga de archivos existentes, respaldo offline, actualización de caché propia y rechazo de respuestas redirigidas.
+PDF: se generó y revisó visualmente un ejemplo con entrada modificada y salida automática, además de 40 movimientos distribuidos en 5 páginas. Se verificaron las 40 filas y las marcas manuales.
+No se ejecutó una prueba física en los teléfonos ni una sesión de navegador completa en este entorno.

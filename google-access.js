@@ -25,10 +25,11 @@
       return;
     }
     if(state.state==='idle'){
-      body.append(el('p','Abre Repartidor, un perfil de Darkisocio o Administrador para conectar su cuenta.'));
-      if(state.uid)actions(button('Cambiar Google',()=>api.changeAccount(),true));
+      body.append(el('p',state.message||'Elige tu área en el inicio. La conexión y los permisos se verifican por separado.'));
+      actions(button('Comprobar Firebase',()=>api.refreshAccess()),button('Volver al inicio',async()=>close(),true));if(state.uid)actions(button('Cambiar Google',()=>api.changeAccount(),true));
       return;
     }
+    if(!state.role&&state.state==='error'){body.append(el('p',state.message));actions(button('Reintentar conexión',()=>api.refreshAccess()),button('Volver al inicio',async()=>close(),true));return}
     body.append(el('p',state.message||'Usa Google una vez para conectar los datos en este dispositivo.'));
     if(state.state==='needs-login'||!state.uid){
       actions(button('Continuar con Google',()=>api.signInGoogle()));

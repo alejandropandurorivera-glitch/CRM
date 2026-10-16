@@ -2,7 +2,7 @@
   "name": "Sistema Darkis",
   "short_name": "Darkis",
   "description": "Repartidor, Darkita, Darkisocio y finanzas de Darkis Brownies.",
-  "start_url": "./index.html",
+  "start_url": "./index.html?v=18",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
@@ -16,5 +16,6 @@
       "type": "image/png",
       "purpose": "any"
     }
-  ]
+  ],
+  "id": "./index.html"
 }

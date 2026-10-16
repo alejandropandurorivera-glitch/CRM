@@ -1,4 +1,6 @@
-# Sistema Darkis v14 — Firebase Spark
+# Sistema Darkis v17 — Firebase Spark
+
+Consulta **ACTUALIZACION-V17.txt** para GPS, horarios manuales, PDF con membrete y recuperación de accesos antiguos.
 
 La entrada sigue siendo **index.html**. Esta versión reemplaza el acceso de nube que dependía de Functions por Google y permisos de Firestore. No necesita activar Blaze; se sujeta a las cuotas del plan Spark.
 

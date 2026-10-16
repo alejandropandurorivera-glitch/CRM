@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <script src="./app-update.js?v=18" defer></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#6f281d">
@@ -47,7 +48,7 @@
   .top-actions .dx-controls{margin-right:5px}
 
 </style>
-<link rel="icon" type="image/png" href="icon-darkis-original-v15.png"><link rel="apple-touch-icon" href="icon-darkis-original-v15.png"><link rel="manifest" href="manifest.webmanifest?v=15"></head>
+<link rel="icon" type="image/png" href="icon-darkis-original-v15.png"><link rel="apple-touch-icon" href="icon-darkis-original-v15.png"><link rel="manifest" href="manifest.webmanifest?v=18"></head>
 <body class="admin-locked" data-darkis-page="administrador">
 <div class="admin-gate" id="adminGate"><div class="admin-gate-card"><img src="logo.png" alt="Darkis"><img class="gate-role-art" src="role-administrador.webp" alt="Gato administrador"><span class="gate-eyebrow">ADMINISTRADOR</span><h1>Finanzas Darkis</h1><p>Ingresa tu PIN para abrir el panel de escritorio.</p><form id="adminGateForm"><label for="adminGatePin">PIN</label><input id="adminGatePin" type="password" inputmode="numeric" autocomplete="off" maxlength="4" pattern="[0-9]{4}" required placeholder="••••"><button type="submit">Entrar</button><small id="adminGateError" role="alert" aria-live="polite"></small></form><a href="index.html">← Inicio</a></div></div>
 <div class="app">
@@ -328,8 +329,9 @@ renderReports=function(){const {sales,expenses}=filtered(),revenue=sum(sales,'to
   window.addEventListener('darkis-data-updated',syncContributions);
 })();
 </script>
-<script src="./shared-sync.js" defer></script>
-<script src="./suite-experience.js" defer></script>
-<script src="./google-access.js" defer></script>
+<script src="./firebase-errors.js?v=18" defer></script>
+<script src="./shared-sync.js?v=18" defer></script>
+<script src="./suite-experience.js?v=18" defer></script>
+<script src="./google-access.js?v=18" defer></script>
 </body>
 </html>

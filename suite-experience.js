@@ -61,7 +61,7 @@
   }
   function setConnection(state, message) {
     connection = state;
-    const label = state === 'online' ? 'Firebase conectado' : state === 'connecting' ? 'Conectando…' : 'Sin Firebase';
+    const label = state === 'online' ? 'Firebase conectado' : state === 'connecting' ? 'Conectando…' : state === 'waiting' ? 'Acceso pendiente' : 'Sin Firebase';
     document.querySelectorAll('.dx-status').forEach(el => {
       el.dataset.state = state;
       el.title = message || label;
@@ -73,10 +73,10 @@
   }
   addEventListener('darkis-sync-status', e => {
     const s = e.detail?.state;
-    setConnection(s === 'online' ? 'online' : ['connecting', 'syncing'].includes(s) ? 'connecting' : 'offline', e.detail?.detail);
+    setConnection(s === 'online' ? 'online' : ['connecting', 'syncing'].includes(s) ? 'connecting' : s === 'waiting' ? 'waiting' : 'offline', e.detail?.detail);
   });
-  if (window.darkisClockStatus) {
-    const {state, detail} = window.darkisClockStatus;
+  if (window.darkisClockStatus || window.darkisSyncStatus) {
+    const {state, detail} = window.darkisClockStatus || window.darkisSyncStatus;
     setConnection(state, detail);
   }
   addEventListener('offline', () => setConnection('offline', 'Sin internet'));
@@ -95,7 +95,8 @@
   function open(id) { const el = document.getElementById(id); if (el) el.classList.add('open'); }
   function close(id) { document.getElementById(id)?.classList.remove('open'); }
   addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.dx-modal.open').forEach(el => el.classList.remove('open')); });
-  const settings = modal('dxSettings', `<img src="logo.png" alt="Darkis Brownies"><h2>Avisos e instalación</h2><p id="dxConnectionDetail">Comprobando Firebase…</p><label for="dxMode">¿Cómo quieres recibir alertas?</label><select id="dxMode"><option value="all">Todo encendido · avisos del dispositivo</option><option value="daily">Sólo una al día</option><option value="window">Sólo ventana dentro de la app</option><option value="off">Apagadas</option></select><div class="dx-actions"><button type="button" id="dxPermission">Validar permiso</button><button type="button" id="dxTest" class="secondary">Probar aviso</button></div><div class="dx-actions"><button type="button" id="dxInstallFromSettings" class="orange">Instalar app</button></div><div class="dx-note" id="dxPermissionNote">Los avisos de esta versión se revisan mientras la app está abierta. Para recibirlos con la app cerrada hace falta activar el envío push desde Firebase.</div>`);
+  const settings = modal('dxSettings', `<img src="logo.png" alt="Darkis Brownies"><h2>Avisos e instalación</h2><p style="font-size:11px">Sistema Darkis · v18</p><p id="dxConnectionDetail">Comprobando Firebase…</p><label for="dxMode">¿Cómo quieres recibir alertas?</label><select id="dxMode"><option value="all">Todo encendido · avisos del dispositivo</option><option value="daily">Sólo una al día</option><option value="window">Sólo ventana dentro de la app</option><option value="off">Apagadas</option></select><div class="dx-actions"><button type="button" id="dxPermission">Validar permiso</button><button type="button" id="dxTest" class="secondary">Probar aviso</button></div><div class="dx-actions"><button type="button" id="dxInstallFromSettings" class="orange">Instalar app</button></div><div class="dx-note" id="dxPermissionNote">Los avisos de esta versión se revisan mientras la app está abierta. Para recibirlos con la app cerrada hace falta activar el envío push desde Firebase.</div>`);
+  const retryRow=document.createElement('div');retryRow.className='dx-actions';const retryButton=document.createElement('button');retryButton.type='button';retryButton.className='secondary';retryButton.textContent='Reintentar conexión';retryButton.onclick=async()=>{retryButton.disabled=true;try{if(window.clockCloud)await window.clockCloud.sync();else await window.darkisSharedSync?.refreshAccess()}finally{retryButton.disabled=false}};retryRow.append(retryButton);settings.querySelector('.dx-panel').append(retryRow);
   const install = modal('dxInstall', `<img src="logo.png" alt="Darkis Brownies"><h2>Darkis en tu celular</h2><p>Instala la app para abrirla desde tu pantalla de inicio y conservar las pantallas disponibles sin conexión.</p><div class="dx-actions"><button type="button" class="orange" id="dxInstallNow">Instalar aplicación</button><button type="button" class="secondary" id="dxMaybeLater">Ahora no</button></div><div class="dx-note" id="dxInstallHelp">Este aviso aparece hasta tres veces en este dispositivo. Siempre puedes instalar desde Ajustes.</div>`);
   install.querySelector('#dxMaybeLater').onclick = () => close('dxInstall');
   const mode = settings.querySelector('#dxMode');
