@@ -1,0 +1,30 @@
+DARKISISTEMA v23 · ACTUALIZACIÓN COMPLETA
+
+PUBLICAR
+1. Extrae el ZIP y sube TODOS los archivos extraídos a la raíz del repositorio CRM. No subas sólo el ZIP ni una subcarpeta.
+2. Si ya publicaste firestore.rules de v22, no cambian las reglas en esta actualización. Si no, publica el firestore.rules incluido en Firebase → Firestore Database → Reglas.
+3. Abre https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v23.html después de terminar la publicación de GitHub Pages. Confirma «Darkisistema · v23» en Configuración.
+4. No borres datos, no reinstales y no cambies el origen de la app. Se mantienen las claves locales del checador y su identidad Firebase.
+5. Revisa Administrador → Rutas recibidas: clientes pausados por inactividad y puntos sin identificar. Los cambios de pausa se envían al conectar la cuenta autorizada.
+Esta entrega no publica por sí misma el repositorio ni modifica la consola de Firebase.
+
+Incluye:
+- Inicio de la web sin «Hecho con corazón». Mínimo 1.75 segundos y espera acotada a respuesta de Firebase; máximo 5.5 segundos para que conexión/permisos no congelen el acceso.
+- Los datos de rutas se cargan después de mostrar el inicio de marca, para reducir el tiempo en el arranque nativo.
+- Android/Chrome controla su propia pantalla previa a la web. El nombre del manifiesto es Darkisistema, pero una instalación antigua puede tardar en actualizarlo. La PWA no puede eliminar por código esa pantalla del sistema.
+- Repartidor conserva las tarjetas entre actualizaciones. No reinicia todas las animaciones al recibir datos y usa transiciones cortas para botones y ventanas.
+- Se evalúa inactividad al abrir/sincronizar y al cambiar la fecha con la app abierta o al volver al primer plano. No requiere borrar registros ni un servidor con tareas programadas.
+- Pausa automática sólo después de MÁS de 100 días, conservando ventas y visitas. Aviso en Dashboard y Rutas recibidas de Administrador. Puede mantenerse la pausa o reactivar 7 días sin inventar una nueva visita.
+- Los registros sin fecha quedan por identificar; no se presupone que tengan 100 días.
+- Alias confirmados: 7 letras → Nueve Letras; FT Mapelo → Farmacia Tepa Matriz; Frente San Ángel/frente subdelegación IMSS → Lomas de San Ángel; Popotes Ramitos/Abarrotes Popotes → Abarrotes Ramitos.
+- Bobba genérico: si en esa ruta está abajo se asigna arriba; si está arriba se asigna abajo. Sin otra referencia se asume abajo, identificado como tal. Se conserva el nombre original en la auditoría. No se cambian importes ni se duplica un movimiento.
+- También confirmados: Nieves → Helados Rodríguez; Nieves JP → Helamexti; Powerbull → Bullgym. Las tres neverías se muestran como Corjesu, Helados Rodríguez y Helamexti.
+- Nunca se fusionan otras tiendas para forzar el conteo de 42+12. La revisión de los puntos sin nombre/ocasionales continúa pendiente.
+
+Comprobaciones locales: totales de ruta conservados, cinco Bobba genéricos resueltos por contexto, alias idempotentes, pausa a 101 días y no a 100, reactivación temporal, conservación de nodos en Repartidor y apertura offline de la pantalla nueva. El reloj no cambia sus claves, identidades, entradas ni salidas.
+
+CONTEO AL 20 DE OCTUBRE DE 2026
+82 registros conservados: 47 activos con atención en Tepatitlán y 12 en Guadalajara/Zapopan, 12 puntos sin fecha/por identificar, 10 pausados por antigüedad y 1 retirado. El número de registros no equivale al de clientes activos identificados. No se eliminaron ventas ni se inventaron visitas para cuadrar 42+12.
+
+VERIFICACIÓN
+Pruebas locales de inicialización, totales inalterados, migración repetida sin duplicaciones, alias confirmados y Bobba por contexto; pausa a 101 días, revisión temporal; conservación de tarjetas de Repartidor; carga mínima 1.75 s, espera Firebase y salida acotada 5.5 s/offline. No se realizó una prueba en los celulares reales ni una publicación remota.

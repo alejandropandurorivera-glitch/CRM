@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="es-MX">
 <head>
-  <script src="./app-update.js?v=22" defer></script>
+  <script src="./app-update.js?v=23" defer></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#087eae">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="manifest" href="manifest.webmanifest?v=22">
+  <link rel="manifest" href="manifest.webmanifest?v=23">
   <link rel="icon" href="icon-darkis-original-v15.png" type="image/png">
   <link rel="apple-touch-icon" href="icon-darkis-original-v15.png">
   <title>Reloj checador Darkis</title>
@@ -33,7 +33,7 @@
   .top{flex-wrap:wrap}.top .dx-controls{width:100%;justify-content:flex-end}.top .top-btn{flex:none}
 
 </style>
-<style>.delete-manual{display:block;width:100%;padding:12px;margin-top:14px;border:1px solid #e9b5a7;background:#fff0e9;color:#aa3b25;border-radius:13px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}.delete-manual[hidden],.clock-connection-notice[hidden]{display:none}.clock-connection-notice{margin:12px 0;color:#744123}.clock-connection-notice p{font-size:12px;line-height:1.5;overflow-wrap:anywhere}.clock-connection-notice .actions{flex-wrap:wrap}.clock-connection-notice .btn{font-size:12px;flex:1}.hint#sequenceNotice{padding:10px;border-radius:12px;background:#fff4d6;color:#86531c;font-size:11px}</style><link rel="stylesheet" href="./production.css?v=22"><meta name="apple-mobile-web-app-title" content="Darkisistema">
+<style>.delete-manual{display:block;width:100%;padding:12px;margin-top:14px;border:1px solid #e9b5a7;background:#fff0e9;color:#aa3b25;border-radius:13px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}.delete-manual[hidden],.clock-connection-notice[hidden]{display:none}.clock-connection-notice{margin:12px 0;color:#744123}.clock-connection-notice p{font-size:12px;line-height:1.5;overflow-wrap:anywhere}.clock-connection-notice .actions{flex-wrap:wrap}.clock-connection-notice .btn{font-size:12px;flex:1}.hint#sequenceNotice{padding:10px;border-radius:12px;background:#fff4d6;color:#86531c;font-size:11px}</style><link rel="stylesheet" href="./production.css?v=23"><meta name="apple-mobile-web-app-title" content="Darkisistema">
 <link rel="apple-touch-startup-image" href="launch-darkisistema-750x1334.png" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
 <link rel="apple-touch-startup-image" href="launch-darkisistema-1125x2436.png" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
 <link rel="apple-touch-startup-image" href="launch-darkisistema-1170x2532.png" media="screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
@@ -74,10 +74,10 @@
   <div class="sheet-wrap" id="editSheet"><div class="sheet"><div class="sheet-head"><div><h2 id="editTitle">Ajustar horario</h2><p id="editDescription"></p></div><button class="close" data-close="editSheet">×</button></div><form id="editForm"><input id="editId" type="hidden"><div class="alert">⚠ Este movimiento quedará identificado como manual en el historial y en el PDF. Si lo editas, se conservará la hora original.</div><div class="field"><label for="editType">Movimiento</label><select id="editType"><option value="entry">Entrada</option><option value="exit">Salida</option></select></div><div class="field"><label for="editTime">Fecha y hora correctas</label><input id="editTime" type="datetime-local" required></div><div class="field"><label for="editReason">Nota (opcional)</label><textarea id="editReason" maxlength="180" rows="3" placeholder="Puedes dejarla vacía"></textarea></div><div class="actions"><button class="btn secondary" type="button" data-close="editSheet">Cancelar</button><button class="btn primary" type="submit">Guardar ajuste</button></div><button id="deleteManualBtn" type="button" class="delete-manual" hidden>Eliminar movimiento manual</button><p id="deleteManualHint" class="hint" hidden>Se quitará del horario y del total de horas. Se conservará la constancia de eliminación.</p></form></div></div>
   <div class="toast" id="toast"></div>
 
-  <script src="./clock-ledger.js?v=22"></script>
-  <script src="./clock-location.js?v=22"></script>
-  <script src="./clock-report-fonts.js?v=22"></script>
-  <script src="./clock-report.js?v=22"></script>
+  <script src="./clock-ledger.js?v=23"></script>
+  <script src="./clock-location.js?v=23"></script>
+  <script src="./clock-report-fonts.js?v=23"></script>
+  <script src="./clock-report.js?v=23"></script>
   <script>
     const KEY='darkis_timeclock_v02',OLD_KEY='darkis_timeclock_v01',DEVICE_KEY='darkis_timeclock_device_v01',RATE=50,TARGET={latitude:20.814514,longitude:-102.775042,radius:50},DAYS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
     const $=id=>document.getElementById(id),id=()=>crypto.randomUUID?.()||`${Date.now()}-${Math.random().toString(16).slice(2)}`;let state=load(),activeId='',selectedId='',gps=null,toastTimer,locationRequest=null,deletePending=false;
@@ -124,7 +124,7 @@
     $('settingsForm').addEventListener('submit',e=>{e.preventDefault();const p=profile(),name=canonical($('settingsName').value),pin=$('newPin').value;if(!name||!/^\d{4}$/.test(pin))return toast('El PIN debe tener 4 números.');p.name=name;p.canonicalKey=norm(name);p.pin=pin;p.weekStart=Number($('weekStart').value);p.weekEnd=Number($('weekEnd').value);p.updatedAt=Date.now();state.records.filter(r=>r.employeeId===p.id).forEach(r=>r.employeeName=name);close('settingsSheet');rebuildCuts();save();toast('Perfil actualizado.')});
     $('logoutBtn').addEventListener('click',()=>{activeId='';close('settingsSheet');gps=null;render();renderGps()});$('homeBtn').addEventListener('click',()=>location.href='index.html');$('punchBtn').addEventListener('click',punch);$('refreshGps').addEventListener('click',()=>refresh(true).catch(()=>{}));$('pdfBtn').addEventListener('click',downloadReport);
     $('addManualBtn').addEventListener('click',()=>{if(!profile())return;$('editTitle').textContent='Agregar horario manual';$('editId').value='';$('editType').disabled=false;$('editType').value=clocked()?'exit':'entry';$('editTime').value=inputTime(Date.now());$('editReason').value='';$('editDescription').textContent='Agrega la entrada o salida que faltó registrar.';deletePending=false;$('deleteManualBtn').hidden=true;$('deleteManualHint').hidden=true;open('editSheet')});
-    $('gpsDiagnostic').addEventListener('click',async()=>{const diagnostic=['Sistema Darkis v22','Área: Darkita','Ubicación: '+(gps?.validation||'sin lectura reciente'),'Distancia al punto de fábrica: '+(Number.isFinite(gps?.distance)?Math.round(gps.distance)+' m':'sin datos'),'Precisión del teléfono: '+(Number.isFinite(gps?.accuracy)?Math.round(gps.accuracy)+' m':'sin datos'),'Hora de lectura: '+(gps?.timestamp?new Date(gps.timestamp).toISOString():'sin datos'),'Firebase: '+(window.darkisClockStatus?.detail||'sin comprobar')].join('\n');try{await navigator.clipboard.writeText(diagnostic);toast('Diagnóstico copiado. Puedes enviarlo a Alejandro.')}catch{toast('No se pudo copiar. Intenta desde Safari.')}});
+    $('gpsDiagnostic').addEventListener('click',async()=>{const diagnostic=['Sistema Darkis v23','Área: Darkita','Ubicación: '+(gps?.validation||'sin lectura reciente'),'Distancia al punto de fábrica: '+(Number.isFinite(gps?.distance)?Math.round(gps.distance)+' m':'sin datos'),'Precisión del teléfono: '+(Number.isFinite(gps?.accuracy)?Math.round(gps.accuracy)+' m':'sin datos'),'Hora de lectura: '+(gps?.timestamp?new Date(gps.timestamp).toISOString():'sin datos'),'Firebase: '+(window.darkisClockStatus?.detail||'sin comprobar')].join('\n');try{await navigator.clipboard.writeText(diagnostic);toast('Diagnóstico copiado. Puedes enviarlo a Alejandro.')}catch{toast('No se pudo copiar. Intenta desde Safari.')}});
     $('activityList').addEventListener('click',e=>{const b=e.target.closest('[data-edit]');if(!b)return;const r=state.records.find(x=>x.id===b.dataset.edit&&x.employeeId===activeId);if(!r||r.deleted)return;deletePending=false;$('deleteManualBtn').textContent='Eliminar movimiento manual';$('deleteManualBtn').hidden=!(r.manualEdited||r.manualCreated);$('deleteManualHint').hidden=true;$('editTitle').textContent='Modificar horario';$('editId').value=r.id;$('editType').value=r.type;$('editType').disabled=false;$('editTime').value=inputTime(r.timestamp);$('editReason').value=r.editReason||'';$('editDescription').textContent=`${r.type==='entry'?'Entrada':'Salida'} de ${fmt(r.timestamp)}`;open('editSheet')});
     $('editForm').addEventListener('submit',e=>{
       e.preventDefault();const p=profile();if(!p)return;
@@ -141,9 +141,9 @@
     window.clockSnapshot=()=>({profiles:state.profiles,records:state.records,cuts:state.cuts,production:window.DarkisProduction?.snapshot()||[],deviceId:deviceId()});window.clockApply=data=>{if(!data)return;if(data.production)window.DarkisProduction?.apply(data.production);state.profiles=DarkisLedger.merge(state.profiles,data.profiles||[],false);state.records=DarkisLedger.merge(state.records,data.records||[],true);state.cuts=DarkisLedger.merge(state.cuts,data.cuts||[],false);save(false)};
     function tick(){const parts=new Intl.DateTimeFormat('es-MX',{timeZone:'America/Mexico_City',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true}).formatToParts(new Date()),get=t=>parts.find(x=>x.type===t)?.value||'';$('clock').textContent=`${get('hour')}:${get('minute')}`;$('seconds').textContent=`:${get('second')} ${get('dayPeriod')}`}tick();setInterval(tick,1000);deviceId();save(false);renderGps();
   </script>
-<script src="./production.js?v=22"></script>
-<script src="./firebase-errors.js?v=22"></script>
-<script src="./clock-sync.js?v=22"></script>
-<script src="./suite-experience.js?v=22" defer></script>
+<script src="./production.js?v=23"></script>
+<script src="./firebase-errors.js?v=23"></script>
+<script src="./clock-sync.js?v=23"></script>
+<script src="./suite-experience.js?v=23" defer></script>
 </body>
 </html>

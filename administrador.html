@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="es">
 <head>
-<script src="./production.js?v=22" defer></script>
-<script src="./history-data.js?v=22"></script><script src="./history.js?v=22"></script><script>sessionStorage.setItem('darkis_suite_role_v12','admin');for(const key of ['darkis_pin_pending_v12','darkis_admin_unlocked_v12','darkis_v12_admin_unlocked'])sessionStorage.removeItem(key);</script>
-  <script src="./app-update.js?v=22" defer></script>
+<script src="./client-policy.js?v=23" defer></script>
+<script src="./production.js?v=23" defer></script>
+<script src="./history-data.js?v=23" defer></script><script src="./client-aliases.js?v=23" defer></script><script src="./history.js?v=23" defer></script><script>sessionStorage.setItem('darkis_suite_role_v12','admin');for(const key of ['darkis_pin_pending_v12','darkis_admin_unlocked_v12','darkis_v12_admin_unlocked'])sessionStorage.removeItem(key);</script>
+  <script src="./app-update.js?v=23" defer></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#6f281d">
@@ -50,7 +51,7 @@
   .top-actions .dx-controls{margin-right:5px}
 
 </style>
-<link rel="icon" type="image/png" href="icon-darkis-original-v15.png"><link rel="apple-touch-icon" href="icon-darkis-original-v15.png"><link rel="manifest" href="manifest.webmanifest?v=22"><style>
+<link rel="icon" type="image/png" href="icon-darkis-original-v15.png"><link rel="apple-touch-icon" href="icon-darkis-original-v15.png"><link rel="manifest" href="manifest.webmanifest?v=23"><style>
 .admin-gate{overflow:auto;padding-block:max(24px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-bottom))}
 .admin-gate-card{width:min(430px,100%);margin:auto}.admin-login-actions{display:grid;gap:10px}
 .admin-gate button:disabled{opacity:.55;cursor:wait;transform:none;box-shadow:none}.admin-gate button.secondary{background:#e8f4f8;color:#1e566b}
@@ -374,10 +375,23 @@ renderReports=function(){const {sales,expenses}=filtered(),revenue=sum(sales,'to
 })();
 
 </script>
-<script src="./firebase-errors.js?v=22" defer></script>
-<script src="./shared-sync.js?v=22" defer></script>
-<script src="./suite-experience.js?v=22" defer></script>
-<script src="./google-access.js?v=22" defer></script>
-<script src="./admin-auth.js?v=22" defer></script>
+<script type="application/x-darkis-admin" data-admin-core>
+/* Revisión de inactividad: autorización Google y datos reales de routeClients. */
+(() => {
+ const Policy=window.DarkisClientPolicy;let remote=[];
+ function rows(){const local=window.DarkisHistoryTools.read('darkis_clientes_v01');const map=new Map(window.DarkisHistoryTools.mergeRoute(local).map(c=>[c.id,c]));for(const c of remote){const old=map.get(c.id);map.set(c.id,old?{...(String(c.updatedAt||'')>String(old.updatedAt||'')?{...old,...c}:{...c,...old}),sales:[...new Map([...(old.sales||[]),...(c.sales||[])].map(s=>[s.id,s])).values()],lastAttention:[old.lastAttention,c.lastAttention].filter(Boolean).sort().at(-1)||''}:c)}const result=Policy.apply(window.DarkisAliases.clients([...map.values()]));if(result.changed.length){localStorage.setItem('darkis_clientes_v01',JSON.stringify(result.clients));for(const c of result.changed)window.darkisSharedSync?.saveRouteClient?.(c)}return result.clients}
+ function refreshNotice(){if(!window.darkisAdminAuthorized)return;const all=rows(),pending=all.filter(c=>c.inactivityReview?.state==='pending');let note=document.getElementById('clientReviewDashboard');if(!note){note=document.createElement('div');note.id='clientReviewDashboard';note.className='route-note';document.getElementById('dashboard')?.prepend(note)}if(note){note.hidden=!pending.length;note.innerHTML=`<b>${pending.length} clientes en pausa automática.</b> Tienen más de 100 días sin atención. <button class="btn" id="openClientReview">Revisar clientes</button>`;note.querySelector('button').onclick=()=>pageGo('routes_received')}}
+ function paint(){refreshNotice();if(!window.darkisAdminAuthorized)return;const target=document.getElementById('routesReceivedBody');if(!target||currentPage!=='routes_received')return;document.getElementById('clientInactivityReview')?.remove();const all=rows(),pending=all.filter(c=>c.inactivityReview?.state==='pending').sort((a,b)=>String(a.lastAttention).localeCompare(String(b.lastAttention))),unknown=all.filter(c=>!c.lastAttention);const panel=document.createElement('section');panel.id='clientInactivityReview';panel.className='card';panel.style.cssText='padding:22px;margin:18px 0;border:1px solid #f3c16d';panel.innerHTML=`<h2>Revisar clientes en pausa · ${pending.length}</h2><p>Se pausaron automáticamente después de más de 100 días sin atención. Su historial e ingresos se conservan. Revisa nombres duplicados antes de reactivarlos.</p><div class="table-scroll"><table class="table"><thead><tr><th>Cliente</th><th>Zona</th><th>Última atención</th><th>Días</th><th>Revisión</th></tr></thead><tbody>${pending.map(c=>`<tr><td>${esc(c.name)}</td><td>${esc(c.city)}</td><td>${esc(c.lastAttention)}</td><td>${Policy.age(c.lastAttention)}</td><td><button class="btn" data-inactive-keep="${esc(c.id)}">Mantener en pausa</button> <button class="btn" data-inactive-activate="${esc(c.id)}">Reactivar 7 días</button></td></tr>`).join('')||'<tr><td colspan="5">No hay pausas pendientes de revisar.</td></tr>'}</tbody></table></div><p>${unknown.length} registros sin fecha: requieren identificar el punto y confirmar su última atención; no se les inventa antigüedad.</p>`;target.prepend(panel);panel.onclick=e=>{const keep=e.target.closest('[data-inactive-keep]'),activate=e.target.closest('[data-inactive-activate]'),id=keep?.dataset.inactiveKeep||activate?.dataset.inactiveActivate;if(!id)return;const c=all.find(x=>x.id===id);if(!c)return;const updated=Policy.review(c,activate?'activate':'keep');const list=all.map(x=>x.id===id?updated:x);localStorage.setItem('darkis_clientes_v01',JSON.stringify(list));remote=remote.map(x=>x.id===id?updated:x);window.darkisSharedSync?.saveRouteClient?.(updated);paint()};}
+ let inactivityDay=Policy.today();function refreshDay(){const day=Policy.today();if(day!==inactivityDay){inactivityDay=day;refreshNotice();if(currentPage==='routes_received')paint()}}setInterval(refreshDay,60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshDay()});
+ const previousGo=pageGo,previousRender=renderPage;pageGo=function(page){previousGo(page);if(page==='routes_received')paint();else if(page==='dashboard')refreshNotice()};renderPage=function(page=currentPage){previousRender(page);if(page==='routes_received')paint();else if(page==='dashboard')refreshNotice()};
+ addEventListener('darkis-route-clients-data',e=>{remote=e.detail||[];paint()});addEventListener('storage',e=>{if(e.key==='darkis_clientes_v01')paint()});addEventListener('darkis-admin-ready',()=>{rows();paint()});
+})();
+
+</script>
+<script src="./firebase-errors.js?v=23" defer></script>
+<script src="./shared-sync.js?v=23" defer></script>
+<script src="./suite-experience.js?v=23" defer></script>
+<script src="./google-access.js?v=23" defer></script>
+<script src="./admin-auth.js?v=23" defer></script>
 </body>
 </html>

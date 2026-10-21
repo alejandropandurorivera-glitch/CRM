@@ -1,4 +1,4 @@
-# Sistema Darkis v22
+# Sistema Darkis v23
 
 Reloj: corrección libre, nota opcional, anulación de movimientos manuales y diagnóstico de Firebase. Consulta ACTUALIZACION-V21.txt.
 

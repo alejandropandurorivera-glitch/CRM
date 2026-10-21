@@ -1,794 +1,794 @@
-Fecha,Cliente,Vendidos,Cambios / retirados,Entregados esperados,Detalle original,Revisión
-2026-01-03,Tortillas,10,0,10,Tortillas 10,Sabores no especificados
-2026-01-03,Creme,7,4,11,Creme 7+4,Sabores no especificados
-2026-01-03,Avila,10,2,12,Avila 10+2,Sabores no especificados
-2026-01-03,Nieves,10,4,14,Nieves 10+4,Sabores no especificados
-2026-01-03,Jugos,10,0,10,Jugos 10,Sabores no especificados
-2026-01-03,Kibo,15,0,15,Kibo 15,Sabores no especificados
-2026-01-06,Chuyita,7,1,8,Chuyita 7+1 !Santa moni (chuyita),Sabores no especificados; Santa moni (chuyita)
-2026-01-06,Tonys,7,3,10,Tonys 7+3,Sabores no especificados
-2026-01-07,Bobba abajo,15,0,15,Bobba abajo 15,Sabores no especificados
-2026-01-07,Kiosko,12,0,12,Kiosko 12,Sabores no especificados
-2026-01-07,Bobba arriba,17,0,17,Bobba arriba 17,Sabores no especificados
-2026-01-07,Paloma,6,4,10,Paloma 6+4,Sabores no especificados
-2026-01-07,Gorditas,6,0,6,Gorditas 6,Sabores no especificados
-2026-01-09,Adobes,14,2,16,Adobes 14+2,Sabores no especificados
-2026-01-09,9 letras,10,2,12,9 letras 10+2,Sabores no especificados
-2026-01-09,San Mich,0,8,8,San Mich 0+8,Sabores no especificados
-2026-01-12,Tortillas,10,0,10,Tortillas 10,Sabores no especificados
-2026-01-12,Cristy,10,0,10,Cristy 10,Sabores no especificados
-2026-01-12,Creme,3,3,6,Creme 3+3,Sabores no especificados
-2026-01-12,Avila,10,0,10,Avila 10,Sabores no especificados
-2026-01-12,Helados,10,0,10,Helados 10,Sabores no especificados
-2026-01-12,Triangulo,7,1,8,Triangulo 7+1,Sabores no especificados
-2026-01-12,Gutierrez,10,0,10,Gutierrez 10,Sabores no especificados
-2026-01-12,San Lucas,13,0,13,San Lucas 13,Sabores no especificados
-2026-01-12,Bullgym,10,2,12,Bullgym 10+2,Sabores no especificados
-2026-01-14,Carnes finas,12,0,12,Carnes finas 12,Sabores no especificados
-2026-01-14,Presente,18,7,25,Presente 18+7,Sabores no especificados
-2026-01-14,Palapa,0,8,8,Palapa 0+8,Sabores no especificados
-2026-01-14,Provi,8,2,10,Provi 8+2,Sabores no especificados
-2026-01-14,San Angel,10,0,10,San Angel 10,Sabores no especificados
-2026-01-14,Vidrio,8,4,12,Vidrio 8+4,Sabores no especificados
-2026-01-14,Zayda,0,8,8,Zayda 0+8,Sabores no especificados
-2026-01-14,Capilla,15,0,15,Capilla 15,Sabores no especificados
-2026-01-14,Mezquitan,9,3,12,Mezquitan 9+3,Sabores no especificados
-2026-01-14,Hierbas,10,0,10,Hierbas 10,Sabores no especificados
-2026-01-15,San Lucas,13,0,13,San Lucas 13,Sabores no especificados
-2026-01-15,FT Colosio,28,0,28,FT Colosio 28,Sabores no especificados
-2026-01-15,Rodriguez,4,0,4,Rodriguez 4,Sabores no especificados
-2026-01-15,Bobba arriba,10,0,10,Bobba arriba 10,Sabores no especificados
-2026-01-17,CMA,27,3,30,CMA 27+3,Sabores no especificados
-2026-01-17,Tonys,11,0,11,Tonys 11,Sabores no especificados
-2026-01-17,FT Santa Barbara,14,0,14,FT Santa Barbara 14,Sabores no especificados
-2026-01-17,Frutitas,8,0,8,Frutitas 8,Sabores no especificados
-2026-01-17,Santa Moni,10,0,10,Santa Moni 10,Sabores no especificados
-2026-01-19,San Mich,5,0,5,San Mich 5,Sabores no especificados
-2026-01-19,9 letras,2,2,4,9 letras 2+2,Sabores no especificados
-2026-01-19,Adobes,10,0,10,Adobes 10,Sabores no especificados
-2026-01-19,Cristy,8,1,9,Cristy 8+1,Sabores no especificados
-2026-01-19,Creme,3,0,3,Creme 3,Sabores no especificados
-2026-01-19,Avila,5,0,5,Avila 5,Sabores no especificados
-2026-01-19,Helados,3,0,3,Helados 3,Sabores no especificados
-2026-01-19,Tortillas,8,0,8,Tortillas 8,Sabores no especificados
-2026-01-21,FT Viveros,32,0,32,FT Viveros 32,Sabores no especificados
-2026-01-21,Gorditas,12,0,12,Gorditas 12,Sabores no especificados
-2026-01-21,Bobba,13,0,13,Bobba 13,Identidad del cliente por confirmar: no se fusionó con otra tienda; Sabores no especificados
-2026-01-21,Powerbull,3,0,3,Powerbull 3,Sabores no especificados
-2026-01-21,Rodriguez,5,0,5,Rodriguez 5,Sabores no especificados
-2026-01-27,Paloma,3,5,8,Paloma 3+5,Sabores no especificados
-2026-01-27,Corjesu,20,5,25,Corjesu 20+5,Sabores no especificados
-2026-01-27,Ofe,10,5,15,Ofe 10+5,Sabores no especificados
-2026-01-30,Tacos,15,0,15,Tacos 15,Sabores no especificados
-2026-01-30,Mezquitan,12,0,12,Mezquitan 12,Sabores no especificados
-2026-01-30,Capilla,16,1,17,Capilla 16+1,Sabores no especificados
-2026-01-30,Zayda,5,5,10,Zayda 5+5,Sabores no especificados
-2026-01-30,CUCSH,33,0,33,CUCSH 33,Sabores no especificados
-2026-01-30,Presente,25,0,25,Presente 25,Sabores no especificados
-2026-01-30,Palapa,10,0,10,Palapa 10,Sabores no especificados
-2026-01-30,Provi,9,1,10,Provi 9+1,Sabores no especificados
-2026-02-03,Triangulo,14,0,14,Triangulo 14,Sabores no especificados
-2026-02-03,Glorieta,10,4,14,Glorieta 10+4,Sabores no especificados
-2026-02-03,Gutierrez,13,0,13,Gutierrez 13,Sabores no especificados
-2026-02-05,FT Viveros,,2,2,FT Viveros 24+2 |R8 O8 M8 !Vendidos inferidos de 24 sabores; falta conciliar 2 cambios,24 sabores y 2 cambios; confirmar vendidos antes de cobrar; Sabores suman 24; total esperado 2. Se conserva desglose sin ajustarlo; Vendidos inferidos de 24 sabores; falta conciliar 2 cambios
-2026-02-05,San Lucas,13,0,13,San Lucas 13 |O3 I3 M2 R3 C2,
-2026-02-05,FT Colosio,16,1,17,FT Colosio 16+1 |R1 C3 M6 I4 O3,
-2026-02-05,Helados,10,0,10,Helados 10 |O4 I2 R3 M1,
-2026-02-05,Rey,10,0,10,Rey 10 |C10,
-2026-02-09,FT Santa Barbara,15,1,16,FT Santa Barbara 15+1 |M4 R4 C5 I2 O1,
-2026-02-09,Gutierrez,0,3,3,Gutierrez 0+3 |I3,
-2026-02-09,San Alfonso,12,2,14,San Alfonso 12+2 |O2 R2 M2 I2 C6,
-2026-02-09,Chuyita,12,0,12,Chuyita 12 |C6 M2 R2 I2,
-2026-02-09,Tonys,15,0,15,Tonys 15 |C9 R2 M2 I2,
-2026-02-09,Gorditas,5,0,5,Gorditas 5 |C5,
-2026-02-09,Paloma,4,4,8,Paloma 4+4 |O2 R2 I2 C2,
-2026-02-12,San Mich,11,1,12,San Mich 11+1 |C6 M3 O2 R1,
-2026-02-12,9 letras,9,3,12,9 letras 9+3 |M3 O3 C6,
-2026-02-12,Kiosko,12,1,13,Kiosko 12+1 |C12,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
-2026-02-12,Bobba,15,0,15,Bobba 15 |M3 I2 R2 O2 C6,Identidad del cliente por confirmar: no se fusionó con otra tienda
-2026-02-12,Corjesu,16,9,25,Corjesu 16+9 |C10 O4 M5 R4 I2,
-2026-02-12,CUCSH,39,11,50,CUCSH 39+11 |R17 O12 I12 M5 C5,Sabores suman 51; total esperado 50. Se conserva desglose sin ajustarlo
-2026-02-12,Zayda,5,1,6,Zayda 5+1 |C6,
-2026-02-12,Gota,15,0,15,Gota 15 |C15,
-2026-02-12,San Angel,12,0,12,San Angel 12 |C12,
-2026-02-12,Vidrio,8,4,12,Vidrio 8+4 |M2 I1 R1 C8,
-2026-02-12,Capilla,10,0,10,Capilla 10 |M3 R3 I2 O1 C1,
-2026-02-12,Mezquitan,6,0,6,Mezquitan 6 |C6,
-2026-02-12,Hierbas,5,5,10,Hierbas 5+5 |C10,
-2026-02-12,Tacos,12,0,12,Tacos 12 |C12,
-2026-02-12,Gieraldine,,0,0,Gieraldine ? !3 corazones chicos y 1 grande; producto y precio por confirmar,Cantidad no confirmada: no genera ingreso ni última atención; 3 corazones chicos y 1 grande; producto y precio por confirmar
-2026-02-12,Dani,90,0,90,"Dani 90 !Surtidos; precio no anotado, tarifa ruta 23 aplicada","Sabores no especificados; Surtidos; precio no anotado, tarifa ruta 23 aplicada"
-2026-02-18,Ofe,15,0,15,Ofe 15 |I15,
-2026-02-18,Mcdavis,13,1,14,Mcdavis 13+1 |R3 O3 I3 M1 C4,
-2026-02-18,Vecina,15,0,15,Vecina 15 !2 por sabor y clásico; reparto incompleto,Sabores no especificados; 2 por sabor y clásico; reparto incompleto
-2026-02-19,Bobba abajo,13,0,13,Bobba abajo 13 |R5 O5 I3,
-2026-02-19,Creme,10,2,12,Creme 10+2 |R3 O2 C4 I1,Sabores suman 10; total esperado 12. Se conserva desglose sin ajustarlo
-2026-02-19,Avila,13,0,13,Avila 13 |B2 A2 R3 O3 C3,
-2026-02-25,FT Mapelo,28,0,28,FT Mapelo 28 |C12 M4 R4 I4 O4,
-2026-02-25,FT Santa Barbara,16,0,16,FT Santa Barbara 16 |R3 I2 C6 O3 M2,
-2026-02-25,Gutierrez,8,5,13,Gutierrez 8+5 |C5 R3 O3 I2,
-2026-02-25,Triangulo,13,0,13,Triangulo 13 |M4 I4 R2 C3,
-2026-02-25,Glorieta,7,5,12,Glorieta 7+5 |R3 O1 I2 C6,
-2026-02-25,Santa Moni,0,10,10,Santa Moni 0+10 |C4 R2 I2 O2,
-2026-02-25,San Alfonso,6,6,12,San Alfonso 6+6 |C6 I2 M2 R2,
-2026-02-25,Tonys,13,1,14,Tonys 13+1 |M3 O4 C6 I1,
-2026-02-26,San Lucas,13,0,13,San Lucas 13 |O1 I1 M2 R1 C8,
-2026-02-26,FT Colosio,25,0,25,FT Colosio 25 |C15 O5 M4 I1,
-2026-02-26,CMA,24,2,26,CMA 24+2 |A6 B5 M4 O4 C7,
-2026-02-26,Bobba arriba,20,0,20,Bobba arriba 20 |C5 O5 M5 I5,
-2026-02-26,Paloma,5,3,8,Paloma 5+3 |I2 C2 R2 O2,
-2026-02-26,Bobba abajo,9,1,10,Bobba abajo 9+1 |C5 M5,
-2026-02-26,Vecina,15,0,15,Vecina 15 |C3 I3 M3 R3 O3,
-2026-02-27,FT Viveros,25,0,25,FT Viveros 25 |O6 I1 C19,Sabores suman 26; total esperado 25. Se conserva desglose sin ajustarlo
-2026-02-27,Cremeria San Antonio,5,1,6,Cremeria San Antonio 5+1 |C6,
-2026-02-27,Bullgym,10,2,12,Bullgym 10+2 |C6 M2 O2 I2,
-2026-03-02,Rodriguez,13,0,13,Rodriguez 13 |C4 R2 I2 O3 M2,
-2026-03-02,Kibo,10,0,10,Kibo 10 |C2 R2 O2 I2 M2,
-2026-03-02,Guzman,10,0,10,Guzman 10 |M4 O3 R3,
-2026-03-04,Carnes finas,10,0,10,Carnes finas 10 |C10,
-2026-03-04,Presente,25,0,25,Presente 25 |C25,
-2026-03-04,Palapa,10,3,13,Palapa 10+3 |R4 O3 I1 C5,
-2026-03-04,Provi,10,2,12,Provi 10+2 |C12,
-2026-03-04,San Angel,0,9,9,San Angel 0+9 |C9,
-2026-03-04,Vidrio,0,9,9,Vidrio 0+9 |C9,
-2026-03-04,Gota,0,7,7,Gota 0+7 |C7,
-2026-03-04,Zayda,10,0,10,Zayda 10 |C10,
-2026-03-04,Capilla,13,1,14,Capilla 13+1 |R2 I2 C10,
-2026-03-04,Mezquitan,9,3,12,Mezquitan 9+3 |C12,
-2026-03-04,Hierbas,0,9,9,Hierbas 0+9 |C9,
-2026-03-06,Creme,8,5,13,Creme 8+5 |C6 M1 R2 I2 O2,
-2026-03-06,Avila,11,2,13,Avila 11+2 |C6 I2 R2 O2 M1,
-2026-03-06,Jugos,12,0,12,Jugos 12 |C9 O1 R1 I1,
-2026-03-06,Bobba,13,0,13,Bobba 13 |R7 C6,Identidad del cliente por confirmar: no se fusionó con otra tienda
-2026-03-06,Bobba abajo,10,3,13,Bobba abajo 10+3 |O3 C4 R3 I3,
-2026-03-09,Guzman,10,0,10,Guzman 10 |O4 R4 M2,
-2026-03-09,Rodriguez,10,0,10,Rodriguez 10 |R4 O4 M2,
-2026-03-09,Gorditas,5,0,5,Gorditas 5 |C5,
-2026-03-05,Adobes,13,3,16,Adobes 13+3 |R3 O3 I3 M3 C5 !Cobro anotado 299,Sabores suman 17; total esperado 16. Se conserva desglose sin ajustarlo; Cobro anotado 299
-2026-03-05,9 letras,10,2,12,9 letras 10+2 |C5 O2 I2 R2 M1 !Cobro anotado 230,Cobro anotado 230
-2026-03-05,San Mich,10,2,12,San Mich 10+2 |C5 O2 R2 I2 M1 !Cobro anotado 230,Cobro anotado 230
-2026-03-05,Corjesu,0,11,11,Corjesu 0+11 |O3 R3 I2 C2 M1,
-2026-03-10,San Lucas,12,0,12,San Lucas 12 |R2 O2 M2 I2 C4,
-2026-03-10,FT Santa Barbara,14,1,15,FT Santa Barbara 14+1 |R2 M2 O2 C9,
-2026-03-10,Gutierrez,10,1,11,Gutierrez 10+1 |C6 O3 M2,
-2026-03-10,Triangulo,6,0,6,Triangulo 6 |I2 O1 C3,
-2026-03-10,Glorieta,0,0,0,Glorieta 0,
-2026-03-11,Vecina,10,1,11,Vecina 10+1 |I3 R2 O2 C4,
-2026-03-11,Chuyita,10,2,12,Chuyita 10+2 |O3 R3 I2 C4,
-2026-03-11,Frutitas,8,5,13,Frutitas 8+5 |C4 O3 R4 I2,
-2026-03-11,Tonys,13,2,15,Tonys 13+2 |C9 O2 R2 I2,
-2026-03-11,CMA,30,0,30,CMA 30 |A5 B7 I6 R3 O3 C6,
-2026-03-11,Paloma,8,0,8,Paloma 8 |R2 O2 C2 I2,
-2026-03-14,San Mich,4,1,5,San Mich 4+1 |R3 I2,
-2026-03-14,Bobba abajo,13,0,13,Bobba abajo 13 |R4 O3 M3 I3,
-2026-03-14,Bobba arriba,0,5,5,Bobba arriba 0+5,Sabores no especificados
-2026-03-14,Adobes,13,1,14,Adobes 13+1,Sabores no especificados
-2026-03-15,Creme,12,0,12,Creme 12 |R2 I2 M3 O2 C5 !La nota repite M&M en dos cantidades,Sabores suman 14; total esperado 12. Se conserva desglose sin ajustarlo; La nota repite M&M en dos cantidades
-2026-03-15,Avila,10,2,12,Avila 10+2 |R3 O2 I2 C5,
-2026-03-15,Jugos,8,0,8,Jugos 8 |C4 M1 R1 O1 I1,
-2026-03-18,Bullgym,13,0,13,Bullgym 13 |C5 R2 O2 M2 I2,
-2026-03-18,Kibo,6,4,10,Kibo 6+4 |M1 I1 C2 O3 R3,
-2026-03-19,FT Viveros,30,1,31,FT Viveros 30+1 |R4 O4 I5 M2 C16,
-2026-03-19,CUCSH,30,0,30,CUCSH 30 |O5 R7 M5 I6 C7,
-2026-03-19,Presente,25,0,25,Presente 25 |C25,
-2026-03-19,Palapa,13,0,13,Palapa 13 |R3 I2 O3 M2 C3,
-2026-03-19,Provi,0,10,10,Provi 0+10 |C10,
-2026-03-19,San Angel,8,2,10,San Angel 8+2 |C10,
-2026-03-19,Vidrio,6,4,10,Vidrio 6+4 |C6 R2 O1 I1,
-2026-03-19,Gota,13,1,14,Gota 13+1 |C10 R1 O1 I1 M1,
-2026-03-19,Zayda,7,3,10,Zayda 7+3 |C10,
-2026-03-19,Capilla,12,2,14,Capilla 12+2 |C6 O2 R2 I2 M2,
-2026-03-19,Mezquitan,10,3,13,Mezquitan 10+3 |C13,
-2026-03-19,Hierbas,0,7,7,Hierbas 0+7 |C7,
-2026-03-19,Tacos,15,0,15,Tacos 15 |C15,
-2026-03-25,CMA,9,0,9,CMA 9 |R2 O2 M2 C2 A1,
-2026-03-25,San Mich,13,0,13,San Mich 13 |C5 I2 R2 O2 M2 !Total inferido de sabores,Total inferido de sabores
-2026-03-25,9 letras,10,1,11,9 letras 10+1 |R2 O2 M1 A1 C5 !Total vendido inferido de 11 entregados menos 1 cambio,Total vendido inferido de 11 entregados menos 1 cambio
-2026-03-25,Adobes,13,0,13,Adobes 13 |R4 O4 M2 I2 C1,
-2026-03-25,Rodriguez,10,0,10,Rodriguez 10 |O5 R3 I2,
-2026-03-26,Vecina,15,0,15,Vecina 15 |C8 O3 M1 I3,
-2026-03-26,Bobba abajo,13,1,14,Bobba abajo 13+1 |C5 M2 R2 O2 I3,
-2026-03-26,Jugos,4,0,4,Jugos 4 |M2 O1 I1,
-2026-03-26,FT Colosio,28,0,28,FT Colosio 28 !Desglose truncado: (6,Sabores no especificados; Desglose truncado: (6
-2026-03-26,Guzman,8,1,9,Guzman 8+1 |R3 O3 M3,
-2026-03-26,Rey,5,0,5,Rey 5 |C5,
-2026-03-30,Cristy,14,0,14,Cristy 14 |C14,
-2026-03-30,Creme,13,1,14,Creme 13+1 |C6 R4 I2 O1 M1,
-2026-03-30,Avila,10,1,11,Avila 10+1 |C7 M1 I2 O1,
-2026-03-30,FT Mapelo,30,0,30,FT Mapelo 30 |C15 O4 M3 I4 R4,
-2026-03-30,Corjesu,20,3,23,Corjesu 20+3 |R3 O3 M2 I3 C12,
-2026-03-30,Triangulo,10,2,12,Triangulo 10+2 |I2 R2 O2 M1 C5,
-2026-03-30,Glorieta,0,11,11,Glorieta 0+11 |O3 R3 C2 M1 I2,
-2026-03-30,FT Santa Barbara,15,0,15,FT Santa Barbara 15 |R3 O3 M2 I2 C5,
-2026-03-30,Gutierrez,10,2,12,Gutierrez 10+2 |C4 I2 O2 R2 M2,
-2026-03-30,Brenda,1,0,1,Brenda 1 |M1,
-2026-03-31,Paloma,5,3,8,Paloma 5+3 |I3 R2 C2 O1,
-2026-03-31,Tonys,15,0,15,Tonys 15 |M2 O3 I2 R3 C5,
-2026-03-31,Chuyita,12,0,12,Chuyita 12 |R2 M1 I1 O2 C6,
-2026-03-31,Frutitas,6,6,12,Frutitas 6+6 |C6 M3 I3,
-2026-03-31,Cremeria San Antonio,4,1,5,Cremeria San Antonio 4+1 |M1 O1 I1 R1 C1,
-2026-04-02,Provi,7,5,12,Provi 7+5,Sabores no especificados
-2026-04-02,Palapa,5,4,9,Palapa 5+4,Sabores no especificados
-2026-04-02,Vidrio,0,2,2,Vidrio 0+2,Sabores no especificados
-2026-04-02,Gota,5,9,14,Gota 5+9 |C8 O2 R2 M2,
-2026-04-02,Capilla,14,0,14,Capilla 14 |C6 R2 O2 I2 M2,
-2026-04-06,Rodriguez,15,0,15,Rodriguez 15 |C4 M2 R2 O5 I2 !Total inferido de sabores; Rodriuez en original,Total inferido de sabores; Rodriuez en original
-2026-04-06,Jugos,9,1,10,Jugos 9+1 |C6 R2 O2,
-2026-04-06,Creme,6,0,6,Creme 6 |O3 M2 I1,
-2026-04-06,San Lucas,13,0,13,San Lucas 13 |C4 I3 M2 O2 R2,
-2026-04-06,FT Colosio,29,0,29,FT Colosio 29 |O8 M7 R5 I3 C4,Sabores suman 27; total esperado 29. Se conserva desglose sin ajustarlo
-2026-04-06,San Mich,0,7,7,San Mich 0+7 |R2 M2 O2 C1,
-2026-04-06,9 letras,13,0,13,9 letras 13 |C5 R4 M4,
-2026-04-08,UNID,2,0,2,UNID 2 |B2,
-2026-04-08,Adobes,13,0,13,Adobes 13 |O1 R4 M4 C4,
-2026-04-08,Glorieta,7,0,7,Glorieta 7 |C6 M1,
-2026-04-08,FT Santa Barbara,9,0,9,FT Santa Barbara 9 |R3 O3 I3,
-2026-04-08,Gutierrez,7,0,7,Gutierrez 7 |R3 O2 I2,
-2026-04-10,Chuyita,7,0,7,Chuyita 7 |M2 R3 I2,
-2026-04-10,Frutitas,3,0,3,Frutitas 3 |O2 R1,
-2026-04-10,Tonys,0,2,2,Tonys 0+2 |C2,
-2026-04-10,Bobba,0,6,6,Bobba 0+6 |C6,Identidad del cliente por confirmar: no se fusionó con otra tienda
-2026-04-10,CMA,17,6,23,CMA 17+6 |C9 I3 R2 O3 A2 B3,Sabores suman 22; total esperado 23. Se conserva desglose sin ajustarlo
-2026-04-10,Ofe,10,0,10,Ofe 10 |I10,
-2026-04-10,Bullgym,10,0,10,Bullgym 10 |R2 M2 O3 C3,
-2026-04-13,Las Kekas,14,0,15,Las Kekas 14 |C4 O3 R3 M3 I2 !1 muestra adicional; entregados 15,1 muestra adicional; entregados 15
-2026-04-14,FT Mapelo,30,0,30,FT Mapelo 30 |M5 C10 R5 I4 O6,
-2026-04-14,San Mich,6,4,10,San Mich 6+4 |C4 O2 I1 M1 !Red velvet sin cantidad,Sabores suman 8; total esperado 10. Se conserva desglose sin ajustarlo; Red velvet sin cantidad
-2026-04-14,Nieves JP,0,0,12,"Nieves JP 0 |C3 R3 O3 I1 M2 !12 a consignación, sin cobro confirmado; C3 R3 O3 I1 M2","12 a consignación, sin cobro confirmado; C3 R3 O3 I1 M2"
-2026-04-14,Tacos,15,0,15,Tacos 15 |C15,
-2026-04-14,Capilla,13,1,14,Capilla 13+1 |M3 O3 R3 I1 C4,
-2026-04-14,Zayda,2,1,3,Zayda 2+1 |O1 R1 M1,
-2026-04-14,Gota,15,0,15,Gota 15 |C7 R2 O2 M2 I2,
-2026-04-14,CUCSH,38,2,40,CUCSH 38+2 |R12 O8 I6 C12 M2,
-2026-04-14,Vico,10,0,10,Vico 10 |R4 M3 O3,
-2026-04-14,Provi,0,11,11,Provi 0+11 |C11 !Se pegó poster en tienda,Se pegó poster en tienda
-2026-04-14,Palapa,0,4,4,Palapa 0+4 |C2 O2,
-2026-04-14,Presente,25,0,25,Presente 25 |C25,
-2026-04-14,San Angel,8,2,10,San Angel 8+2 |C10,
-2026-04-14,Vidrio,8,0,8,Vidrio 8 |C8,
-2026-04-17,Tortillas,10,0,10,Tortillas 10 |R4 O3 M3,
-2026-04-17,FT Viveros,12,14,26,FT Viveros 12+14 |R11 M5 O4 C4 I2,
-2026-04-17,San Lucas,11,1,12,San Lucas 11+1 |C3 I3 R2 M2 O2,
-2026-04-17,Adobes,10,5,15,Adobes 10+5 |C5 O4 M2 I2 R2 !El original dice 10 y 5 sin repetir cambios,El original dice 10 y 5 sin repetir cambios
-2026-04-17,9 letras,5,0,5,9 letras 5 |C5,
-2026-04-17,Bobba,20,2,22,Bobba 20+2 |C10 R4 O4 M2 I2,Identidad del cliente por confirmar: no se fusionó con otra tienda
-2026-04-17,Creme,9,5,14,Creme 9+5 |O2 M1 R2 I2 C7,
-2026-04-20,FT Mapelo,10,0,10,FT Mapelo 10 |R2 M3 I4 C1,
-2026-04-20,FT Colosio,30,0,30,FT Colosio 30 |O12 R6 C10 M2,
-2026-04-20,Triangulo,8,4,12,Triangulo 8+4 |R2 O2 M2 C6,
-2026-04-20,Glorieta,0,6,6,Glorieta 0+6 !SHUTDOWN; retirada,Sabores no especificados; SHUTDOWN; retirada
-2026-04-20,FT Santa Barbara,10,4,14,FT Santa Barbara 10+4 |R2 M2 O2 I1 C7,
-2026-04-20,Gutierrez,5,6,11,Gutierrez 5+6 |C7 O2 I1 !q red: cantidad ilegible,Sabores suman 10; total esperado 11. Se conserva desglose sin ajustarlo; q red: cantidad ilegible
-2026-04-21,Frutitas,5,7,12,Frutitas 5+7 |I2 R2 O2 M1 C5,
-2026-04-21,Chuyita,9,3,12,Chuyita 9+3 |C5 I2 O4 M1,
-2026-04-21,Tonys,12,3,15,Tonys 12+3 |C4 I3 R2 M2 O4,
-2026-04-21,Cremeria San Antonio,3,2,5,Cremeria San Antonio 3+2 |R2 O2 C1,
-2026-04-21,Las Kekas,0,8,8,Las Kekas 0+8 |C8 !Circuito JP II,Circuito JP II
-2026-04-21,Ofe,10,0,10,Ofe 10 |I10,
-2026-04-23,Vecina,15,0,15,Vecina 15 |M3 O2 I3 C7,
-2026-04-23,Vecina centro,15,0,15,Vecina centro 15 |M3 O2 I3 C7,
-2026-04-23,Corjesu,25,4,29,Corjesu 25+4 |R8 O6 M5 C10,
-2026-04-23,Mextli,12,0,12,Mextli 12 |M3 O3 R3 I1 C2,
-2026-04-23,Guadalupe,10,1,11,Guadalupe 10+1 |R2 O2 I2 C5,
-2026-04-24,Rodriguez,15,0,15,Rodriguez 15 |C10 R2 M2,Sabores suman 14; total esperado 15. Se conserva desglose sin ajustarlo
-2026-04-24,Jugos,8,4,12,Jugos 8+4 |R1 O1 I1 M1 C8,
-2026-04-24,Tortillas,0,0,0,Tortillas 0,
-2026-04-24,Bobba abajo,25,0,25,Bobba abajo 25 |R4 O4 M4 C4,Sabores suman 16; total esperado 25. Se conserva desglose sin ajustarlo
-2026-04-24,Bobba arriba,,0,0,Bobba arriba ? !Nombre sin cantidades,Cantidad no confirmada: no genera ingreso ni última atención; Nombre sin cantidades
-2026-04-24,Tremendo (Victor),,0,0,Tremendo (Victor) ?,Cantidad no confirmada: no genera ingreso ni última atención
-2026-04-24,Tienda espíritu santo,,0,0,Tienda espíritu santo ?,Cantidad no confirmada: no genera ingreso ni última atención
-2026-04-24,9 letras,,0,0,9 letras ?,Cantidad no confirmada: no genera ingreso ni última atención
-2026-04-24,Cristy,0,0,0,Cristy 0,
-2026-04-24,Creme,0,0,0,Creme 0,
-2026-04-24,Avila,7,6,13,Avila 7+6 |C5 M2 R2 O2 I1,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
-2026-04-24,Kiosko,15,0,15,Kiosko 15 |C15,
-2026-04-27,Tacos,15,0,15,Tacos 15 !Cande,Sabores no especificados; Cande
-2026-04-27,Capilla,13,0,13,Capilla 13 |O3 R3 M3 I3,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
-2026-04-27,Zayda,0,8,8,Zayda 0+8 |C8,
-2026-04-27,Gota,4,10,14,Gota 4+10 |C9 O2 R2 M1,
-2026-04-27,Vidrio,8,2,10,Vidrio 8+2 |C7 M1 R1 O1,
-2026-04-27,CUCSH,30,8,38,CUCSH 30+8 |M20 R14 O8 C6 !Se repite 10 M&M en la nota; no se corrige sin confirmar,Sabores suman 48; total esperado 38. Se conserva desglose sin ajustarlo; Se repite 10 M&M en la nota; no se corrige sin confirmar
-2026-04-27,Provi,0,8,8,Provi 0+8 |C8,
-2026-04-27,Palapa,13,0,13,Palapa 13 |M4 R4 C4 O1,
-2026-05-01,Guzman,7,1,8,Guzman 7+1 |R3 O3 M2,
-2026-05-01,Creme,4,8,12,Creme 4+8 |C7 R2 O2 I1,
-2026-05-01,Avila,6,0,6,Avila 6 |R3 O3,
-2026-05-01,Bullgym,10,3,13,Bullgym 10+3 |C8 M1 R1 O1 I2,
-2026-05-01,Kibo,13,0,13,Kibo 13 |C5 R2 O2 I2 M2,
-2026-05-01,San Mich,7,5,12,San Mich 7+5 |C4 M2 R2 O2 I2,
-2026-05-01,9 letras,9,6,15,9 letras 9+6 |C12 O2 I1,
-2026-05-01,Adobes,11,2,13,Adobes 11+2 |C6 I2 O1 R2 M2,
-2026-05-01,Bobba arriba,15,0,15,Bobba arriba 15 |M6 I5 R4,
-2026-05-01,Bobba abajo,15,0,15,Bobba abajo 15 |O2 M4 R3 I2 C4,
-2026-05-04,FT Mapelo,26,3,29,FT Mapelo 26+3 |I14 R5 O8 M2 !7 intenso repetido en original,7 intenso repetido en original
-2026-05-04,Paloma,3,1,4,Paloma 3+1 |I2 C2,
-2026-05-04,Las Kekas,12,0,12,Las Kekas 12 |C4 R3 O3 M1 I1,
-2026-05-06,CUCSH,10,4,14,CUCSH 10+4 |O2 C2 I10,
-2026-05-06,Palapa,0,2,2,Palapa 0+2 |O2,
-2026-05-06,Presente,10,0,10,Presente 10 |C10,
-2026-05-06,Provi,5,1,6,Provi 5+1 |C6,
-2026-05-06,Hierbas,10,1,11,Hierbas 10+1 |C6 I3 R1 M1,
-2026-05-06,Mezquitan,4,0,4,Mezquitan 4 |C4,
-2026-05-06,Tacos,10,0,10,Tacos 10 |C10,
-2026-05-06,Capilla,7,0,7,Capilla 7 |C5 I2,
-2026-05-06,San Angel,10,1,11,San Angel 10+1 |C11,
-2026-05-06,Vidrio,6,0,6,Vidrio 6 |C2 R1 O1 M1 I1,
-2026-05-06,Gota,15,0,15,Gota 15 |R2 M1 C12,
-2026-05-08,San Lucas,13,0,13,San Lucas 13 |C7 R2 O2 M2,
-2026-05-08,FT Colosio,29,0,29,FT Colosio 29 |C11 M4 R6 O8,
-2026-05-11,FT Santa Barbara,16,0,16,FT Santa Barbara 16 |R4 O4 C7,Sabores suman 15; total esperado 16. Se conserva desglose sin ajustarlo
-2026-05-11,Gutierrez,6,6,12,Gutierrez 6+6 |R3 O3 C6,
-2026-05-11,Triangulo,13,1,14,Triangulo 13+1 |R4 O4 C5 I1,
-2026-05-11,Corjesu,8,12,20,Corjesu 8+12 |R3 O3 I1 C13,
-2026-05-11,Vecina,10,3,13,Vecina 10+3 |R2 I2 O2 M1 C6,
-2026-05-11,Rodriguez,13,0,13,Rodriguez 13 |O3 R2 M2 C6,
-2026-05-12,Adobes,13,0,13,Adobes 13 |R3 O3 I2 M1 C4,
-2026-05-12,Guadalupe,10,2,12,Guadalupe 10+2 |C4 R4 M2 O2,
-2026-05-12,Cristy,14,0,14,Cristy 14 |C14,
-2026-05-12,Creme,10,0,10,Creme 10 |O2 C8,
-2026-05-15,Bobba arriba,20,1,21,Bobba arriba 20+1 |O7 R6 M2 I2 C4,
-2026-05-15,Avila,10,3,13,Avila 10+3 |C6 I2 O2 R2 M1,
-2026-05-15,FT Viveros,18,9,27,FT Viveros 18+9 |C5 O8 R8 I8,Sabores suman 29; total esperado 27. Se conserva desglose sin ajustarlo
-2026-05-15,Chuyita,12,0,12,Chuyita 12 |R2 O2 I2 M2 C4,
-2026-05-15,Frutitas,10,3,13,"Frutitas 10+3 |O3 I3 M3 C4 !Original: 10 y 3 clásicos; cambio inferido, revisar","Original: 10 y 3 clásicos; cambio inferido, revisar"
-2026-05-18,Las Kekas,0,7,7,Las Kekas 0+7 |C4 O1 R1 M1,
-2026-05-18,Corjesu,8,1,9,Corjesu 8+1 |O3 R4 M2,
-2026-05-18,Vecina,10,1,11,Vecina 10+1 |R4 I4 O3,
-2026-05-20,FT Mapelo,26,5,31,FT Mapelo 26+5 |C16 R5 M2 I3 O5,
-2026-05-20,Bobba abajo,5,13,18,Bobba abajo 5+13 |M3 R4 O4 I3 C4,
-2026-05-20,FT Colosio,26,1,27,FT Colosio 26+1 |R4 O4 I6 C14 !Intenso se repite en original,Sabores suman 28; total esperado 27. Se conserva desglose sin ajustarlo; Intenso se repite en original
-2026-05-23,Presente,15,0,15,Presente 15,Sabores no especificados
-2026-05-23,Palapa,10,4,14,Palapa 10+4 |C10 I2 R1 O1,
-2026-05-23,Provi,11,3,14,Provi 11+3 |C14,
-2026-05-23,Zayda,8,2,10,Zayda 8+2 |C10,
-2026-05-23,Gota,0,10,10,Gota 0+10 |C10,
-2026-05-23,Capilla,13,1,14,Capilla 13+1 |C10 O2 R1 I1,
-2026-05-23,Tacos,10,4,14,Tacos 10+4,Sabores no especificados
-2026-05-22,Gutierrez,0,6,6,Gutierrez 0+6 |C6,
-2026-05-22,Triangulo,6,6,12,Triangulo 6+6 |O2 R2 I2 M1 C5,
-2026-05-22,Frutitas,2,0,2,Frutitas 2 |R2,
-2026-05-22,Chuyita,8,0,8,Chuyita 8 |C8,
-2026-05-23,Jugos,12,0,12,Jugos 12 |C7 O2 R2 I1,
-2026-05-23,Guzman,10,0,10,Guzman 10 |R4 M4 O2,
-2026-05-23,Rodriguez,15,0,15,Rodriguez 15 |O5 R2 M1 I1 C6,
-2026-05-23,Creme,0,0,0,Creme 0,
-2026-05-23,Avila,0,0,0,Avila 0,
-2026-05-23,Cristy,0,2,2,Cristy 0+2 !Me quedé con su caja,Sabores no especificados; Me quedé con su caja
-2026-05-23,Kibo,7,5,12,Kibo 7+5 |R3 O3 C5 I1,
-2026-05-23,9 letras,0,9,9,9 letras 0+9 |R1 O2 I1 C5,
-2026-05-23,San Mich,0,7,7,San Mich 0+7 |R1 O1 C5,
-2026-05-25,Mextli,13,0,13,Mextli 13 |C5 M3 O3 R1 I1,
-2026-05-25,Guadalupe,13,1,14,Guadalupe 13+1 |R2 O2 I2 M1 C6,Sabores suman 13; total esperado 14. Se conserva desglose sin ajustarlo
-2026-05-25,Cristy,13,0,13,Cristy 13 |C13,
-2026-05-25,Adobes,5,10,15,Adobes 5+10 |I2 M2 O3 R3 C5,
-2026-05-25,Paloma,6,2,8,Paloma 6+2 |O2 R2 I2 C2,
-2026-05-25,Corjesu,0,8,8,Corjesu 0+8 |R2 I3 C1 M2,
-2026-05-27,Ofe,14,0,14,Ofe 14 |I14,
-2026-05-27,Capilla,7,0,7,Capilla 7 |O3 I2 M2,
-2026-05-27,Mezquitan,9,0,9,Mezquitan 9 |C9,
-2026-05-27,Hierbas,6,4,10,Hierbas 6+4 |R1 O1 C8,
-2026-05-27,Tacos,15,0,15,Tacos 15 |C15,
-2026-05-27,Vidrio,10,1,11,Vidrio 10+1 |C10 R1,
-2026-05-27,San Angel,7,3,10,San Angel 7+3,Sabores no especificados
-2026-06-01,Corjesu,0,5,5,Corjesu 0+5 |C2 R1 M1 O1,
-2026-06-01,Vecina,9,5,14,Vecina 9+5 |I2 R3 O5 C4,
-2026-06-01,Tonys,8,4,12,Tonys 8+4 |C6 R2 O3 M1,
-2026-06-02,Creme,10,2,12,Creme 10+2 |C4 R1 M2 O3 I2,
-2026-06-02,Avila,8,4,12,Avila 8+4 |C6 O2 I2 M1 R1,
-2026-06-02,Jugos,8,3,11,Jugos 8+3 |O2 R2 M1 I1 C6,Sabores suman 12; total esperado 11. Se conserva desglose sin ajustarlo
-2026-06-02,Tortillas,10,0,10,Tortillas 10 |R5 M4 O1,
-2026-06-02,Rodriguez,9,1,10,Rodriguez 9+1 |R1 C6 M2 I1,
-2026-06-02,Bullgym,13,0,13,Bullgym 13 |I4 R2 C7,
-2026-06-05,Adobes,13,2,15,Adobes 13+2 |C5 M3 O3 R4,
-2026-06-05,CMA,28,1,29,CMA 28+1 |C14 M6 R2 O7,
-2026-06-05,Bobba arriba,0,12,12,Bobba arriba 0+12 |C7 O2 R2 M1,
-2026-06-05,Corjesu,6,0,6,Corjesu 6 |O4 M2,
-2026-06-05,Bobba abajo,10,3,13,Bobba abajo 10+3 |C7 O3 R2 M1,
-2026-06-05,Las Kekas,8,1,9,Las Kekas 8+1 |C9,
-2026-06-05,San Mich,0,7,7,San Mich 0+7 |C7 !Don Memo San Mich,Don Memo San Mich
-2026-06-08,FT Colosio,9,17,26,FT Colosio 9+17,Sabores no especificados
-2026-06-08,FT Mapelo,21,5,26,FT Mapelo 21+5 |R4 O4 I4 M2 C12,
-2026-06-08,Paloma,3,5,8,Paloma 3+5 |O2 I2 R2 C2,
-2026-06-08,Guadalupe,13,1,14,Guadalupe 13+1 |O2 R2 M1 I2 C7,
-2026-06-09,Chuyita,7,5,12,Chuyita 7+5 |R2 O2 M1 I2 C5,
-2026-06-09,Frutitas,8,5,13,Frutitas 8+5 |C8 R2 M1 I2,
-2026-06-09,Mextli,8,2,10,Mextli 8+2 |C5 M1 R2 O2,
-2026-06-09,Ofe,12,0,12,Ofe 12 |I12 !Sportfit,Sportfit
-2026-06-09,Cremeria San Antonio,2,3,5,Cremeria San Antonio 2+3 |R2 I1 M1 C1,
-2026-06-10,FT Santa Barbara,15,0,15,FT Santa Barbara 15 |O1 I2 R1 M2 C9,
-2026-06-10,Gutierrez,8,4,12,Gutierrez 8+4 |C8 R1 O1 I1 M1,
-2026-06-10,Glorieta,6,3,9,Glorieta 6+3 |C7 I1 M1,
-2026-06-10,FT Viveros,9,6,15,FT Viveros 9+6 |C13 M1 I1,
-2026-06-10,Kiosko,10,2,12,Kiosko 10+2 |C12,
-2026-06-10,Kibo,8,4,12,Kibo 8+4,Sabores no especificados
-2026-06-10,Bullgym,10,2,12,Bullgym 10+2,Sabores no especificados
-2026-06-13,Provi,8,4,12,Provi 8+4 |C12,
-2026-06-13,Palapa,13,0,13,Palapa 13 |R3 O3 M2 I1 C4,
-2026-06-13,San Angel,6,4,10,San Angel 6+4 |C10,
-2026-06-13,Vidrio,10,2,12,Vidrio 10+2 |C8 R1 O1 M1 I1,
-2026-06-13,Gota,9,6,15,Gota 9+6 |C15,
-2026-06-13,Capilla,10,5,15,Capilla 10+5 |C7 O2 R3 I2 M1,
-2026-06-16,Corjesu,0,3,3,Corjesu 0+3 |R3,
-2026-06-16,Vecina,14,0,14,Vecina 14 |C7 R2 I2 O2 M1,
-2026-06-16,Guzman,7,2,9,Guzman 7+2 |R3 O3 M3,
-2026-06-16,Creme,0,12,12,Creme 0+12 |M1 I2 R2 O2 C5,
-2026-06-16,Avila,8,4,12,Avila 8+4 |C6 M2 R2 O2 I1,Sabores suman 13; total esperado 12. Se conserva desglose sin ajustarlo
-2026-06-16,Rodriguez,10,4,14,Rodriguez 10+4 |O3 R3 M1 I2 C5,
-2026-06-16,Jugos,0,7,7,Jugos 0+7 |C7,
-2026-06-17,San Mich,10,2,12,San Mich 10+2 |I2 R2 O2 M1 C5,
-2026-06-17,9 letras,13,1,14,9 letras 13+1 |C6 O2 I2 R3 M1,
-2026-06-17,Adobes,16,0,16,Adobes 16 |C7 R3 O2 M2 I2,
-2026-06-17,Mextli,3,1,4,Mextli 3+1 |R2 I1 C1,
-2026-06-17,Bobba arriba,0,9,9,Bobba arriba 0+9 |R2 I2 O3 M1 C1,
-2026-06-17,Bullgym,3,7,10,Bullgym 3+7 |C4 O2 I1 R2 M1,
-2026-06-17,Paloma,8,0,8,Paloma 8 |R2 O2 C2 I2,
-2026-06-18,San Lucas,13,0,13,San Lucas 13 |I3 M1 R2 O2 C5,
-2026-06-18,FT Colosio,18,11,29,FT Colosio 18+11 |O12 R4 C10 M1 I1,Sabores suman 28; total esperado 29. Se conserva desglose sin ajustarlo
-2026-06-18,Las Kekas,5,5,10,Las Kekas 5+5 |C8 O1 R1,
-2026-06-19,Corjesu,5,3,8,Corjesu 5+3 |O2 M1 R2 C4 I1,Sabores suman 10; total esperado 8. Se conserva desglose sin ajustarlo
-2026-06-19,Triangulo,0,1,1,Triangulo 0+1 |R1,
-2026-06-19,FT Santa Barbara,13,0,13,FT Santa Barbara 13 |R3 O3 C4 I3,
-2026-06-19,Gutierrez,6,1,7,Gutierrez 6+1 |R3 O2 M1 I1,
-2026-06-19,Frutitas,0,3,3,Frutitas 0+3 |O2 M1,
-2026-06-19,Chuyita,8,0,8,Chuyita 8 |O3 M2 C3,
-2026-06-19,Tonys,10,2,12,Tonys 10+2 |O3 I2 R3 M2 C1,Sabores suman 11; total esperado 12. Se conserva desglose sin ajustarlo
-2026-06-22,Creme,0,0,0,Creme 0,
-2026-06-22,Avila,8,0,8,Avila 8 |R3 O3 M2,
-2026-06-22,Rodriguez,13,0,13,Rodriguez 13 |O3 R3 M2 C5,
-2026-06-22,Guzman,5,0,5,Guzman 5 |R5,
-2026-06-22,Jugos,6,0,6,Jugos 6 |C3 O1 R1 M1,
-2026-06-23,San Mich,0,0,0,San Mich 0,
-2026-06-23,9 letras,0,0,0,9 letras 0,
-2026-06-23,Adobes,10,1,11,Adobes 10+1 |R4 C3 O2 M2,
-2026-06-23,Bobba arriba,20,0,20,Bobba arriba 20 |M5 R2 O2 I3 C8,
-2026-06-24,Mextli,8,0,8,Mextli 8 |C4 O3 I1,
-2026-06-24,Guadalupe,0,9,9,Guadalupe 0+9 |C4 M2 I1 R2,
-2026-06-24,FT Mapelo,27,3,30,FT Mapelo 27+3 |R4 O4 M3 I2 !17 surtidos adicionales sin desglose,Sabores suman 13; total esperado 30. Se conserva desglose sin ajustarlo; 17 surtidos adicionales sin desglose
-2026-06-24,CMA,25,0,25,CMA 25 |C5 I3 M2 O3 R3 B5 A4,
-2026-06-25,Minisuper,5,7,12,"Minisuper 5+7 |C12 !Cliente sin nombre específico, revisar identidad","Identidad del cliente por confirmar: no se fusionó con otra tienda; Cliente sin nombre específico, revisar identidad"
-2026-06-25,Presente,20,0,20,Presente 20 |C20,
-2026-06-25,Palapa,5,0,5,Palapa 5 |R2 O2 M1,
-2026-06-25,Vidrio,0,5,5,Vidrio 0+5 |R2 O1 C2,
-2026-06-25,Gota,5,11,16,Gota 5+11 |R2 O2 M1 C10,Sabores suman 15; total esperado 16. Se conserva desglose sin ajustarlo
-2026-06-25,Gota,10,5,15,"Gota 10+5 |C6 I2 M3 O3 R1 !Dos renglones Agua el mismo día: conservados, revisar si es corrección","Dos renglones Agua el mismo día: conservados, revisar si es corrección"
-2026-06-25,Capilla,10,4,14,Capilla 10+4 |C6 I2 M2 O3 R1,
-2026-06-25,Mezquitan,13,1,14,Mezquitan 13+1 |C14,
-2026-06-25,Hierbas,6,4,10,Hierbas 6+4 |C7 M1 O1 I1,
-2026-06-27,Kibo,0,7,7,Kibo 0+7 |R2 O2 M1 C2,
-2026-06-27,Vecina,,0,0,Vecina ? !Cerrado al visitar; no implica baja permanente,Cantidad no confirmada: no genera ingreso ni última atención; Cerrado al visitar; no implica baja permanente
-2026-06-27,Bullgym,6,3,9,Bullgym 6+3 |C4 M1 O1 R1 I1,Sabores suman 8; total esperado 9. Se conserva desglose sin ajustarlo
-2026-06-27,Bobba abajo,13,3,16,Bobba abajo 13+3 |R3 O3 M2 I2 C6,
-2026-06-27,Corjesu,9,0,9,Corjesu 9 |R1 I1 M2 O3 C2,
-2026-06-27,Bullgym,5,4,9,Bullgym 5+4 |O3 M2 I1 C2 R1 !Segundo renglón Bullgym mismo día; verificar,Segundo renglón Bullgym mismo día; verificar
-2026-06-29,Creme,5,7,12,Creme 5+7 |C5 M2 R2 O2 I1,
-2026-06-29,Avila,0,2,2,Avila 0+2 |C2,
-2026-06-29,Cristy,13,1,14,Cristy 13+1 |C14,
-2026-06-29,Vecina,0,9,9,Vecina 0+9 |O2 R2 I1 M1 C3,
-2026-06-30,Jugos,7,0,7,Jugos 7 |C4 O1 I1 M1,
-2026-06-30,Guzman,7,0,7,Guzman 7 |O3 R4 M1,Sabores suman 8; total esperado 7. Se conserva desglose sin ajustarlo
-2026-06-30,Rodriguez,13,0,13,Rodriguez 13 |O2 R1 M1 C9,
-2026-06-30,Elian,15,0,15,Elian 15 |C15,
-2026-07-01,San Mich,0,9,9,San Mich 0+9 |C5 M2 R1 I1,
-2026-07-01,9 letras,5,8,13,9 letras 5+8 |C6 M2 O3 R2,
-2026-07-01,Adobes,13,1,14,Adobes 13+1 |R3 O3 I2 C4 M1,Sabores suman 13; total esperado 14. Se conserva desglose sin ajustarlo
-2026-07-02,Tonys,15,0,15,Tonys 15 |O3 R4 I2 M2 C4,
-2026-07-02,Frutitas,5,7,12,Frutitas 5+7 |C6 R2 M2 I1 O1,
-2026-07-02,Chuyita,8,3,11,Chuyita 8+3 |M2 R3 I1 C5,
-2026-07-02,San Lucas,13,0,13,San Lucas 13 |I3 R2 O2 M1 C5,
-2026-07-02,Paloma,0,7,7,Paloma 0+7 |O2 C3 I2,
-2026-07-02,Las Kekas,0,8,8,Las Kekas 0+8,Sabores no especificados
-2026-07-03,FT Colosio,25,3,28,FT Colosio 25+3 |C10 O5 I3 M3 R3 B2 A2,
-2026-07-03,Triangulo,10,2,12,Triangulo 10+2 |C5 I2 O2 R2 M1,
-2026-07-03,FT Santa Barbara,0,0,0,FT Santa Barbara 0,
-2026-07-03,Gutierrez,6,2,8,Gutierrez 6+2 |C6 M2,
-2026-07-07,Cristy,7,5,12,Cristy 7+5 |C12,
-2026-07-07,Creme,7,1,8,Creme 7+1 |M1 R3 O1 I2 C1,
-2026-07-07,Avila,9,2,11,Avila 9+2 |C2 R2 O2 M1 I1 B2 A1,
-2026-07-07,FT Viveros,15,0,15,FT Viveros 15 |R4 O4 M2 C5 I1,Sabores suman 16; total esperado 15. Se conserva desglose sin ajustarlo
-2026-07-07,Guzman,6,0,6,Guzman 6 |M2 O4,
-2026-07-07,Guadalupe,13,0,13,Guadalupe 13 |C6 I1 O3 R3,
-2026-07-07,Mextli,3,2,5,Mextli 3+2 |O1 R1 C3,
-2026-07-10,Triangulo,4,2,6,Triangulo 4+2 |C2 R1 O1 M1 I1,
-2026-07-10,FT Santa Barbara,10,2,12,FT Santa Barbara 10+2,Sabores no especificados
-2026-07-10,Gutierrez,0,5,5,Gutierrez 0+5,Sabores no especificados
-2026-07-10,Bobba arriba,13,8,21,Bobba arriba 13+8 |C10 R4 M3 O3 I1,
-2026-07-10,Adobes,13,2,15,Adobes 13+2 |C8 M3 O3 I1,
-2026-07-13,Tonys,9,3,12,Tonys 9+3 |I3 C7 R2,
-2026-07-13,Rodriguez,14,1,15,Rodriguez 14+1 |O4 R4 M2 C4 A1,
-2026-07-13,Adobes,13,0,13,Adobes 13 |C5 M2 O1 R3,Sabores suman 11; total esperado 13. Se conserva desglose sin ajustarlo
-2026-07-13,Bobba arriba,13,8,21,Bobba arriba 13+8 |C10 R4 M3 O3 I1 !Igual al 10 julio: posible nota repetida,"Igual al 10 julio: posible nota repetida; Repetición omitida por indicación del propietario: no suma ingresos, cambios ni atención"
-2026-07-16,Zayda,8,2,10,Zayda 8+2 |C10,
-2026-07-16,Gota,10,5,15,Gota 10+5 |C10 R2 O2 M1,
-2026-07-16,Capilla,14,1,15,Capilla 14+1 |C6 R3 O3 I2 M1,
-2026-07-16,Mezquitan,0,14,14,Mezquitan 0+14 |C14,
-2026-07-16,Hierbas,9,1,10,Hierbas 9+1 |C10,
-2026-07-16,Tacos,13,0,13,Tacos 13 |C13,
-2026-07-16,Provi,10,2,12,Provi 10+2 |C12,
-2026-07-16,Palapa,13,1,14,Palapa 13+1 |C6 O3 R2 I2 M1,
-2026-07-16,Presente,20,1,21,Presente 20+1 |C21,
-2026-07-16,San Angel,9,1,10,San Angel 9+1 |C8 R1 O1,
-2026-07-16,Vidrio,9,1,10,Vidrio 9+1 |O2 R2 I2 M1 C3,
-2026-07-17,Ofe,11,4,15,Ofe 11+4 |I15,
-2026-07-17,Las Kekas,0,7,7,Las Kekas 0+7 |C4 O1 R1 M1,
-2026-07-17,FT Mapelo,29,0,29,FT Mapelo 29 |C14 R5 M3 O5 I2 !Total inferido de sabores,Total inferido de sabores
-2026-07-20,FT Colosio,28,2,30,FT Colosio 28+2 |M5 I5 R7 O6 C8,Sabores suman 31; total esperado 30. Se conserva desglose sin ajustarlo
-2026-07-20,Elian,6,9,15,Elian 6+9 |C15,
-2026-07-20,San Lucas,13,0,13,San Lucas 13 |C4 O2 R2 I3 M2,
-2026-07-20,Cristy,8,5,13,Cristy 8+5 |C13,
-2026-07-21,FT Santa Barbara,8,5,13,FT Santa Barbara 8+5 |C5 R4 O3 M2 I1,Sabores suman 15; total esperado 13. Se conserva desglose sin ajustarlo
-2026-07-21,Triangulo,10,3,13,Triangulo 10+3 |R3 O4 M2 C3,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
-2026-07-21,Gutierrez,13,2,15,Gutierrez 13+2 |C5 O4 R4 I1 M1,
-2026-07-21,FT Viveros,12,3,15,FT Viveros 12+3 |R4 O4 M3 C2 I2,
-2026-07-21,Guzman,10,0,10,Guzman 10 |R4 O3 M3,
-2026-07-21,Bullgym,10,2,12,Bullgym 10+2 |C4 R3 I1 O2 M2,
-2026-07-22,San Mich,0,6,6,San Mich 0+6 |C4 O1 R1,
-2026-07-22,Adobes,17,0,17,Adobes 17 |C7 M3 I2 R3 O2,
-2026-07-22,9 letras,3,9,12,9 letras 3+9 |C7 O1 M1 R1 I2,
-2026-07-22,Guadalupe,13,0,13,Guadalupe 13 |R2 O2 M2 I2 C5,
-2026-07-22,Mextli,6,3,9,Mextli 6+3 |C3 O2 R2 M1 I1,
-2026-07-22,Kibo,10,2,12,Kibo 10+2 |C4 R2 O2 I2 M2,
-2026-07-22,Bobba arriba,20,0,20,Bobba arriba 20 |C6 R4 M3 I3 O4,
-2026-07-22,Bobba abajo,21,0,21,Bobba abajo 21 |C7 M3 R5 O4 I1,Sabores suman 20; total esperado 21. Se conserva desglose sin ajustarlo
-2026-07-23,Tonys,12,3,15,Tonys 12+3 |C5 O3 R3 M2 I2,
-2026-07-23,Corjesu,10,3,13,Corjesu 10+3 |C7 O2 R2 M1 I1,
-2026-07-23,Vecina,10,1,11,Vecina 10+1 |C5 O2 R2 M1 I1,
-2026-07-23,Chuyita,12,0,12,Chuyita 12 |C6 R2 O2 M1 I1,
-2026-07-23,Frutitas,4,8,12,Frutitas 4+8 |C6 R2 O2 M1 I1,
-2026-07-27,Kiosko,12,1,13,Kiosko 12+1 |C13,
-2026-07-27,FT Mapelo,30,0,30,FT Mapelo 30 |C17 R3 O3 M2 B5,
-2026-07-27,Jugos,10,0,10,Jugos 10 |C6 R1 O1 M1 I1,
-2026-07-27,Guzman,6,0,6,Guzman 6 |O3 M3,
-2026-07-27,Creme,0,8,8,Creme 0+8 |C8,
-2026-07-27,Avila,13,0,13,Avila 13 |B3 O2 R2 M1 I1 C4,
-2026-07-27,Paloma,7,0,7,Paloma 7 |I1 C2 R2 O2,
-2026-07-27,Bodeli,,0,0,Bodeli ?,Cantidad no confirmada: no genera ingreso ni última atención
-2026-07-27,CMA,26,0,26,CMA 26,Sabores no especificados
-2026-07-30,Provi,10,3,13,Provi 10+3 |C13,
-2026-07-30,Supercito,0,0,12,Supercito 0 |C9 R1 O1 M1 !12 surtidos a consignación: C9 R1 O1 M1; sin cobro confirmado,12 surtidos a consignación: C9 R1 O1 M1; sin cobro confirmado
-2026-07-30,Palapa,13,2,15,Palapa 13+2 |O3 M2 R3 C7,
-2026-07-30,Presente,15,0,15,Presente 15 |C15,
-2026-07-30,San Angel,6,4,10,San Angel 6+4 |C10,
-2026-07-30,Vidrio,10,0,10,Vidrio 10 |C6 M1 O1 R2,
-2026-07-30,Gota,10,5,15,Gota 10+5 |C13 O1 R1,
-2026-07-30,Zayda,0,6,6,Zayda 0+6 |C6,
-2026-07-30,Capilla,15,0,15,Capilla 15 |R1 O1 C13,
-2026-07-30,Mezquitan,6,4,10,Mezquitan 6+4 |C10,
-2026-07-30,Hierbas,0,8,8,Hierbas 0+8,Sabores no especificados
-2026-07-30,Tacos,13,1,14,Tacos 13+1 |C14,
-2026-08-03,FT Mapelo,25,0,25,FT Mapelo 25 |C12 O4 R3 A1 M2 I3,
-2026-08-03,San Lucas,14,0,14,San Lucas 14 |C6 O2 I3 R2 M1 !Total inferido de sabores,Total inferido de sabores
-2026-08-03,FT Colosio,12,16,28,FT Colosio 12+16 |O4 R8 I4 M2 C10,
-2026-08-03,Ofe,15,0,15,Ofe 15 |I15,
-2026-08-03,San Mich,8,4,12,San Mich 8+4 |C6 R3 O3 M1,Sabores suman 13; total esperado 12. Se conserva desglose sin ajustarlo
-2026-08-03,Adobes,5,3,8,Adobes 5+3 |I2 R1 O1 C4,
-2026-08-04,Bobba abajo,13,3,16,Bobba abajo 13+3 |M3 O3 R1 I3 C6,
-2026-08-04,FT Santa Barbara,13,3,16,FT Santa Barbara 13+3 |C6 R3 O3 M1 I1 B1 A1,
-2026-08-04,Gutierrez,13,1,14,Gutierrez 13+1 |C8 R2 O2 M1 I1,
-2026-08-04,Triangulo,13,0,13,Triangulo 13 |C7 R2 O2 I1 M1,
-2026-08-04,Guadalupe,13,0,13,Guadalupe 13 |C7 M2 R2 O1 I1,
-2026-08-05,Frutitas,5,0,5,Frutitas 5 |R3 I2,
-2026-08-05,Chuyita,8,0,8,Chuyita 8 |O2 C3 I2 M1,
-2026-08-05,Tonys,15,0,15,Tonys 15 |C7 O3 R3 M1 I1,
-2026-08-05,Corjesu,13,0,13,Corjesu 13 |R3 C4 O3 I2 M1,
-2026-08-05,Vecina,8,0,8,Vecina 8 |R3 O3 I1 C1,
-2026-08-05,Bullgym,13,0,13,Bullgym 13 |C7 I2 R2 O2 M1,Sabores suman 14; total esperado 13. Se conserva desglose sin ajustarlo
-2026-08-05,Kibo,0,9,9,Kibo 0+9 |C3 R2 O3 M1,
-2026-08-06,Bobba arriba,9,7,16,Bobba arriba 9+7 |C7 O4 R5,
-2026-08-06,Padel,10,0,10,Padel 10 |C6 R4 !10 y 10 a consignación pagados: segundo lote pendiente de aclarar,10 y 10 a consignación pagados: segundo lote pendiente de aclarar
-2026-08-07,7 letras,7,5,12,"7 letras 7+5 |C3 R2 O2 M2 I1 A1 B1 !¿Es 9 letras? Identidad no confirmada, cliente separado","Identidad del cliente por confirmar: no se fusionó con otra tienda; ¿Es 9 letras? Identidad no confirmada, cliente separado"
-2026-08-07,Tortillas,6,3,9,Tortillas 6+3 |O5 M3 R1,
-2026-08-07,Adobes,5,2,7,Adobes 5+2 |O4 M3,
-2026-08-11,FT Mapelo,25,0,25,FT Mapelo 25 |C14 M4 O4 I3,
-2026-08-11,Minisuper bosques,0,0,8,Minisuper bosques 0 |R2 O2 C2 I2 !8 a consignación: R2 O2 C2 I2; no cobro confirmado,8 a consignación: R2 O2 C2 I2; no cobro confirmado
-2026-08-11,FT Santa Barbara,0,0,0,FT Santa Barbara 0 !VISITADO,VISITADO
-2026-08-11,UNID abajo,11,0,11,UNID abajo 11 |C5 O2 R2 I1 M1,
-2026-08-12,Paloma,5,3,8,Paloma 5+3 |R2 O2 I2 C2,
-2026-08-12,Tacos,13,1,14,Tacos 13+1 |C14,
-2026-08-12,Hierbas,0,2,2,Hierbas 0+2 |I2,
-2026-08-12,Mezquitan,0,5,5,Mezquitan 0+5,Sabores no especificados
-2026-08-12,Capilla,17,0,17,Capilla 17 |C7 I6 M1 O1 R1,Sabores suman 16; total esperado 17. Se conserva desglose sin ajustarlo
-2026-08-12,CUCSH,41,9,50,CUCSH 41+9 |R14 O14 M12 I10,
-2026-08-12,Provi,0,10,10,Provi 0+10 |C10,
-2026-08-12,Supercito,3,9,0,"Supercito 3 !9 devueltos, cierre SHUTDOWN; devolución sin reemplazo, no 9 cambios","Sabores no especificados; 9 devueltos, cierre SHUTDOWN; devolución sin reemplazo, no 9 cambios"
-2026-08-12,Palapa,8,5,13,Palapa 8+5 |C4 I2 M3 R3 O1,
-2026-08-12,Presente,20,0,20,Presente 20 |C20,
-2026-08-12,UNID,10,0,10,UNID 10 |R3 O3 M2 I2,
-2026-08-18,FT Mapelo,10,4,14,FT Mapelo 10+4 |R6 O6,Sabores suman 12; total esperado 14. Se conserva desglose sin ajustarlo
-2026-08-18,Jugos,7,0,7,Jugos 7 |R2 O2 C3,
-2026-08-18,FT Viveros,9,6,15,FT Viveros 9+6 |C15 !Todos clásicos al final de la nota,Todos clásicos al final de la nota
-2026-08-18,Las Kekas,10,2,12,Las Kekas 10+2 |C12 !Todos clásicos al final de la nota,Todos clásicos al final de la nota
-2026-08-18,Rena,30,0,30,Rena 30 |C30,
-2026-08-19,San Mich,8,5,13,San Mich 8+5 |C9 R1 I1 M1 O1,
-2026-08-19,7 letras,0,0,0,7 letras 0 !Visitado; identidad no confirmada,Identidad del cliente por confirmar: no se fusionó con otra tienda; Visitado; identidad no confirmada
-2026-08-19,Adobes,14,3,17,Adobes 14+3 |R3 O3 M2 I2 C7,
-2026-08-19,Mextli,0,0,0,"Mextli 0 !2 cambios sin cambiar: retirada pendiente, no contabilizar como realizada","2 cambios sin cambiar: retirada pendiente, no contabilizar como realizada"
-2026-08-19,Guadalupe,13,1,14,Guadalupe 13+1 |C9 O2 R2 M1,
-2026-08-21,Cristy,13,2,15,Cristy 13+2 |C15,
-2026-08-21,Creme,6,2,8,Creme 6+2 |C6 O2,
-2026-08-21,Avila,10,0,10,Avila 10 |R2 O2 M2 C1 B2 A1,
-2026-08-21,Rodriguez,5,1,6,Rodriguez 5+1 |C5 M1,
-2026-08-21,Triangulo,10,2,12,Triangulo 10+2 |C6 O2 R2 M1 I1,
-2026-08-21,FT Santa Barbara,13,1,14,FT Santa Barbara 13+1 |C5 O3 R2 I2 M2,
-2026-08-21,Gutierrez,4,8,12,Gutierrez 4+8 |R4 I2 C5 M1,
-2026-08-21,Frutitas,0,0,0,Frutitas 0 !Original pide shutdown; pendiente confirmar baja definitiva,Original pide shutdown; pendiente confirmar baja definitiva
-2026-08-21,Chuyita,10,1,11,Chuyita 10+1 |M2 O2 R2 C5,
-2026-08-24,Corjesu,10,5,15,Corjesu 10+5 |R4 O4 C5 I2,
-2026-08-24,Vecina,6,6,12,Vecina 6+6 |C6 R2 O3 I1,
-2026-08-24,Cremeria San Antonio,5,0,5,Cremeria San Antonio 5 |C3 R2,
-2026-08-24,Tonys,15,0,15,Tonys 15 |R4 O4 M2 I1 C4,
-2026-08-25,9 letras,5,6,11,9 letras 5+6 |C8 R1 !2 galletas sin tipo,Sabores suman 9; total esperado 11. Se conserva desglose sin ajustarlo; 2 galletas sin tipo
-2026-08-25,Paloma,8,0,8,Paloma 8 |R2 O2 I2 C2,
-2026-08-25,UNID abajo,13,0,13,UNID abajo 13 |C6 O3 R3,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
-2026-08-26,Minisuper bosques,12,0,12,Minisuper bosques 12 |C4 O2 R2 I2 M2,
-2026-08-26,Bobba arriba,13,4,17,Bobba arriba 13+4 |C7 O3 R3 M2 I2,
-2026-08-26,Padel,8,0,8,Padel 8 |C8,
-2026-08-27,CUCSH,0,27,27,CUCSH 0+27 |R5 I6 O6 C6 M4,
-2026-08-27,Provi,0,10,10,Provi 0+10 |C10,
-2026-08-27,Presente,15,0,15,Presente 15 |C15,
-2026-08-27,San Angel,6,4,10,San Angel 6+4 |C10,
-2026-08-27,Gota,16,0,16,Gota 16 |C16 !Más caja,Más caja
-2026-08-27,Capilla,10,5,15,Capilla 10+5 |C4 I3 O4 R3 M1,
-2026-08-27,Mezquitan,9,3,12,Mezquitan 9+3 |C12,
-2026-08-27,Hierbas,10,0,10,Hierbas 10 |C7 I3,
-2026-08-28,Mextli,7,3,10,Mextli 7+3 |R2 O2 M2 C4,
-2026-08-28,Guzman,,0,0,Guzman ?,Cantidad no confirmada: no genera ingreso ni última atención
-2026-08-28,San Lucas,13,0,13,San Lucas 13 |R2 O2 !Resto surtido sin especificar,Sabores suman 4; total esperado 13. Se conserva desglose sin ajustarlo; Resto surtido sin especificar
-2026-08-28,FT Colosio,31,0,31,FT Colosio 31 |C19 R4 O4 I4,
-2026-08-28,Bobba abajo,13,3,16,Bobba abajo 13+3 |O3 M3 R3 I2 C5,
-2026-08-31,Minisuper bosques,15,0,15,Minisuper bosques 15 |O3 M2 R3 I2 C5,
-2026-08-31,Kibo,13,0,13,Kibo 13 |R2 O2 I2 M2 C5,
-2026-08-31,Bullgym,10,4,14,Bullgym 10+4 |C10 R2 O1 M1,
-2026-09-03,Rena,32,0,32,Rena 32 |C32,
-2026-09-03,Las Kekas,0,11,11,Las Kekas 0+11 |C11,
-2026-09-03,Creme,0,11,11,Creme 0+11 |C7 R1 O1 M1 I1,
-2026-09-03,Avila,10,2,12,Avila 10+2 |C5 I2 O2 R2 M1,
-2026-09-03,Rodriguez,5,0,5,Rodriguez 5 |R5,
-2026-09-03,Jugos,10,0,10,Jugos 10 |C7 R1 O1 M1,
-2026-09-03,Tonys,9,0,9,Tonys 9 |C5 M2 I1,Sabores suman 8; total esperado 9. Se conserva desglose sin ajustarlo
-2026-09-03,Chuyita,10,2,12,Chuyita 10+2 |R3 O3 M2 I1 C3,
-2026-09-04,FT Santa Barbara,10,2,12,FT Santa Barbara 10+2 |C9 I1 M1 O1,
-2026-09-04,Gutierrez,10,0,10,Gutierrez 10 |C7 I1 M1 O1,
-2026-09-04,Triangulo,13,0,13,Triangulo 13 |R2 O2 M1 I1 C7,
-2026-09-04,Cristy,15,0,15,Cristy 15 |C15,
-2026-09-04,El Super,13,0,13,El Super 13 |C6 R2 O2 M2 I1,
-2026-09-04,Frente San Angel,13,0,13,Frente San Angel 13 |R2 O2 M2 I1 C6,
-2026-09-04,Ramitos,13,0,13,Ramitos 13 |R2 O2 M2 I1 C6,
-2026-09-07,9 letras,0,2,2,9 letras 0+2 |O1 R1,
-2026-09-07,Corjesu,11,1,12,Corjesu 11+1 |C5 M2 I2 R3,
-2026-09-07,Vecina,4,1,5,Vecina 4+1 |R1 I1 M1 !Oreo sin cantidad,Sabores suman 3; total esperado 5. Se conserva desglose sin ajustarlo; Oreo sin cantidad
-2026-09-07,San Mich,5,5,10,San Mich 5+5 |C6 R1 O1 M1 I1,
-2026-09-07,Rey,5,0,5,Rey 5 |C5,
-2026-09-07,Adobes,17,0,17,Adobes 17 |R3 O3 I2 M2 C7,
-2026-09-08,Minisuper bosques,10,0,10,Minisuper bosques 10 |M2 O2 R2 I2 C2,
-2026-09-08,Mextli,7,0,7,Mextli 7 |C4 M2 O1,
-2026-09-08,San Lucas,13,0,13,San Lucas 13 |I3 M2 R2 O2 C4,
-2026-09-08,Guadalupe,10,0,10,Guadalupe 10 |M2 R2 I2 O2 C2,
-2026-09-08,UNID abajo,13,0,13,UNID abajo 13 |C7 R2 O2 M1 I1,
-2026-09-08,CMA,30,0,30,CMA 30,Sabores no especificados
-2026-09-08,Bobba arriba,18,2,20,Bobba arriba 18+2,Sabores no especificados
-2026-09-10,Rena,29,0,29,Rena 29 |C29,
-2026-09-10,Ofe,4,2,6,Ofe 4+2 |I6,
-2026-09-10,CUCSH,26,4,30,CUCSH 26+4 |O10 R10 I3 M7,
-2026-09-10,Palapa,16,0,16,Palapa 16 |O3 R3 I2 M2 C6,
-2026-09-10,Presente,20,0,20,Presente 20 |C20,
-2026-09-10,Provi,10,2,12,Provi 10+2 |C12,
-2026-09-10,San Angel,6,0,6,San Angel 6 |C6,
-2026-09-10,Vidrio,10,0,10,Vidrio 10 |C5 R2 O1 M1 I1,
-2026-09-10,Gota,0,0,0,Gota 0,
-2026-09-10,Zayda,8,2,10,Zayda 8+2,Sabores no especificados
-2026-09-10,Capilla,6,4,10,Capilla 6+4 |C6 !No aclara sabores de reemplazos,Sabores suman 6; total esperado 10. Se conserva desglose sin ajustarlo; No aclara sabores de reemplazos
-2026-09-10,Tacos,15,0,15,Tacos 15 |C15,
-2026-09-10,Mezquitan,0,0,0,Mezquitan 0,
-2026-09-10,Hierbas,0,2,2,Hierbas 0+2 |R2,
-2026-09-12,FT Mapelo,26,7,33,FT Mapelo 26+7 |C20 M3 R3 I3 O4,
-2026-09-12,Paloma,8,0,8,Paloma 8 |R2 O2 I2 M2,
-2026-09-12,Chuyita,15,0,15,Chuyita 15 |C8 R2 O2 I2 M1,
-2026-09-12,Tonys,11,0,11,Tonys 11 |C7 O3 A1 !Total inferido de sabores,Total inferido de sabores
-2026-09-12,Guzman,6,0,6,Guzman 6 |R3 O3,
-2026-09-16,Cristy,7,0,7,Cristy 7 |C7,
-2026-09-16,Jugos,0,0,0,Jugos 0,
-2026-09-16,Bobba abajo,20,2,22,Bobba abajo 20+2 |R6 O6 M4 C5,Sabores suman 21; total esperado 22. Se conserva desglose sin ajustarlo
-2026-09-16,Triangulo,0,3,3,Triangulo 0+3 |R1 O1 M1,
-2026-09-16,FT Santa Barbara,12,0,12,FT Santa Barbara 12 |R4 O4 M2 C2,
-2026-09-16,Gutierrez,0,2,2,Gutierrez 0+2 |O1 M1,
-2026-09-17,Las Kekas,13,0,13,Las Kekas 13 |C13,
-2026-09-17,Bullgym,14,0,14,Bullgym 14 |O3 M2 R1 C8 !Total inferido de sabores,Total inferido de sabores
-2026-09-17,Creme,5,6,11,Creme 5+6 |C11,
-2026-09-17,Avila,12,2,14,Avila 12+2 |C9 O2 R2 M1,
-2026-09-17,Kibo,0,8,8,Kibo 0+8 |C5 M1 O1 R1,
-2026-09-17,Minisuper bosques,13,0,13,Minisuper bosques 13 |C8 O2 R2 M1,
-2026-09-17,Kiosko,10,3,13,Kiosko 10+3 |C13,
-2026-09-18,Rodriguez,5,0,5,Rodriguez 5 |M3 C2,
-2026-09-18,Rena,21,0,21,Rena 21 |C21,
-2026-09-19,Jugos,8,2,10,Jugos 8+2 |C6 R1 O1 M1 I1,
-2026-09-19,FT Viveros,0,8,8,FT Viveros 0+8 |O3 R3 C1 I1,
-2026-09-19,Corjesu,10,3,13,Corjesu 10+3 |C3 O4 R4 I1,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
-2026-09-19,Vecina,0,7,7,Vecina 0+7 |C5 R2,
-2026-09-21,Tonys,10,0,10,Tonys 10 |R3 O3 M2 I2,
-2026-09-21,Chuyita,12,0,12,Chuyita 12 |M3 R2 O2 C3 I2,
-2026-09-21,Cremeria San Antonio,5,1,6,Cremeria San Antonio 5+1 |R1 O1 I1 M1 C2,
-2026-09-21,Mextli,10,0,10,Mextli 10 |R2 O2 M2 C4,
-2026-09-22,San Lucas,13,0,13,San Lucas 13 |C5 R2 O2 M2 I2,
-2026-09-22,FT Colosio,30,1,31,FT Colosio 30+1 |R7 C23,Sabores suman 30; total esperado 31. Se conserva desglose sin ajustarlo
-2026-09-23,San Mich,7,5,12,San Mich 7+5 |O3 R3 I2 M2 C2,
-2026-09-23,9 letras,6,6,12,9 letras 6+6 |O3 R3 C2 I2 M2,
-2026-09-23,Adobes,13,1,14,Adobes 13+1 |I3 R3 M3 C5,
-2026-09-24,Guadalupe,10,0,10,Guadalupe 10 |R2 O2 M2 I1 C3,
-2026-09-24,Bobba arriba,0,14,14,Bobba arriba 0+14 |R3 O3 M3 C3 I2,
-2026-09-24,Guzman,9,0,9,Guzman 9 |R3 O3 M3,
-2026-09-24,Ofe,10,0,10,Ofe 10 |I10,
-2026-09-24,Ramitos,13,0,13,Ramitos 13 |R3 O3 M3 C4,
-2026-09-24,Lomas San Angel,13,0,13,Lomas San Angel 13 |R3 O3 M3 C4,
-2026-09-26,CUCSH,24,16,40,CUCSH 24+16 |R11 O10 M10 I6 !3 P0: sabor no identificado,Sabores suman 37; total esperado 40. Se conserva desglose sin ajustarlo; 3 P0: sabor no identificado
-2026-09-26,Palapa,8,4,12,Palapa 8+4 |O2 M2 I1 C6,Sabores suman 11; total esperado 12. Se conserva desglose sin ajustarlo
-2026-09-26,Provi,3,9,12,Provi 3+9,Sabores no especificados
-2026-09-26,San Angel,10,2,12,San Angel 10+2 |C12,
-2026-09-26,Gota,10,4,14,Gota 10+4 |C12 O1 M1,
-2026-09-26,Mezquitan,10,2,12,Mezquitan 10+2 |C8 R1 O1 M1 I1,
-2026-09-26,Hierbas,7,3,10,Hierbas 7+3 |C6 R1 O1 M1 I1,
-2026-09-26,Capilla,10,2,12,Capilla 10+2 |R1 O1 M1 I1 C8,
-2026-09-28,FT Mapelo,30,1,31,FT Mapelo 30+1 |R5 O5 M5 I1 C15,
-2026-09-28,Doña Germen,0,0,10,Doña Germen 0 |R2 O2 M2 C4 !10 surtidos a consignación: R2 O2 M2 C4; sin cobro confirmado,10 surtidos a consignación: R2 O2 M2 C4; sin cobro confirmado
-2026-09-29,Guzman,10,0,10,Guzman 10 |M3 O3 R4,
-2026-09-29,FT Viveros,10,0,10,FT Viveros 10 |O3 M3 C4,
-2026-10-03,Boulevard Acatic,13,0,13,Boulevard Acatic 13 |R4 O4 M2 I2 C3,Sabores suman 15; total esperado 13. Se conserva desglose sin ajustarlo
-2026-10-03,Paloma,3,5,8,Paloma 3+5 |R2 O2 I2 C2,
-2026-10-03,Minisuper bosques,13,0,13,Minisuper bosques 13 |C8 O2 R2 M1,
-2026-10-05,San Lucas,11,2,13,San Lucas 11+2 |I3 R2 O2 M2 C4,
-2026-10-05,Rena,26,1,27,Rena 26+1 |C27,
-2026-10-09,Adobes,17,0,17,Adobes 17 |C9 M2 R3 O2 I1,
-2026-10-09,Mextli,9,1,10,Mextli 9+1 |M2 O2 R2 C4,
-2026-10-09,Guadalupe,13,2,15,Guadalupe 13+2 |O3 R3 I2 M2 C5,
-2026-10-09,Cristy,15,0,15,Cristy 15 |C15,
-2026-10-09,Creme,10,3,13,Creme 10+3 |O3 R3 I1 M1 C5,
-2026-10-09,Avila,13,1,14,Avila 13+1 |R3 O3 M2 I2 C6,Sabores suman 16; total esperado 14. Se conserva desglose sin ajustarlo
-2026-10-09,Helados,15,0,15,Helados 15 |O3 R3 M2 C6 I1,
-2026-10-09,Guzman,10,0,10,Guzman 10 |R4 O3 M3,
-2026-10-09,Corjesu,15,0,15,Corjesu 15 |O3 R4 C5 M2 I1,
-2026-10-09,Vecina,8,1,9,Vecina 8+1 |R2 O1 M1 I2 C3,
-2026-10-09,Bobba abajo,0,10,10,Bobba abajo 0+10 |R2 O2 M1 I1 C4,
-2026-10-10,San Mich,0,10,10,San Mich 0+10 |R2 O2 I1 M1 C4,
-2026-10-10,9 letras,0,9,9,9 letras 0+9 |C9,
-2026-10-10,Bobba arriba,20,0,20,Bobba arriba 20 |C7 O4 R4 I3 M2,
-2026-10-10,Chuyita,14,0,14,Chuyita 14 |O3 R3 M2 C4 I2,
-2026-10-10,Tonys,10,0,10,Tonys 10 |R2 O2 M1 I1 C4,
-2026-10-10,Bullgym,0,9,9,Bullgym 0+9 |C3 R1 M1 O1 I3,
-2026-10-12,CUCSH,0,31,31,CUCSH 0+31 |C16 O7 R6 M2,
-2026-10-12,Provi,0,9,9,Provi 0+9 |C9,
-2026-10-12,Palapa,10,3,13,Palapa 10+3 |R3 I2 O3 M2 C3,
-2026-10-12,Presente,15,0,15,Presente 15 |C15,
-2026-10-12,Gota,13,3,16,Gota 13+3 |C13 O1 M1 I1,
-2026-10-12,San Angel,10,0,10,San Angel 10 |C10,
-2026-10-12,Gota,8,3,11,Gota 8+3 |C11 !Dos visitas Gota mismo día; revisar si es otro cliente o corrección,Dos visitas Gota mismo día; revisar si es otro cliente o corrección
-2026-10-12,Capilla,13,2,15,Capilla 13+2 |C12 I2 O1,
-2026-10-12,Mezquitan,3,7,10,Mezquitan 3+7 |C9 O1,
-2026-10-12,Hierbas,10,1,11,Hierbas 10+1 |R9 O2 I1,Sabores suman 12; total esperado 11. Se conserva desglose sin ajustarlo
-2026-10-14,Rena,13,0,13,Rena 13 |C13,
-2026-10-14,Ofe,0,2,2,Ofe 0+2 |I2,
-2026-10-14,Bobba abajo,10,2,12,Bobba abajo 10+2 |C5 M2 O2 R2 I1,
-2026-10-14,FT Mapelo,31,0,31,FT Mapelo 31 |C17 I3 M3 O4 R4,
-2026-10-14,Jugos,8,1,9,Jugos 8+1 |C3 R2 O2 M1 I1,
-2026-10-14,FT Viveros,5,11,16,FT Viveros 5+11 |O4 R4 M2 I2 C4,
-2026-10-14,Rodriguez,2,0,2,Rodriguez 2 |M2,
-2026-10-14,FT Carmen,25,1,26,FT Carmen 25+1 |C14 R4 O4 M2 I2,
-2026-10-14,Gutierrez,8,4,12,Gutierrez 8+4 |R2 O2 I1 M1 C6,
-2026-10-14,Triangulo,13,0,13,Triangulo 13 |C7 R2 O2 I1 M1,
-2026-10-14,Frutitas,6,6,12,Frutitas 6+6 |C6 R2 O2 M1 I1,
-2026-10-14,Mextli,6,4,10,Mextli 6+4 |C4 R2 O2 M2,
-2026-10-14,Boulevard Acatic,10,0,10,Boulevard Acatic 10 |C4 I2 O2 M2,
-2026-10-14,Lomas San Angel,10,3,13,Lomas San Angel 10+3 |C7 R2 O2 I1 M1,
-2026-10-14,Ramitos,13,0,13,Ramitos 13 |C7 O2 R2 M1 I1,
-2026-10-14,Morros,4,0,4,Morros 4 |M2 C2,
-2026-10-14,San Lucas,13,0,13,San Lucas 13 |I3 R2 O2 M1 C5,
-2026-10-14,Las Kekas,5,5,10,Las Kekas 5+5 |C5 R2 O2 M1,
-2026-10-14,CMA,28,1,29,CMA 28+1 |O4 R4 M2 I5 C14,
-2026-10-17,San Lucas,13,0,13,San Lucas 13 |I3 R2 O2 M1 C5 !Posible repetición exacta del 14 octubre; pendiente confirmar,"Posible repetición exacta del 14 octubre; pendiente confirmar; Repetición omitida por indicación del propietario: no suma ingresos, cambios ni atención"
-2026-10-17,Las Kekas,5,5,10,Las Kekas 5+5 |C5 R2 O2 M1 !Posible repetición exacta del 14 octubre; pendiente confirmar,"Posible repetición exacta del 14 octubre; pendiente confirmar; Repetición omitida por indicación del propietario: no suma ingresos, cambios ni atención"
-2026-10-17,CMA,28,1,29,CMA 28+1 |O4 R4 M2 I5 C14 !Posible repetición exacta del 14 octubre; pendiente confirmar,"Posible repetición exacta del 14 octubre; pendiente confirmar; Repetición omitida por indicación del propietario: no suma ingresos, cambios ni atención"
-2026-10-19,Minisuper bosques,13,0,13,Minisuper bosques 13 |R3 O3 M2 I2 C3,
-2026-10-19,Corjesu,0,7,7,Corjesu 0+7 |C3 R1 M1 O1,Sabores suman 6; total esperado 7. Se conserva desglose sin ajustarlo
-2026-10-19,Paloma,7,0,7,Paloma 7 |R1 O2 I2 C2,
-2026-10-20,Doña Germen,13,0,13,Doña Germen 13 |C7 M2 O2 R2,
-2026-10-20,FT Carmen,26,0,26,FT Carmen 26 |C14 O4 I4 M4,
-2026-10-20,Avila,7,3,10,Avila 7+3 |R2 O2 I2 M2 C2,
-2026-10-20,Creme,0,6,6,Creme 0+6 |R2 O2 M1 I1,
+Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignación,Nota original,Revisión
+2026-01-03,Tortillas,,10,0,10,,Tortillas 10,Sabores no especificados
+2026-01-03,Creme,,7,4,11,,Creme 7+4,Sabores no especificados
+2026-01-03,Avila,,10,2,12,,Avila 10+2,Sabores no especificados
+2026-01-03,Helados Rodríguez,Nieves,10,4,14,equivalencia-confirmada,Nieves 10+4,Sabores no especificados
+2026-01-03,Jugos,,10,0,10,,Jugos 10,Sabores no especificados
+2026-01-03,Kibo,,15,0,15,,Kibo 15,Sabores no especificados
+2026-01-06,Chuyita,,7,1,8,,Chuyita 7+1 !Santa moni (chuyita),Sabores no especificados; Santa moni (chuyita)
+2026-01-06,Tonys,,7,3,10,,Tonys 7+3,Sabores no especificados
+2026-01-07,Bobba abajo,,15,0,15,,Bobba abajo 15,Sabores no especificados
+2026-01-07,Kiosko,,12,0,12,,Kiosko 12,Sabores no especificados
+2026-01-07,Bobba arriba,,17,0,17,,Bobba arriba 17,Sabores no especificados
+2026-01-07,Paloma,,6,4,10,,Paloma 6+4,Sabores no especificados
+2026-01-07,Gorditas,,6,0,6,,Gorditas 6,Sabores no especificados
+2026-01-09,Adobes,,14,2,16,,Adobes 14+2,Sabores no especificados
+2026-01-09,Abarrotes Nueve Letras,,10,2,12,,9 letras 10+2,Sabores no especificados
+2026-01-09,San Mich,,0,8,8,,San Mich 0+8,Sabores no especificados
+2026-01-12,Tortillas,,10,0,10,,Tortillas 10,Sabores no especificados
+2026-01-12,Cristy,,10,0,10,,Cristy 10,Sabores no especificados
+2026-01-12,Creme,,3,3,6,,Creme 3+3,Sabores no especificados
+2026-01-12,Avila,,10,0,10,,Avila 10,Sabores no especificados
+2026-01-12,Helados Rodríguez,,10,0,10,,Helados 10,Sabores no especificados
+2026-01-12,Triangulo,,7,1,8,,Triangulo 7+1,Sabores no especificados
+2026-01-12,Gutierrez,,10,0,10,,Gutierrez 10,Sabores no especificados
+2026-01-12,San Lucas,,13,0,13,,San Lucas 13,Sabores no especificados
+2026-01-12,Bullgym,,10,2,12,,Bullgym 10+2,Sabores no especificados
+2026-01-14,Carnes finas,,12,0,12,,Carnes finas 12,Sabores no especificados
+2026-01-14,Presente,,18,7,25,,Presente 18+7,Sabores no especificados
+2026-01-14,Palapa,,0,8,8,,Palapa 0+8,Sabores no especificados
+2026-01-14,Provi,,8,2,10,,Provi 8+2,Sabores no especificados
+2026-01-14,San Angel,,10,0,10,,San Angel 10,Sabores no especificados
+2026-01-14,Vidrio,,8,4,12,,Vidrio 8+4,Sabores no especificados
+2026-01-14,Zayda,,0,8,8,,Zayda 0+8,Sabores no especificados
+2026-01-14,Capilla,,15,0,15,,Capilla 15,Sabores no especificados
+2026-01-14,Mezquitan,,9,3,12,,Mezquitan 9+3,Sabores no especificados
+2026-01-14,Hierbas,,10,0,10,,Hierbas 10,Sabores no especificados
+2026-01-15,San Lucas,,13,0,13,,San Lucas 13,Sabores no especificados
+2026-01-15,FT Colosio,,28,0,28,,FT Colosio 28,Sabores no especificados
+2026-01-15,Helados Rodríguez,,4,0,4,,Rodriguez 4,Sabores no especificados
+2026-01-15,Bobba arriba,,10,0,10,,Bobba arriba 10,Sabores no especificados
+2026-01-17,CMA,,27,3,30,,CMA 27+3,Sabores no especificados
+2026-01-17,Tonys,,11,0,11,,Tonys 11,Sabores no especificados
+2026-01-17,FT Santa Barbara,,14,0,14,,FT Santa Barbara 14,Sabores no especificados
+2026-01-17,Frutitas,,8,0,8,,Frutitas 8,Sabores no especificados
+2026-01-17,Santa Moni,,10,0,10,,Santa Moni 10,Sabores no especificados
+2026-01-19,San Mich,,5,0,5,,San Mich 5,Sabores no especificados
+2026-01-19,Abarrotes Nueve Letras,,2,2,4,,9 letras 2+2,Sabores no especificados
+2026-01-19,Adobes,,10,0,10,,Adobes 10,Sabores no especificados
+2026-01-19,Cristy,,8,1,9,,Cristy 8+1,Sabores no especificados
+2026-01-19,Creme,,3,0,3,,Creme 3,Sabores no especificados
+2026-01-19,Avila,,5,0,5,,Avila 5,Sabores no especificados
+2026-01-19,Helados Rodríguez,,3,0,3,,Helados 3,Sabores no especificados
+2026-01-19,Tortillas,,8,0,8,,Tortillas 8,Sabores no especificados
+2026-01-21,FT Viveros,,32,0,32,,FT Viveros 32,Sabores no especificados
+2026-01-21,Gorditas,,12,0,12,,Gorditas 12,Sabores no especificados
+2026-01-21,Bobba abajo,Bobba,13,0,13,asumido-abajo,Bobba 13,Identidad del cliente por confirmar: no se fusionó con otra tienda; Sabores no especificados
+2026-01-21,Bullgym,Powerbull,3,0,3,equivalencia-confirmada,Powerbull 3,Sabores no especificados
+2026-01-21,Helados Rodríguez,,5,0,5,,Rodriguez 5,Sabores no especificados
+2026-01-27,Paloma,,3,5,8,,Paloma 3+5,Sabores no especificados
+2026-01-27,Corjesu,,20,5,25,,Corjesu 20+5,Sabores no especificados
+2026-01-27,Ofe,,10,5,15,,Ofe 10+5,Sabores no especificados
+2026-01-30,Tacos,,15,0,15,,Tacos 15,Sabores no especificados
+2026-01-30,Mezquitan,,12,0,12,,Mezquitan 12,Sabores no especificados
+2026-01-30,Capilla,,16,1,17,,Capilla 16+1,Sabores no especificados
+2026-01-30,Zayda,,5,5,10,,Zayda 5+5,Sabores no especificados
+2026-01-30,CUCSH,,33,0,33,,CUCSH 33,Sabores no especificados
+2026-01-30,Presente,,25,0,25,,Presente 25,Sabores no especificados
+2026-01-30,Palapa,,10,0,10,,Palapa 10,Sabores no especificados
+2026-01-30,Provi,,9,1,10,,Provi 9+1,Sabores no especificados
+2026-02-03,Triangulo,,14,0,14,,Triangulo 14,Sabores no especificados
+2026-02-03,Glorieta,,10,4,14,,Glorieta 10+4,Sabores no especificados
+2026-02-03,Gutierrez,,13,0,13,,Gutierrez 13,Sabores no especificados
+2026-02-05,FT Viveros,,,2,2,,FT Viveros 24+2 |R8 O8 M8 !Vendidos inferidos de 24 sabores; falta conciliar 2 cambios,24 sabores y 2 cambios; confirmar vendidos antes de cobrar; Sabores suman 24; total esperado 2. Se conserva desglose sin ajustarlo; Vendidos inferidos de 24 sabores; falta conciliar 2 cambios
+2026-02-05,San Lucas,,13,0,13,,San Lucas 13 |O3 I3 M2 R3 C2,
+2026-02-05,FT Colosio,,16,1,17,,FT Colosio 16+1 |R1 C3 M6 I4 O3,
+2026-02-05,Helados Rodríguez,,10,0,10,,Helados 10 |O4 I2 R3 M1,
+2026-02-05,Rey,,10,0,10,,Rey 10 |C10,
+2026-02-09,FT Santa Barbara,,15,1,16,,FT Santa Barbara 15+1 |M4 R4 C5 I2 O1,
+2026-02-09,Gutierrez,,0,3,3,,Gutierrez 0+3 |I3,
+2026-02-09,San Alfonso,,12,2,14,,San Alfonso 12+2 |O2 R2 M2 I2 C6,
+2026-02-09,Chuyita,,12,0,12,,Chuyita 12 |C6 M2 R2 I2,
+2026-02-09,Tonys,,15,0,15,,Tonys 15 |C9 R2 M2 I2,
+2026-02-09,Gorditas,,5,0,5,,Gorditas 5 |C5,
+2026-02-09,Paloma,,4,4,8,,Paloma 4+4 |O2 R2 I2 C2,
+2026-02-12,San Mich,,11,1,12,,San Mich 11+1 |C6 M3 O2 R1,
+2026-02-12,Abarrotes Nueve Letras,,9,3,12,,9 letras 9+3 |M3 O3 C6,
+2026-02-12,Kiosko,,12,1,13,,Kiosko 12+1 |C12,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
+2026-02-12,Bobba abajo,Bobba,15,0,15,asumido-abajo,Bobba 15 |M3 I2 R2 O2 C6,Identidad del cliente por confirmar: no se fusionó con otra tienda
+2026-02-12,Corjesu,,16,9,25,,Corjesu 16+9 |C10 O4 M5 R4 I2,
+2026-02-12,CUCSH,,39,11,50,,CUCSH 39+11 |R17 O12 I12 M5 C5,Sabores suman 51; total esperado 50. Se conserva desglose sin ajustarlo
+2026-02-12,Zayda,,5,1,6,,Zayda 5+1 |C6,
+2026-02-12,Gota,,15,0,15,,Gota 15 |C15,
+2026-02-12,San Angel,,12,0,12,,San Angel 12 |C12,
+2026-02-12,Vidrio,,8,4,12,,Vidrio 8+4 |M2 I1 R1 C8,
+2026-02-12,Capilla,,10,0,10,,Capilla 10 |M3 R3 I2 O1 C1,
+2026-02-12,Mezquitan,,6,0,6,,Mezquitan 6 |C6,
+2026-02-12,Hierbas,,5,5,10,,Hierbas 5+5 |C10,
+2026-02-12,Tacos,,12,0,12,,Tacos 12 |C12,
+2026-02-12,Gieraldine,,,0,0,,Gieraldine ? !3 corazones chicos y 1 grande; producto y precio por confirmar,Cantidad no confirmada: no genera ingreso ni última atención; 3 corazones chicos y 1 grande; producto y precio por confirmar
+2026-02-12,Dani,,90,0,90,,"Dani 90 !Surtidos; precio no anotado, tarifa ruta 23 aplicada","Sabores no especificados; Surtidos; precio no anotado, tarifa ruta 23 aplicada"
+2026-02-18,Ofe,,15,0,15,,Ofe 15 |I15,
+2026-02-18,Mcdavis,,13,1,14,,Mcdavis 13+1 |R3 O3 I3 M1 C4,
+2026-02-18,Vecina,,15,0,15,,Vecina 15 !2 por sabor y clásico; reparto incompleto,Sabores no especificados; 2 por sabor y clásico; reparto incompleto
+2026-02-19,Bobba abajo,,13,0,13,,Bobba abajo 13 |R5 O5 I3,
+2026-02-19,Creme,,10,2,12,,Creme 10+2 |R3 O2 C4 I1,Sabores suman 10; total esperado 12. Se conserva desglose sin ajustarlo
+2026-02-19,Avila,,13,0,13,,Avila 13 |B2 A2 R3 O3 C3,
+2026-02-25,Farmacia Tepa Matriz,FT Mapelo,28,0,28,equivalencia-confirmada,FT Mapelo 28 |C12 M4 R4 I4 O4,
+2026-02-25,FT Santa Barbara,,16,0,16,,FT Santa Barbara 16 |R3 I2 C6 O3 M2,
+2026-02-25,Gutierrez,,8,5,13,,Gutierrez 8+5 |C5 R3 O3 I2,
+2026-02-25,Triangulo,,13,0,13,,Triangulo 13 |M4 I4 R2 C3,
+2026-02-25,Glorieta,,7,5,12,,Glorieta 7+5 |R3 O1 I2 C6,
+2026-02-25,Santa Moni,,0,10,10,,Santa Moni 0+10 |C4 R2 I2 O2,
+2026-02-25,San Alfonso,,6,6,12,,San Alfonso 6+6 |C6 I2 M2 R2,
+2026-02-25,Tonys,,13,1,14,,Tonys 13+1 |M3 O4 C6 I1,
+2026-02-26,San Lucas,,13,0,13,,San Lucas 13 |O1 I1 M2 R1 C8,
+2026-02-26,FT Colosio,,25,0,25,,FT Colosio 25 |C15 O5 M4 I1,
+2026-02-26,CMA,,24,2,26,,CMA 24+2 |A6 B5 M4 O4 C7,
+2026-02-26,Bobba arriba,,20,0,20,,Bobba arriba 20 |C5 O5 M5 I5,
+2026-02-26,Paloma,,5,3,8,,Paloma 5+3 |I2 C2 R2 O2,
+2026-02-26,Bobba abajo,,9,1,10,,Bobba abajo 9+1 |C5 M5,
+2026-02-26,Vecina,,15,0,15,,Vecina 15 |C3 I3 M3 R3 O3,
+2026-02-27,FT Viveros,,25,0,25,,FT Viveros 25 |O6 I1 C19,Sabores suman 26; total esperado 25. Se conserva desglose sin ajustarlo
+2026-02-27,Cremeria San Antonio,,5,1,6,,Cremeria San Antonio 5+1 |C6,
+2026-02-27,Bullgym,,10,2,12,,Bullgym 10+2 |C6 M2 O2 I2,
+2026-03-02,Helados Rodríguez,,13,0,13,,Rodriguez 13 |C4 R2 I2 O3 M2,
+2026-03-02,Kibo,,10,0,10,,Kibo 10 |C2 R2 O2 I2 M2,
+2026-03-02,Guzman,,10,0,10,,Guzman 10 |M4 O3 R3,
+2026-03-04,Carnes finas,,10,0,10,,Carnes finas 10 |C10,
+2026-03-04,Presente,,25,0,25,,Presente 25 |C25,
+2026-03-04,Palapa,,10,3,13,,Palapa 10+3 |R4 O3 I1 C5,
+2026-03-04,Provi,,10,2,12,,Provi 10+2 |C12,
+2026-03-04,San Angel,,0,9,9,,San Angel 0+9 |C9,
+2026-03-04,Vidrio,,0,9,9,,Vidrio 0+9 |C9,
+2026-03-04,Gota,,0,7,7,,Gota 0+7 |C7,
+2026-03-04,Zayda,,10,0,10,,Zayda 10 |C10,
+2026-03-04,Capilla,,13,1,14,,Capilla 13+1 |R2 I2 C10,
+2026-03-04,Mezquitan,,9,3,12,,Mezquitan 9+3 |C12,
+2026-03-04,Hierbas,,0,9,9,,Hierbas 0+9 |C9,
+2026-03-06,Creme,,8,5,13,,Creme 8+5 |C6 M1 R2 I2 O2,
+2026-03-06,Avila,,11,2,13,,Avila 11+2 |C6 I2 R2 O2 M1,
+2026-03-06,Jugos,,12,0,12,,Jugos 12 |C9 O1 R1 I1,
+2026-03-06,Bobba arriba,Bobba,13,0,13,otra-sucursal-en-la-ruta,Bobba 13 |R7 C6,Identidad del cliente por confirmar: no se fusionó con otra tienda
+2026-03-06,Bobba abajo,,10,3,13,,Bobba abajo 10+3 |O3 C4 R3 I3,
+2026-03-09,Guzman,,10,0,10,,Guzman 10 |O4 R4 M2,
+2026-03-09,Helados Rodríguez,,10,0,10,,Rodriguez 10 |R4 O4 M2,
+2026-03-09,Gorditas,,5,0,5,,Gorditas 5 |C5,
+2026-03-05,Adobes,,13,3,16,,Adobes 13+3 |R3 O3 I3 M3 C5 !Cobro anotado 299,Sabores suman 17; total esperado 16. Se conserva desglose sin ajustarlo; Cobro anotado 299
+2026-03-05,Abarrotes Nueve Letras,,10,2,12,,9 letras 10+2 |C5 O2 I2 R2 M1 !Cobro anotado 230,Cobro anotado 230
+2026-03-05,San Mich,,10,2,12,,San Mich 10+2 |C5 O2 R2 I2 M1 !Cobro anotado 230,Cobro anotado 230
+2026-03-05,Corjesu,,0,11,11,,Corjesu 0+11 |O3 R3 I2 C2 M1,
+2026-03-10,San Lucas,,12,0,12,,San Lucas 12 |R2 O2 M2 I2 C4,
+2026-03-10,FT Santa Barbara,,14,1,15,,FT Santa Barbara 14+1 |R2 M2 O2 C9,
+2026-03-10,Gutierrez,,10,1,11,,Gutierrez 10+1 |C6 O3 M2,
+2026-03-10,Triangulo,,6,0,6,,Triangulo 6 |I2 O1 C3,
+2026-03-10,Glorieta,,0,0,0,,Glorieta 0,
+2026-03-11,Vecina,,10,1,11,,Vecina 10+1 |I3 R2 O2 C4,
+2026-03-11,Chuyita,,10,2,12,,Chuyita 10+2 |O3 R3 I2 C4,
+2026-03-11,Frutitas,,8,5,13,,Frutitas 8+5 |C4 O3 R4 I2,
+2026-03-11,Tonys,,13,2,15,,Tonys 13+2 |C9 O2 R2 I2,
+2026-03-11,CMA,,30,0,30,,CMA 30 |A5 B7 I6 R3 O3 C6,
+2026-03-11,Paloma,,8,0,8,,Paloma 8 |R2 O2 C2 I2,
+2026-03-14,San Mich,,4,1,5,,San Mich 4+1 |R3 I2,
+2026-03-14,Bobba abajo,,13,0,13,,Bobba abajo 13 |R4 O3 M3 I3,
+2026-03-14,Bobba arriba,,0,5,5,,Bobba arriba 0+5,Sabores no especificados
+2026-03-14,Adobes,,13,1,14,,Adobes 13+1,Sabores no especificados
+2026-03-15,Creme,,12,0,12,,Creme 12 |R2 I2 M3 O2 C5 !La nota repite M&M en dos cantidades,Sabores suman 14; total esperado 12. Se conserva desglose sin ajustarlo; La nota repite M&M en dos cantidades
+2026-03-15,Avila,,10,2,12,,Avila 10+2 |R3 O2 I2 C5,
+2026-03-15,Jugos,,8,0,8,,Jugos 8 |C4 M1 R1 O1 I1,
+2026-03-18,Bullgym,,13,0,13,,Bullgym 13 |C5 R2 O2 M2 I2,
+2026-03-18,Kibo,,6,4,10,,Kibo 6+4 |M1 I1 C2 O3 R3,
+2026-03-19,FT Viveros,,30,1,31,,FT Viveros 30+1 |R4 O4 I5 M2 C16,
+2026-03-19,CUCSH,,30,0,30,,CUCSH 30 |O5 R7 M5 I6 C7,
+2026-03-19,Presente,,25,0,25,,Presente 25 |C25,
+2026-03-19,Palapa,,13,0,13,,Palapa 13 |R3 I2 O3 M2 C3,
+2026-03-19,Provi,,0,10,10,,Provi 0+10 |C10,
+2026-03-19,San Angel,,8,2,10,,San Angel 8+2 |C10,
+2026-03-19,Vidrio,,6,4,10,,Vidrio 6+4 |C6 R2 O1 I1,
+2026-03-19,Gota,,13,1,14,,Gota 13+1 |C10 R1 O1 I1 M1,
+2026-03-19,Zayda,,7,3,10,,Zayda 7+3 |C10,
+2026-03-19,Capilla,,12,2,14,,Capilla 12+2 |C6 O2 R2 I2 M2,
+2026-03-19,Mezquitan,,10,3,13,,Mezquitan 10+3 |C13,
+2026-03-19,Hierbas,,0,7,7,,Hierbas 0+7 |C7,
+2026-03-19,Tacos,,15,0,15,,Tacos 15 |C15,
+2026-03-25,CMA,,9,0,9,,CMA 9 |R2 O2 M2 C2 A1,
+2026-03-25,San Mich,,13,0,13,,San Mich 13 |C5 I2 R2 O2 M2 !Total inferido de sabores,Total inferido de sabores
+2026-03-25,Abarrotes Nueve Letras,,10,1,11,,9 letras 10+1 |R2 O2 M1 A1 C5 !Total vendido inferido de 11 entregados menos 1 cambio,Total vendido inferido de 11 entregados menos 1 cambio
+2026-03-25,Adobes,,13,0,13,,Adobes 13 |R4 O4 M2 I2 C1,
+2026-03-25,Helados Rodríguez,,10,0,10,,Rodriguez 10 |O5 R3 I2,
+2026-03-26,Vecina,,15,0,15,,Vecina 15 |C8 O3 M1 I3,
+2026-03-26,Bobba abajo,,13,1,14,,Bobba abajo 13+1 |C5 M2 R2 O2 I3,
+2026-03-26,Jugos,,4,0,4,,Jugos 4 |M2 O1 I1,
+2026-03-26,FT Colosio,,28,0,28,,FT Colosio 28 !Desglose truncado: (6,Sabores no especificados; Desglose truncado: (6
+2026-03-26,Guzman,,8,1,9,,Guzman 8+1 |R3 O3 M3,
+2026-03-26,Rey,,5,0,5,,Rey 5 |C5,
+2026-03-30,Cristy,,14,0,14,,Cristy 14 |C14,
+2026-03-30,Creme,,13,1,14,,Creme 13+1 |C6 R4 I2 O1 M1,
+2026-03-30,Avila,,10,1,11,,Avila 10+1 |C7 M1 I2 O1,
+2026-03-30,Farmacia Tepa Matriz,FT Mapelo,30,0,30,equivalencia-confirmada,FT Mapelo 30 |C15 O4 M3 I4 R4,
+2026-03-30,Corjesu,,20,3,23,,Corjesu 20+3 |R3 O3 M2 I3 C12,
+2026-03-30,Triangulo,,10,2,12,,Triangulo 10+2 |I2 R2 O2 M1 C5,
+2026-03-30,Glorieta,,0,11,11,,Glorieta 0+11 |O3 R3 C2 M1 I2,
+2026-03-30,FT Santa Barbara,,15,0,15,,FT Santa Barbara 15 |R3 O3 M2 I2 C5,
+2026-03-30,Gutierrez,,10,2,12,,Gutierrez 10+2 |C4 I2 O2 R2 M2,
+2026-03-30,Brenda,,1,0,1,,Brenda 1 |M1,
+2026-03-31,Paloma,,5,3,8,,Paloma 5+3 |I3 R2 C2 O1,
+2026-03-31,Tonys,,15,0,15,,Tonys 15 |M2 O3 I2 R3 C5,
+2026-03-31,Chuyita,,12,0,12,,Chuyita 12 |R2 M1 I1 O2 C6,
+2026-03-31,Frutitas,,6,6,12,,Frutitas 6+6 |C6 M3 I3,
+2026-03-31,Cremeria San Antonio,,4,1,5,,Cremeria San Antonio 4+1 |M1 O1 I1 R1 C1,
+2026-04-02,Provi,,7,5,12,,Provi 7+5,Sabores no especificados
+2026-04-02,Palapa,,5,4,9,,Palapa 5+4,Sabores no especificados
+2026-04-02,Vidrio,,0,2,2,,Vidrio 0+2,Sabores no especificados
+2026-04-02,Gota,,5,9,14,,Gota 5+9 |C8 O2 R2 M2,
+2026-04-02,Capilla,,14,0,14,,Capilla 14 |C6 R2 O2 I2 M2,
+2026-04-06,Helados Rodríguez,,15,0,15,,Rodriguez 15 |C4 M2 R2 O5 I2 !Total inferido de sabores; Rodriuez en original,Total inferido de sabores; Rodriuez en original
+2026-04-06,Jugos,,9,1,10,,Jugos 9+1 |C6 R2 O2,
+2026-04-06,Creme,,6,0,6,,Creme 6 |O3 M2 I1,
+2026-04-06,San Lucas,,13,0,13,,San Lucas 13 |C4 I3 M2 O2 R2,
+2026-04-06,FT Colosio,,29,0,29,,FT Colosio 29 |O8 M7 R5 I3 C4,Sabores suman 27; total esperado 29. Se conserva desglose sin ajustarlo
+2026-04-06,San Mich,,0,7,7,,San Mich 0+7 |R2 M2 O2 C1,
+2026-04-06,Abarrotes Nueve Letras,,13,0,13,,9 letras 13 |C5 R4 M4,
+2026-04-08,UNID,,2,0,2,,UNID 2 |B2,
+2026-04-08,Adobes,,13,0,13,,Adobes 13 |O1 R4 M4 C4,
+2026-04-08,Glorieta,,7,0,7,,Glorieta 7 |C6 M1,
+2026-04-08,FT Santa Barbara,,9,0,9,,FT Santa Barbara 9 |R3 O3 I3,
+2026-04-08,Gutierrez,,7,0,7,,Gutierrez 7 |R3 O2 I2,
+2026-04-10,Chuyita,,7,0,7,,Chuyita 7 |M2 R3 I2,
+2026-04-10,Frutitas,,3,0,3,,Frutitas 3 |O2 R1,
+2026-04-10,Tonys,,0,2,2,,Tonys 0+2 |C2,
+2026-04-10,Bobba abajo,Bobba,0,6,6,asumido-abajo,Bobba 0+6 |C6,Identidad del cliente por confirmar: no se fusionó con otra tienda
+2026-04-10,CMA,,17,6,23,,CMA 17+6 |C9 I3 R2 O3 A2 B3,Sabores suman 22; total esperado 23. Se conserva desglose sin ajustarlo
+2026-04-10,Ofe,,10,0,10,,Ofe 10 |I10,
+2026-04-10,Bullgym,,10,0,10,,Bullgym 10 |R2 M2 O3 C3,
+2026-04-13,Las Kekas,,14,0,15,,Las Kekas 14 |C4 O3 R3 M3 I2 !1 muestra adicional; entregados 15,1 muestra adicional; entregados 15
+2026-04-14,Farmacia Tepa Matriz,FT Mapelo,30,0,30,equivalencia-confirmada,FT Mapelo 30 |M5 C10 R5 I4 O6,
+2026-04-14,San Mich,,6,4,10,,San Mich 6+4 |C4 O2 I1 M1 !Red velvet sin cantidad,Sabores suman 8; total esperado 10. Se conserva desglose sin ajustarlo; Red velvet sin cantidad
+2026-04-14,Helamexti,Nieves JP,0,0,12,equivalencia-confirmada,"Nieves JP 0 |C3 R3 O3 I1 M2 !12 a consignación, sin cobro confirmado; C3 R3 O3 I1 M2","12 a consignación, sin cobro confirmado; C3 R3 O3 I1 M2"
+2026-04-14,Tacos,,15,0,15,,Tacos 15 |C15,
+2026-04-14,Capilla,,13,1,14,,Capilla 13+1 |M3 O3 R3 I1 C4,
+2026-04-14,Zayda,,2,1,3,,Zayda 2+1 |O1 R1 M1,
+2026-04-14,Gota,,15,0,15,,Gota 15 |C7 R2 O2 M2 I2,
+2026-04-14,CUCSH,,38,2,40,,CUCSH 38+2 |R12 O8 I6 C12 M2,
+2026-04-14,Vico,,10,0,10,,Vico 10 |R4 M3 O3,
+2026-04-14,Provi,,0,11,11,,Provi 0+11 |C11 !Se pegó poster en tienda,Se pegó poster en tienda
+2026-04-14,Palapa,,0,4,4,,Palapa 0+4 |C2 O2,
+2026-04-14,Presente,,25,0,25,,Presente 25 |C25,
+2026-04-14,San Angel,,8,2,10,,San Angel 8+2 |C10,
+2026-04-14,Vidrio,,8,0,8,,Vidrio 8 |C8,
+2026-04-17,Tortillas,,10,0,10,,Tortillas 10 |R4 O3 M3,
+2026-04-17,FT Viveros,,12,14,26,,FT Viveros 12+14 |R11 M5 O4 C4 I2,
+2026-04-17,San Lucas,,11,1,12,,San Lucas 11+1 |C3 I3 R2 M2 O2,
+2026-04-17,Adobes,,10,5,15,,Adobes 10+5 |C5 O4 M2 I2 R2 !El original dice 10 y 5 sin repetir cambios,El original dice 10 y 5 sin repetir cambios
+2026-04-17,Abarrotes Nueve Letras,,5,0,5,,9 letras 5 |C5,
+2026-04-17,Bobba abajo,Bobba,20,2,22,asumido-abajo,Bobba 20+2 |C10 R4 O4 M2 I2,Identidad del cliente por confirmar: no se fusionó con otra tienda
+2026-04-17,Creme,,9,5,14,,Creme 9+5 |O2 M1 R2 I2 C7,
+2026-04-20,Farmacia Tepa Matriz,FT Mapelo,10,0,10,equivalencia-confirmada,FT Mapelo 10 |R2 M3 I4 C1,
+2026-04-20,FT Colosio,,30,0,30,,FT Colosio 30 |O12 R6 C10 M2,
+2026-04-20,Triangulo,,8,4,12,,Triangulo 8+4 |R2 O2 M2 C6,
+2026-04-20,Glorieta,,0,6,6,,Glorieta 0+6 !SHUTDOWN; retirada,Sabores no especificados; SHUTDOWN; retirada
+2026-04-20,FT Santa Barbara,,10,4,14,,FT Santa Barbara 10+4 |R2 M2 O2 I1 C7,
+2026-04-20,Gutierrez,,5,6,11,,Gutierrez 5+6 |C7 O2 I1 !q red: cantidad ilegible,Sabores suman 10; total esperado 11. Se conserva desglose sin ajustarlo; q red: cantidad ilegible
+2026-04-21,Frutitas,,5,7,12,,Frutitas 5+7 |I2 R2 O2 M1 C5,
+2026-04-21,Chuyita,,9,3,12,,Chuyita 9+3 |C5 I2 O4 M1,
+2026-04-21,Tonys,,12,3,15,,Tonys 12+3 |C4 I3 R2 M2 O4,
+2026-04-21,Cremeria San Antonio,,3,2,5,,Cremeria San Antonio 3+2 |R2 O2 C1,
+2026-04-21,Las Kekas,,0,8,8,,Las Kekas 0+8 |C8 !Circuito JP II,Circuito JP II
+2026-04-21,Ofe,,10,0,10,,Ofe 10 |I10,
+2026-04-23,Vecina,,15,0,15,,Vecina 15 |M3 O2 I3 C7,
+2026-04-23,Vecina centro,,15,0,15,,Vecina centro 15 |M3 O2 I3 C7,
+2026-04-23,Corjesu,,25,4,29,,Corjesu 25+4 |R8 O6 M5 C10,
+2026-04-23,Helamexti,,12,0,12,,Mextli 12 |M3 O3 R3 I1 C2,
+2026-04-23,Guadalupe,,10,1,11,,Guadalupe 10+1 |R2 O2 I2 C5,
+2026-04-24,Helados Rodríguez,,15,0,15,,Rodriguez 15 |C10 R2 M2,Sabores suman 14; total esperado 15. Se conserva desglose sin ajustarlo
+2026-04-24,Jugos,,8,4,12,,Jugos 8+4 |R1 O1 I1 M1 C8,
+2026-04-24,Tortillas,,0,0,0,,Tortillas 0,
+2026-04-24,Bobba abajo,,25,0,25,,Bobba abajo 25 |R4 O4 M4 C4,Sabores suman 16; total esperado 25. Se conserva desglose sin ajustarlo
+2026-04-24,Bobba arriba,,,0,0,,Bobba arriba ? !Nombre sin cantidades,Cantidad no confirmada: no genera ingreso ni última atención; Nombre sin cantidades
+2026-04-24,Tremendo (Victor),,,0,0,,Tremendo (Victor) ?,Cantidad no confirmada: no genera ingreso ni última atención
+2026-04-24,Tienda espíritu santo,,,0,0,,Tienda espíritu santo ?,Cantidad no confirmada: no genera ingreso ni última atención
+2026-04-24,Abarrotes Nueve Letras,,,0,0,,9 letras ?,Cantidad no confirmada: no genera ingreso ni última atención
+2026-04-24,Cristy,,0,0,0,,Cristy 0,
+2026-04-24,Creme,,0,0,0,,Creme 0,
+2026-04-24,Avila,,7,6,13,,Avila 7+6 |C5 M2 R2 O2 I1,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
+2026-04-24,Kiosko,,15,0,15,,Kiosko 15 |C15,
+2026-04-27,Tacos,,15,0,15,,Tacos 15 !Cande,Sabores no especificados; Cande
+2026-04-27,Capilla,,13,0,13,,Capilla 13 |O3 R3 M3 I3,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
+2026-04-27,Zayda,,0,8,8,,Zayda 0+8 |C8,
+2026-04-27,Gota,,4,10,14,,Gota 4+10 |C9 O2 R2 M1,
+2026-04-27,Vidrio,,8,2,10,,Vidrio 8+2 |C7 M1 R1 O1,
+2026-04-27,CUCSH,,30,8,38,,CUCSH 30+8 |M20 R14 O8 C6 !Se repite 10 M&M en la nota; no se corrige sin confirmar,Sabores suman 48; total esperado 38. Se conserva desglose sin ajustarlo; Se repite 10 M&M en la nota; no se corrige sin confirmar
+2026-04-27,Provi,,0,8,8,,Provi 0+8 |C8,
+2026-04-27,Palapa,,13,0,13,,Palapa 13 |M4 R4 C4 O1,
+2026-05-01,Guzman,,7,1,8,,Guzman 7+1 |R3 O3 M2,
+2026-05-01,Creme,,4,8,12,,Creme 4+8 |C7 R2 O2 I1,
+2026-05-01,Avila,,6,0,6,,Avila 6 |R3 O3,
+2026-05-01,Bullgym,,10,3,13,,Bullgym 10+3 |C8 M1 R1 O1 I2,
+2026-05-01,Kibo,,13,0,13,,Kibo 13 |C5 R2 O2 I2 M2,
+2026-05-01,San Mich,,7,5,12,,San Mich 7+5 |C4 M2 R2 O2 I2,
+2026-05-01,Abarrotes Nueve Letras,,9,6,15,,9 letras 9+6 |C12 O2 I1,
+2026-05-01,Adobes,,11,2,13,,Adobes 11+2 |C6 I2 O1 R2 M2,
+2026-05-01,Bobba arriba,,15,0,15,,Bobba arriba 15 |M6 I5 R4,
+2026-05-01,Bobba abajo,,15,0,15,,Bobba abajo 15 |O2 M4 R3 I2 C4,
+2026-05-04,Farmacia Tepa Matriz,FT Mapelo,26,3,29,equivalencia-confirmada,FT Mapelo 26+3 |I14 R5 O8 M2 !7 intenso repetido en original,7 intenso repetido en original
+2026-05-04,Paloma,,3,1,4,,Paloma 3+1 |I2 C2,
+2026-05-04,Las Kekas,,12,0,12,,Las Kekas 12 |C4 R3 O3 M1 I1,
+2026-05-06,CUCSH,,10,4,14,,CUCSH 10+4 |O2 C2 I10,
+2026-05-06,Palapa,,0,2,2,,Palapa 0+2 |O2,
+2026-05-06,Presente,,10,0,10,,Presente 10 |C10,
+2026-05-06,Provi,,5,1,6,,Provi 5+1 |C6,
+2026-05-06,Hierbas,,10,1,11,,Hierbas 10+1 |C6 I3 R1 M1,
+2026-05-06,Mezquitan,,4,0,4,,Mezquitan 4 |C4,
+2026-05-06,Tacos,,10,0,10,,Tacos 10 |C10,
+2026-05-06,Capilla,,7,0,7,,Capilla 7 |C5 I2,
+2026-05-06,San Angel,,10,1,11,,San Angel 10+1 |C11,
+2026-05-06,Vidrio,,6,0,6,,Vidrio 6 |C2 R1 O1 M1 I1,
+2026-05-06,Gota,,15,0,15,,Gota 15 |R2 M1 C12,
+2026-05-08,San Lucas,,13,0,13,,San Lucas 13 |C7 R2 O2 M2,
+2026-05-08,FT Colosio,,29,0,29,,FT Colosio 29 |C11 M4 R6 O8,
+2026-05-11,FT Santa Barbara,,16,0,16,,FT Santa Barbara 16 |R4 O4 C7,Sabores suman 15; total esperado 16. Se conserva desglose sin ajustarlo
+2026-05-11,Gutierrez,,6,6,12,,Gutierrez 6+6 |R3 O3 C6,
+2026-05-11,Triangulo,,13,1,14,,Triangulo 13+1 |R4 O4 C5 I1,
+2026-05-11,Corjesu,,8,12,20,,Corjesu 8+12 |R3 O3 I1 C13,
+2026-05-11,Vecina,,10,3,13,,Vecina 10+3 |R2 I2 O2 M1 C6,
+2026-05-11,Helados Rodríguez,,13,0,13,,Rodriguez 13 |O3 R2 M2 C6,
+2026-05-12,Adobes,,13,0,13,,Adobes 13 |R3 O3 I2 M1 C4,
+2026-05-12,Guadalupe,,10,2,12,,Guadalupe 10+2 |C4 R4 M2 O2,
+2026-05-12,Cristy,,14,0,14,,Cristy 14 |C14,
+2026-05-12,Creme,,10,0,10,,Creme 10 |O2 C8,
+2026-05-15,Bobba arriba,,20,1,21,,Bobba arriba 20+1 |O7 R6 M2 I2 C4,
+2026-05-15,Avila,,10,3,13,,Avila 10+3 |C6 I2 O2 R2 M1,
+2026-05-15,FT Viveros,,18,9,27,,FT Viveros 18+9 |C5 O8 R8 I8,Sabores suman 29; total esperado 27. Se conserva desglose sin ajustarlo
+2026-05-15,Chuyita,,12,0,12,,Chuyita 12 |R2 O2 I2 M2 C4,
+2026-05-15,Frutitas,,10,3,13,,"Frutitas 10+3 |O3 I3 M3 C4 !Original: 10 y 3 clásicos; cambio inferido, revisar","Original: 10 y 3 clásicos; cambio inferido, revisar"
+2026-05-18,Las Kekas,,0,7,7,,Las Kekas 0+7 |C4 O1 R1 M1,
+2026-05-18,Corjesu,,8,1,9,,Corjesu 8+1 |O3 R4 M2,
+2026-05-18,Vecina,,10,1,11,,Vecina 10+1 |R4 I4 O3,
+2026-05-20,Farmacia Tepa Matriz,FT Mapelo,26,5,31,equivalencia-confirmada,FT Mapelo 26+5 |C16 R5 M2 I3 O5,
+2026-05-20,Bobba abajo,,5,13,18,,Bobba abajo 5+13 |M3 R4 O4 I3 C4,
+2026-05-20,FT Colosio,,26,1,27,,FT Colosio 26+1 |R4 O4 I6 C14 !Intenso se repite en original,Sabores suman 28; total esperado 27. Se conserva desglose sin ajustarlo; Intenso se repite en original
+2026-05-23,Presente,,15,0,15,,Presente 15,Sabores no especificados
+2026-05-23,Palapa,,10,4,14,,Palapa 10+4 |C10 I2 R1 O1,
+2026-05-23,Provi,,11,3,14,,Provi 11+3 |C14,
+2026-05-23,Zayda,,8,2,10,,Zayda 8+2 |C10,
+2026-05-23,Gota,,0,10,10,,Gota 0+10 |C10,
+2026-05-23,Capilla,,13,1,14,,Capilla 13+1 |C10 O2 R1 I1,
+2026-05-23,Tacos,,10,4,14,,Tacos 10+4,Sabores no especificados
+2026-05-22,Gutierrez,,0,6,6,,Gutierrez 0+6 |C6,
+2026-05-22,Triangulo,,6,6,12,,Triangulo 6+6 |O2 R2 I2 M1 C5,
+2026-05-22,Frutitas,,2,0,2,,Frutitas 2 |R2,
+2026-05-22,Chuyita,,8,0,8,,Chuyita 8 |C8,
+2026-05-23,Jugos,,12,0,12,,Jugos 12 |C7 O2 R2 I1,
+2026-05-23,Guzman,,10,0,10,,Guzman 10 |R4 M4 O2,
+2026-05-23,Helados Rodríguez,,15,0,15,,Rodriguez 15 |O5 R2 M1 I1 C6,
+2026-05-23,Creme,,0,0,0,,Creme 0,
+2026-05-23,Avila,,0,0,0,,Avila 0,
+2026-05-23,Cristy,,0,2,2,,Cristy 0+2 !Me quedé con su caja,Sabores no especificados; Me quedé con su caja
+2026-05-23,Kibo,,7,5,12,,Kibo 7+5 |R3 O3 C5 I1,
+2026-05-23,Abarrotes Nueve Letras,,0,9,9,,9 letras 0+9 |R1 O2 I1 C5,
+2026-05-23,San Mich,,0,7,7,,San Mich 0+7 |R1 O1 C5,
+2026-05-25,Helamexti,,13,0,13,,Mextli 13 |C5 M3 O3 R1 I1,
+2026-05-25,Guadalupe,,13,1,14,,Guadalupe 13+1 |R2 O2 I2 M1 C6,Sabores suman 13; total esperado 14. Se conserva desglose sin ajustarlo
+2026-05-25,Cristy,,13,0,13,,Cristy 13 |C13,
+2026-05-25,Adobes,,5,10,15,,Adobes 5+10 |I2 M2 O3 R3 C5,
+2026-05-25,Paloma,,6,2,8,,Paloma 6+2 |O2 R2 I2 C2,
+2026-05-25,Corjesu,,0,8,8,,Corjesu 0+8 |R2 I3 C1 M2,
+2026-05-27,Ofe,,14,0,14,,Ofe 14 |I14,
+2026-05-27,Capilla,,7,0,7,,Capilla 7 |O3 I2 M2,
+2026-05-27,Mezquitan,,9,0,9,,Mezquitan 9 |C9,
+2026-05-27,Hierbas,,6,4,10,,Hierbas 6+4 |R1 O1 C8,
+2026-05-27,Tacos,,15,0,15,,Tacos 15 |C15,
+2026-05-27,Vidrio,,10,1,11,,Vidrio 10+1 |C10 R1,
+2026-05-27,San Angel,,7,3,10,,San Angel 7+3,Sabores no especificados
+2026-06-01,Corjesu,,0,5,5,,Corjesu 0+5 |C2 R1 M1 O1,
+2026-06-01,Vecina,,9,5,14,,Vecina 9+5 |I2 R3 O5 C4,
+2026-06-01,Tonys,,8,4,12,,Tonys 8+4 |C6 R2 O3 M1,
+2026-06-02,Creme,,10,2,12,,Creme 10+2 |C4 R1 M2 O3 I2,
+2026-06-02,Avila,,8,4,12,,Avila 8+4 |C6 O2 I2 M1 R1,
+2026-06-02,Jugos,,8,3,11,,Jugos 8+3 |O2 R2 M1 I1 C6,Sabores suman 12; total esperado 11. Se conserva desglose sin ajustarlo
+2026-06-02,Tortillas,,10,0,10,,Tortillas 10 |R5 M4 O1,
+2026-06-02,Helados Rodríguez,,9,1,10,,Rodriguez 9+1 |R1 C6 M2 I1,
+2026-06-02,Bullgym,,13,0,13,,Bullgym 13 |I4 R2 C7,
+2026-06-05,Adobes,,13,2,15,,Adobes 13+2 |C5 M3 O3 R4,
+2026-06-05,CMA,,28,1,29,,CMA 28+1 |C14 M6 R2 O7,
+2026-06-05,Bobba arriba,,0,12,12,,Bobba arriba 0+12 |C7 O2 R2 M1,
+2026-06-05,Corjesu,,6,0,6,,Corjesu 6 |O4 M2,
+2026-06-05,Bobba abajo,,10,3,13,,Bobba abajo 10+3 |C7 O3 R2 M1,
+2026-06-05,Las Kekas,,8,1,9,,Las Kekas 8+1 |C9,
+2026-06-05,San Mich,,0,7,7,,San Mich 0+7 |C7 !Don Memo San Mich,Don Memo San Mich
+2026-06-08,FT Colosio,,9,17,26,,FT Colosio 9+17,Sabores no especificados
+2026-06-08,Farmacia Tepa Matriz,FT Mapelo,21,5,26,equivalencia-confirmada,FT Mapelo 21+5 |R4 O4 I4 M2 C12,
+2026-06-08,Paloma,,3,5,8,,Paloma 3+5 |O2 I2 R2 C2,
+2026-06-08,Guadalupe,,13,1,14,,Guadalupe 13+1 |O2 R2 M1 I2 C7,
+2026-06-09,Chuyita,,7,5,12,,Chuyita 7+5 |R2 O2 M1 I2 C5,
+2026-06-09,Frutitas,,8,5,13,,Frutitas 8+5 |C8 R2 M1 I2,
+2026-06-09,Helamexti,,8,2,10,,Mextli 8+2 |C5 M1 R2 O2,
+2026-06-09,Ofe,,12,0,12,,Ofe 12 |I12 !Sportfit,Sportfit
+2026-06-09,Cremeria San Antonio,,2,3,5,,Cremeria San Antonio 2+3 |R2 I1 M1 C1,
+2026-06-10,FT Santa Barbara,,15,0,15,,FT Santa Barbara 15 |O1 I2 R1 M2 C9,
+2026-06-10,Gutierrez,,8,4,12,,Gutierrez 8+4 |C8 R1 O1 I1 M1,
+2026-06-10,Glorieta,,6,3,9,,Glorieta 6+3 |C7 I1 M1,
+2026-06-10,FT Viveros,,9,6,15,,FT Viveros 9+6 |C13 M1 I1,
+2026-06-10,Kiosko,,10,2,12,,Kiosko 10+2 |C12,
+2026-06-10,Kibo,,8,4,12,,Kibo 8+4,Sabores no especificados
+2026-06-10,Bullgym,,10,2,12,,Bullgym 10+2,Sabores no especificados
+2026-06-13,Provi,,8,4,12,,Provi 8+4 |C12,
+2026-06-13,Palapa,,13,0,13,,Palapa 13 |R3 O3 M2 I1 C4,
+2026-06-13,San Angel,,6,4,10,,San Angel 6+4 |C10,
+2026-06-13,Vidrio,,10,2,12,,Vidrio 10+2 |C8 R1 O1 M1 I1,
+2026-06-13,Gota,,9,6,15,,Gota 9+6 |C15,
+2026-06-13,Capilla,,10,5,15,,Capilla 10+5 |C7 O2 R3 I2 M1,
+2026-06-16,Corjesu,,0,3,3,,Corjesu 0+3 |R3,
+2026-06-16,Vecina,,14,0,14,,Vecina 14 |C7 R2 I2 O2 M1,
+2026-06-16,Guzman,,7,2,9,,Guzman 7+2 |R3 O3 M3,
+2026-06-16,Creme,,0,12,12,,Creme 0+12 |M1 I2 R2 O2 C5,
+2026-06-16,Avila,,8,4,12,,Avila 8+4 |C6 M2 R2 O2 I1,Sabores suman 13; total esperado 12. Se conserva desglose sin ajustarlo
+2026-06-16,Helados Rodríguez,,10,4,14,,Rodriguez 10+4 |O3 R3 M1 I2 C5,
+2026-06-16,Jugos,,0,7,7,,Jugos 0+7 |C7,
+2026-06-17,San Mich,,10,2,12,,San Mich 10+2 |I2 R2 O2 M1 C5,
+2026-06-17,Abarrotes Nueve Letras,,13,1,14,,9 letras 13+1 |C6 O2 I2 R3 M1,
+2026-06-17,Adobes,,16,0,16,,Adobes 16 |C7 R3 O2 M2 I2,
+2026-06-17,Helamexti,,3,1,4,,Mextli 3+1 |R2 I1 C1,
+2026-06-17,Bobba arriba,,0,9,9,,Bobba arriba 0+9 |R2 I2 O3 M1 C1,
+2026-06-17,Bullgym,,3,7,10,,Bullgym 3+7 |C4 O2 I1 R2 M1,
+2026-06-17,Paloma,,8,0,8,,Paloma 8 |R2 O2 C2 I2,
+2026-06-18,San Lucas,,13,0,13,,San Lucas 13 |I3 M1 R2 O2 C5,
+2026-06-18,FT Colosio,,18,11,29,,FT Colosio 18+11 |O12 R4 C10 M1 I1,Sabores suman 28; total esperado 29. Se conserva desglose sin ajustarlo
+2026-06-18,Las Kekas,,5,5,10,,Las Kekas 5+5 |C8 O1 R1,
+2026-06-19,Corjesu,,5,3,8,,Corjesu 5+3 |O2 M1 R2 C4 I1,Sabores suman 10; total esperado 8. Se conserva desglose sin ajustarlo
+2026-06-19,Triangulo,,0,1,1,,Triangulo 0+1 |R1,
+2026-06-19,FT Santa Barbara,,13,0,13,,FT Santa Barbara 13 |R3 O3 C4 I3,
+2026-06-19,Gutierrez,,6,1,7,,Gutierrez 6+1 |R3 O2 M1 I1,
+2026-06-19,Frutitas,,0,3,3,,Frutitas 0+3 |O2 M1,
+2026-06-19,Chuyita,,8,0,8,,Chuyita 8 |O3 M2 C3,
+2026-06-19,Tonys,,10,2,12,,Tonys 10+2 |O3 I2 R3 M2 C1,Sabores suman 11; total esperado 12. Se conserva desglose sin ajustarlo
+2026-06-22,Creme,,0,0,0,,Creme 0,
+2026-06-22,Avila,,8,0,8,,Avila 8 |R3 O3 M2,
+2026-06-22,Helados Rodríguez,,13,0,13,,Rodriguez 13 |O3 R3 M2 C5,
+2026-06-22,Guzman,,5,0,5,,Guzman 5 |R5,
+2026-06-22,Jugos,,6,0,6,,Jugos 6 |C3 O1 R1 M1,
+2026-06-23,San Mich,,0,0,0,,San Mich 0,
+2026-06-23,Abarrotes Nueve Letras,,0,0,0,,9 letras 0,
+2026-06-23,Adobes,,10,1,11,,Adobes 10+1 |R4 C3 O2 M2,
+2026-06-23,Bobba arriba,,20,0,20,,Bobba arriba 20 |M5 R2 O2 I3 C8,
+2026-06-24,Helamexti,,8,0,8,,Mextli 8 |C4 O3 I1,
+2026-06-24,Guadalupe,,0,9,9,,Guadalupe 0+9 |C4 M2 I1 R2,
+2026-06-24,Farmacia Tepa Matriz,FT Mapelo,27,3,30,equivalencia-confirmada,FT Mapelo 27+3 |R4 O4 M3 I2 !17 surtidos adicionales sin desglose,Sabores suman 13; total esperado 30. Se conserva desglose sin ajustarlo; 17 surtidos adicionales sin desglose
+2026-06-24,CMA,,25,0,25,,CMA 25 |C5 I3 M2 O3 R3 B5 A4,
+2026-06-25,Minisuper,,5,7,12,,"Minisuper 5+7 |C12 !Cliente sin nombre específico, revisar identidad","Identidad del cliente por confirmar: no se fusionó con otra tienda; Cliente sin nombre específico, revisar identidad"
+2026-06-25,Presente,,20,0,20,,Presente 20 |C20,
+2026-06-25,Palapa,,5,0,5,,Palapa 5 |R2 O2 M1,
+2026-06-25,Vidrio,,0,5,5,,Vidrio 0+5 |R2 O1 C2,
+2026-06-25,Gota,,5,11,16,,Gota 5+11 |R2 O2 M1 C10,Sabores suman 15; total esperado 16. Se conserva desglose sin ajustarlo
+2026-06-25,Gota,,10,5,15,,"Gota 10+5 |C6 I2 M3 O3 R1 !Dos renglones Agua el mismo día: conservados, revisar si es corrección","Dos renglones Agua el mismo día: conservados, revisar si es corrección"
+2026-06-25,Capilla,,10,4,14,,Capilla 10+4 |C6 I2 M2 O3 R1,
+2026-06-25,Mezquitan,,13,1,14,,Mezquitan 13+1 |C14,
+2026-06-25,Hierbas,,6,4,10,,Hierbas 6+4 |C7 M1 O1 I1,
+2026-06-27,Kibo,,0,7,7,,Kibo 0+7 |R2 O2 M1 C2,
+2026-06-27,Vecina,,,0,0,,Vecina ? !Cerrado al visitar; no implica baja permanente,Cantidad no confirmada: no genera ingreso ni última atención; Cerrado al visitar; no implica baja permanente
+2026-06-27,Bullgym,,6,3,9,,Bullgym 6+3 |C4 M1 O1 R1 I1,Sabores suman 8; total esperado 9. Se conserva desglose sin ajustarlo
+2026-06-27,Bobba abajo,,13,3,16,,Bobba abajo 13+3 |R3 O3 M2 I2 C6,
+2026-06-27,Corjesu,,9,0,9,,Corjesu 9 |R1 I1 M2 O3 C2,
+2026-06-27,Bullgym,,5,4,9,,Bullgym 5+4 |O3 M2 I1 C2 R1 !Segundo renglón Bullgym mismo día; verificar,Segundo renglón Bullgym mismo día; verificar
+2026-06-29,Creme,,5,7,12,,Creme 5+7 |C5 M2 R2 O2 I1,
+2026-06-29,Avila,,0,2,2,,Avila 0+2 |C2,
+2026-06-29,Cristy,,13,1,14,,Cristy 13+1 |C14,
+2026-06-29,Vecina,,0,9,9,,Vecina 0+9 |O2 R2 I1 M1 C3,
+2026-06-30,Jugos,,7,0,7,,Jugos 7 |C4 O1 I1 M1,
+2026-06-30,Guzman,,7,0,7,,Guzman 7 |O3 R4 M1,Sabores suman 8; total esperado 7. Se conserva desglose sin ajustarlo
+2026-06-30,Helados Rodríguez,,13,0,13,,Rodriguez 13 |O2 R1 M1 C9,
+2026-06-30,Elian,,15,0,15,,Elian 15 |C15,
+2026-07-01,San Mich,,0,9,9,,San Mich 0+9 |C5 M2 R1 I1,
+2026-07-01,Abarrotes Nueve Letras,,5,8,13,,9 letras 5+8 |C6 M2 O3 R2,
+2026-07-01,Adobes,,13,1,14,,Adobes 13+1 |R3 O3 I2 C4 M1,Sabores suman 13; total esperado 14. Se conserva desglose sin ajustarlo
+2026-07-02,Tonys,,15,0,15,,Tonys 15 |O3 R4 I2 M2 C4,
+2026-07-02,Frutitas,,5,7,12,,Frutitas 5+7 |C6 R2 M2 I1 O1,
+2026-07-02,Chuyita,,8,3,11,,Chuyita 8+3 |M2 R3 I1 C5,
+2026-07-02,San Lucas,,13,0,13,,San Lucas 13 |I3 R2 O2 M1 C5,
+2026-07-02,Paloma,,0,7,7,,Paloma 0+7 |O2 C3 I2,
+2026-07-02,Las Kekas,,0,8,8,,Las Kekas 0+8,Sabores no especificados
+2026-07-03,FT Colosio,,25,3,28,,FT Colosio 25+3 |C10 O5 I3 M3 R3 B2 A2,
+2026-07-03,Triangulo,,10,2,12,,Triangulo 10+2 |C5 I2 O2 R2 M1,
+2026-07-03,FT Santa Barbara,,0,0,0,,FT Santa Barbara 0,
+2026-07-03,Gutierrez,,6,2,8,,Gutierrez 6+2 |C6 M2,
+2026-07-07,Cristy,,7,5,12,,Cristy 7+5 |C12,
+2026-07-07,Creme,,7,1,8,,Creme 7+1 |M1 R3 O1 I2 C1,
+2026-07-07,Avila,,9,2,11,,Avila 9+2 |C2 R2 O2 M1 I1 B2 A1,
+2026-07-07,FT Viveros,,15,0,15,,FT Viveros 15 |R4 O4 M2 C5 I1,Sabores suman 16; total esperado 15. Se conserva desglose sin ajustarlo
+2026-07-07,Guzman,,6,0,6,,Guzman 6 |M2 O4,
+2026-07-07,Guadalupe,,13,0,13,,Guadalupe 13 |C6 I1 O3 R3,
+2026-07-07,Helamexti,,3,2,5,,Mextli 3+2 |O1 R1 C3,
+2026-07-10,Triangulo,,4,2,6,,Triangulo 4+2 |C2 R1 O1 M1 I1,
+2026-07-10,FT Santa Barbara,,10,2,12,,FT Santa Barbara 10+2,Sabores no especificados
+2026-07-10,Gutierrez,,0,5,5,,Gutierrez 0+5,Sabores no especificados
+2026-07-10,Bobba arriba,,13,8,21,,Bobba arriba 13+8 |C10 R4 M3 O3 I1,
+2026-07-10,Adobes,,13,2,15,,Adobes 13+2 |C8 M3 O3 I1,
+2026-07-13,Tonys,,9,3,12,,Tonys 9+3 |I3 C7 R2,
+2026-07-13,Helados Rodríguez,,14,1,15,,Rodriguez 14+1 |O4 R4 M2 C4 A1,
+2026-07-13,Adobes,,13,0,13,,Adobes 13 |C5 M2 O1 R3,Sabores suman 11; total esperado 13. Se conserva desglose sin ajustarlo
+2026-07-13,Bobba arriba,,13,8,21,,Bobba arriba 13+8 |C10 R4 M3 O3 I1 !Igual al 10 julio: posible nota repetida,"Igual al 10 julio: posible nota repetida; Repetición omitida por indicación del propietario: no suma ingresos, cambios ni atención"
+2026-07-16,Zayda,,8,2,10,,Zayda 8+2 |C10,
+2026-07-16,Gota,,10,5,15,,Gota 10+5 |C10 R2 O2 M1,
+2026-07-16,Capilla,,14,1,15,,Capilla 14+1 |C6 R3 O3 I2 M1,
+2026-07-16,Mezquitan,,0,14,14,,Mezquitan 0+14 |C14,
+2026-07-16,Hierbas,,9,1,10,,Hierbas 9+1 |C10,
+2026-07-16,Tacos,,13,0,13,,Tacos 13 |C13,
+2026-07-16,Provi,,10,2,12,,Provi 10+2 |C12,
+2026-07-16,Palapa,,13,1,14,,Palapa 13+1 |C6 O3 R2 I2 M1,
+2026-07-16,Presente,,20,1,21,,Presente 20+1 |C21,
+2026-07-16,San Angel,,9,1,10,,San Angel 9+1 |C8 R1 O1,
+2026-07-16,Vidrio,,9,1,10,,Vidrio 9+1 |O2 R2 I2 M1 C3,
+2026-07-17,Ofe,,11,4,15,,Ofe 11+4 |I15,
+2026-07-17,Las Kekas,,0,7,7,,Las Kekas 0+7 |C4 O1 R1 M1,
+2026-07-17,Farmacia Tepa Matriz,FT Mapelo,29,0,29,equivalencia-confirmada,FT Mapelo 29 |C14 R5 M3 O5 I2 !Total inferido de sabores,Total inferido de sabores
+2026-07-20,FT Colosio,,28,2,30,,FT Colosio 28+2 |M5 I5 R7 O6 C8,Sabores suman 31; total esperado 30. Se conserva desglose sin ajustarlo
+2026-07-20,Elian,,6,9,15,,Elian 6+9 |C15,
+2026-07-20,San Lucas,,13,0,13,,San Lucas 13 |C4 O2 R2 I3 M2,
+2026-07-20,Cristy,,8,5,13,,Cristy 8+5 |C13,
+2026-07-21,FT Santa Barbara,,8,5,13,,FT Santa Barbara 8+5 |C5 R4 O3 M2 I1,Sabores suman 15; total esperado 13. Se conserva desglose sin ajustarlo
+2026-07-21,Triangulo,,10,3,13,,Triangulo 10+3 |R3 O4 M2 C3,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
+2026-07-21,Gutierrez,,13,2,15,,Gutierrez 13+2 |C5 O4 R4 I1 M1,
+2026-07-21,FT Viveros,,12,3,15,,FT Viveros 12+3 |R4 O4 M3 C2 I2,
+2026-07-21,Guzman,,10,0,10,,Guzman 10 |R4 O3 M3,
+2026-07-21,Bullgym,,10,2,12,,Bullgym 10+2 |C4 R3 I1 O2 M2,
+2026-07-22,San Mich,,0,6,6,,San Mich 0+6 |C4 O1 R1,
+2026-07-22,Adobes,,17,0,17,,Adobes 17 |C7 M3 I2 R3 O2,
+2026-07-22,Abarrotes Nueve Letras,,3,9,12,,9 letras 3+9 |C7 O1 M1 R1 I2,
+2026-07-22,Guadalupe,,13,0,13,,Guadalupe 13 |R2 O2 M2 I2 C5,
+2026-07-22,Helamexti,,6,3,9,,Mextli 6+3 |C3 O2 R2 M1 I1,
+2026-07-22,Kibo,,10,2,12,,Kibo 10+2 |C4 R2 O2 I2 M2,
+2026-07-22,Bobba arriba,,20,0,20,,Bobba arriba 20 |C6 R4 M3 I3 O4,
+2026-07-22,Bobba abajo,,21,0,21,,Bobba abajo 21 |C7 M3 R5 O4 I1,Sabores suman 20; total esperado 21. Se conserva desglose sin ajustarlo
+2026-07-23,Tonys,,12,3,15,,Tonys 12+3 |C5 O3 R3 M2 I2,
+2026-07-23,Corjesu,,10,3,13,,Corjesu 10+3 |C7 O2 R2 M1 I1,
+2026-07-23,Vecina,,10,1,11,,Vecina 10+1 |C5 O2 R2 M1 I1,
+2026-07-23,Chuyita,,12,0,12,,Chuyita 12 |C6 R2 O2 M1 I1,
+2026-07-23,Frutitas,,4,8,12,,Frutitas 4+8 |C6 R2 O2 M1 I1,
+2026-07-27,Kiosko,,12,1,13,,Kiosko 12+1 |C13,
+2026-07-27,Farmacia Tepa Matriz,FT Mapelo,30,0,30,equivalencia-confirmada,FT Mapelo 30 |C17 R3 O3 M2 B5,
+2026-07-27,Jugos,,10,0,10,,Jugos 10 |C6 R1 O1 M1 I1,
+2026-07-27,Guzman,,6,0,6,,Guzman 6 |O3 M3,
+2026-07-27,Creme,,0,8,8,,Creme 0+8 |C8,
+2026-07-27,Avila,,13,0,13,,Avila 13 |B3 O2 R2 M1 I1 C4,
+2026-07-27,Paloma,,7,0,7,,Paloma 7 |I1 C2 R2 O2,
+2026-07-27,Bodeli,,,0,0,,Bodeli ?,Cantidad no confirmada: no genera ingreso ni última atención
+2026-07-27,CMA,,26,0,26,,CMA 26,Sabores no especificados
+2026-07-30,Provi,,10,3,13,,Provi 10+3 |C13,
+2026-07-30,Supercito,,0,0,12,,Supercito 0 |C9 R1 O1 M1 !12 surtidos a consignación: C9 R1 O1 M1; sin cobro confirmado,12 surtidos a consignación: C9 R1 O1 M1; sin cobro confirmado
+2026-07-30,Palapa,,13,2,15,,Palapa 13+2 |O3 M2 R3 C7,
+2026-07-30,Presente,,15,0,15,,Presente 15 |C15,
+2026-07-30,San Angel,,6,4,10,,San Angel 6+4 |C10,
+2026-07-30,Vidrio,,10,0,10,,Vidrio 10 |C6 M1 O1 R2,
+2026-07-30,Gota,,10,5,15,,Gota 10+5 |C13 O1 R1,
+2026-07-30,Zayda,,0,6,6,,Zayda 0+6 |C6,
+2026-07-30,Capilla,,15,0,15,,Capilla 15 |R1 O1 C13,
+2026-07-30,Mezquitan,,6,4,10,,Mezquitan 6+4 |C10,
+2026-07-30,Hierbas,,0,8,8,,Hierbas 0+8,Sabores no especificados
+2026-07-30,Tacos,,13,1,14,,Tacos 13+1 |C14,
+2026-08-03,Farmacia Tepa Matriz,FT Mapelo,25,0,25,equivalencia-confirmada,FT Mapelo 25 |C12 O4 R3 A1 M2 I3,
+2026-08-03,San Lucas,,14,0,14,,San Lucas 14 |C6 O2 I3 R2 M1 !Total inferido de sabores,Total inferido de sabores
+2026-08-03,FT Colosio,,12,16,28,,FT Colosio 12+16 |O4 R8 I4 M2 C10,
+2026-08-03,Ofe,,15,0,15,,Ofe 15 |I15,
+2026-08-03,San Mich,,8,4,12,,San Mich 8+4 |C6 R3 O3 M1,Sabores suman 13; total esperado 12. Se conserva desglose sin ajustarlo
+2026-08-03,Adobes,,5,3,8,,Adobes 5+3 |I2 R1 O1 C4,
+2026-08-04,Bobba abajo,,13,3,16,,Bobba abajo 13+3 |M3 O3 R1 I3 C6,
+2026-08-04,FT Santa Barbara,,13,3,16,,FT Santa Barbara 13+3 |C6 R3 O3 M1 I1 B1 A1,
+2026-08-04,Gutierrez,,13,1,14,,Gutierrez 13+1 |C8 R2 O2 M1 I1,
+2026-08-04,Triangulo,,13,0,13,,Triangulo 13 |C7 R2 O2 I1 M1,
+2026-08-04,Guadalupe,,13,0,13,,Guadalupe 13 |C7 M2 R2 O1 I1,
+2026-08-05,Frutitas,,5,0,5,,Frutitas 5 |R3 I2,
+2026-08-05,Chuyita,,8,0,8,,Chuyita 8 |O2 C3 I2 M1,
+2026-08-05,Tonys,,15,0,15,,Tonys 15 |C7 O3 R3 M1 I1,
+2026-08-05,Corjesu,,13,0,13,,Corjesu 13 |R3 C4 O3 I2 M1,
+2026-08-05,Vecina,,8,0,8,,Vecina 8 |R3 O3 I1 C1,
+2026-08-05,Bullgym,,13,0,13,,Bullgym 13 |C7 I2 R2 O2 M1,Sabores suman 14; total esperado 13. Se conserva desglose sin ajustarlo
+2026-08-05,Kibo,,0,9,9,,Kibo 0+9 |C3 R2 O3 M1,
+2026-08-06,Bobba arriba,,9,7,16,,Bobba arriba 9+7 |C7 O4 R5,
+2026-08-06,Padel,,10,0,10,,Padel 10 |C6 R4 !10 y 10 a consignación pagados: segundo lote pendiente de aclarar,10 y 10 a consignación pagados: segundo lote pendiente de aclarar
+2026-08-07,Abarrotes Nueve Letras,7 letras,7,5,12,equivalencia-confirmada,"7 letras 7+5 |C3 R2 O2 M2 I1 A1 B1 !¿Es 9 letras? Identidad no confirmada, cliente separado","Identidad del cliente por confirmar: no se fusionó con otra tienda; ¿Es 9 letras? Identidad no confirmada, cliente separado"
+2026-08-07,Tortillas,,6,3,9,,Tortillas 6+3 |O5 M3 R1,
+2026-08-07,Adobes,,5,2,7,,Adobes 5+2 |O4 M3,
+2026-08-11,Farmacia Tepa Matriz,FT Mapelo,25,0,25,equivalencia-confirmada,FT Mapelo 25 |C14 M4 O4 I3,
+2026-08-11,Minisuper bosques,,0,0,8,,Minisuper bosques 0 |R2 O2 C2 I2 !8 a consignación: R2 O2 C2 I2; no cobro confirmado,8 a consignación: R2 O2 C2 I2; no cobro confirmado
+2026-08-11,FT Santa Barbara,,0,0,0,,FT Santa Barbara 0 !VISITADO,VISITADO
+2026-08-11,UNID abajo,,11,0,11,,UNID abajo 11 |C5 O2 R2 I1 M1,
+2026-08-12,Paloma,,5,3,8,,Paloma 5+3 |R2 O2 I2 C2,
+2026-08-12,Tacos,,13,1,14,,Tacos 13+1 |C14,
+2026-08-12,Hierbas,,0,2,2,,Hierbas 0+2 |I2,
+2026-08-12,Mezquitan,,0,5,5,,Mezquitan 0+5,Sabores no especificados
+2026-08-12,Capilla,,17,0,17,,Capilla 17 |C7 I6 M1 O1 R1,Sabores suman 16; total esperado 17. Se conserva desglose sin ajustarlo
+2026-08-12,CUCSH,,41,9,50,,CUCSH 41+9 |R14 O14 M12 I10,
+2026-08-12,Provi,,0,10,10,,Provi 0+10 |C10,
+2026-08-12,Supercito,,3,9,0,,"Supercito 3 !9 devueltos, cierre SHUTDOWN; devolución sin reemplazo, no 9 cambios","Sabores no especificados; 9 devueltos, cierre SHUTDOWN; devolución sin reemplazo, no 9 cambios"
+2026-08-12,Palapa,,8,5,13,,Palapa 8+5 |C4 I2 M3 R3 O1,
+2026-08-12,Presente,,20,0,20,,Presente 20 |C20,
+2026-08-12,UNID,,10,0,10,,UNID 10 |R3 O3 M2 I2,
+2026-08-18,Farmacia Tepa Matriz,FT Mapelo,10,4,14,equivalencia-confirmada,FT Mapelo 10+4 |R6 O6,Sabores suman 12; total esperado 14. Se conserva desglose sin ajustarlo
+2026-08-18,Jugos,,7,0,7,,Jugos 7 |R2 O2 C3,
+2026-08-18,FT Viveros,,9,6,15,,FT Viveros 9+6 |C15 !Todos clásicos al final de la nota,Todos clásicos al final de la nota
+2026-08-18,Las Kekas,,10,2,12,,Las Kekas 10+2 |C12 !Todos clásicos al final de la nota,Todos clásicos al final de la nota
+2026-08-18,Rena,,30,0,30,,Rena 30 |C30,
+2026-08-19,San Mich,,8,5,13,,San Mich 8+5 |C9 R1 I1 M1 O1,
+2026-08-19,Abarrotes Nueve Letras,7 letras,0,0,0,equivalencia-confirmada,7 letras 0 !Visitado; identidad no confirmada,Identidad del cliente por confirmar: no se fusionó con otra tienda; Visitado; identidad no confirmada
+2026-08-19,Adobes,,14,3,17,,Adobes 14+3 |R3 O3 M2 I2 C7,
+2026-08-19,Helamexti,,0,0,0,,"Mextli 0 !2 cambios sin cambiar: retirada pendiente, no contabilizar como realizada","2 cambios sin cambiar: retirada pendiente, no contabilizar como realizada"
+2026-08-19,Guadalupe,,13,1,14,,Guadalupe 13+1 |C9 O2 R2 M1,
+2026-08-21,Cristy,,13,2,15,,Cristy 13+2 |C15,
+2026-08-21,Creme,,6,2,8,,Creme 6+2 |C6 O2,
+2026-08-21,Avila,,10,0,10,,Avila 10 |R2 O2 M2 C1 B2 A1,
+2026-08-21,Helados Rodríguez,,5,1,6,,Rodriguez 5+1 |C5 M1,
+2026-08-21,Triangulo,,10,2,12,,Triangulo 10+2 |C6 O2 R2 M1 I1,
+2026-08-21,FT Santa Barbara,,13,1,14,,FT Santa Barbara 13+1 |C5 O3 R2 I2 M2,
+2026-08-21,Gutierrez,,4,8,12,,Gutierrez 4+8 |R4 I2 C5 M1,
+2026-08-21,Frutitas,,0,0,0,,Frutitas 0 !Original pide shutdown; pendiente confirmar baja definitiva,Original pide shutdown; pendiente confirmar baja definitiva
+2026-08-21,Chuyita,,10,1,11,,Chuyita 10+1 |M2 O2 R2 C5,
+2026-08-24,Corjesu,,10,5,15,,Corjesu 10+5 |R4 O4 C5 I2,
+2026-08-24,Vecina,,6,6,12,,Vecina 6+6 |C6 R2 O3 I1,
+2026-08-24,Cremeria San Antonio,,5,0,5,,Cremeria San Antonio 5 |C3 R2,
+2026-08-24,Tonys,,15,0,15,,Tonys 15 |R4 O4 M2 I1 C4,
+2026-08-25,Abarrotes Nueve Letras,,5,6,11,,9 letras 5+6 |C8 R1 !2 galletas sin tipo,Sabores suman 9; total esperado 11. Se conserva desglose sin ajustarlo; 2 galletas sin tipo
+2026-08-25,Paloma,,8,0,8,,Paloma 8 |R2 O2 I2 C2,
+2026-08-25,UNID abajo,,13,0,13,,UNID abajo 13 |C6 O3 R3,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
+2026-08-26,Minisuper bosques,,12,0,12,,Minisuper bosques 12 |C4 O2 R2 I2 M2,
+2026-08-26,Bobba arriba,,13,4,17,,Bobba arriba 13+4 |C7 O3 R3 M2 I2,
+2026-08-26,Padel,,8,0,8,,Padel 8 |C8,
+2026-08-27,CUCSH,,0,27,27,,CUCSH 0+27 |R5 I6 O6 C6 M4,
+2026-08-27,Provi,,0,10,10,,Provi 0+10 |C10,
+2026-08-27,Presente,,15,0,15,,Presente 15 |C15,
+2026-08-27,San Angel,,6,4,10,,San Angel 6+4 |C10,
+2026-08-27,Gota,,16,0,16,,Gota 16 |C16 !Más caja,Más caja
+2026-08-27,Capilla,,10,5,15,,Capilla 10+5 |C4 I3 O4 R3 M1,
+2026-08-27,Mezquitan,,9,3,12,,Mezquitan 9+3 |C12,
+2026-08-27,Hierbas,,10,0,10,,Hierbas 10 |C7 I3,
+2026-08-28,Helamexti,,7,3,10,,Mextli 7+3 |R2 O2 M2 C4,
+2026-08-28,Guzman,,,0,0,,Guzman ?,Cantidad no confirmada: no genera ingreso ni última atención
+2026-08-28,San Lucas,,13,0,13,,San Lucas 13 |R2 O2 !Resto surtido sin especificar,Sabores suman 4; total esperado 13. Se conserva desglose sin ajustarlo; Resto surtido sin especificar
+2026-08-28,FT Colosio,,31,0,31,,FT Colosio 31 |C19 R4 O4 I4,
+2026-08-28,Bobba abajo,,13,3,16,,Bobba abajo 13+3 |O3 M3 R3 I2 C5,
+2026-08-31,Minisuper bosques,,15,0,15,,Minisuper bosques 15 |O3 M2 R3 I2 C5,
+2026-08-31,Kibo,,13,0,13,,Kibo 13 |R2 O2 I2 M2 C5,
+2026-08-31,Bullgym,,10,4,14,,Bullgym 10+4 |C10 R2 O1 M1,
+2026-09-03,Rena,,32,0,32,,Rena 32 |C32,
+2026-09-03,Las Kekas,,0,11,11,,Las Kekas 0+11 |C11,
+2026-09-03,Creme,,0,11,11,,Creme 0+11 |C7 R1 O1 M1 I1,
+2026-09-03,Avila,,10,2,12,,Avila 10+2 |C5 I2 O2 R2 M1,
+2026-09-03,Helados Rodríguez,,5,0,5,,Rodriguez 5 |R5,
+2026-09-03,Jugos,,10,0,10,,Jugos 10 |C7 R1 O1 M1,
+2026-09-03,Tonys,,9,0,9,,Tonys 9 |C5 M2 I1,Sabores suman 8; total esperado 9. Se conserva desglose sin ajustarlo
+2026-09-03,Chuyita,,10,2,12,,Chuyita 10+2 |R3 O3 M2 I1 C3,
+2026-09-04,FT Santa Barbara,,10,2,12,,FT Santa Barbara 10+2 |C9 I1 M1 O1,
+2026-09-04,Gutierrez,,10,0,10,,Gutierrez 10 |C7 I1 M1 O1,
+2026-09-04,Triangulo,,13,0,13,,Triangulo 13 |R2 O2 M1 I1 C7,
+2026-09-04,Cristy,,15,0,15,,Cristy 15 |C15,
+2026-09-04,El Super,,13,0,13,,El Super 13 |C6 R2 O2 M2 I1,
+2026-09-04,Lomas de San Ángel,Frente San Angel,13,0,13,equivalencia-confirmada,Frente San Angel 13 |R2 O2 M2 I1 C6,
+2026-09-04,Abarrotes Ramitos,,13,0,13,,Ramitos 13 |R2 O2 M2 I1 C6,
+2026-09-07,Abarrotes Nueve Letras,,0,2,2,,9 letras 0+2 |O1 R1,
+2026-09-07,Corjesu,,11,1,12,,Corjesu 11+1 |C5 M2 I2 R3,
+2026-09-07,Vecina,,4,1,5,,Vecina 4+1 |R1 I1 M1 !Oreo sin cantidad,Sabores suman 3; total esperado 5. Se conserva desglose sin ajustarlo; Oreo sin cantidad
+2026-09-07,San Mich,,5,5,10,,San Mich 5+5 |C6 R1 O1 M1 I1,
+2026-09-07,Rey,,5,0,5,,Rey 5 |C5,
+2026-09-07,Adobes,,17,0,17,,Adobes 17 |R3 O3 I2 M2 C7,
+2026-09-08,Minisuper bosques,,10,0,10,,Minisuper bosques 10 |M2 O2 R2 I2 C2,
+2026-09-08,Helamexti,,7,0,7,,Mextli 7 |C4 M2 O1,
+2026-09-08,San Lucas,,13,0,13,,San Lucas 13 |I3 M2 R2 O2 C4,
+2026-09-08,Guadalupe,,10,0,10,,Guadalupe 10 |M2 R2 I2 O2 C2,
+2026-09-08,UNID abajo,,13,0,13,,UNID abajo 13 |C7 R2 O2 M1 I1,
+2026-09-08,CMA,,30,0,30,,CMA 30,Sabores no especificados
+2026-09-08,Bobba arriba,,18,2,20,,Bobba arriba 18+2,Sabores no especificados
+2026-09-10,Rena,,29,0,29,,Rena 29 |C29,
+2026-09-10,Ofe,,4,2,6,,Ofe 4+2 |I6,
+2026-09-10,CUCSH,,26,4,30,,CUCSH 26+4 |O10 R10 I3 M7,
+2026-09-10,Palapa,,16,0,16,,Palapa 16 |O3 R3 I2 M2 C6,
+2026-09-10,Presente,,20,0,20,,Presente 20 |C20,
+2026-09-10,Provi,,10,2,12,,Provi 10+2 |C12,
+2026-09-10,San Angel,,6,0,6,,San Angel 6 |C6,
+2026-09-10,Vidrio,,10,0,10,,Vidrio 10 |C5 R2 O1 M1 I1,
+2026-09-10,Gota,,0,0,0,,Gota 0,
+2026-09-10,Zayda,,8,2,10,,Zayda 8+2,Sabores no especificados
+2026-09-10,Capilla,,6,4,10,,Capilla 6+4 |C6 !No aclara sabores de reemplazos,Sabores suman 6; total esperado 10. Se conserva desglose sin ajustarlo; No aclara sabores de reemplazos
+2026-09-10,Tacos,,15,0,15,,Tacos 15 |C15,
+2026-09-10,Mezquitan,,0,0,0,,Mezquitan 0,
+2026-09-10,Hierbas,,0,2,2,,Hierbas 0+2 |R2,
+2026-09-12,Farmacia Tepa Matriz,FT Mapelo,26,7,33,equivalencia-confirmada,FT Mapelo 26+7 |C20 M3 R3 I3 O4,
+2026-09-12,Paloma,,8,0,8,,Paloma 8 |R2 O2 I2 M2,
+2026-09-12,Chuyita,,15,0,15,,Chuyita 15 |C8 R2 O2 I2 M1,
+2026-09-12,Tonys,,11,0,11,,Tonys 11 |C7 O3 A1 !Total inferido de sabores,Total inferido de sabores
+2026-09-12,Guzman,,6,0,6,,Guzman 6 |R3 O3,
+2026-09-16,Cristy,,7,0,7,,Cristy 7 |C7,
+2026-09-16,Jugos,,0,0,0,,Jugos 0,
+2026-09-16,Bobba abajo,,20,2,22,,Bobba abajo 20+2 |R6 O6 M4 C5,Sabores suman 21; total esperado 22. Se conserva desglose sin ajustarlo
+2026-09-16,Triangulo,,0,3,3,,Triangulo 0+3 |R1 O1 M1,
+2026-09-16,FT Santa Barbara,,12,0,12,,FT Santa Barbara 12 |R4 O4 M2 C2,
+2026-09-16,Gutierrez,,0,2,2,,Gutierrez 0+2 |O1 M1,
+2026-09-17,Las Kekas,,13,0,13,,Las Kekas 13 |C13,
+2026-09-17,Bullgym,,14,0,14,,Bullgym 14 |O3 M2 R1 C8 !Total inferido de sabores,Total inferido de sabores
+2026-09-17,Creme,,5,6,11,,Creme 5+6 |C11,
+2026-09-17,Avila,,12,2,14,,Avila 12+2 |C9 O2 R2 M1,
+2026-09-17,Kibo,,0,8,8,,Kibo 0+8 |C5 M1 O1 R1,
+2026-09-17,Minisuper bosques,,13,0,13,,Minisuper bosques 13 |C8 O2 R2 M1,
+2026-09-17,Kiosko,,10,3,13,,Kiosko 10+3 |C13,
+2026-09-18,Helados Rodríguez,,5,0,5,,Rodriguez 5 |M3 C2,
+2026-09-18,Rena,,21,0,21,,Rena 21 |C21,
+2026-09-19,Jugos,,8,2,10,,Jugos 8+2 |C6 R1 O1 M1 I1,
+2026-09-19,FT Viveros,,0,8,8,,FT Viveros 0+8 |O3 R3 C1 I1,
+2026-09-19,Corjesu,,10,3,13,,Corjesu 10+3 |C3 O4 R4 I1,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
+2026-09-19,Vecina,,0,7,7,,Vecina 0+7 |C5 R2,
+2026-09-21,Tonys,,10,0,10,,Tonys 10 |R3 O3 M2 I2,
+2026-09-21,Chuyita,,12,0,12,,Chuyita 12 |M3 R2 O2 C3 I2,
+2026-09-21,Cremeria San Antonio,,5,1,6,,Cremeria San Antonio 5+1 |R1 O1 I1 M1 C2,
+2026-09-21,Helamexti,,10,0,10,,Mextli 10 |R2 O2 M2 C4,
+2026-09-22,San Lucas,,13,0,13,,San Lucas 13 |C5 R2 O2 M2 I2,
+2026-09-22,FT Colosio,,30,1,31,,FT Colosio 30+1 |R7 C23,Sabores suman 30; total esperado 31. Se conserva desglose sin ajustarlo
+2026-09-23,San Mich,,7,5,12,,San Mich 7+5 |O3 R3 I2 M2 C2,
+2026-09-23,Abarrotes Nueve Letras,,6,6,12,,9 letras 6+6 |O3 R3 C2 I2 M2,
+2026-09-23,Adobes,,13,1,14,,Adobes 13+1 |I3 R3 M3 C5,
+2026-09-24,Guadalupe,,10,0,10,,Guadalupe 10 |R2 O2 M2 I1 C3,
+2026-09-24,Bobba arriba,,0,14,14,,Bobba arriba 0+14 |R3 O3 M3 C3 I2,
+2026-09-24,Guzman,,9,0,9,,Guzman 9 |R3 O3 M3,
+2026-09-24,Ofe,,10,0,10,,Ofe 10 |I10,
+2026-09-24,Abarrotes Ramitos,,13,0,13,,Ramitos 13 |R3 O3 M3 C4,
+2026-09-24,Lomas de San Ángel,,13,0,13,,Lomas San Angel 13 |R3 O3 M3 C4,
+2026-09-26,CUCSH,,24,16,40,,CUCSH 24+16 |R11 O10 M10 I6 !3 P0: sabor no identificado,Sabores suman 37; total esperado 40. Se conserva desglose sin ajustarlo; 3 P0: sabor no identificado
+2026-09-26,Palapa,,8,4,12,,Palapa 8+4 |O2 M2 I1 C6,Sabores suman 11; total esperado 12. Se conserva desglose sin ajustarlo
+2026-09-26,Provi,,3,9,12,,Provi 3+9,Sabores no especificados
+2026-09-26,San Angel,,10,2,12,,San Angel 10+2 |C12,
+2026-09-26,Gota,,10,4,14,,Gota 10+4 |C12 O1 M1,
+2026-09-26,Mezquitan,,10,2,12,,Mezquitan 10+2 |C8 R1 O1 M1 I1,
+2026-09-26,Hierbas,,7,3,10,,Hierbas 7+3 |C6 R1 O1 M1 I1,
+2026-09-26,Capilla,,10,2,12,,Capilla 10+2 |R1 O1 M1 I1 C8,
+2026-09-28,Farmacia Tepa Matriz,FT Mapelo,30,1,31,equivalencia-confirmada,FT Mapelo 30+1 |R5 O5 M5 I1 C15,
+2026-09-28,Doña Germen,,0,0,10,,Doña Germen 0 |R2 O2 M2 C4 !10 surtidos a consignación: R2 O2 M2 C4; sin cobro confirmado,10 surtidos a consignación: R2 O2 M2 C4; sin cobro confirmado
+2026-09-29,Guzman,,10,0,10,,Guzman 10 |M3 O3 R4,
+2026-09-29,FT Viveros,,10,0,10,,FT Viveros 10 |O3 M3 C4,
+2026-10-03,Boulevard Acatic,,13,0,13,,Boulevard Acatic 13 |R4 O4 M2 I2 C3,Sabores suman 15; total esperado 13. Se conserva desglose sin ajustarlo
+2026-10-03,Paloma,,3,5,8,,Paloma 3+5 |R2 O2 I2 C2,
+2026-10-03,Minisuper bosques,,13,0,13,,Minisuper bosques 13 |C8 O2 R2 M1,
+2026-10-05,San Lucas,,11,2,13,,San Lucas 11+2 |I3 R2 O2 M2 C4,
+2026-10-05,Rena,,26,1,27,,Rena 26+1 |C27,
+2026-10-09,Adobes,,17,0,17,,Adobes 17 |C9 M2 R3 O2 I1,
+2026-10-09,Helamexti,,9,1,10,,Mextli 9+1 |M2 O2 R2 C4,
+2026-10-09,Guadalupe,,13,2,15,,Guadalupe 13+2 |O3 R3 I2 M2 C5,
+2026-10-09,Cristy,,15,0,15,,Cristy 15 |C15,
+2026-10-09,Creme,,10,3,13,,Creme 10+3 |O3 R3 I1 M1 C5,
+2026-10-09,Avila,,13,1,14,,Avila 13+1 |R3 O3 M2 I2 C6,Sabores suman 16; total esperado 14. Se conserva desglose sin ajustarlo
+2026-10-09,Helados Rodríguez,,15,0,15,,Helados 15 |O3 R3 M2 C6 I1,
+2026-10-09,Guzman,,10,0,10,,Guzman 10 |R4 O3 M3,
+2026-10-09,Corjesu,,15,0,15,,Corjesu 15 |O3 R4 C5 M2 I1,
+2026-10-09,Vecina,,8,1,9,,Vecina 8+1 |R2 O1 M1 I2 C3,
+2026-10-09,Bobba abajo,,0,10,10,,Bobba abajo 0+10 |R2 O2 M1 I1 C4,
+2026-10-10,San Mich,,0,10,10,,San Mich 0+10 |R2 O2 I1 M1 C4,
+2026-10-10,Abarrotes Nueve Letras,,0,9,9,,9 letras 0+9 |C9,
+2026-10-10,Bobba arriba,,20,0,20,,Bobba arriba 20 |C7 O4 R4 I3 M2,
+2026-10-10,Chuyita,,14,0,14,,Chuyita 14 |O3 R3 M2 C4 I2,
+2026-10-10,Tonys,,10,0,10,,Tonys 10 |R2 O2 M1 I1 C4,
+2026-10-10,Bullgym,,0,9,9,,Bullgym 0+9 |C3 R1 M1 O1 I3,
+2026-10-12,CUCSH,,0,31,31,,CUCSH 0+31 |C16 O7 R6 M2,
+2026-10-12,Provi,,0,9,9,,Provi 0+9 |C9,
+2026-10-12,Palapa,,10,3,13,,Palapa 10+3 |R3 I2 O3 M2 C3,
+2026-10-12,Presente,,15,0,15,,Presente 15 |C15,
+2026-10-12,Gota,,13,3,16,,Gota 13+3 |C13 O1 M1 I1,
+2026-10-12,San Angel,,10,0,10,,San Angel 10 |C10,
+2026-10-12,Gota,,8,3,11,,Gota 8+3 |C11 !Dos visitas Gota mismo día; revisar si es otro cliente o corrección,Dos visitas Gota mismo día; revisar si es otro cliente o corrección
+2026-10-12,Capilla,,13,2,15,,Capilla 13+2 |C12 I2 O1,
+2026-10-12,Mezquitan,,3,7,10,,Mezquitan 3+7 |C9 O1,
+2026-10-12,Hierbas,,10,1,11,,Hierbas 10+1 |R9 O2 I1,Sabores suman 12; total esperado 11. Se conserva desglose sin ajustarlo
+2026-10-14,Rena,,13,0,13,,Rena 13 |C13,
+2026-10-14,Ofe,,0,2,2,,Ofe 0+2 |I2,
+2026-10-14,Bobba abajo,,10,2,12,,Bobba abajo 10+2 |C5 M2 O2 R2 I1,
+2026-10-14,Farmacia Tepa Matriz,FT Mapelo,31,0,31,equivalencia-confirmada,FT Mapelo 31 |C17 I3 M3 O4 R4,
+2026-10-14,Jugos,,8,1,9,,Jugos 8+1 |C3 R2 O2 M1 I1,
+2026-10-14,FT Viveros,,5,11,16,,FT Viveros 5+11 |O4 R4 M2 I2 C4,
+2026-10-14,Helados Rodríguez,,2,0,2,,Rodriguez 2 |M2,
+2026-10-14,FT Carmen,,25,1,26,,FT Carmen 25+1 |C14 R4 O4 M2 I2,
+2026-10-14,Gutierrez,,8,4,12,,Gutierrez 8+4 |R2 O2 I1 M1 C6,
+2026-10-14,Triangulo,,13,0,13,,Triangulo 13 |C7 R2 O2 I1 M1,
+2026-10-14,Frutitas,,6,6,12,,Frutitas 6+6 |C6 R2 O2 M1 I1,
+2026-10-14,Helamexti,,6,4,10,,Mextli 6+4 |C4 R2 O2 M2,
+2026-10-14,Boulevard Acatic,,10,0,10,,Boulevard Acatic 10 |C4 I2 O2 M2,
+2026-10-14,Lomas de San Ángel,,10,3,13,,Lomas San Angel 10+3 |C7 R2 O2 I1 M1,
+2026-10-14,Abarrotes Ramitos,,13,0,13,,Ramitos 13 |C7 O2 R2 M1 I1,
+2026-10-14,Morros,,4,0,4,,Morros 4 |M2 C2,
+2026-10-14,San Lucas,,13,0,13,,San Lucas 13 |I3 R2 O2 M1 C5,
+2026-10-14,Las Kekas,,5,5,10,,Las Kekas 5+5 |C5 R2 O2 M1,
+2026-10-14,CMA,,28,1,29,,CMA 28+1 |O4 R4 M2 I5 C14,
+2026-10-17,San Lucas,,13,0,13,,San Lucas 13 |I3 R2 O2 M1 C5 !Posible repetición exacta del 14 octubre; pendiente confirmar,"Posible repetición exacta del 14 octubre; pendiente confirmar; Repetición omitida por indicación del propietario: no suma ingresos, cambios ni atención"
+2026-10-17,Las Kekas,,5,5,10,,Las Kekas 5+5 |C5 R2 O2 M1 !Posible repetición exacta del 14 octubre; pendiente confirmar,"Posible repetición exacta del 14 octubre; pendiente confirmar; Repetición omitida por indicación del propietario: no suma ingresos, cambios ni atención"
+2026-10-17,CMA,,28,1,29,,CMA 28+1 |O4 R4 M2 I5 C14 !Posible repetición exacta del 14 octubre; pendiente confirmar,"Posible repetición exacta del 14 octubre; pendiente confirmar; Repetición omitida por indicación del propietario: no suma ingresos, cambios ni atención"
+2026-10-19,Minisuper bosques,,13,0,13,,Minisuper bosques 13 |R3 O3 M2 I2 C3,
+2026-10-19,Corjesu,,0,7,7,,Corjesu 0+7 |C3 R1 M1 O1,Sabores suman 6; total esperado 7. Se conserva desglose sin ajustarlo
+2026-10-19,Paloma,,7,0,7,,Paloma 7 |R1 O2 I2 C2,
+2026-10-20,Doña Germen,,13,0,13,,Doña Germen 13 |C7 M2 O2 R2,
+2026-10-20,FT Carmen,,26,0,26,,FT Carmen 26 |C14 O4 I4 M4,
+2026-10-20,Avila,,7,3,10,,Avila 7+3 |R2 O2 I2 M2 C2,
+2026-10-20,Creme,,0,6,6,,Creme 0+6 |R2 O2 M1 I1,

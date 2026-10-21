@@ -33,5 +33,7 @@ html.darkis-starting body{overflow:hidden}
 .darkis-startup__halo{inset:9%;background:#fff6df12;border:1px solid #fff7df36;box-shadow:0 0 0 16px #fff7df06,0 0 0 40px #fff7df03}
 .darkis-startup__wordmark{width:min(89vw,370px);margin:-5px 0 0;filter:drop-shadow(0 6px 0 #00587538)}
 .darkis-startup__loading{margin-top:12px}.darkis-startup__loading span{background:#ffd8ae;width:6px;height:6px}
-.darkis-startup__content::before{content:'HECHO CON CORAZÓN';font:750 9px/1.2 system-ui,sans-serif;letter-spacing:3.5px;color:#fff2d5d9;margin-bottom:20px}
+.darkis-startup__content::before{display:none;content:none}
 @media(max-height:650px){.darkis-startup__stage{width:220px;height:220px}.darkis-startup__content::before{margin-bottom:8px}}
+
+.darkis-starting .darkis-startup{transition:opacity .36s ease,transform .36s ease}

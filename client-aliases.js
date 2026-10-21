@@ -1,0 +1,22 @@
+/* Equivalencias confirmadas por Alejandro. Bobba: deducción por fecha/ruta y respaldo explícito. */
+(() => {
+ 'use strict';const H=window.DarkisHistory;const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ const ids={"HIST-b29eff0b4a":"DK-024","HIST-7d392aa324":"DK-009","HIST-9da72ab2ed":"HIST-0c79a54077","HIST-d4737dd37a":"DK-019","HIST-ffd320a8c7":"HIST-5b6a36c11c","HIST-6edb01ea73":"HIST-418650de99"};
+ const names={"ftmapelo":"DK-009","ftmatriz":"DK-009","farmaciatepamatriz":"DK-009","7letras":"DK-024","9letras":"DK-024","abarrotesnueveletras":"DK-024","frentesanangel":"HIST-0c79a54077","frentesubdelegacionimss":"HIST-0c79a54077","frentealasubdelegacionimss":"HIST-0c79a54077","lomasdesanangel":"HIST-0c79a54077","lomassanangel":"HIST-0c79a54077","abarrotesramitos":"DK-003","abarrotespopotes":"DK-003","abarrotespopotesramitos":"DK-003","helamexti":"HIST-5b6a36c11c","mextli":"HIST-5b6a36c11c","nievesmextli":"HIST-5b6a36c11c","heladosrodriguez":"DK-019","corjesu":"DK-031","popotesramitos":"DK-003","bobbaarriba":"DK-012","labobbaarriba":"DK-012","bobbaabajo":"DK-011","labobbaabajo":"DK-011","nieves":"DK-019","nievesjp":"HIST-5b6a36c11c","powerbull":"HIST-418650de99","bullgym":"HIST-418650de99"};
+ const titles={'DK-009':'Farmacia Tepa Matriz','DK-024':'Abarrotes Nueve Letras','DK-011':'Bobba abajo','DK-012':'Bobba arriba','HIST-0c79a54077':'Lomas de San Ángel','DK-003':'Abarrotes Ramitos','HIST-5b6a36c11c':'Helamexti','DK-031':'Corjesu','DK-019':'Helados Rodríguez','HIST-418650de99':'Bullgym'};
+ const generic=(id,name)=>id==='HIST-719a5441dc'||['bobba','labobba','boba'].includes(norm(name));
+ function context(rows){const result=new Map();for(const r of rows){if(generic(r.customerId,r.originalCustomerName||r.customerName))continue;const id=ids[r.customerId]||names[norm(r.customerName)]||r.customerId;if(!['DK-011','DK-012'].includes(id))continue;if(!result.has(r.date))result.set(r.date,new Set());result.get(r.date).add(id)}return result}
+ function target(id,name,date,ctx){if(generic(id,name)){const others=ctx.get(date)||new Set();return {id:others.has('DK-012')&&!others.has('DK-011')?'DK-011':others.has('DK-011')&&!others.has('DK-012')?'DK-012':'DK-011',method:others.size===1?'otra-sucursal-en-la-ruta':'asumido-abajo'}}const canonical=ids[id]||names[norm(name)]||id;return{id:canonical,method:canonical!==id?'equivalencia-confirmada':''}}
+ function canonicalRecord(row,ctx){if(generic(row.customerId,row.originalCustomerName||row.customerName)&&row.aliasResolution&&['DK-011','DK-012'].includes(row.customerId))return row;const value=target(row.customerId,row.originalCustomerName||row.customerName,row.date,ctx);return {...row,customerId:value.id,customerName:titles[value.id]||row.customerName,...(value.method?{originalCustomerName:row.originalCustomerName||row.customerName,aliasResolution:value.method}:{})}}
+ function clients(input){const records=[...(H?.visits||[]),...input.flatMap(c=>(c.sales||[]).map(s=>({...s,customerId:c.id,customerName:c.name})))],ctx=context(records),out=new Map();
+  const put=(id,base)=>{if(!out.has(id))out.set(id,{...base,id,name:titles[id]||base.name,sales:[]});return out.get(id)};
+  // Canonical profiles supply contact/address/status; aliases contribute history and latest dates.
+  const sorted=[...input].sort((a,b)=>Number(Boolean(ids[a.id])||generic(a.id,a.name))-Number(Boolean(ids[b.id])||generic(b.id,b.name)));
+  for(const c of sorted){const split=generic(c.id,c.name);const baseId=target(c.id,c.name,'',ctx).id;if(!split)put(baseId,c);
+   for(const s of c.sales||[]){const value=split?target(c.id,c.name,s.date,ctx):{id:baseId};const dest=put(value.id,{...c,lastAttention:'',inactivityReview:null,inactivityOverrideUntil:'',status:'activo'});const row={...s,...(split?{originalCustomerName:c.name,aliasResolution:value.method}:{})};if(!dest.sales.some(r=>r.id===row.id))dest.sales.push(row);if(s.date>String(dest.lastAttention||''))dest.lastAttention=s.date;}
+   if(!split){const dest=out.get(baseId);dest.lastAttention=[dest.lastAttention,c.lastAttention].filter(Boolean).sort().at(-1)||'';for(const key of ['phone','contact','maps','address'])if(!dest[key]&&c[key])dest[key]=c[key];}
+  }
+  return [...out.values()];
+ }
+ window.DarkisAliases={clients,context,canonicalRecord,routeName:name=>generic('',name)?null:titles[names[norm(name)]]||name};if(H){const ctx=context(H.visits);H.visits=H.visits.map(r=>canonicalRecord(r,ctx));H.confirmedAliases={...ids};}
+})();

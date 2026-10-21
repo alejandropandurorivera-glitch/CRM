@@ -1,0 +1,246 @@
+{
+  "status": "equivalencias-confirmadas",
+  "knownVersion": 23,
+  "questions": [],
+  "inactive": [
+    {
+      "id": "DK-016",
+      "name": "McDavi’s Tepatitlán",
+      "city": "Tepatitlán",
+      "lastAttention": "2026-02-18",
+      "status": "pausado",
+      "inactivityReview": {
+        "state": "pending",
+        "reason": "Más de 100 días sin atención",
+        "lastAttention": "2026-02-18",
+        "daysAtPause": 244,
+        "pausedOn": "2026-10-20"
+      }
+    },
+    {
+      "id": "DK-043",
+      "name": "Carnes Finas Jalisco",
+      "city": "Guadalajara y Zapopan",
+      "lastAttention": "2026-03-04",
+      "status": "pausado",
+      "inactivityReview": {
+        "state": "pending",
+        "reason": "Más de 100 días sin atención",
+        "lastAttention": "2026-03-04",
+        "daysAtPause": 230,
+        "pausedOn": "2026-10-20"
+      }
+    },
+    {
+      "id": "HIST-3147946577",
+      "name": "Gorditas",
+      "city": "Tepatitlán",
+      "lastAttention": "2026-03-09",
+      "status": "pausado",
+      "inactivityReview": {
+        "state": "pending",
+        "reason": "Más de 100 días sin atención",
+        "lastAttention": "2026-03-09",
+        "daysAtPause": 225,
+        "pausedOn": "2026-10-20"
+      }
+    },
+    {
+      "id": "HIST-67ff1d7f71",
+      "name": "Glorieta",
+      "city": "Tepatitlán",
+      "lastAttention": "2026-06-10",
+      "status": "pausado",
+      "inactivityReview": {
+        "state": "pending",
+        "reason": "Más de 100 días sin atención",
+        "lastAttention": "2026-06-10",
+        "daysAtPause": 132,
+        "pausedOn": "2026-10-20"
+      }
+    },
+    {
+      "id": "HIST-754c474bf8",
+      "name": "San Alfonso",
+      "city": "Tepatitlán",
+      "lastAttention": "2026-02-25",
+      "status": "pausado",
+      "inactivityReview": {
+        "state": "pending",
+        "reason": "Más de 100 días sin atención",
+        "lastAttention": "2026-02-25",
+        "daysAtPause": 237,
+        "pausedOn": "2026-10-20"
+      }
+    },
+    {
+      "id": "HIST-d37c5e7961",
+      "name": "Dani",
+      "city": "Guadalajara y Zapopan",
+      "lastAttention": "2026-02-12",
+      "status": "pausado",
+      "inactivityReview": {
+        "state": "pending",
+        "reason": "Más de 100 días sin atención",
+        "lastAttention": "2026-02-12",
+        "daysAtPause": 250,
+        "pausedOn": "2026-10-20"
+      }
+    },
+    {
+      "id": "HIST-94dc354cca",
+      "name": "Brenda",
+      "city": "Tepatitlán",
+      "lastAttention": "2026-03-30",
+      "status": "pausado",
+      "inactivityReview": {
+        "state": "pending",
+        "reason": "Más de 100 días sin atención",
+        "lastAttention": "2026-03-30",
+        "daysAtPause": 204,
+        "pausedOn": "2026-10-20"
+      }
+    },
+    {
+      "id": "HIST-6a51aff23b",
+      "name": "Vico",
+      "city": "Guadalajara y Zapopan",
+      "lastAttention": "2026-04-14",
+      "status": "pausado",
+      "inactivityReview": {
+        "state": "pending",
+        "reason": "Más de 100 días sin atención",
+        "lastAttention": "2026-04-14",
+        "daysAtPause": 189,
+        "pausedOn": "2026-10-20"
+      }
+    },
+    {
+      "id": "HIST-397e5a9b3f",
+      "name": "Vecina centro",
+      "city": "Tepatitlán",
+      "lastAttention": "2026-04-23",
+      "status": "pausado",
+      "inactivityReview": {
+        "state": "pending",
+        "reason": "Más de 100 días sin atención",
+        "lastAttention": "2026-04-23",
+        "daysAtPause": 180,
+        "pausedOn": "2026-10-20"
+      }
+    },
+    {
+      "id": "HIST-2162ec1994",
+      "name": "Minisuper",
+      "city": "Guadalajara y Zapopan",
+      "lastAttention": "2026-06-25",
+      "status": "pausado",
+      "inactivityReview": {
+        "state": "pending",
+        "reason": "Más de 100 días sin atención",
+        "lastAttention": "2026-06-25",
+        "daysAtPause": 117,
+        "pausedOn": "2026-10-20"
+      }
+    }
+  ],
+  "withoutAttention": [
+    {
+      "id": "DK-001",
+      "name": "Cliente sin nombre",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-017",
+      "name": "Cliente sin nombre",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-021",
+      "name": "Tienda",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-023",
+      "name": "Frutería Barba",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-025",
+      "name": "Abarrotes Coto Del Rey",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-032",
+      "name": "Cliente sin nombre",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-033",
+      "name": "Cremería",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-034",
+      "name": "Cliente sin nombre",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-036",
+      "name": "Cliente sin nombre",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-037",
+      "name": "Cliente sin nombre",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-038",
+      "name": "Cliente sin nombre",
+      "city": "Tepatitlán",
+      "lastAttention": "",
+      "status": "activo"
+    },
+    {
+      "id": "DK-052",
+      "name": "Av Pablo Neruda 2120",
+      "city": "Guadalajara y Zapopan",
+      "lastAttention": "",
+      "status": "activo"
+    }
+  ],
+  "totalByCity": {
+    "Tepatitlán": 64,
+    "Guadalajara y Zapopan": 18
+  },
+  "confirmed": {
+    "Nieves": "Helados Rodríguez",
+    "Nieves JP": "Helamexti",
+    "Powerbull": "Bullgym",
+    "7 letras": "Abarrotes Nueve Letras",
+    "FT Mapelo": "Farmacia Tepa Matriz",
+    "Frente San Angel": "Lomas de San Ángel",
+    "Abarrotes Popotes": "Abarrotes Ramitos"
+  }
+}

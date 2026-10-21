@@ -1,0 +1,18 @@
+/* Movimiento breve, sin rebotes en scroll ni al sincronizar. */
+:root{--route-ease:cubic-bezier(.22,1,.36,1)}
+.route-client-card{animation:none!important;transform:none;transition:border-color .2s ease,box-shadow .2s ease;contain:layout style}
+.route-client-card.route-card-arriving{animation:routeCardArrive .26s var(--route-ease) both!important}
+@keyframes routeCardArrive{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.route-card-primary,.route-card-secondary,.route-card-edit,.route-bottom-action{touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:transform .18s var(--route-ease),background-color .18s ease,box-shadow .18s ease}
+.route-card-primary:active,.route-card-secondary:active,.route-card-edit:active,.route-bottom-action:active{transform:scale(.965)}
+.location-tab{transform:none!important;transition:color .2s ease,background-color .2s ease,box-shadow .2s ease}
+.location-tab::after,.nav-item::after,.view-btn::after{display:none}
+.location-tab.button-pop{animation:none!important}
+.modal{animation:routeSheetIn .3s var(--route-ease);overscroll-behavior:contain}
+.modal-backdrop{animation:routeBackdropIn .2s ease}
+@keyframes routeSheetIn{from{opacity:0;transform:translateY(20px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes routeBackdropIn{from{opacity:0}to{opacity:1}}
+@media(hover:hover) and (pointer:fine){.route-card-primary:hover,.route-card-secondary:hover{box-shadow:0 8px 18px #003b5519}}
+@media(hover:none){button:hover,.nav-item:hover,.location-tab:hover,.view-btn:hover{transform:none}}
+@media(max-width:720px){.modal-backdrop{padding:12px 10px max(10px,env(safe-area-inset-bottom));align-items:flex-end}.modal{width:100%;max-height:calc(100dvh - 34px);border-radius:26px 26px 20px 20px}.route-client-grid{overflow-anchor:auto}.route-client-card{scroll-margin-top:80px}}
+@media(prefers-reduced-motion:reduce){.modal,.modal-backdrop,.route-client-card.route-card-arriving{animation:none!important}.route-card-primary,.route-card-secondary,.route-card-edit,.route-bottom-action{transition:none}}
