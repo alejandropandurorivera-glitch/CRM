@@ -1,0 +1,13 @@
+SISTEMA DARKIS v19 — ENTRADA VISUAL
+
+Pantalla de arranque propia: gato original grande, logotipo Sistema Darkis, fondo azul institucional, destellos y animación breve. Se cierra sola, no espera Firebase y funciona con los recursos offline. Respeta la preferencia de reducir movimiento.
+Menú de selección: se restaura el logo original Darkis; se conservan las tres áreas e ilustraciones.
+Se conservan todos los cambios funcionales de v18.
+
+IMPORTANTE SOBRE ANDROID
+La pantalla nativa que se ve antes de cargar la web la genera Android/Chrome desde el manifiesto: no admite reemplazar libremente su tipografía ni fijar el tamaño de su icono mediante HTML/CSS. Esta versión incorpora la presentación diseñada inmediatamente después, sin prometer que elimina ese primer cuadro del sistema operativo. No cambia la identidad de la app ni borra datos.
+
+PUBLICAR
+Extraer este ZIP y subir los archivos a la raíz del repositorio CRM, reemplazando los existentes. No subir sólo el ZIP.
+Esperar a que termine GitHub Pages. Abrir https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v19.html y tocar Abrir Sistema Darkis.
+No borrar datos del navegador para forzar una actualización.

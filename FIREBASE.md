@@ -1,6 +1,6 @@
 # Firebase Spark — Sistema Darkis v14
 
-Esta versión funciona con Authentication (Google) y Firestore en Spark, dentro de sus cuotas gratuitas. No usa Cloud Functions, Secret Manager ni facturación Blaze. Google comprueba la cuenta; los permisos se leen de documentos protegidos en Firestore. Los PIN 1016 y 2024 abren la interfaz local y no conceden permisos de nube.
+Esta versión funciona con Authentication (Google) y Firestore en Spark, dentro de sus cuotas gratuitas. No usa Cloud Functions, Secret Manager ni facturación Blaze. Google comprueba la cuenta; los permisos se leen de documentos protegidos en Firestore. Administrador requiere Google con rol admin habilitado. El PIN 2024 de Repartidor no concede permisos de nube.
 
 ## 1. Publicar las reglas nuevas
 
@@ -14,7 +14,7 @@ En **Authentication → Configuración → Dominios autorizados**, añade el dom
 
 ## 3. Autorizar la primera cuenta administradora (una sola vez)
 
-1. Abre Administrador, entra con el PIN 1016 y pulsa **Continuar con Google**.
+1. Abre Administrador y pulsa **Continuar con Google**.
 2. La app mostrará **Cuenta pendiente de autorización**. Copia **mi ID** (UID).
 3. En **Firestore → Datos → Iniciar colección**, crea la colección `accessRoles`.
 4. Usa ese UID completo como **ID del documento**. No uses ID automático ni correo como ID.

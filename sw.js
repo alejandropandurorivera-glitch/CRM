@@ -1,5 +1,5 @@
-const CACHE = 'darkis-suite-v18';
-const LOCAL = ['./','./index.html','./reloj-checador.html','./clock-location.js?v=18','./clock-report.js?v=18','./clock-report-fonts.js?v=18','./app-update.js?v=18','./darkisocio.html','./administrador.html','./repartidor.html','./shared-sync.js','./shared-sync.js?v=18','./firebase-errors.js?v=18','./clock-sync.js?v=18','./suite-experience.js','./suite-experience.js?v=18','./google-access.js','./google-access.js?v=18','./manifest.webmanifest','./manifest.webmanifest?v=18','./sistema-darkis-logo-v17.png','./logo.png','./icon.svg','./icon-darkis-original-v15.png','./icon-192.png','./icon-512.png','./role-production.webp','./role-repartidor.webp','./role-administrador.webp','./avatar-tania.jpg','./avatar-sofia.jpg','./avatar-juan-pablo.jpg','./avatar-alejandro.jpg'];
+const CACHE = 'darkis-suite-v22';
+const LOCAL = ['./launch-darkisistema-750x1334.png','./launch-darkisistema-1125x2436.png','./launch-darkisistema-1170x2532.png','./launch-darkisistema-1179x2556.png','./launch-darkisistema-1242x2208.png','./launch-darkisistema-828x1792.png','./launch-darkisistema-1242x2688.png','./launch-darkisistema-1284x2778.png','./launch-darkisistema-1290x2796.png','./launch-darkisistema-1206x2622.png','./launch-darkisistema-1320x2868.png','./launch-darkisistema-1080x2340.png','./history-data.js?v=22','./history.js?v=22','./production.js?v=22','./production.css?v=22','./darkisistema.svg','./','./index.html','./startup.css?v=22','./startup.js?v=22','./cat-icon.png','./reloj-checador.html','./clock-location.js?v=22','./clock-ledger.js?v=22','./clock-report.js?v=22','./clock-report-fonts.js?v=22','./app-update.js?v=22','./darkisocio.html','./administrador.html','./admin-auth.js?v=22','./repartidor.html','./shared-sync.js','./shared-sync.js?v=22','./firebase-errors.js?v=22','./clock-sync.js?v=22','./suite-experience.js','./suite-experience.js?v=22','./google-access.js','./google-access.js?v=22','./manifest.webmanifest','./manifest.webmanifest?v=22','./sistema-darkis-logo-v17.png','./logo.png','./icon.svg','./icon-darkis-original-v15.png','./icon-192.png','./icon-512.png','./role-production.webp','./role-repartidor.webp','./role-administrador.webp','./avatar-tania.jpg','./avatar-sofia.jpg','./avatar-juan-pablo.jpg','./avatar-alejandro.jpg'];
 const scoped = url => url.origin === self.location.origin && url.pathname.startsWith(new URL(self.registration.scope).pathname);
 const usable = response => response && response.ok && !response.redirected && response.type !== 'opaqueredirect';
 self.addEventListener('install', event => event.waitUntil((async () => {
@@ -43,6 +43,6 @@ self.addEventListener('notificationclick', event => {
   event.notification.close();
   event.waitUntil(self.clients.matchAll({type:'window', includeUncontrolled:true}).then(async windows => {
     for (const client of windows) if (client.url.startsWith(self.registration.scope)) { await client.focus(); return; }
-    await self.clients.openWindow(new URL('./index.html?v=18', self.registration.scope).href);
+    await self.clients.openWindow(new URL('./index.html?v=22', self.registration.scope).href);
   }));
 });

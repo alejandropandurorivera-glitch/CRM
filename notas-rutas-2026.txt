@@ -1,0 +1,1031 @@
+# Transcripción estructurada de las notas entregadas. Año: 2026.
+# Nombre vendidos+cambios | C=Clásicos R=Red velvet O=Oreo M=M&M's I=Intenso B=Galleta blanca A=Galleta amargo.
+# Los sabores describen lo dejado, NO los sabores retirados. ? = cantidad no confirmada. $ gasto; > entrada de caja/préstamo.
+01-03
+Tortillas 10
+Creme 7+4
+Avila 10+2
+Nieves 10+4
+Jugos 10
+Kibo 15
+01-06
+Chuyita 7+1 !Santa moni (chuyita)
+Tonys 7+3
+01-07
+Bobba abajo 15
+Kiosko 12
+Bobba arriba 17
+Paloma 6+4
+Gorditas 6
+$Bolsas 60
+$Rosca 200
+$Leche 47
+$Sueldo Tania 598
+01-09
+Adobes 14+2
+9 letras 10+2
+San Mich 0+8
+01-12
+Tortillas 10
+Cristy 10
+Creme 3+3
+Avila 10
+Helados 10
+Triangulo 7+1
+Gutierrez 10
+San Lucas 13
+Bullgym 10+2
+01-14 GDL
+Carnes finas 12
+Presente 18+7
+Palapa 0+8
+Provi 8+2
+San Angel 10
+Vidrio 8+4
+Zayda 0+8
+Capilla 15
+Mezquitan 9+3
+Hierbas 10
+$Bolsas y chip 418
+$Leche 100
+$Mantequilla 490
+$Bolsas 418 !Posible repetición de gasto del mismo día: verificar comprobantes
+01-15
+San Lucas 13
+FT Colosio 28
+Rodriguez 4
+Bobba arriba 10
+01-17
+CMA 27+3
+Tonys 11
+FT Santa Barbara 14
+Frutitas 8
+Santa Moni 10
+01-19
+San Mich 5
+9 letras 2+2
+Adobes 10
+Cristy 8+1
+Creme 3
+Avila 5
+Helados 3
+Tortillas 8
+$Capsulas y pizarrón 673
+$Huevo 586
+$Chip 74
+01-21
+FT Viveros 32
+Gorditas 12
+Bobba 13
+Powerbull 3
+Rodriguez 5
+$Mantequilla 588 !Tarjeta
+$Bolsas 41
+$Moños y grapas 103
+01-27
+Paloma 3+5
+Corjesu 20+5
+Ofe 10+5
+01-30 GDL
+Tacos 15
+Mezquitan 12
+Capilla 16+1
+Zayda 5+5
+CUCSH 33
+Presente 25
+Palapa 10
+Provi 9+1
+$Mantequilla 392
+$Alpina ? !Checar factura; sin importe
+$Harina 100
+$Sueldo Tania 231
+$Sueldo Sofi 747
+$Tiendita 2000
+02-03
+Triangulo 14
+Glorieta 10+4
+Gutierrez 13
+02-05
+FT Viveros 24+2 |R8 O8 M8 !Vendidos inferidos de 24 sabores; falta conciliar 2 cambios
+San Lucas 13 |O3 I3 M2 R3 C2
+FT Colosio 16+1 |R1 C3 M6 I4 O3
+Helados 10 |O4 I2 R3 M1
+Rey 10 |C10
+$Materia prima 1111
+02-09
+FT Santa Barbara 15+1 |M4 R4 C5 I2 O1
+Gutierrez 0+3 |I3
+San Alfonso 12+2 |O2 R2 M2 I2 C6
+Chuyita 12 |C6 M2 R2 I2
+Tonys 15 |C9 R2 M2 I2
+Gorditas 5 |C5
+Paloma 4+4 |O2 R2 I2 C2
+02-12
+San Mich 11+1 |C6 M3 O2 R1
+9 letras 9+3 |M3 O3 C6
+Kiosko 12+1 |C12
+Bobba 15 |M3 I2 R2 O2 C6
+Corjesu 16+9 |C10 O4 M5 R4 I2
+$Huevo 163.5
+$Perfume (merch) 390
+$Mantequilla 392
+02-12 GDL
+CUCSH 39+11 |R17 O12 I12 M5 C5
+Zayda 5+1 |C6
+Gota 15 |C15
+San Angel 12 |C12
+Vidrio 8+4 |M2 I1 R1 C8
+Capilla 10 |M3 R3 I2 O1 C1
+Mezquitan 6 |C6
+Hierbas 5+5 |C10
+Tacos 12 |C12
+Gieraldine ? !3 corazones chicos y 1 grande; producto y precio por confirmar
+Dani 90 !Surtidos; precio no anotado, tarifa ruta 23 aplicada
+$Charolas 56
+$Refrescos 557
+$Alpina 209
+$Internet 490
+$Crema batida 158
+$Sueldo Sammy 1500
+02-18
+Ofe 15 |I15
+Mcdavis 13+1 |R3 O3 I3 M1 C4
+Vecina 15 !2 por sabor y clásico; reparto incompleto
+02-19
+Bobba abajo 13 |R5 O5 I3
+Creme 10+2 |R3 O2 C4 I1
+Avila 13 |B2 A2 R3 O3 C3
+$Parrilla 319
+$Sueldo Sofi 1000 !500 míos y 500 caja: un solo gasto de 1000
+02-25
+FT Mapelo 28 |C12 M4 R4 I4 O4
+FT Santa Barbara 16 |R3 I2 C6 O3 M2
+Gutierrez 8+5 |C5 R3 O3 I2
+Triangulo 13 |M4 I4 R2 C3
+Glorieta 7+5 |R3 O1 I2 C6
+Santa Moni 0+10 |C4 R2 I2 O2
+San Alfonso 6+6 |C6 I2 M2 R2
+Tonys 13+1 |M3 O4 C6 I1
+$Cabrera (cafetería) 573
+$Leche 264
+02-26
+San Lucas 13 |O1 I1 M2 R1 C8
+FT Colosio 25 |C15 O5 M4 I1
+CMA 24+2 |A6 B5 M4 O4 C7
+Bobba arriba 20 |C5 O5 M5 I5
+Paloma 5+3 |I2 C2 R2 O2
+Bobba abajo 9+1 |C5 M5
+Vecina 15 |C3 I3 M3 R3 O3
+02-27
+FT Viveros 25 |O6 I1 C19
+Cremeria San Antonio 5+1 |C6
+Bullgym 10+2 |C6 M2 O2 I2
+$Mantequilla 490
+03-02
+Rodriguez 13 |C4 R2 I2 O3 M2
+Kibo 10 |C2 R2 O2 I2 M2
+Guzman 10 |M4 O3 R3
+03-04 GDL
+Carnes finas 10 |C10
+Presente 25 |C25
+Palapa 10+3 |R4 O3 I1 C5
+Provi 10+2 |C12
+San Angel 0+9 |C9
+Vidrio 0+9 |C9
+Gota 0+7 |C7
+Zayda 10 |C10
+Capilla 13+1 |R2 I2 C10
+Mezquitan 9+3 |C12
+Hierbas 0+9 |C9
+$Alpina 742.5
+$Etruska 1397 !Tarjeta
+$Chip blanco 83
+03-06
+Creme 8+5 |C6 M1 R2 I2 O2
+Avila 11+2 |C6 I2 R2 O2 M1
+Jugos 12 |C9 O1 R1 I1
+Bobba 13 |R7 C6
+Bobba abajo 10+3 |O3 C4 R3 I3
+$Sueldo Sofi 1000
+$Sueldo Sammy 1000
+03-09
+Guzman 10 |O4 R4 M2
+Rodriguez 10 |R4 O4 M2
+Gorditas 5 |C5
+>Meto a caja 1500
+$Huevo 62
+03-05
+Adobes 13+3 |R3 O3 I3 M3 C5 !Cobro anotado 299
+9 letras 10+2 |C5 O2 I2 R2 M1 !Cobro anotado 230
+San Mich 10+2 |C5 O2 R2 I2 M1 !Cobro anotado 230
+Corjesu 0+11 |O3 R3 I2 C2 M1
+03-10
+San Lucas 12 |R2 O2 M2 I2 C4
+FT Santa Barbara 14+1 |R2 M2 O2 C9
+Gutierrez 10+1 |C6 O3 M2
+Triangulo 6 |I2 O1 C3
+Glorieta 0
+03-11
+Vecina 10+1 |I3 R2 O2 C4
+Chuyita 10+2 |O3 R3 I2 C4
+Frutitas 8+5 |C4 O3 R4 I2
+Tonys 13+2 |C9 O2 R2 I2
+CMA 30 |A5 B7 I6 R3 O3 C6
+Paloma 8 |R2 O2 C2 I2
+03-14
+San Mich 4+1 |R3 I2
+Bobba abajo 13 |R4 O3 M3 I3
+Bobba arriba 0+5
+Adobes 13+1
+$Chip blanco 83
+03-15
+Creme 12 |R2 I2 M3 O2 C5 !La nota repite M&M en dos cantidades
+Avila 10+2 |R3 O2 I2 C5
+Jugos 8 |C4 M1 R1 O1 I1
+03-18
+Bullgym 13 |C5 R2 O2 M2 I2
+Kibo 6+4 |M1 I1 C2 O3 R3
+03-19 MIXTO
+FT Viveros 30+1 |R4 O4 I5 M2 C16
+CUCSH 30 |O5 R7 M5 I6 C7
+Presente 25 |C25
+Palapa 13 |R3 I2 O3 M2 C3
+Provi 0+10 |C10
+San Angel 8+2 |C10
+Vidrio 6+4 |C6 R2 O1 I1
+Gota 13+1 |C10 R1 O1 I1 M1
+Zayda 7+3 |C10
+Capilla 12+2 |C6 O2 R2 I2 M2
+Mezquitan 10+3 |C13
+Hierbas 0+7 |C7
+Tacos 15 |C15
+$Vasos y tapas 128 !Texto original: 128 h
+03-25
+CMA 9 |R2 O2 M2 C2 A1
+San Mich 13 |C5 I2 R2 O2 M2 !Total inferido de sabores
+9 letras 10+1 |R2 O2 M1 A1 C5 !Total vendido inferido de 11 entregados menos 1 cambio
+Adobes 13 |R4 O4 M2 I2 C1
+Rodriguez 10 |O5 R3 I2
+03-26
+Vecina 15 |C8 O3 M1 I3
+Bobba abajo 13+1 |C5 M2 R2 O2 I3
+Jugos 4 |M2 O1 I1
+FT Colosio 28 !Desglose truncado: (6
+Guzman 8+1 |R3 O3 M3
+Rey 5 |C5
+$Sueldo Sofi 500
+03-30
+Cristy 14 |C14
+Creme 13+1 |C6 R4 I2 O1 M1
+Avila 10+1 |C7 M1 I2 O1
+FT Mapelo 30 |C15 O4 M3 I4 R4
+Corjesu 20+3 |R3 O3 M2 I3 C12
+Triangulo 10+2 |I2 R2 O2 M1 C5
+Glorieta 0+11 |O3 R3 C2 M1 I2
+FT Santa Barbara 15 |R3 O3 M2 I2 C5
+Gutierrez 10+2 |C4 I2 O2 R2 M2
+Brenda 1 |M1
+03-31
+Paloma 5+3 |I3 R2 C2 O1
+Tonys 15 |M2 O3 I2 R3 C5
+Chuyita 12 |R2 M1 I1 O2 C6
+Frutitas 6+6 |C6 M3 I3
+Cremeria San Antonio 4+1 |M1 O1 I1 R1 C1
+$Sueldo Tania 750
+$Detergentes 220
+04-02 GDL
+Provi 7+5
+Palapa 5+4
+Vidrio 0+2
+Gota 5+9 |C8 O2 R2 M2
+Capilla 14 |C6 R2 O2 I2 M2
+04-06
+Rodriguez 15 |C4 M2 R2 O5 I2 !Total inferido de sabores; Rodriuez en original
+Jugos 9+1 |C6 R2 O2
+Creme 6 |O3 M2 I1
+San Lucas 13 |C4 I3 M2 O2 R2
+FT Colosio 29 |O8 M7 R5 I3 C4
+San Mich 0+7 |R2 M2 O2 C1
+9 letras 13 |C5 R4 M4
+$Leche 93
+04-08
+UNID 2 |B2
+Adobes 13 |O1 R4 M4 C4
+Glorieta 7 |C6 M1
+FT Santa Barbara 9 |R3 O3 I3
+Gutierrez 7 |R3 O2 I2
+04-10
+Chuyita 7 |M2 R3 I2
+Frutitas 3 |O2 R1
+Tonys 0+2 |C2
+Bobba 0+6 |C6
+CMA 17+6 |C9 I3 R2 O3 A2 B3
+Ofe 10 |I10
+Bullgym 10 |R2 M2 O3 C3
+$Renta 1900
+04-13
+Las Kekas 14 |C4 O3 R3 M3 I2 !1 muestra adicional; entregados 15
+$Mantequilla 490 !5 kgs
+04-14 MIXTO
+FT Mapelo 30 |M5 C10 R5 I4 O6
+San Mich 6+4 |C4 O2 I1 M1 !Red velvet sin cantidad
+Nieves JP 0 |C3 R3 O3 I1 M2 !12 a consignación, sin cobro confirmado; C3 R3 O3 I1 M2
+Tacos 15 |C15
+Capilla 13+1 |M3 O3 R3 I1 C4
+Zayda 2+1 |O1 R1 M1
+Gota 15 |C7 R2 O2 M2 I2
+CUCSH 38+2 |R12 O8 I6 C12 M2
+Vico 10 |R4 M3 O3
+Provi 0+11 |C11 !Se pegó poster en tienda
+Palapa 0+4 |C2 O2
+Presente 25 |C25
+San Angel 8+2 |C10
+Vidrio 8 |C8
+04-17
+Tortillas 10 |R4 O3 M3
+FT Viveros 12+14 |R11 M5 O4 C4 I2
+San Lucas 11+1 |C3 I3 R2 M2 O2
+Adobes 10+5 |C5 O4 M2 I2 R2 !El original dice 10 y 5 sin repetir cambios
+9 letras 5 |C5
+Bobba 20+2 |C10 R4 O4 M2 I2
+Creme 9+5 |O2 M1 R2 I2 C7
+04-20
+FT Mapelo 10 |R2 M3 I4 C1
+FT Colosio 30 |O12 R6 C10 M2
+Triangulo 8+4 |R2 O2 M2 C6
+Glorieta 0+6 !SHUTDOWN; retirada
+FT Santa Barbara 10+4 |R2 M2 O2 I1 C7
+Gutierrez 5+6 |C7 O2 I1 !q red: cantidad ilegible
+04-21
+Frutitas 5+7 |I2 R2 O2 M1 C5
+Chuyita 9+3 |C5 I2 O4 M1
+Tonys 12+3 |C4 I3 R2 M2 O4
+Cremeria San Antonio 3+2 |R2 O2 C1
+Las Kekas 0+8 |C8 !Circuito JP II
+Ofe 10 |I10
+04-23
+Vecina 15 |M3 O2 I3 C7
+Vecina centro 15 |M3 O2 I3 C7
+Corjesu 25+4 |R8 O6 M5 C10
+Mextli 12 |M3 O3 R3 I1 C2
+Guadalupe 10+1 |R2 O2 I2 C5
+04-24
+Rodriguez 15 |C10 R2 M2
+Jugos 8+4 |R1 O1 I1 M1 C8
+Tortillas 0
+Bobba abajo 25 |R4 O4 M4 C4
+Bobba arriba ? !Nombre sin cantidades
+Tremendo (Victor) ?
+Tienda espíritu santo ?
+9 letras ?
+Cristy 0
+Creme 0
+Avila 7+6 |C5 M2 R2 O2 I1
+Kiosko 15 |C15
+$Mantequilla 588
+04-27 GDL
+Tacos 15 !Cande
+Capilla 13 |O3 R3 M3 I3
+Zayda 0+8 |C8
+Gota 4+10 |C9 O2 R2 M1
+Vidrio 8+2 |C7 M1 R1 O1
+CUCSH 30+8 |M20 R14 O8 C6 !Se repite 10 M&M en la nota; no se corrige sin confirmar
+$Etrusca ? !Importe sin anotar
+$Sueldo Tania 620 !200 darkicaja
+$Refrescos 350 !Darkidinero
+$Vasos 212
+$Refrescos y aguas 286
+$Nieve 235
+Provi 0+8 |C8
+Palapa 13 |M4 R4 C4 O1
+05-01
+Guzman 7+1 |R3 O3 M2
+Creme 4+8 |C7 R2 O2 I1
+Avila 6 |R3 O3
+Bullgym 10+3 |C8 M1 R1 O1 I2
+Kibo 13 |C5 R2 O2 I2 M2
+San Mich 7+5 |C4 M2 R2 O2 I2
+9 letras 9+6 |C12 O2 I1
+Adobes 11+2 |C6 I2 O1 R2 M2
+Bobba arriba 15 |M6 I5 R4
+Bobba abajo 15 |O2 M4 R3 I2 C4
+$Mantequilla 196
+$Huevo 66
+>Préstamo mamá 2000 !Deuda, no ingreso por venta
+$Sueldo muchachas 233
+05-04
+FT Mapelo 26+3 |I14 R5 O8 M2 !7 intenso repetido en original
+Paloma 3+1 |I2 C2
+Las Kekas 12 |C4 R3 O3 M1 I1
+$Mantequilla 392
+$Huevo 61
+$Imprenta 750
+05-06 GDL
+CUCSH 10+4 |O2 C2 I10
+Palapa 0+2 |O2
+Presente 10 |C10
+Provi 5+1 |C6
+Hierbas 10+1 |C6 I3 R1 M1
+Mezquitan 4 |C4
+Tacos 10 |C10
+Capilla 7 |C5 I2
+San Angel 10+1 |C11
+Vidrio 6 |C2 R1 O1 M1 I1
+Gota 15 |R2 M1 C12
+05-08
+San Lucas 13 |C7 R2 O2 M2
+FT Colosio 29 |C11 M4 R6 O8
+05-11
+FT Santa Barbara 16 |R4 O4 C7
+Gutierrez 6+6 |R3 O3 C6
+Triangulo 13+1 |R4 O4 C5 I1
+Corjesu 8+12 |R3 O3 I1 C13
+Vecina 10+3 |R2 I2 O2 M1 C6
+Rodriguez 13 |O3 R2 M2 C6
+05-12
+Adobes 13 |R3 O3 I2 M1 C4
+Guadalupe 10+2 |C4 R4 M2 O2
+Cristy 14 |C14
+Creme 10 |O2 C8
+>Meto a caja 400
+$Café 350
+05-15
+Bobba arriba 20+1 |O7 R6 M2 I2 C4
+Avila 10+3 |C6 I2 O2 R2 M1
+FT Viveros 18+9 |C5 O8 R8 I8
+Chuyita 12 |R2 O2 I2 M2 C4
+Frutitas 10+3 |O3 I3 M3 C4 !Original: 10 y 3 clásicos; cambio inferido, revisar
+05-18
+Las Kekas 0+7 |C4 O1 R1 M1
+Corjesu 8+1 |O3 R4 M2
+Vecina 10+1 |R4 I4 O3
+05-20
+FT Mapelo 26+5 |C16 R5 M2 I3 O5
+Bobba abajo 5+13 |M3 R4 O4 I3 C4
+FT Colosio 26+1 |R4 O4 I6 C14 !Intenso se repite en original
+05-23 GDL
+Presente 15
+Palapa 10+4 |C10 I2 R1 O1
+Provi 11+3 |C14
+Zayda 8+2 |C10
+Gota 0+10 |C10
+Capilla 13+1 |C10 O2 R1 I1
+Tacos 10+4
+05-22
+Gutierrez 0+6 |C6
+Triangulo 6+6 |O2 R2 I2 M1 C5
+Frutitas 2 |R2
+Chuyita 8 |C8
+$Sueldo Sofia 300
+05-23
+Jugos 12 |C7 O2 R2 I1
+Guzman 10 |R4 M4 O2
+Rodriguez 15 |O5 R2 M1 I1 C6
+Creme 0
+Avila 0
+Cristy 0+2 !Me quedé con su caja
+Kibo 7+5 |R3 O3 C5 I1
+9 letras 0+9 |R1 O2 I1 C5
+San Mich 0+7 |R1 O1 C5
+05-25
+Mextli 13 |C5 M3 O3 R1 I1
+Guadalupe 13+1 |R2 O2 I2 M1 C6
+Cristy 13 |C13
+Adobes 5+10 |I2 M2 O3 R3 C5
+Paloma 6+2 |O2 R2 I2 C2
+Corjesu 0+8 |R2 I3 C1 M2
+05-27 MIXTO
+Ofe 14 |I14
+Capilla 7 |O3 I2 M2
+Mezquitan 9 |C9
+Hierbas 6+4 |R1 O1 C8
+Tacos 15 |C15
+Vidrio 10+1 |C10 R1
+San Angel 7+3
+$Caja chocolate blanco 1190
+$Lavatrastes 125
+$Fabuloso 50
+$Chip horneable 94
+06-01
+Corjesu 0+5 |C2 R1 M1 O1
+Vecina 9+5 |I2 R3 O5 C4
+Tonys 8+4 |C6 R2 O3 M1
+06-02
+Creme 10+2 |C4 R1 M2 O3 I2
+Avila 8+4 |C6 O2 I2 M1 R1
+Jugos 8+3 |O2 R2 M1 I1 C6
+Tortillas 10 |R5 M4 O1
+Rodriguez 9+1 |R1 C6 M2 I1
+Bullgym 13 |I4 R2 C7
+06-05
+Adobes 13+2 |C5 M3 O3 R4
+CMA 28+1 |C14 M6 R2 O7
+Bobba arriba 0+12 |C7 O2 R2 M1
+Corjesu 6 |O4 M2
+Bobba abajo 10+3 |C7 O3 R2 M1
+Las Kekas 8+1 |C9
+San Mich 0+7 |C7 !Don Memo San Mich
+$Sueldo Sofi 500
+$Proteina 180
+$Huevo 51
+$Mantequilla 588 !Tarjeta
+$Vainilla 30
+06-08
+FT Colosio 9+17
+FT Mapelo 21+5 |R4 O4 I4 M2 C12
+Paloma 3+5 |O2 I2 R2 C2
+Guadalupe 13+1 |O2 R2 M1 I2 C7
+06-09
+Chuyita 7+5 |R2 O2 M1 I2 C5
+Frutitas 8+5 |C8 R2 M1 I2
+Mextli 8+2 |C5 M1 R2 O2
+Ofe 12 |I12 !Sportfit
+Cremeria San Antonio 2+3 |R2 I1 M1 C1
+06-10
+FT Santa Barbara 15 |O1 I2 R1 M2 C9
+Gutierrez 8+4 |C8 R1 O1 I1 M1
+Glorieta 6+3 |C7 I1 M1
+FT Viveros 9+6 |C13 M1 I1
+Kiosko 10+2 |C12
+Kibo 8+4
+Bullgym 10+2
+$Vainilla 65
+06-13 GDL
+Provi 8+4 |C12
+Palapa 13 |R3 O3 M2 I1 C4
+San Angel 6+4 |C10
+Vidrio 10+2 |C8 R1 O1 M1 I1
+Gota 9+6 |C15
+Capilla 10+5 |C7 O2 R3 I2 M1
+06-16
+Corjesu 0+3 |R3
+Vecina 14 |C7 R2 I2 O2 M1
+Guzman 7+2 |R3 O3 M3
+Creme 0+12 |M1 I2 R2 O2 C5
+Avila 8+4 |C6 M2 R2 O2 I1
+Rodriguez 10+4 |O3 R3 M1 I2 C5
+Jugos 0+7 |C7
+$Popotes y bolsas 195
+06-17
+San Mich 10+2 |I2 R2 O2 M1 C5
+9 letras 13+1 |C6 O2 I2 R3 M1
+Adobes 16 |C7 R3 O2 M2 I2
+Mextli 3+1 |R2 I1 C1
+Bobba arriba 0+9 |R2 I2 O3 M1 C1
+Bullgym 3+7 |C4 O2 I1 R2 M1
+Paloma 8 |R2 O2 C2 I2
+>Meto a caja 2000
+>Seminario 810 !Aporte anotado; origen por confirmar, no convertir en venta de brownies
+06-18
+San Lucas 13 |I3 M1 R2 O2 C5
+FT Colosio 18+11 |O12 R4 C10 M1 I1
+Las Kekas 5+5 |C8 O1 R1
+06-19
+Corjesu 5+3 |O2 M1 R2 C4 I1
+Triangulo 0+1 |R1
+FT Santa Barbara 13 |R3 O3 C4 I3
+Gutierrez 6+1 |R3 O2 M1 I1
+Frutitas 0+3 |O2 M1
+Chuyita 8 |O3 M2 C3
+Tonys 10+2 |O3 I2 R3 M2 C1
+06-22
+Creme 0
+Avila 8 |R3 O3 M2
+Rodriguez 13 |O3 R3 M2 C5
+Guzman 5 |R5
+Jugos 6 |C3 O1 R1 M1
+$Sueldo Tania 800
+06-23
+San Mich 0
+9 letras 0
+Adobes 10+1 |R4 C3 O2 M2
+Bobba arriba 20 |M5 R2 O2 I3 C8
+06-24
+Mextli 8 |C4 O3 I1
+Guadalupe 0+9 |C4 M2 I1 R2
+FT Mapelo 27+3 |R4 O4 M3 I2 !17 surtidos adicionales sin desglose
+CMA 25 |C5 I3 M2 O3 R3 B5 A4
+06-25 GDL
+Minisuper 5+7 |C12 !Cliente sin nombre específico, revisar identidad
+Presente 20 |C20
+Palapa 5 |R2 O2 M1
+Vidrio 0+5 |R2 O1 C2
+Gota 5+11 |R2 O2 M1 C10
+Gota 10+5 |C6 I2 M3 O3 R1 !Dos renglones Agua el mismo día: conservados, revisar si es corrección
+Capilla 10+4 |C6 I2 M2 O3 R1
+Mezquitan 13+1 |C14
+Hierbas 6+4 |C7 M1 O1 I1
+06-27
+Kibo 0+7 |R2 O2 M1 C2
+Vecina ? !Cerrado al visitar; no implica baja permanente
+Bullgym 6+3 |C4 M1 O1 R1 I1
+Bobba abajo 13+3 |R3 O3 M2 I2 C6
+Corjesu 9 |R1 I1 M2 O3 C2
+Bullgym 5+4 |O3 M2 I1 C2 R1 !Segundo renglón Bullgym mismo día; verificar
+06-29
+Creme 5+7 |C5 M2 R2 O2 I1
+Avila 0+2 |C2
+Cristy 13+1 |C14
+Vecina 0+9 |O2 R2 I1 M1 C3
+$Sueldo Tania 993
+06-30
+Jugos 7 |C4 O1 I1 M1
+Guzman 7 |O3 R4 M1
+Rodriguez 13 |O2 R1 M1 C9
+Elian 15 |C15
+07-01
+San Mich 0+9 |C5 M2 R1 I1
+9 letras 5+8 |C6 M2 O3 R2
+Adobes 13+1 |R3 O3 I2 C4 M1
+07-02
+Tonys 15 |O3 R4 I2 M2 C4
+Frutitas 5+7 |C6 R2 M2 I1 O1
+Chuyita 8+3 |M2 R3 I1 C5
+San Lucas 13 |I3 R2 O2 M1 C5
+Paloma 0+7 |O2 C3 I2
+Las Kekas 0+8
+07-03
+FT Colosio 25+3 |C10 O5 I3 M3 R3 B2 A2
+Triangulo 10+2 |C5 I2 O2 R2 M1
+FT Santa Barbara 0
+Gutierrez 6+2 |C6 M2
+07-07
+Cristy 7+5 |C12
+Creme 7+1 |M1 R3 O1 I2 C1
+Avila 9+2 |C2 R2 O2 M1 I1 B2 A1
+FT Viveros 15 |R4 O4 M2 C5 I1
+Guzman 6 |M2 O4
+Guadalupe 13 |C6 I1 O3 R3
+Mextli 3+2 |O1 R1 C3
+07-10
+Triangulo 4+2 |C2 R1 O1 M1 I1
+FT Santa Barbara 10+2
+Gutierrez 0+5
+Bobba arriba 13+8 |C10 R4 M3 O3 I1
+Adobes 13+2 |C8 M3 O3 I1
+07-13
+Tonys 9+3 |I3 C7 R2
+Rodriguez 14+1 |O4 R4 M2 C4 A1
+Adobes 13 |C5 M2 O1 R3
+Bobba arriba 13+8 |C10 R4 M3 O3 I1 !Igual al 10 julio: posible nota repetida
+07-16 GDL
+Zayda 8+2 |C10
+Gota 10+5 |C10 R2 O2 M1
+Capilla 14+1 |C6 R3 O3 I2 M1
+Mezquitan 0+14 |C14
+Hierbas 9+1 |C10
+Tacos 13 |C13
+Provi 10+2 |C12
+Palapa 13+1 |C6 O3 R2 I2 M1
+Presente 20+1 |C21
+San Angel 9+1 |C8 R1 O1
+Vidrio 9+1 |O2 R2 I2 M1 C3
+07-17
+Ofe 11+4 |I15
+Las Kekas 0+7 |C4 O1 R1 M1
+FT Mapelo 29 |C14 R5 M3 O5 I2 !Total inferido de sabores
+07-20
+FT Colosio 28+2 |M5 I5 R7 O6 C8
+Elian 6+9 |C15
+San Lucas 13 |C4 O2 R2 I3 M2
+Cristy 8+5 |C13
+07-21
+FT Santa Barbara 8+5 |C5 R4 O3 M2 I1
+Triangulo 10+3 |R3 O4 M2 C3
+Gutierrez 13+2 |C5 O4 R4 I1 M1
+FT Viveros 12+3 |R4 O4 M3 C2 I2
+Guzman 10 |R4 O3 M3
+Bullgym 10+2 |C4 R3 I1 O2 M2
+07-22
+San Mich 0+6 |C4 O1 R1
+Adobes 17 |C7 M3 I2 R3 O2
+9 letras 3+9 |C7 O1 M1 R1 I2
+Guadalupe 13 |R2 O2 M2 I2 C5
+Mextli 6+3 |C3 O2 R2 M1 I1
+Kibo 10+2 |C4 R2 O2 I2 M2
+Bobba arriba 20 |C6 R4 M3 I3 O4
+Bobba abajo 21 |C7 M3 R5 O4 I1
+07-23
+Tonys 12+3 |C5 O3 R3 M2 I2
+Corjesu 10+3 |C7 O2 R2 M1 I1
+Vecina 10+1 |C5 O2 R2 M1 I1
+Chuyita 12 |C6 R2 O2 M1 I1
+Frutitas 4+8 |C6 R2 O2 M1 I1
+07-27
+Kiosko 12+1 |C13
+FT Mapelo 30 |C17 R3 O3 M2 B5
+Jugos 10 |C6 R1 O1 M1 I1
+Guzman 6 |O3 M3
+Creme 0+8 |C8
+Avila 13 |B3 O2 R2 M1 I1 C4
+Paloma 7 |I1 C2 R2 O2
+Bodeli ?
+CMA 26
+$Chocolate amargo 377 !1 kg: 200 efectivo y 177 tarjeta; un solo gasto
+07-30 GDL
+Provi 10+3 |C13
+Supercito 0 |C9 R1 O1 M1 !12 surtidos a consignación: C9 R1 O1 M1; sin cobro confirmado
+Palapa 13+2 |O3 M2 R3 C7
+Presente 15 |C15
+San Angel 6+4 |C10
+Vidrio 10 |C6 M1 O1 R2
+Gota 10+5 |C13 O1 R1
+Zayda 0+6 |C6
+Capilla 15 |R1 O1 C13
+Mezquitan 6+4 |C10
+Hierbas 0+8
+Tacos 13+1 |C14
+$Chocolate amargo 1156
+08-03
+FT Mapelo 25 |C12 O4 R3 A1 M2 I3
+San Lucas 14 |C6 O2 I3 R2 M1 !Total inferido de sabores
+FT Colosio 12+16 |O4 R8 I4 M2 C10
+Ofe 15 |I15
+San Mich 8+4 |C6 R3 O3 M1
+Adobes 5+3 |I2 R1 O1 C4
+08-04
+Bobba abajo 13+3 |M3 O3 R1 I3 C6
+FT Santa Barbara 13+3 |C6 R3 O3 M1 I1 B1 A1
+Gutierrez 13+1 |C8 R2 O2 M1 I1
+Triangulo 13 |C7 R2 O2 I1 M1
+Guadalupe 13 |C7 M2 R2 O1 I1
+08-05
+Frutitas 5 |R3 I2
+Chuyita 8 |O2 C3 I2 M1
+Tonys 15 |C7 O3 R3 M1 I1
+Corjesu 13 |R3 C4 O3 I2 M1
+Vecina 8 |R3 O3 I1 C1
+Bullgym 13 |C7 I2 R2 O2 M1
+Kibo 0+9 |C3 R2 O3 M1
+08-06
+Bobba arriba 9+7 |C7 O4 R5
+Padel 10 |C6 R4 !10 y 10 a consignación pagados: segundo lote pendiente de aclarar
+08-07
+7 letras 7+5 |C3 R2 O2 M2 I1 A1 B1 !¿Es 9 letras? Identidad no confirmada, cliente separado
+Tortillas 6+3 |O5 M3 R1
+Adobes 5+2 |O4 M3
+$Queso crema 70.5
+$Chocomilk 72
+08-11
+FT Mapelo 25 |C14 M4 O4 I3
+Minisuper bosques 0 |R2 O2 C2 I2 !8 a consignación: R2 O2 C2 I2; no cobro confirmado
+FT Santa Barbara 0 !VISITADO
+UNID abajo 11 |C5 O2 R2 I1 M1
+$Grapas y rollo 146
+08-12 MIXTO
+Paloma 5+3 |R2 O2 I2 C2
+Tacos 13+1 |C14
+Hierbas 0+2 |I2
+Mezquitan 0+5
+Capilla 17 |C7 I6 M1 O1 R1
+CUCSH 41+9 |R14 O14 M12 I10
+Provi 0+10 |C10
+Supercito 3 !9 devueltos, cierre SHUTDOWN; devolución sin reemplazo, no 9 cambios
+Palapa 8+5 |C4 I2 M3 R3 O1
+Presente 20 |C20
+UNID 10 |R3 O3 M2 I2
+$Vasos 203
+08-18
+FT Mapelo 10+4 |R6 O6
+Jugos 7 |R2 O2 C3
+FT Viveros 9+6 |C15 !Todos clásicos al final de la nota
+Las Kekas 10+2 |C12 !Todos clásicos al final de la nota
+Rena 30 |C30
+08-19
+San Mich 8+5 |C9 R1 I1 M1 O1
+7 letras 0 !Visitado; identidad no confirmada
+Adobes 14+3 |R3 O3 M2 I2 C7
+Mextli 0 !2 cambios sin cambiar: retirada pendiente, no contabilizar como realizada
+Guadalupe 13+1 |C9 O2 R2 M1
+08-21
+Cristy 13+2 |C15
+Creme 6+2 |C6 O2
+Avila 10 |R2 O2 M2 C1 B2 A1
+Rodriguez 5+1 |C5 M1
+Triangulo 10+2 |C6 O2 R2 M1 I1
+FT Santa Barbara 13+1 |C5 O3 R2 I2 M2
+Gutierrez 4+8 |R4 I2 C5 M1
+Frutitas 0 !Original pide shutdown; pendiente confirmar baja definitiva
+Chuyita 10+1 |M2 O2 R2 C5
+08-24
+Corjesu 10+5 |R4 O4 C5 I2
+Vecina 6+6 |C6 R2 O3 I1
+Cremeria San Antonio 5 |C3 R2
+Tonys 15 |R4 O4 M2 I1 C4
+08-25
+9 letras 5+6 |C8 R1 !2 galletas sin tipo
+Paloma 8 |R2 O2 I2 C2
+UNID abajo 13 |C6 O3 R3
+$Chip blanco 249
+08-26
+Minisuper bosques 12 |C4 O2 R2 I2 M2
+Bobba arriba 13+4 |C7 O3 R3 M2 I2
+Padel 8 |C8
+08-27 GDL
+CUCSH 0+27 |R5 I6 O6 C6 M4
+Provi 0+10 |C10
+Presente 15 |C15
+San Angel 6+4 |C10
+Gota 16 |C16 !Más caja
+Capilla 10+5 |C4 I3 O4 R3 M1
+Mezquitan 9+3 |C12
+Hierbas 10 |C7 I3
+08-28
+Mextli 7+3 |R2 O2 M2 C4
+Guzman ?
+San Lucas 13 |R2 O2 !Resto surtido sin especificar
+FT Colosio 31 |C19 R4 O4 I4
+Bobba abajo 13+3 |O3 M3 R3 I2 C5
+08-31
+Minisuper bosques 15 |O3 M2 R3 I2 C5
+Kibo 13 |R2 O2 I2 M2 C5
+Bullgym 10+4 |C10 R2 O1 M1
+09-03
+Rena 32 |C32
+Las Kekas 0+11 |C11
+Creme 0+11 |C7 R1 O1 M1 I1
+Avila 10+2 |C5 I2 O2 R2 M1
+Rodriguez 5 |R5
+Jugos 10 |C7 R1 O1 M1
+Tonys 9 |C5 M2 I1
+Chuyita 10+2 |R3 O3 M2 I1 C3
+09-04
+FT Santa Barbara 10+2 |C9 I1 M1 O1
+Gutierrez 10 |C7 I1 M1 O1
+Triangulo 13 |R2 O2 M1 I1 C7
+Cristy 15 |C15
+El Super 13 |C6 R2 O2 M2 I1
+Frente San Angel 13 |R2 O2 M2 I1 C6
+Ramitos 13 |R2 O2 M2 I1 C6
+09-07
+9 letras 0+2 |O1 R1
+Corjesu 11+1 |C5 M2 I2 R3
+Vecina 4+1 |R1 I1 M1 !Oreo sin cantidad
+San Mich 5+5 |C6 R1 O1 M1 I1
+Rey 5 |C5
+Adobes 17 |R3 O3 I2 M2 C7
+09-08
+Minisuper bosques 10 |M2 O2 R2 I2 C2
+Mextli 7 |C4 M2 O1
+San Lucas 13 |I3 M2 R2 O2 C4
+Guadalupe 10 |M2 R2 I2 O2 C2
+UNID abajo 13 |C7 R2 O2 M1 I1
+CMA 30
+Bobba arriba 18+2
+$Chip 185
+09-10 MIXTO
+Rena 29 |C29
+Ofe 4+2 |I6
+CUCSH 26+4 |O10 R10 I3 M7
+Palapa 16 |O3 R3 I2 M2 C6
+Presente 20 |C20
+Provi 10+2 |C12
+San Angel 6 |C6
+Vidrio 10 |C5 R2 O1 M1 I1
+Gota 0
+Zayda 8+2
+Capilla 6+4 |C6 !No aclara sabores de reemplazos
+Tacos 15 |C15
+Mezquitan 0
+Hierbas 0+2 |R2
+09-12
+FT Mapelo 26+7 |C20 M3 R3 I3 O4
+Paloma 8 |R2 O2 I2 M2
+Chuyita 15 |C8 R2 O2 I2 M1
+Tonys 11 |C7 O3 A1 !Total inferido de sabores
+Guzman 6 |R3 O3
+$Huevo 325
+09-16
+Cristy 7 |C7
+Jugos 0
+Bobba abajo 20+2 |R6 O6 M4 C5
+Triangulo 0+3 |R1 O1 M1
+FT Santa Barbara 12 |R4 O4 M2 C2
+Gutierrez 0+2 |O1 M1
+09-17
+Las Kekas 13 |C13
+Bullgym 14 |O3 M2 R1 C8 !Total inferido de sabores
+Creme 5+6 |C11
+Avila 12+2 |C9 O2 R2 M1
+Kibo 0+8 |C5 M1 O1 R1
+Minisuper bosques 13 |C8 O2 R2 M1
+Kiosko 10+3 |C13
+09-18
+Rodriguez 5 |M3 C2
+Rena 21 |C21
+09-19
+Jugos 8+2 |C6 R1 O1 M1 I1
+FT Viveros 0+8 |O3 R3 C1 I1
+Corjesu 10+3 |C3 O4 R4 I1
+Vecina 0+7 |C5 R2
+09-21
+Tonys 10 |R3 O3 M2 I2
+Chuyita 12 |M3 R2 O2 C3 I2
+Cremeria San Antonio 5+1 |R1 O1 I1 M1 C2
+Mextli 10 |R2 O2 M2 C4
+09-22
+San Lucas 13 |C5 R2 O2 M2 I2
+FT Colosio 30+1 |R7 C23
+09-23
+San Mich 7+5 |O3 R3 I2 M2 C2
+9 letras 6+6 |O3 R3 C2 I2 M2
+Adobes 13+1 |I3 R3 M3 C5
+09-24
+Guadalupe 10 |R2 O2 M2 I1 C3
+Bobba arriba 0+14 |R3 O3 M3 C3 I2
+Guzman 9 |R3 O3 M3
+Ofe 10 |I10
+Ramitos 13 |R3 O3 M3 C4
+Lomas San Angel 13 |R3 O3 M3 C4
+09-26 GDL
+CUCSH 24+16 |R11 O10 M10 I6 !3 P0: sabor no identificado
+Palapa 8+4 |O2 M2 I1 C6
+Provi 3+9
+San Angel 10+2 |C12
+Gota 10+4 |C12 O1 M1
+Mezquitan 10+2 |C8 R1 O1 M1 I1
+Hierbas 7+3 |C6 R1 O1 M1 I1
+Capilla 10+2 |R1 O1 M1 I1 C8
+09-28
+FT Mapelo 30+1 |R5 O5 M5 I1 C15
+Doña Germen 0 |R2 O2 M2 C4 !10 surtidos a consignación: R2 O2 M2 C4; sin cobro confirmado
+09-29
+Guzman 10 |M3 O3 R4
+FT Viveros 10 |O3 M3 C4
+10-03
+Boulevard Acatic 13 |R4 O4 M2 I2 C3
+Paloma 3+5 |R2 O2 I2 C2
+Minisuper bosques 13 |C8 O2 R2 M1
+10-05
+San Lucas 11+2 |I3 R2 O2 M2 C4
+Rena 26+1 |C27
+10-09
+Adobes 17 |C9 M2 R3 O2 I1
+Mextli 9+1 |M2 O2 R2 C4
+Guadalupe 13+2 |O3 R3 I2 M2 C5
+Cristy 15 |C15
+Creme 10+3 |O3 R3 I1 M1 C5
+Avila 13+1 |R3 O3 M2 I2 C6
+Helados 15 |O3 R3 M2 C6 I1
+Guzman 10 |R4 O3 M3
+Corjesu 15 |O3 R4 C5 M2 I1
+Vecina 8+1 |R2 O1 M1 I2 C3
+Bobba abajo 0+10 |R2 O2 M1 I1 C4
+$Chip blanco 225 !3 bolsas de 500gr
+$Oreo 64.5 !Medio kilo
+$Vainilla 214 !4 litros
+$Mantequilla 980 !10 kilos
+$Sueldo Tania 988
+10-10
+San Mich 0+10 |R2 O2 I1 M1 C4
+9 letras 0+9 |C9
+Bobba arriba 20 |C7 O4 R4 I3 M2
+Chuyita 14 |O3 R3 M2 C4 I2
+Tonys 10 |R2 O2 M1 I1 C4
+Bullgym 0+9 |C3 R1 M1 O1 I3
+10-12 GDL
+CUCSH 0+31 |C16 O7 R6 M2
+Provi 0+9 |C9
+Palapa 10+3 |R3 I2 O3 M2 C3
+Presente 15 |C15
+Gota 13+3 |C13 O1 M1 I1
+San Angel 10 |C10
+Gota 8+3 |C11 !Dos visitas Gota mismo día; revisar si es otro cliente o corrección
+Capilla 13+2 |C12 I2 O1
+Mezquitan 3+7 |C9 O1
+Hierbas 10+1 |R9 O2 I1
+$Chip blanco 1300 !Caja 20 bolsas de 500gr
+10-14
+Rena 13 |C13
+Ofe 0+2 |I2
+Bobba abajo 10+2 |C5 M2 O2 R2 I1
+FT Mapelo 31 |C17 I3 M3 O4 R4
+Jugos 8+1 |C3 R2 O2 M1 I1
+FT Viveros 5+11 |O4 R4 M2 I2 C4
+Rodriguez 2 |M2
+FT Carmen 25+1 |C14 R4 O4 M2 I2
+Gutierrez 8+4 |R2 O2 I1 M1 C6
+Triangulo 13 |C7 R2 O2 I1 M1
+Frutitas 6+6 |C6 R2 O2 M1 I1
+Mextli 6+4 |C4 R2 O2 M2
+Boulevard Acatic 10 |C4 I2 O2 M2
+Lomas San Angel 10+3 |C7 R2 O2 I1 M1
+Ramitos 13 |C7 O2 R2 M1 I1
+Morros 4 |M2 C2
+San Lucas 13 |I3 R2 O2 M1 C5
+Las Kekas 5+5 |C5 R2 O2 M1
+CMA 28+1 |O4 R4 M2 I5 C14
+$Chocolate rojo 80 !Medio kilo para líneas, consumo estimado 2gr/brownie
+10-17
+San Lucas 13 |I3 R2 O2 M1 C5 !Posible repetición exacta del 14 octubre; pendiente confirmar
+Las Kekas 5+5 |C5 R2 O2 M1 !Posible repetición exacta del 14 octubre; pendiente confirmar
+CMA 28+1 |O4 R4 M2 I5 C14 !Posible repetición exacta del 14 octubre; pendiente confirmar
+10-19
+Minisuper bosques 13 |R3 O3 M2 I2 C3
+Corjesu 0+7 |C3 R1 M1 O1
+Paloma 7 |R1 O2 I2 C2
+10-20
+Doña Germen 13 |C7 M2 O2 R2
+FT Carmen 26 |C14 O4 I4 M4
+Avila 7+3 |R2 O2 I2 M2 C2
+Creme 0+6 |R2 O2 M1 I1

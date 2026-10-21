@@ -3,7 +3,7 @@
   'use strict';
   const CONFIG={apiKey:'AIzaSyAzpjktTdrIBt-I89ZX98icGEMmhluXlo8',authDomain:'darkis-brownies.firebaseapp.com',projectId:'darkis-brownies',storageBucket:'darkis-brownies.firebasestorage.app',messagingSenderId:'66959378357',appId:'1:66959378357:web:a059509bea57560a243bfc'};
   const PREFIX='https://www.gstatic.com/firebasejs/12.19.0/',QUEUE='darkis_v12_sync_queue',CONTRIBUTIONS='darkis_v12_contributions';
-  let role=sessionStorage.getItem('darkis_suite_role_v12')||'',profileId=role==='socio'?sessionStorage.getItem('darkis_socio_profile_v12')||'':'';
+  let role=document.body.dataset.darkisPage==='administrador'?'admin':sessionStorage.getItem('darkis_suite_role_v12')||'',profileId=role==='socio'?sessionStorage.getItem('darkis_socio_profile_v12')||'':'';
   let sdk,auth,db,currentUser=null,grant=null,syncing=false,flushTimer,lastServerAck=0,checkingSince=Date.now(),generation=0;
   let unsubscribers=[],accessUnsubscribe=null;
   let accountState={state:'loading',role,profileId};
@@ -30,7 +30,7 @@
     handler(snapshot.docs.map(doc=>doc.data()?.data).filter(Boolean));
   },error=>announce('offline','No se pudieron leer los datos: '+error.code)))}
   function subscribe(){clearSubscriptions();if(!currentUser)return;
-    if(role==='admin'){listen(['routeContributions'],mergeContributions);listen(['timeclockEmployees'],devices=>dispatchEvent(new CustomEvent('darkis-clock-data',{detail:devices})));return}
+    if(role==='admin'){listen(['routeContributions'],mergeContributions);listen(['timeclockEmployees'],devices=>dispatchEvent(new CustomEvent('darkis-clock-data',{detail:devices})));unsubscribers.push(sdk.onSnapshot(sdk.collection(db,'productionRecords'),snapshot=>{window.darkisProductionCloudDetail=snapshot.metadata?.fromCache?'Mostrando copia local de producción.':'Producción recibida de Firebase.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:snapshot.docs.map(x=>x.data().data).filter(Boolean)}))},error=>{window.darkisProductionCloudDetail='No se pudo leer producción: '+error.code+'. Publica las reglas v22.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:[]}))}));return}
     if(role==='route'){listen(['routeClients'],clients=>window.darkisRouteCloudApply?.({clients}));return}
     if(role==='socio'&&profileId){let clients=[],sales=[];const update=()=>window.darkisSocioCloudApply?.({clients,sales});listen(['socioProfiles',profileId,'clients'],rows=>{clients=rows;update()});listen(['socioProfiles',profileId,'sales'],rows=>{sales=rows;update()})}
   }
@@ -88,7 +88,6 @@
     get accountState(){return accountState},get status(){return window.darkisSyncStatus?.state||'local'}
   };
   window.darkisSharedSync=api;
-  addEventListener('darkis-admin-unlocked',()=>api.activate('admin',''));
   async function init(){announce(navigator.onLine?'connecting':'offline','Preparando Firebase…');try{
     const [appSdk,authSdk,firestoreSdk]=await Promise.all([import(PREFIX+'firebase-app.js'),import(PREFIX+'firebase-auth.js'),import(PREFIX+'firebase-firestore.js')]);sdk={...authSdk,...firestoreSdk};
     const app=appSdk.getApps().find(x=>x.name==='darkis-shared-v12')||appSdk.initializeApp(CONFIG,'darkis-shared-v12');auth=authSdk.getAuth(app);try{db=firestoreSdk.initializeFirestore(app,{localCache:firestoreSdk.persistentLocalCache({tabManager:firestoreSdk.persistentMultipleTabManager()})})}catch{db=firestoreSdk.getFirestore(app)}

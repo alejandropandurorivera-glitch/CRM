@@ -1,0 +1,27 @@
+SISTEMA DARKIS v20 — LOGIN DE ADMINISTRADOR
+
+El botón Administrador abre una pantalla exclusiva de acceso con Google mediante Firebase Authentication. Ya no pide ni acepta el PIN 1016. Tampoco acepta las antiguas banderas de desbloqueo del navegador.
+El código que carga/renderiza las finanzas sólo se ejecuta después de verificar la cuenta Google y el rol admin habilitado en Firestore. Si la cuenta cambia, se revoca el permiso o se pierde conexión, el panel se bloquea. La sesión se recuerda mediante Firebase, pero el acceso se comprueba desde el servidor al abrir Administrador; requiere conexión.
+Existe Cerrar sesión en la barra superior. Repartidor y Darkita conservan sus accesos actuales.
+
+AUTORIZAR TU CUENTA
+1. Abre Administrador y pulsa Continuar con Google.
+2. Si la cuenta ya tiene accessRoles/{UID} con role admin y enabled true, entra automáticamente al panel.
+3. Si es la primera cuenta administradora, copia el ID mostrado y crea en Cloud Firestore la colección accessRoles y un documento cuyo ID sea ese UID exacto. Campos:
+   role: string admin
+   profileId: string vacío
+   enabled: boolean true
+4. Regresa a la app y pulsa Comprobar permisos. Las reglas deben ser las incluidas en firestore.rules. Ninguna solicitud de acceso concede privilegios automáticamente.
+El dominio alejandropandurorivera-glitch.github.io debe estar autorizado y Google debe estar habilitado en Firebase Authentication.
+
+ALCANCE
+Las reglas de Firestore protegen los datos de nube por rol. El histórico financiero incluido en el archivo HTML continúa accesible en el código público, como se conservó por petición del propietario. Un login de interfaz no convierte ese contenido incrustado en privado; para eso debe migrarse a almacenamiento protegido y retirarse del HTML.
+
+PUBLICAR
+Extrae el ZIP. Sube su contenido a la raíz de CRM, reemplazando los archivos. Espera a GitHub Pages y abre:
+https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v20.html
+El archivo index (5).html ahora dirige al inicio actual para evitar que se use esa copia antigua.
+No borres datos del navegador para actualizar.
+
+VALIDACION
+Comprobaciones de sintaxis y recursos offline. Pruebas de estados: falta de login, cuenta pendiente, rol diferente, rol admin activo, admin deshabilitado, revocación, modo offline y banderas viejas sin efecto. No se inició sesión real con la cuenta del propietario.

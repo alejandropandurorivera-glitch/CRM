@@ -115,6 +115,30 @@ service cloud.firestore {
       allow update: if updatesOwnRecord();
       allow delete: if ownsRecord();
     }
+    function nonnegativeCount(n) { return n is int && n >= 0 && n <= 100000; }
+    function flavorCounts(v) { return v is list && v.size() == 5
+      && nonnegativeCount(v[0]) && nonnegativeCount(v[1]) && nonnegativeCount(v[2])
+      && nonnegativeCount(v[3]) && nonnegativeCount(v[4]); }
+    function validProduction(id) {
+      let d = request.resource.data.data;
+      return d.id == id && d.employeeId is string && d.employeeName is string
+        && d.date is string && d.date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && d.piecesPerTray is int && d.piecesPerTray >= 1 && d.piecesPerTray <= 200
+        && flavorCounts(d.trays) && flavorCounts(d.waste) && flavorCounts(d.seminar)
+        && flavorCounts(d.trash) && flavorCounts(d.cookieInputs)
+        && nonnegativeCount(d.cookiesDark) && nonnegativeCount(d.cookiesWhite)
+        && d.createdAt is number && d.updatedAt is number && d.deleted is bool
+        && d.note is string && d.note.size() <= 500;
+    }
+    match /productionRecords/{id} {
+      allow read: if isAdmin() || ownsRecord();
+      allow create: if createsOwnRecord() && validProduction(id);
+      allow update: if updatesOwnRecord() && validProduction(id)
+        && request.resource.data.data.employeeId == resource.data.data.employeeId
+        && request.resource.data.data.createdAt == resource.data.data.createdAt;
+      // Deletions are audited tombstones, retained for the administrator.
+      allow delete: if false;
+    }
     match /{document=**} { allow read, write: if false; }
   }
 }

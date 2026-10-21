@@ -19,7 +19,7 @@
     const user=state.uid?`${state.email||state.name||'Cuenta Google'} · ${state.uid}`:'';
     if(user)body.append(el('div',user,'ga-account'));
     if(state.state==='authorized'){
-      body.append(el('p','Tu cuenta está autorizada. Este dispositivo recordará la sesión de Google; el PIN seguirá abriendo la interfaz.'));
+      body.append(el('p',state.role==='admin'?'Tu cuenta Google está autorizada para Administrador. Se comprobará el permiso al volver a abrir el panel.':'Tu cuenta está autorizada. Este dispositivo recordará la sesión de Google; el PIN seguirá abriendo la interfaz.'));
       actions(button('Comprobar conexión',()=>api.refreshAccess()),button('Cambiar Google',()=>api.changeAccount(),true));
       if(state.grant?.role==='admin')actions(button('Administrar accesos',showManager));
       return;
@@ -60,7 +60,7 @@
   }
   function openAccount(){manual=true;manager=false;render(api.accountState,true);overlay.classList.add('open')}
   addEventListener('darkis-open-account',openAccount);
-  addEventListener('darkis-access-state',e=>{const state=e.detail;manager=false;render(state);if(['needs-login','pending','denied'].includes(state.state))overlay.classList.add('open')});
+  addEventListener('darkis-access-state',e=>{const state=e.detail;manager=false;render(state);if(document.body.dataset.darkisPage!=='administrador'&&['needs-login','pending','denied'].includes(state.state))overlay.classList.add('open')});
   const settings=document.querySelector('#dxSettings .dx-panel');if(settings){const row=el('div',undefined,'dx-actions');row.append(button('Cuenta Google y permisos',async()=>{document.querySelector('#dxSettings')?.classList.remove('open');openAccount()},true));settings.append(row)}
-  if(['needs-login','pending','denied'].includes(api.accountState.state)){render();overlay.classList.add('open')}
+  if(document.body.dataset.darkisPage!=='administrador'&&['needs-login','pending','denied'].includes(api.accountState.state)){render();overlay.classList.add('open')}
 })();

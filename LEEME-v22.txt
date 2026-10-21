@@ -1,0 +1,41 @@
+DARKISISTEMA · VERSIÓN 22
+
+PUBLICAR
+1. Descarga y extrae el ZIP. Sube TODOS los archivos extraídos a la raíz del repositorio CRM. No subas solamente el ZIP ni metas los archivos dentro de una carpeta nueva.
+2. Firebase → Firestore Database → Reglas: reemplaza el contenido con firestore.rules de este paquete y pulsa Publicar. Se conserva el acceso Google del administrador y la identidad anónima del reloj; se añade productionRecords.
+3. Abre https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v22.html con conexión. Comprueba que Configuración muestre v22. Entra como administrador con tu cuenta Google autorizada.
+4. En Darkita guarda una captura de prueba de producción y comprueba «Producción sincronizada con Firebase». En Administrador → Producción confirma que llegue. El estado del reloj se mantiene independiente del permiso de producción: si faltan reglas, la captura se conserva localmente y muestra el error.
+No se modificó la configuración real de Firebase ni se publicó GitHub desde este paquete.
+
+RUTAS E INGRESOS
+- Notas de enero a 20 de octubre, tomadas como año 2026.
+- 793 renglones de ruta transcritos. Se incorporan 780 visitas; 9 renglones sin cantidad confirmada quedan en revisión y 4 repeticiones fueron omitidas por indicación del propietario.
+- Omitidos: Bobba arriba del 13 de julio, y San Lucas, Las Kekas y CMA del 17 de octubre.
+- 7,956 brownies cobrados identificados; 1,825 piezas retiradas en las visitas incorporadas. La visita de FT Viveros del 5 de febrero (24 sabores y 2 cambios, sin total vendido explícito) está pendiente y no se suma. Los 9 devueltos de Supercito se tratan como devolución sin reemplazo.
+- Cobro histórico de referencia $23 por brownie pagado: $182,988. Apartado a Darkis $19 por pagado y diferencia $4 en cortes de rutas. Los productos especiales sin precio, consignaciones no cobradas y muestras no generan cobro supuesto.
+- 91 gastos con importe y 5 movimientos de aportes/préstamos transcritos. Los aportes a caja y el préstamo de mamá no se clasifican como ventas ni como gastos. Dos gastos (Alpina/Etrusca) sin importe permanecen pendientes.
+- Para no sumar cobro público y liquidación como dos ventas, 37 renglones previos de Excel a $19 se conservan íntegros en historyImportAudit.routeSettlements y se excluyen del total de ventas. Se pueden descargar en Rutas recibidas → Revisión de importación → Descargar liquidaciones y coincidencias.
+- Gastos previos del mismo día e importe se conservan una vez y quedan señalados para cotejar comprobantes. No se fabrican facturas ni importes.
+- Los datos confirmados vienen incorporados en esta versión para todos los dispositivos que la abran, incluidos los históricos de cada cliente y sus últimas atenciones. No requieren reimportación manual ni subir cientos de documentos. Las nuevas capturas de ruta siguen utilizando la sincronización Firebase existente. Las finanzas locales conservan el sistema de respaldo JSON anterior.
+- Ingresos históricos se concentran en un renglón por visita; el surtido y los cambios se consultan en rutas y en el archivo de detalle. No se asigna un sabor vendido ficticio cuando el surtido también incluye reemplazos.
+- Los sabores entre paréntesis son ENTREGADOS, no devueltos. Los sabores retirados que no se indicaron quedan Sin especificar en reportes; no sirven para atribuir merma a un sabor.
+- No se ajustan automáticamente los desgloses que no cuadran. Consulta revision-historico.csv e historico-rutas-2026.json. Nombres ambiguos como Bobba, Minisuper y 7 letras se mantienen separados hasta identificar la tienda.
+- La próxima atención se sugiere a 7 días desde la última visita; desde 15 días es urgente. Se conservan las alertas de caducidad y fechas nuevas introducidas por el equipo. Guadalajara/Zapopan siguen unificadas.
+
+DARKITA → PRODUCCIÓN DEL DÍA
+- Capturas por persona y fecha. Se pueden registrar varios movimientos diarios; el administrador los suma.
+- Charolas por sabor de brownie. Rendimiento inicial editable: 20 piezas por charola; cada registro conserva el rendimiento usado.
+- Mermas, brownies destinados a seminario y basura: piezas por sabor, como destinos separados. Cada pieza debe registrarse una sola vez.
+- Galletas: piezas terminadas de chocolate amargo y blanco, y brownies consumidos por sabor para hacerlas. No se presupone una equivalencia brownie/galleta.
+- Registrar producción o piezas destinadas a seminario no genera ventas automáticamente. El valor $12/pieza de seminario sólo se muestra como referencia en administrador, no a Darkita.
+- Capturas offline, edición con historial, eliminación en dos pasos conservando constancia, sincronización por identidad del reloj. No comparten automáticamente identidad entre celulares distintos por tener el mismo nombre.
+- Administrador → Producción muestra cantidades por sabor/persona, fechas y respaldo JSON, incluyendo constancias de eliminación.
+
+INICIO
+- Nueva palabra-logotipo vectorial Darkisistema, naranja con contorno crema, mascota original grande sobre azul institucional y animación breve.
+- Nombre de instalación actualizado y pantallas de arranque para 12 tamaños de iPhone. iOS puede conservar una imagen anterior en instalaciones existentes; primero abre la versión publicada y confirma que tus registros estén respaldados antes de reinstalar.
+- Apple documenta la imagen de arranque web en:
+https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+
+VERIFICACIÓN
+Pruebas locales de inicialización del administrador/repartidor/Darkita, importación repetida sin duplicación, totales de rutas, últimas atenciones, registro/edición/eliminación de producción, validación de cantidades, sincronización simulada de Firebase y regresión del reloj y puerta de acceso Google. Se revisó visualmente el logotipo y la imagen de arranque exportada. No sustituye una prueba en los iPhone reales ni en las reglas publicadas de tu proyecto.

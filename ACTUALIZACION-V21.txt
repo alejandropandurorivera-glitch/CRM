@@ -1,0 +1,29 @@
+SISTEMA DARKIS v21 — CORRECCIONES DEL RELOJ
+
+HORARIOS MANUALES
+Se elimina el bloqueo por entradas/salidas consecutivas y por capturas a la misma hora. Se puede cambiar fecha, hora y tipo de movimiento de un registro existente. La nota es opcional; se mantiene la validación de fecha y hora válidas y de no capturar en el futuro.
+El lápiz abre la edición. Un registro agregado o modificado manualmente muestra Eliminar movimiento manual; se confirma en un segundo toque. Las marcaciones automáticas sin editar no se eliminan con este botón.
+Las ediciones conservan hora y tipo originales y su historial. La eliminación se guarda como anulación con fecha; se oculta del horario, no cuenta en horas y queda identificada en el PDF. Se sincroniza el registro anulado en lugar de borrarlo físicamente para evitar que una descarga antigua lo restaure.
+El PDF sigue membretado, con logo, colores, marcas individuales por movimiento y tarifa de $50/h. Ya no imprime un motivo vacío cuando no se proporcionó.
+
+COMO SE CALCULAN LAS HORAS SIN BLOQUEAR CORRECCIONES
+Se ordenan los movimientos activos por fecha. Ante dos entradas seguidas, la última entrada se toma para la próxima salida: la anterior se señala sin pareja y no se suma como un turno adicional. Una salida sin entrada se señala y no suma horas. El turno abierto actual sigue contando hasta la emisión, y se identifica como abierto.
+Los periodos semanales se prorratean cuando un turno cruza el inicio de semana. Tras editar o anular se recalculan los cortes; los cortes obsoletos se anulan también para no recuperarlos desde una copia antigua.
+Corregir la secuencia deja de ser obligatorio para guardar, pero sigue siendo importante para que el total refleje las horas reales. No se inventa una salida que no se registró.
+
+FIREBASE DEL RELOJ
+Darkita usa el acceso anónimo independiente llamado darkis-timeclock. Repartidor y Administrador usan Google en otra sesión: que Google funcione no confirma el acceso del reloj.
+No se sustituyeron cuentas ni se cambió el propietario de registros. No se abrió la base de datos al público ni se modificaron las reglas.
+Si falla la nube, la pantalla muestra el error y permite Reintentar conexión y Copiar diagnóstico. El diagnóstico incluye etapa y código de error, identidad del reloj, versión y fecha; nunca incluye coordenadas.
+Para auth/operation-not-allowed o auth/admin-restricted-operation, revisar Firebase Authentication > Método de acceso > Anónimo. Para permission-denied, revisar reglas de Firestore y la identidad indicada. Para errores de red/timeout, el diagnóstico permite distinguir autenticación de consulta o escritura.
+La captura sólo mostraba el estado rojo, sin código. No se ha confirmado la causa del fallo en el teléfono del propietario ni una conexión real desde ese dispositivo. La conexión de Sofía no se reemplaza ni se borra.
+
+PUBLICAR
+El sitio público aún respondía con caché v18 en la comprobación del 19 de octubre. Este paquete incluye también las mejoras v19/v20: presentación visual, icono original y login Google de Administrador.
+Extrae el ZIP y sube los archivos a la raíz de CRM, reemplazando los anteriores. No subas sólo el ZIP.
+Espera la publicación y abre https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v21.html
+Después cierra y vuelve a abrir la app instalada. El engrane debe indicar v21.
+No borres datos ni desinstales para corregir el estado de Firebase: puedes perder horarios locales y la identidad anónima del dispositivo.
+
+VALIDACION
+Pruebas de la corrección 17 a 14 de octubre sin bloqueo, notas vacías, cambio de tipo, altas duplicadas, hora original conservada, anulación sin resurrección, perfil distinto rechazado, entradas consecutivas sin doble conteo y turnos entre semanas. Comprobaciones de sintaxis y referencias offline.

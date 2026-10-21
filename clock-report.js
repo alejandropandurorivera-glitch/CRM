@@ -36,8 +36,8 @@
     const bold = embedFont(window.DarkisReportFonts.bold, 'DarkisSansBold');
     const imageId = add(`<< /Type /XObject /Subtype /Image /Width ${image.width} /Height ${image.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${image.data.length} >>\nstream\n${image.data}\nendstream`);
     const chunks = []; let chunk = [], used = 0;
-    for (const r of report.records) {
-      const notes = r.manualEdited ? wrap('Motivo: ' + (r.editReason || 'Sin motivo registrado')) : [];
+    for (const r of [...report.records,...(report.deletedRecords||[])].sort((a,b)=>a.timestamp-b.timestamp)) {
+      const notes = r.manualEdited && r.editReason ? wrap('Nota: ' + r.editReason) : [];
       const height = r.manualEdited ? 49 + notes.length * 11 : 34;
       if (used + height > 421 && chunk.length) { chunks.push(chunk); chunk = []; used = 0; }
       chunk.push({r,notes,height}); used += height;
@@ -59,22 +59,22 @@
       text('HORAS TRABAJADAS',48,607,8,blue,true); text(report.hours.toFixed(2)+' h',48,587,16,ink,true);
       text('TARIFA POR HORA',231,607,8,blue,true); text(report.rateText,231,587,13,ink,true);
       text('IMPORTE ESTIMADO',407,607,8,blue,true); text(report.payText,407,587,13,ink,true);
-      text(`${report.records.length} movimientos  |  ${report.records.filter(r=>r.manualEdited).length} manuales`,36,557,9);
+      text(`${report.records.length} movimientos activos | ${report.records.filter(r=>r.manualEdited).length} manuales | ${(report.deletedRecords||[]).length} eliminados`,36,557,9);
       rect(36,525,540,23,blue); text('MOVIMIENTO',46,533,8,'1 1 1',true); text('FECHA',152,533,8,'1 1 1',true); text('HORA',255,533,8,'1 1 1',true); text('ORIGEN DEL REGISTRO',340,533,8,'1 1 1',true);
       let y = 525;
       if (!rows.length) text('Sin movimientos registrados en este periodo.',46,502,10);
       for (const {r,notes,height} of rows) {
-        rect(36,y-height,540,height-1,r.manualEdited?'1 0.96 0.90':'0.97 0.98 0.99');
+        rect(36,y-height,540,height-1,r.deleted?'0.94 0.94 0.94':r.manualEdited?'1 0.96 0.90':'0.97 0.98 0.99');
         text(r.type==='entry'?'Entrada':'Salida',46,y-16,10,ink,true); text(date(r.timestamp),152,y-16,10); text(time(r.timestamp),255,y-16,10,ink,true);
-        text(r.manualEdited?(r.manualCreated?'AGREGADA MANUALMENTE':'MODIFICADA MANUALMENTE'):'Automático',340,y-16,r.manualEdited?8:9,r.manualEdited?'0.65 0.24 0.06':blue,Boolean(r.manualEdited));
+        text(r.deleted?'ELIMINADA (NO SUMA HORAS)':r.manualEdited?(r.manualCreated?'AGREGADA MANUALMENTE':'MODIFICADA MANUALMENTE'):'Automático',340,y-16,r.manualEdited?8:9,r.manualEdited?'0.65 0.24 0.06':blue,Boolean(r.manualEdited));
         if (r.manualEdited) {
-          text(Number.isFinite(r.originalTimestamp)?'Hora original: '+date(r.originalTimestamp)+' '+time(r.originalTimestamp):'Sin marcación automática original',46,y-32,8);
+          text(r.deleted?'Anulada el '+date(r.deletedAt)+' '+time(r.deletedAt):Number.isFinite(r.originalTimestamp)?'Hora original: '+date(r.originalTimestamp)+' '+time(r.originalTimestamp):'Sin marcación automática original',46,y-32,8);
           notes.forEach((line,i)=>text(line,46,y-44-i*11,8));
         }
         y -= height;
       }
       rect(36,79,540,1,'0.84 0.89 0.91');
-      text('Las marcas manuales corresponden únicamente a la entrada o salida señalada.',36,65,8,ink,true);
+      text(report.sequenceWarnings?`${report.sequenceWarnings} movimiento(s) sin pareja: revisar. Las filas eliminadas no suman horas.`:'Las filas eliminadas no suman horas. Cada ajuste manual está identificado.',36,65,8,ink,true);
       text('Horario de Ciudad de México. Turnos abiertos calculados hasta la emisión.',36,51,8);
       text('Emitido: '+date(report.issuedAt)+' '+time(report.issuedAt),36,31,8);
       text(`Página ${pageIndex+1} de ${chunks.length}`,485,31,8,blue);

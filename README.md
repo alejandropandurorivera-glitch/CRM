@@ -1,3 +1,15 @@
+# Sistema Darkis v22
+
+Reloj: corrección libre, nota opcional, anulación de movimientos manuales y diagnóstico de Firebase. Consulta ACTUALIZACION-V21.txt.
+
+# Sistema Darkis v20
+
+Administrador ahora usa Google + rol admin de Firebase, sin PIN. Consulta ACTUALIZACION-V20.txt.
+
+# Sistema Darkis v19
+
+Esta actualización conserva v18 y agrega la presentación visual de arranque. Consulta ACTUALIZACION-V19.txt para publicar y conocer el límite de la pantalla nativa de Android.
+
 # Sistema Darkis v17 — Firebase Spark
 
 Consulta **ACTUALIZACION-V17.txt** para GPS, horarios manuales, PDF con membrete y recuperación de accesos antiguos.
@@ -9,13 +21,13 @@ La entrada sigue siendo **index.html**. Esta versión reemplaza el acceso de nub
 | Darkita | reloj-checador.html | PIN individual, GPS, horas y reporte PDF; conserva su sesión anónima |
 | Repartidor | index.html | PIN 2024, clientes, visitas, ventas, cambios y vencimientos |
 | Darkisocio | darkisocio.html | Enlace en la pantalla del PIN de Repartidor, antes de entrar; datos propios de Tania, Sofi y Juan Pablo |
-| Administrador | administrador.html | PIN 1016, finanzas, reportes, cortes y autorización de cuentas Google |
+| Administrador | administrador.html | Login Google con rol admin, finanzas, reportes, cortes y autorización de cuentas Google |
 
 ## Primer uso con Firebase
 
 Publica las reglas **nuevas** de `firestore.rules`. Abre la app desde una dirección HTTPS autorizada en Firebase. En Administrador, conecta tu cuenta Google, copia el UID que aparece y crea una sola vez su permiso `accessRoles/{UID}` en la consola, con `role: admin`, `profileId: ""` y `enabled: true`. Sigue [FIREBASE.md](FIREBASE.md) para los pasos exactos y tipos de campo.
 
-Después, las otras personas conectan Google y solicitan acceso. Desde el engrane → **Cuenta Google y permisos → Administrar accesos**, les asignas Repartidor o su perfil Darkisocio. Google queda recordado en el dispositivo; el PIN sigue abriendo la interfaz. El PIN por sí solo no autoriza datos en Firestore. No se abre ninguna cuenta ni se concede el rol administrador automáticamente.
+Después, las otras personas conectan Google y solicitan acceso. Desde el engrane → **Cuenta Google y permisos → Administrar accesos**, les asignas Repartidor o su perfil Darkisocio. Google queda recordado en el dispositivo. Administrador usa Google; Repartidor y Darkisocio conservan su PIN. El PIN por sí solo no autoriza datos en Firestore. No se abre ninguna cuenta ni se concede el rol administrador automáticamente.
 
 ## Datos
 
