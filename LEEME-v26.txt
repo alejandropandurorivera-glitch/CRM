@@ -1,0 +1,70 @@
+DARKISISTEMA v26 — 21 octubre 2026
+
+PUBLICAR LA ACTUALIZACIÓN
+1. Firebase → Firestore Database → Reglas: pega y publica firestore.rules de ESTE paquete. Conserva Authentication y los roles existentes; no abras la base al público. Las colecciones nuevas de horas, pagos y actividad requieren estas reglas.
+2. Descomprime el ZIP. Sube su CONTENIDO a la raíz del repositorio CRM, reemplazando los archivos anteriores. No subas el ZIP sin descomprimir ni una carpeta contenedora. No cambies el dominio de GitHub Pages ni agregues un CNAME del dominio anterior.
+3. Cuando termine GitHub Pages, abre https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v26.html y luego la aplicación instalada. Debe indicar v26. No borres los datos del teléfono: puede haber horarios y visitas sin sincronizar.
+Esta entrega fue verificada localmente y contra un emulador de Firestore. No modifica automáticamente el repositorio ni tu proyecto Firebase.
+
+RECUPERAR EL RELOJ DEL CELULAR CON clock/owner-mismatch
+Ese código corresponde al propietario guardado en un movimiento del reloj; no es el inicio con Google de Administrador o Repartidor. Darkita conserva su sesión anónima independiente.
+En Darkita pulsa Recuperar y sincronizar en el aviso Recuperar horarios de este celular. Primero se guarda un respaldo local y después se vincula la copia al propietario actual, conservando las horas, empleados, identificadores, turnos abiertos y ajustes. No se escribe en los documentos de otra identidad. Las confirmaciones reales de Firebase determinan el foquito verde; amarillo indica recuperación o conexión pendiente. Si persiste un error de permisos, copia el diagnóstico después de publicar las reglas nuevas.
+No borres caché, datos del sitio ni la app mientras haya registros pendientes. El respaldo y los movimientos permanecen en el celular.
+
+REPARTIDOR
+- Los ceros se vacían al tocar el campo y vuelven a cero si lo dejas vacío. Dejados queda a la izquierda; Retirados a la derecha.
+- El asistente de surtido funciona en el dispositivo: modelo estadístico local y reglas basadas en visitas, cantidades y cambios. Con suficiente historial entrena una regresión; con pocos datos usa reglas conservadoras. No envía información a una IA externa ni requiere una API. Estima el siguiente surtido, no ventas finales de la tienda. Los sabores retirados desconocidos no se inventan. Si faltan sabores suficientes, se solicita captura manual.
+- Aplicar sugerencia llena los dejados y el cobro estimado. Conserva los retirados que capturaste; revisa y guarda tú la visita.
+- Calcular cambio abre opcionalmente el campo de efectivo recibido. Mi día muestra las visitas, ingreso, cambios, gastos y resumen de la fecha elegida. Los gastos se comparten con Administrador.
+- El historial permite editar la visita con constancia de la modificación, sin duplicar el movimiento. Se recalculan los cortes de las fechas afectadas.
+- En el lápiz del cliente puedes elegir días de recepción. Guadalupe / Punto Guadalupe está configurado para jueves. Otros días se avisa de la restricción; una caducidad urgente conserva su advertencia.
+- Eliminar cliente tiene dos confirmaciones. Desaparece de la ruta y no vuelve por recibir un catálogo antiguo. Sus ventas previas permanecen en los reportes.
+
+FOTOS
+No se colocaron imágenes genéricas como si fueran fotos verificadas de los negocios. En la edición puedes cargar una foto o pegar una URL HTTPS.
+Para buscar la primera foto de una ubicación de Google Maps se incluye búsqueda opcional con una clave propia de Google Places API (New), habilitada en Google Cloud con las restricciones y facturación correspondientes. No se reutiliza la clave Firebase para ese servicio. Selecciona el negocio correcto y se usa su primera foto con atribución. Sin esa clave, utiliza carga manual. Las fotos de Google pueden requerir conexión y renovarse; el ID de la ubicación se conserva.
+
+HORAS, PDF Y PAGOS
+El botón de PDF abre selección por fechas y turnos cerrados. Marca los turnos y los minutos que vas a incluir; se permiten abonos parciales y hasta 20 turnos por PDF. Los cálculos conservan los segundos, a $50 por hora. La pantalla de Darkita muestra horas; el importe aparece en el PDF.
+Generar un PDF registra una selección pendiente, reserva esas horas y NO las marca pagadas. Se puede volver a descargar. Para corregir una selección, cancélala en línea y genera otra. No se altera silenciosamente un PDF que ya se emitió.
+En Administrador → Horas y pagos revisa el detalle, selecciona fecha y método y pulsa Marcar pagado. Una transacción registra el pago y evita duplicar horas. El pago confirmado genera un único gasto de sueldo y Darkita ve las horas pagadas y pendientes al sincronizar.
+Los movimientos fuente se verifican nuevamente al pagar. Si se modificó un horario de una selección pendiente, cancela esa selección y genera una nueva. Si se cambió un horario ya pagado, se avisa para revisión administrativa, sin inventar ajustes de dinero.
+Los pagos o PDFs anteriores a esta versión no se suponen pagados automáticamente. Los borradores creados sin conexión quedan en el dispositivo hasta sincronizar; confirmar pagos necesita conexión.
+
+ACTIVIDAD DE DARKITA
+Producción, Decoración, Same Day y Otros (especificar), con notas de actividades adicionales. Las charolas producidas y decoradas se cuentan por separado; Same Day puede registrar ambas etapas sin duplicar la producción. Continúan merma, seminario, basura, galletas blancas/amargas y brownies usados por sabor.
+No es obligatorio completar la actividad para cerrar el turno ni descargar el PDF. Si falta un registro, se recuerda al abrir la interfaz y antes del PDF. Un registro compartido que coincida al menos un minuto con el horario de otra persona puede cubrir a ambas; se utilizan los intervalos de trabajo, sin cubrir huecos entre turnos. No vuelvan a cargar las mismas cantidades por persona. Administrador recibe los tipos, cantidades y notas.
+Los registros antiguos sin información de cobertura pueden necesitar revisión antes de desaparecer el recordatorio.
+
+PAQUETE DEPURADO
+Se retiraron 28 archivos antiguos o redundantes del paquete. Los archivos de aplicación activos y las reglas son idénticos a v26. No hace falta publicar reglas diferentes de las entregadas en v26.
+GitHub no elimina archivos antiguos al subir los nuevos. Si ya existen en el repositorio puedes borrar EXCLUSIVAMENTE estos nombres, tras completar la subida:
+ACTUALIZACION-V17.txt
+ACTUALIZACION-ICONO.txt
+ACTUALIZACION-V21.txt
+ACTUALIZACION-V20.txt
+ACTUALIZACION-V18.txt
+ACTUALIZACION-V19.txt
+ACTUALIZACION-GPS.txt
+LEEME-v22.txt
+LEEME-v23.txt
+LEEME-v24.txt
+LEEME-v25.txt
+abrir-darkis-v17.html
+abrir-darkis-v18.html
+abrir-darkis-v19.html
+abrir-darkis-v20.html
+abrir-darkis-v21.html
+abrir-darkis-v22.html
+index (5).html
+cat-tania.webp
+cat-sofis.webp
+cat-juan-pablo.webp
+role-administrador.png
+role-production.png
+admin-production.js
+admin-client-review.js
+darkis-script.ttf
+notas-rutas-2026.txt
+revision-clientes-v23.json
+No borres los demás archivos, documentos de Firebase ni datos del teléfono.

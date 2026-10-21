@@ -82,8 +82,17 @@ service cloud.firestore {
     }
     match /routeClients/{id} {
       allow read: if isRoute();
-      allow create, update: if isRoute() && envelope(id);
+      allow create: if isRoute() && envelope(id);
+      allow update: if isRoute() && envelope(id)
+        && (!resource.data.data.get('deleted', false) || request.resource.data.data.get('deleted', false));
       allow delete: if isRoute();
+    }
+    match /routeExpenses/{id} {
+      allow read: if isRoute();
+      allow create, update: if isRoute() && envelope(id)
+        && request.resource.data.data.amount is number && request.resource.data.data.amount > 0
+        && request.resource.data.data.date is string && request.resource.data.data.concept is string;
+      allow delete: if isAdmin();
     }
     match /routeContributions/{id} {
       allow read: if canReadContribution();
@@ -133,11 +142,14 @@ service cloud.firestore {
       return d.id == id && d.employeeId is string && d.employeeName is string
         && d.date is string && d.date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
         && d.piecesPerTray is int && d.piecesPerTray >= 1 && d.piecesPerTray <= 200
-        && flavorCounts(d.trays) && flavorCounts(d.waste) && flavorCounts(d.seminar)
+        && flavorCounts(d.trays) && flavorCounts(d.get('decorated',[0,0,0,0,0])) && flavorCounts(d.waste) && flavorCounts(d.seminar)
         && flavorCounts(d.trash) && flavorCounts(d.cookieInputs)
         && nonnegativeCount(d.cookiesDark) && nonnegativeCount(d.cookiesWhite)
         && d.createdAt is number && d.updatedAt is number && d.deleted is bool
-        && d.note is string && d.note.size() <= 500;
+        && d.note is string && d.note.size() <= 500
+        && d.get('activityType','production') in ['production','decoration','sameDay','other']
+        && d.get('otherActivity','') is string && d.get('otherActivity','').size() <= 180
+        && (d.get('activityType','production') != 'other' || d.get('otherActivity','').size() > 0);
     }
     match /productionRecords/{id} {
       allow read: if isAdmin() || ownsRecord();
@@ -146,6 +158,64 @@ service cloud.firestore {
         && request.resource.data.data.employeeId == resource.data.data.employeeId
         && request.resource.data.data.createdAt == resource.data.data.createdAt;
       // Deletions are audited tombstones, retained for the administrator.
+      allow delete: if false;
+    }
+    function validCoverage(id) {
+      let d = request.resource.data.data;
+      return d.id == id && d.keys().hasOnly(['id','date','activityType','coverageStart','coverageEnd','coverageIntervals','createdAt','updatedAt','deleted','ownerUid'])
+        && d.date is string && d.activityType in ['production','decoration','sameDay','other']
+        && d.coverageIntervals is list && d.coverageIntervals.size() <= 20 && d.deleted is bool
+        && existsAfter(/databases/$(database)/documents/productionRecords/$(id))
+        && getAfter(/databases/$(database)/documents/productionRecords/$(id)).data.ownerUid == request.auth.uid;
+    }
+    match /productionCoverage/{id} {
+      // Sólo intervalos y tipo de actividad, sin PIN, GPS, sueldos ni cantidades.
+      allow read: if signedIn();
+      allow create: if createsOwnRecord() && validCoverage(id);
+      allow update: if updatesOwnRecord() && validCoverage(id);
+      allow delete: if false;
+    }
+    function validPayrollRequest(id) {
+      let d = request.resource.data.data;
+      return createsOwnRecord() && id == request.auth.uid + '__' + d.id
+        && d.ownerUid == request.auth.uid && d.status == 'pending'
+        && d.employeeId is string && d.employeeName is string
+        && d.rate == 50 && d.totalSeconds is int && d.totalSeconds > 0 && d.totalMinutes is number && d.totalMinutes > 0
+        && d.amount is number && d.amount > 0
+        && d.allocations is list && d.allocations.size() > 0 && d.allocations.size() <= 20
+        && d.createdAt is number && d.updatedAt is number;
+    }
+    function samePayrollSelection() {
+      return request.resource.data.ownerUid == resource.data.ownerUid
+        && request.resource.data.data.diff(resource.data.data).affectedKeys().hasOnly(['status','updatedAt','paymentId','paidAt']);
+    }
+    match /payrollRequests/{id} {
+      allow get: if isAdmin() || ownsRecord() || (signedIn() && id.matches('^' + request.auth.uid + '__.*'));
+      allow list: if isAdmin() || ownsRecord();
+      allow create: if validPayrollRequest(id);
+      allow update: if samePayrollSelection() && resource.data.data.status == 'pending'
+        && ((isAdmin() && request.resource.data.data.status in ['paid','cancelled'])
+          || (ownsRecord() && request.resource.data.data.status == 'cancelled'));
+      allow delete: if false;
+    }
+    match /payrollPayments/{id} {
+      allow read: if isAdmin() || ownsRecord();
+      allow create: if isAdmin() && request.resource.data.data.id == id
+        && request.resource.data.data.requestId == id
+        && request.resource.data.ownerUid == request.resource.data.data.ownerUid
+        && getAfter(/databases/$(database)/documents/payrollRequests/$(request.resource.data.ownerUid + '__' + id)).data.data.status == 'paid'
+        && getAfter(/databases/$(database)/documents/payrollRequests/$(request.resource.data.ownerUid + '__' + id)).data.data.totalSeconds == request.resource.data.data.totalSeconds
+        && getAfter(/databases/$(database)/documents/payrollRequests/$(request.resource.data.ownerUid + '__' + id)).data.data.amount == request.resource.data.data.amount;
+      allow update, delete: if false;
+    }
+    match /payrollClaims/{id} {
+      // Consulta exacta por ID de entrada; permite conservar abonos al recuperar una identidad.
+      allow get: if signedIn();
+      allow list: if isAdmin();
+      allow create, update: if isAdmin() && request.resource.data.data.id == id
+        && request.resource.data.data.paidSeconds is int && request.resource.data.data.paidSeconds >= 0
+        && request.resource.data.data.capacitySeconds is int
+        && request.resource.data.data.paidSeconds <= request.resource.data.data.capacitySeconds;
       allow delete: if false;
     }
     match /{document=**} { allow read, write: if false; }

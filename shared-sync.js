@@ -23,14 +23,14 @@
   }
   function profileOf(item){return String(item.actorProfileId||item.profileId||profileId||'')}
   function asContribution(sale){const saved=safeArray(CONTRIBUTIONS).find(x=>x.id===sale.id);if(saved)return saved;const items=Array.isArray(sale.items)?sale.items:[];return{...sale,actorProfileId:profileOf(sale),paid:Number(sale.paid)||items.reduce((n,x)=>n+(Number(x.qty)||0),0),removed:[],delivered:[],source:'Darkisocio',items}}
-  function mergeContributions(remote){const rows=new Map(safeArray(CONTRIBUTIONS).map(x=>[x.id,x]));for(const item of remote)if(item?.id)rows.set(item.id,item);localStorage.setItem(CONTRIBUTIONS,JSON.stringify([...rows.values()]));dispatchEvent(new Event('darkis-data-updated'))}
+  function mergeContributions(remote){const rows=new Map(safeArray(CONTRIBUTIONS).map(x=>[x.id,x]));for(const item of remote)if(item?.id){const old=rows.get(item.id);if(!old||String(item.updatedAt||item.createdAt)>=String(old.updatedAt||old.createdAt))rows.set(item.id,item);}localStorage.setItem(CONTRIBUTIONS,JSON.stringify([...rows.values()]));dispatchEvent(new Event('darkis-data-updated'))}
   function listen(path,handler){const uid=currentUser?.uid;unsubscribers.push(sdk.onSnapshot(sdk.collection(db,...path),{includeMetadataChanges:true},snapshot=>{
     if(currentUser?.uid!==uid)return;
     if(!snapshot.metadata.fromCache)announce('online','Firebase conectado');
-    handler(snapshot.docs.map(doc=>doc.data()?.data).filter(Boolean));
+    const rows=snapshot.docs.map(doc=>doc.data()?.data).filter(Boolean);if(path[0]==='routeClients')window.DarkisClientDirectory?.ingest(rows);handler(rows);
   },error=>announce('offline','No se pudieron leer los datos: '+error.code)))}
   function subscribe(){clearSubscriptions();if(!currentUser)return;if(role==='admin'||role==='route')listen(['routeSchedules'],rows=>dispatchEvent(new CustomEvent('darkis-route-schedules-data',{detail:rows})));
-    if(role==='admin'){listen(['routeClients'],rows=>dispatchEvent(new CustomEvent('darkis-route-clients-data',{detail:rows})));listen(['routeContributions'],mergeContributions);listen(['timeclockEmployees'],devices=>dispatchEvent(new CustomEvent('darkis-clock-data',{detail:devices})));unsubscribers.push(sdk.onSnapshot(sdk.collection(db,'productionRecords'),snapshot=>{window.darkisProductionCloudDetail=snapshot.metadata?.fromCache?'Mostrando copia local de producción.':'Producción recibida de Firebase.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:snapshot.docs.map(x=>x.data().data).filter(Boolean)}))},error=>{window.darkisProductionCloudDetail='No se pudo leer producción: '+error.code+'. Publica las reglas v22.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:[]}))}));return}
+    if(role==='admin'){listen(['payrollRequests'],rows=>dispatchEvent(new CustomEvent('darkis-payroll-requests',{detail:rows})));listen(['payrollPayments'],rows=>dispatchEvent(new CustomEvent('darkis-payroll-payments',{detail:rows})));listen(['routeExpenses'],rows=>dispatchEvent(new CustomEvent('darkis-route-expenses',{detail:rows})));listen(['routeClients'],rows=>dispatchEvent(new CustomEvent('darkis-route-clients-data',{detail:rows})));listen(['routeContributions'],mergeContributions);listen(['timeclockEmployees'],devices=>dispatchEvent(new CustomEvent('darkis-clock-data',{detail:devices})));unsubscribers.push(sdk.onSnapshot(sdk.collection(db,'productionRecords'),snapshot=>{window.darkisProductionCloudDetail=snapshot.metadata?.fromCache?'Mostrando copia local de producción.':'Producción recibida de Firebase.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:snapshot.docs.map(x=>x.data().data).filter(Boolean)}))},error=>{window.darkisProductionCloudDetail='No se pudo leer producción: '+error.code+'. Publica las reglas v22.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:[]}))}));return}
     if(role==='route'){listen(['routeClients'],clients=>window.darkisRouteCloudApply?.({clients}));return}
     if(role==='socio'&&profileId){let clients=[],sales=[];const update=()=>window.darkisSocioCloudApply?.({clients,sales});listen(['socioProfiles',profileId,'clients'],rows=>{clients=rows;update()});listen(['socioProfiles',profileId,'sales'],rows=>{sales=rows;update()})}
   }
@@ -71,6 +71,26 @@
     finally{syncing=false;if(!failed&&currentUser?.uid===user.uid&&role===area&&safeArray(QUEUE).some(x=>x.role===area&&(area!=='socio'||x.profileId===profile)))scheduleFlush()}
   }
   const api={
+    async payPayroll(requestId,paymentDate,method='Efectivo',requestOwner){
+      if(!currentUser||grant?.role!=='admin')throw Error('Se necesita acceso de administrador.');
+      const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Mexico_City',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());if(!/^\d{4}-\d{2}-\d{2}$/.test(paymentDate)||paymentDate>today)throw Error('Elige una fecha de pago válida, hasta hoy.');
+      return sdk.runTransaction(db,async tx=>{
+        const requestRef=sdk.doc(db,'payrollRequests',requestOwner+'__'+requestId),paymentRef=sdk.doc(db,'payrollPayments',requestId),requestSnap=await tx.get(requestRef),paymentSnap=await tx.get(paymentRef);
+        if(paymentSnap.exists())return paymentSnap.data().data;if(!requestSnap.exists())throw Error('No se encontró el PDF seleccionado.');const request=requestSnap.data().data,claimRows=[];
+        if(!Array.isArray(request.allocations)||request.allocations.length>20)throw Error('La selección está dañada.');
+        for(const allocation of request.allocations){
+          const claim=await tx.get(sdk.doc(db,'payrollClaims',allocation.key));if(claim.exists())claimRows.push(claim.data().data);
+          const readRecord=async id=>{let found=await tx.get(sdk.doc(db,'timeclockRecords',request.ownerUid+'__'+id));if(!found.exists())found=await tx.get(sdk.doc(db,'timeclockRecords',id));if(!found.exists())throw Error('Falta sincronizar un movimiento del reloj antes de pagar.');const raw=found.data();if(raw.ownerUid!==request.ownerUid)throw Error('La identidad del movimiento no coincide.');return raw.data};
+          const entry=await readRecord(allocation.entryId),exit=await readRecord(allocation.exitId);
+          if(entry.deleted||exit.deleted||entry.type!=='entry'||exit.type!=='exit'||entry.employeeId!==request.employeeId||exit.employeeId!==request.employeeId||entry.timestamp!==allocation.start||exit.timestamp!==allocation.end||Math.round((exit.timestamp-entry.timestamp)/1000)!==allocation.capacitySeconds||JSON.stringify([entry.id,entry.timestamp,exit.id,exit.timestamp])!==allocation.fingerprint)throw Error('Un horario del PDF cambió. Revisa o cancela esa selección y genera otra.');
+        }
+        const updates=window.DarkisPayrollModel.validatePayment(request,claimRows),now=Date.now(),payment={id:requestId,requestId,ownerUid:request.ownerUid,employeeId:request.employeeId,employeeName:request.employeeName,allocations:request.allocations,totalMinutes:request.totalMinutes,totalSeconds:request.totalSeconds,rate:50,amount:request.amount,paymentDate,method,paidAt:now,createdAt:now,updatedAt:now,paidBy:currentUser.email||currentUser.uid};
+        for(const claim of updates)tx.set(sdk.doc(db,'payrollClaims',claim.id),{ownerUid:currentUser.uid,data:{...claim,updatedAt:now,lastRequestId:requestId},updatedAt:sdk.serverTimestamp()});
+        tx.set(paymentRef,{ownerUid:request.ownerUid,data:payment,updatedAt:sdk.serverTimestamp()});tx.set(requestRef,{ownerUid:request.ownerUid,data:{...request,status:'paid',paymentId:requestId,paidAt:now,updatedAt:now},updatedAt:sdk.serverTimestamp()});return payment;
+      }).catch(async error=>{try{const confirmed=await sdk.getDocFromServer(sdk.doc(db,'payrollPayments',requestId)),payment=confirmed.exists()?confirmed.data().data:null;if(payment?.requestId===requestId&&payment.ownerUid===requestOwner)return payment}catch{}throw error});
+    },
+    async cancelPayroll(requestId,requestOwner){if(!currentUser||grant?.role!=='admin')throw Error('Se necesita administrador.');return sdk.runTransaction(db,async tx=>{const ref=sdk.doc(db,'payrollRequests',requestOwner+'__'+requestId),snap=await tx.get(ref);if(!snap.exists())throw Error('No se encontró la selección.');const raw=snap.data();if(raw.data.status!=='pending')throw Error('Sólo se puede cancelar un PDF pendiente.');tx.set(ref,{...raw,data:{...raw.data,status:'cancelled',updatedAt:Date.now()},updatedAt:sdk.serverTimestamp()})});},
+    saveRouteExpense(value){if(value?.id)queueOperation(['routeExpenses',value.id],value,'set',role==='admin'?'admin':'route')},
     saveRouteSchedule(value){if(value?.id==='gdl')queueOperation(['routeSchedules','gdl'],value,'set',role==='admin'?'admin':'route')},
     saveRouteClient(client){if(client?.id)queueOperation(['routeClients',client.id],client,'set',role==='admin'?'admin':'route')},
     deleteRouteClient(id){if(id)queueOperation(['routeClients',id],undefined,'delete','route')},

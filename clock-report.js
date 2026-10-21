@@ -38,6 +38,7 @@
     const chunks = []; let chunk = [], used = 0;
     for (const r of [...report.records,...(report.deletedRecords||[])].sort((a,b)=>a.timestamp-b.timestamp)) {
       const notes = r.manualEdited && r.editReason ? wrap('Nota: ' + r.editReason) : [];const long=(report.longShifts||[]).find(s=>s.entry.id===r.id||s.exit?.id===r.id);if(long)notes.push('Turno >8 h: '+(long.confirmed?'confirmado por la persona':'pendiente de revisar'));
+      if(r.selectionNote)notes.push(...wrap(r.selectionNote));
       const height = (r.manualEdited ? 49 : 34) + notes.length * 11;
       if (used + height > 421 && chunk.length) { chunks.push(chunk); chunk = []; used = 0; }
       chunk.push({r,notes,height}); used += height;
@@ -51,12 +52,12 @@
       const text = (value,x,y,size=10,color=ink,heavy=false) => commands.push(`BT /${heavy?'F2':'F1'} ${size} Tf ${color} rg 1 0 0 1 ${x} ${y} Tm ${literal(value)} Tj ET`);
       rect(0,691,612,101,blue); rect(0,684,612,7,orange); rect(36,713,145,54,'1 1 1');
       commands.push(`q 131 0 0 ${131*image.height/image.width} 43 717 cm /Logo Do Q`);
-      text('REPORTE DE HORARIO',207,746,18,'1 1 1',true);
+      text(report.title||'REPORTE DE HORARIO',207,746,18,'1 1 1',true);
       text('Darkis Brownies',208,725,11,'1 1 1');
       text('Empleado: ' + report.employee.slice(0,65),36,659,13,ink,true);
-      text('Periodo: ' + report.period,36,638,10);
+      text('Periodo: ' + report.period+(report.selectionId?' | Ref. '+report.selectionId.slice(-8):''),36,638,10);
       rect(36,576,540,47,'0.94 0.97 0.98');
-      text('HORAS TRABAJADAS',48,607,8,blue,true); text(report.hours.toFixed(2)+' h',48,587,16,ink,true);
+      text(report.selectionId?'HORAS SELECCIONADAS':'HORAS TRABAJADAS',48,607,8,blue,true); text(report.hours.toFixed(2)+' h',48,587,16,ink,true);
       text('TARIFA POR HORA',231,607,8,blue,true); text(report.rateText,231,587,13,ink,true);
       text('IMPORTE ESTIMADO',407,607,8,blue,true); text(report.payText,407,587,13,ink,true);
       text(`${report.records.length} movimientos activos | ${report.records.filter(r=>r.manualEdited).length} manuales | ${(report.deletedRecords||[]).length} eliminados`,36,557,9);
@@ -76,7 +77,7 @@
       }
       rect(36,79,540,1,'0.84 0.89 0.91');
       text(report.sequenceWarnings?`${report.sequenceWarnings} movimiento(s) sin pareja: revisar. Las filas eliminadas no suman horas.`:'Las filas eliminadas no suman horas. Cada ajuste manual está identificado.',36,65,8,ink,true);
-      text('Horario de Ciudad de México. Turnos abiertos calculados hasta la emisión.',36,51,8);
+      text(report.selectionId?'Selección para revisión. Generar este PDF no confirma pago.':'Horario de Ciudad de México. Turnos abiertos calculados hasta la emisión.',36,51,8);
       text('Emitido: '+date(report.issuedAt)+' '+time(report.issuedAt),36,31,8);
       text(`Página ${pageIndex+1} de ${chunks.length}`,485,31,8,blue);
       const stream = commands.join('\n');
