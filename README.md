@@ -1,4 +1,8 @@
-# Sistema Darkis v23
+# Darkisistema v24
+
+Consulta **LEEME-v24.txt** para publicar, reglas Firebase, ruta quincenal y revisión de turnos largos. Los archivos de versiones anteriores se conservan sólo como referencia histórica.
+
+# Sistema Darkis v24
 
 Reloj: corrección libre, nota opcional, anulación de movimientos manuales y diagnóstico de Firebase. Consulta ACTUALIZACION-V21.txt.
 

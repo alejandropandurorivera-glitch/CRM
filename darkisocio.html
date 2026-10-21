@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <script src="./app-update.js?v=23" defer></script>
+  <script src="./app-update.js?v=24" defer></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#087caa">
   <title>Darkisocio · Darkis Brownies</title>
   <link rel="icon" href="icon-darkis-original-v15.png" type="image/png">
-  <link rel="manifest" href="manifest.webmanifest?v=23">
+  <link rel="manifest" href="manifest.webmanifest?v=24">
   <style>
     :root{--blue:#087caa;--blue-dark:#075d80;--orange:#f4501e;--cream:#fff9ee;--paper:#fffefb;--ink:#25313a;--muted:#657680;--line:#dce7e9;--green:#198767;--shadow:0 18px 50px rgba(8,58,77,.16)}
     *{box-sizing:border-box}html{-webkit-tap-highlight-color:transparent}body{margin:0;min-height:100vh;min-height:100dvh;background:radial-gradient(circle at 15% -5%,#35a9d7 0,transparent 30%),linear-gradient(160deg,#087caa,#075e87);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #ffb665;outline-offset:2px}[hidden]{display:none!important}
@@ -87,8 +87,8 @@
   <div class="overlay" id="customerOverlay" hidden><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="customerTitle"><div class="sheet-handle"></div><div class="sheet-head"><div><h2 id="customerTitle">Nuevo cliente</h2><p>Quedará guardado sólo en tu perfil.</p></div><button type="button" class="icon-button" data-close="customerOverlay" aria-label="Cerrar">×</button></div><form id="customerForm"><div class="field"><label for="customerName">Nombre del cliente *</label><input id="customerName" required maxlength="100" placeholder="Ej. Abarrotes San Juan"></div><div class="field-row"><div class="field"><label for="customerCity">Ciudad</label><select id="customerCity"><option>Tepatitlán</option><option>Guadalajara y Zapopan</option><option>Otra</option></select></div><div class="field"><label for="customerPhone">Teléfono</label><input id="customerPhone" type="tel" maxlength="24" placeholder="Opcional"></div></div><div class="field"><label for="customerNotes">Nota</label><textarea id="customerNotes" maxlength="300" placeholder="Referencia, persona de contacto…"></textarea></div><button type="submit" class="button primary full">Guardar cliente</button></form></div></div>
   <div class="overlay" id="saleOverlay" hidden><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="saleTitle"><div class="sheet-handle"></div><div class="sheet-head"><div><h2 id="saleTitle">Registrar venta</h2><p>Elige cantidades por sabor. Se guardará en tu historial.</p></div><button type="button" class="icon-button" data-close="saleOverlay" aria-label="Cerrar">×</button></div><form id="saleForm"><div class="field-row"><div class="field"><label for="saleDate">Fecha</label><input id="saleDate" type="date" required></div><div class="field"><label for="salePrice">Precio por pieza</label><input id="salePrice" type="number" min="0" step="0.01" value="23" required inputmode="decimal"></div></div><div class="field"><label for="saleCustomer">Cliente</label><select id="saleCustomer"></select></div><div class="eyebrow" style="margin:17px 0 7px">Brownies vendidos</div><div class="flavor-list" id="flavors"></div><div class="field-row"><div class="field"><label for="salePayment">Cobro</label><select id="salePayment"><option>Efectivo</option><option>Transferencia</option><option>Tarjeta</option><option>Otro</option></select></div><div class="field"><label for="saleNote">Nota</label><input id="saleNote" maxlength="180" placeholder="Opcional"></div></div><div class="sale-total"><div><b id="salePieces">0 piezas</b><small>Total de la venta</small></div><strong id="saleTotal">$0</strong></div><div class="sheet-footer"><button type="button" class="button ghost" id="saleAddCustomer">＋ Cliente</button><button type="submit" class="button primary">Guardar venta</button></div></form></div></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="./firebase-errors.js?v=23" defer></script>
-<script src="./shared-sync.js?v=23" defer></script>
+  <script src="./firebase-errors.js?v=24" defer></script>
+<script src="./shared-sync.js?v=24" defer></script>
   <script>
     (()=>{
       'use strict';
@@ -144,7 +144,7 @@
       
     })();
   </script>
-<script src="./suite-experience.js?v=23" defer></script>
-<script src="./google-access.js?v=23" defer></script>
+<script src="./suite-experience.js?v=24" defer></script>
+<script src="./google-access.js?v=24" defer></script>
 </body>
 </html>

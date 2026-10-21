@@ -1019,7 +1019,7 @@
       "id": "hist22-56e9d4b823098121",
       "date": "2026-01-14",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 0,
       "reportedPaid": 0,
@@ -1048,7 +1048,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-01-14T12:00:00-06:00",
-      "updatedAt": "2026-01-14T12:00:00-06:00"
+      "updatedAt": "2026-01-14T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-eb098be3f2efeaf9",
@@ -2028,7 +2029,7 @@
       "id": "hist22-5cf0897181aded8f",
       "date": "2026-01-30",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 5,
       "reportedPaid": 5,
@@ -2057,7 +2058,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-01-30T12:00:00-06:00",
-      "updatedAt": "2026-01-30T12:00:00-06:00"
+      "updatedAt": "2026-01-30T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-cec86b9d3e6e1423",
@@ -3261,7 +3263,7 @@
       "id": "hist22-99de638f5dc7f051",
       "date": "2026-02-12",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 5,
       "reportedPaid": 5,
@@ -3295,7 +3297,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-02-12T12:00:00-06:00",
-      "updatedAt": "2026-02-12T12:00:00-06:00"
+      "updatedAt": "2026-02-12T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-68b91c97083d8ad7",
@@ -5512,7 +5515,7 @@
       "id": "hist22-0360024d7430034e",
       "date": "2026-03-04",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 10,
       "reportedPaid": 10,
@@ -5546,7 +5549,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-03-04T12:00:00-06:00",
-      "updatedAt": "2026-03-04T12:00:00-06:00"
+      "updatedAt": "2026-03-04T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-adb72f9a1db93d89",
@@ -7853,7 +7857,7 @@
       "id": "hist22-6698f9ba0e805f13",
       "date": "2026-03-19",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 7,
       "reportedPaid": 7,
@@ -7887,7 +7891,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-03-19T12:00:00-06:00",
-      "updatedAt": "2026-03-19T12:00:00-06:00"
+      "updatedAt": "2026-03-19T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-6e9b67c341a08824",
@@ -11125,7 +11130,7 @@
       "id": "hist22-db83a7c36ae780ed",
       "date": "2026-04-14",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 2,
       "reportedPaid": 2,
@@ -11167,7 +11172,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-04-14T12:00:00-06:00",
-      "updatedAt": "2026-04-14T12:00:00-06:00"
+      "updatedAt": "2026-04-14T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-1447e588805b4cd0",
@@ -13385,7 +13391,7 @@
       "id": "hist22-71373b25faf78b2a",
       "date": "2026-04-27",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 0,
       "reportedPaid": 0,
@@ -13419,7 +13425,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-04-27T12:00:00-06:00",
-      "updatedAt": "2026-04-27T12:00:00-06:00"
+      "updatedAt": "2026-04-27T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-e306e1af580deb28",
@@ -16314,7 +16321,7 @@
       "id": "hist22-9a9bc0a2fa590f17",
       "date": "2026-05-23",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 8,
       "reportedPaid": 8,
@@ -16348,7 +16355,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-05-23T12:00:00-06:00",
-      "updatedAt": "2026-05-23T12:00:00-06:00"
+      "updatedAt": "2026-05-23T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-ee1a6164d4e7b097",
@@ -24316,7 +24324,7 @@
       "id": "hist22-477126ed324991e3",
       "date": "2026-07-16",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 8,
       "reportedPaid": 8,
@@ -24350,7 +24358,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-07-16T12:00:00-06:00",
-      "updatedAt": "2026-07-16T12:00:00-06:00"
+      "updatedAt": "2026-07-16T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-6f57dabe4ba01c76",
@@ -27118,7 +27127,7 @@
       "id": "hist22-ae9c5715624ecf78",
       "date": "2026-07-30",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 0,
       "reportedPaid": 0,
@@ -27152,7 +27161,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-07-30T12:00:00-06:00",
-      "updatedAt": "2026-07-30T12:00:00-06:00"
+      "updatedAt": "2026-07-30T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-9e03db16980e9715",
@@ -33630,7 +33640,7 @@
       "id": "hist22-61348f3b9ac41ead",
       "date": "2026-09-10",
       "customerId": "DK-042",
-      "customerName": "Zayda",
+      "customerName": "Abarrotes Zayda",
       "city": "Guadalajara y Zapopan",
       "paid": 8,
       "reportedPaid": 8,
@@ -33659,7 +33669,8 @@
       "omittedDuplicate": false,
       "unconfirmed": false,
       "createdAt": "2026-09-10T12:00:00-06:00",
-      "updatedAt": "2026-09-10T12:00:00-06:00"
+      "updatedAt": "2026-09-10T12:00:00-06:00",
+      "originalCustomerName": "Zayda"
     },
     {
       "id": "hist22-8e214d302d3afe0c",
@@ -41078,6 +41089,8 @@
     "HIST-9da72ab2ed": "HIST-0c79a54077",
     "HIST-d4737dd37a": "DK-019",
     "HIST-ffd320a8c7": "HIST-5b6a36c11c",
-    "HIST-6edb01ea73": "HIST-418650de99"
+    "HIST-6edb01ea73": "HIST-418650de99",
+    "Mikelisa": "DK-042",
+    "Zayda": "DK-042"
   }
 }

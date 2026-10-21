@@ -30,7 +30,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-01-14,Provi,,8,2,10,,Provi 8+2,Sabores no especificados
 2026-01-14,San Angel,,10,0,10,,San Angel 10,Sabores no especificados
 2026-01-14,Vidrio,,8,4,12,,Vidrio 8+4,Sabores no especificados
-2026-01-14,Zayda,,0,8,8,,Zayda 0+8,Sabores no especificados
+2026-01-14,Abarrotes Zayda,Zayda,0,8,8,,Zayda 0+8,Sabores no especificados
 2026-01-14,Capilla,,15,0,15,,Capilla 15,Sabores no especificados
 2026-01-14,Mezquitan,,9,3,12,,Mezquitan 9+3,Sabores no especificados
 2026-01-14,Hierbas,,10,0,10,,Hierbas 10,Sabores no especificados
@@ -62,7 +62,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-01-30,Tacos,,15,0,15,,Tacos 15,Sabores no especificados
 2026-01-30,Mezquitan,,12,0,12,,Mezquitan 12,Sabores no especificados
 2026-01-30,Capilla,,16,1,17,,Capilla 16+1,Sabores no especificados
-2026-01-30,Zayda,,5,5,10,,Zayda 5+5,Sabores no especificados
+2026-01-30,Abarrotes Zayda,Zayda,5,5,10,,Zayda 5+5,Sabores no especificados
 2026-01-30,CUCSH,,33,0,33,,CUCSH 33,Sabores no especificados
 2026-01-30,Presente,,25,0,25,,Presente 25,Sabores no especificados
 2026-01-30,Palapa,,10,0,10,,Palapa 10,Sabores no especificados
@@ -88,7 +88,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-02-12,Bobba abajo,Bobba,15,0,15,asumido-abajo,Bobba 15 |M3 I2 R2 O2 C6,Identidad del cliente por confirmar: no se fusionó con otra tienda
 2026-02-12,Corjesu,,16,9,25,,Corjesu 16+9 |C10 O4 M5 R4 I2,
 2026-02-12,CUCSH,,39,11,50,,CUCSH 39+11 |R17 O12 I12 M5 C5,Sabores suman 51; total esperado 50. Se conserva desglose sin ajustarlo
-2026-02-12,Zayda,,5,1,6,,Zayda 5+1 |C6,
+2026-02-12,Abarrotes Zayda,Zayda,5,1,6,,Zayda 5+1 |C6,
 2026-02-12,Gota,,15,0,15,,Gota 15 |C15,
 2026-02-12,San Angel,,12,0,12,,San Angel 12 |C12,
 2026-02-12,Vidrio,,8,4,12,,Vidrio 8+4 |M2 I1 R1 C8,
@@ -132,7 +132,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-03-04,San Angel,,0,9,9,,San Angel 0+9 |C9,
 2026-03-04,Vidrio,,0,9,9,,Vidrio 0+9 |C9,
 2026-03-04,Gota,,0,7,7,,Gota 0+7 |C7,
-2026-03-04,Zayda,,10,0,10,,Zayda 10 |C10,
+2026-03-04,Abarrotes Zayda,Zayda,10,0,10,,Zayda 10 |C10,
 2026-03-04,Capilla,,13,1,14,,Capilla 13+1 |R2 I2 C10,
 2026-03-04,Mezquitan,,9,3,12,,Mezquitan 9+3 |C12,
 2026-03-04,Hierbas,,0,9,9,,Hierbas 0+9 |C9,
@@ -176,7 +176,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-03-19,San Angel,,8,2,10,,San Angel 8+2 |C10,
 2026-03-19,Vidrio,,6,4,10,,Vidrio 6+4 |C6 R2 O1 I1,
 2026-03-19,Gota,,13,1,14,,Gota 13+1 |C10 R1 O1 I1 M1,
-2026-03-19,Zayda,,7,3,10,,Zayda 7+3 |C10,
+2026-03-19,Abarrotes Zayda,Zayda,7,3,10,,Zayda 7+3 |C10,
 2026-03-19,Capilla,,12,2,14,,Capilla 12+2 |C6 O2 R2 I2 M2,
 2026-03-19,Mezquitan,,10,3,13,,Mezquitan 10+3 |C13,
 2026-03-19,Hierbas,,0,7,7,,Hierbas 0+7 |C7,
@@ -237,7 +237,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-04-14,Helamexti,Nieves JP,0,0,12,equivalencia-confirmada,"Nieves JP 0 |C3 R3 O3 I1 M2 !12 a consignación, sin cobro confirmado; C3 R3 O3 I1 M2","12 a consignación, sin cobro confirmado; C3 R3 O3 I1 M2"
 2026-04-14,Tacos,,15,0,15,,Tacos 15 |C15,
 2026-04-14,Capilla,,13,1,14,,Capilla 13+1 |M3 O3 R3 I1 C4,
-2026-04-14,Zayda,,2,1,3,,Zayda 2+1 |O1 R1 M1,
+2026-04-14,Abarrotes Zayda,Zayda,2,1,3,,Zayda 2+1 |O1 R1 M1,
 2026-04-14,Gota,,15,0,15,,Gota 15 |C7 R2 O2 M2 I2,
 2026-04-14,CUCSH,,38,2,40,,CUCSH 38+2 |R12 O8 I6 C12 M2,
 2026-04-14,Vico,,10,0,10,,Vico 10 |R4 M3 O3,
@@ -284,7 +284,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-04-24,Kiosko,,15,0,15,,Kiosko 15 |C15,
 2026-04-27,Tacos,,15,0,15,,Tacos 15 !Cande,Sabores no especificados; Cande
 2026-04-27,Capilla,,13,0,13,,Capilla 13 |O3 R3 M3 I3,Sabores suman 12; total esperado 13. Se conserva desglose sin ajustarlo
-2026-04-27,Zayda,,0,8,8,,Zayda 0+8 |C8,
+2026-04-27,Abarrotes Zayda,Zayda,0,8,8,,Zayda 0+8 |C8,
 2026-04-27,Gota,,4,10,14,,Gota 4+10 |C9 O2 R2 M1,
 2026-04-27,Vidrio,,8,2,10,,Vidrio 8+2 |C7 M1 R1 O1,
 2026-04-27,CUCSH,,30,8,38,,CUCSH 30+8 |M20 R14 O8 C6 !Se repite 10 M&M en la nota; no se corrige sin confirmar,Sabores suman 48; total esperado 38. Se conserva desglose sin ajustarlo; Se repite 10 M&M en la nota; no se corrige sin confirmar
@@ -340,7 +340,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-05-23,Presente,,15,0,15,,Presente 15,Sabores no especificados
 2026-05-23,Palapa,,10,4,14,,Palapa 10+4 |C10 I2 R1 O1,
 2026-05-23,Provi,,11,3,14,,Provi 11+3 |C14,
-2026-05-23,Zayda,,8,2,10,,Zayda 8+2 |C10,
+2026-05-23,Abarrotes Zayda,Zayda,8,2,10,,Zayda 8+2 |C10,
 2026-05-23,Gota,,0,10,10,,Gota 0+10 |C10,
 2026-05-23,Capilla,,13,1,14,,Capilla 13+1 |C10 O2 R1 I1,
 2026-05-23,Tacos,,10,4,14,,Tacos 10+4,Sabores no especificados
@@ -497,7 +497,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-07-13,Helados Rodríguez,,14,1,15,,Rodriguez 14+1 |O4 R4 M2 C4 A1,
 2026-07-13,Adobes,,13,0,13,,Adobes 13 |C5 M2 O1 R3,Sabores suman 11; total esperado 13. Se conserva desglose sin ajustarlo
 2026-07-13,Bobba arriba,,13,8,21,,Bobba arriba 13+8 |C10 R4 M3 O3 I1 !Igual al 10 julio: posible nota repetida,"Igual al 10 julio: posible nota repetida; Repetición omitida por indicación del propietario: no suma ingresos, cambios ni atención"
-2026-07-16,Zayda,,8,2,10,,Zayda 8+2 |C10,
+2026-07-16,Abarrotes Zayda,Zayda,8,2,10,,Zayda 8+2 |C10,
 2026-07-16,Gota,,10,5,15,,Gota 10+5 |C10 R2 O2 M1,
 2026-07-16,Capilla,,14,1,15,,Capilla 14+1 |C6 R3 O3 I2 M1,
 2026-07-16,Mezquitan,,0,14,14,,Mezquitan 0+14 |C14,
@@ -550,7 +550,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-07-30,San Angel,,6,4,10,,San Angel 6+4 |C10,
 2026-07-30,Vidrio,,10,0,10,,Vidrio 10 |C6 M1 O1 R2,
 2026-07-30,Gota,,10,5,15,,Gota 10+5 |C13 O1 R1,
-2026-07-30,Zayda,,0,6,6,,Zayda 0+6 |C6,
+2026-07-30,Abarrotes Zayda,Zayda,0,6,6,,Zayda 0+6 |C6,
 2026-07-30,Capilla,,15,0,15,,Capilla 15 |R1 O1 C13,
 2026-07-30,Mezquitan,,6,4,10,,Mezquitan 6+4 |C10,
 2026-07-30,Hierbas,,0,8,8,,Hierbas 0+8,Sabores no especificados
@@ -675,7 +675,7 @@ Fecha,Cliente unificado,Nombre anterior,Vendidos,Retirados,Entregados,Asignació
 2026-09-10,San Angel,,6,0,6,,San Angel 6 |C6,
 2026-09-10,Vidrio,,10,0,10,,Vidrio 10 |C5 R2 O1 M1 I1,
 2026-09-10,Gota,,0,0,0,,Gota 0,
-2026-09-10,Zayda,,8,2,10,,Zayda 8+2,Sabores no especificados
+2026-09-10,Abarrotes Zayda,Zayda,8,2,10,,Zayda 8+2,Sabores no especificados
 2026-09-10,Capilla,,6,4,10,,Capilla 6+4 |C6 !No aclara sabores de reemplazos,Sabores suman 6; total esperado 10. Se conserva desglose sin ajustarlo; No aclara sabores de reemplazos
 2026-09-10,Tacos,,15,0,15,,Tacos 15 |C15,
 2026-09-10,Mezquitan,,0,0,0,,Mezquitan 0,

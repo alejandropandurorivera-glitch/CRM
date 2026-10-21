@@ -32,7 +32,7 @@
   }
   function remove(rows,id,employeeId,now=Date.now()){
     const old=rows.find(r=>r.id===id&&r.employeeId===employeeId&&!r.deleted);
-    if(!old||!(old.manualCreated||old.manualEdited))throw Error('Sólo puedes eliminar movimientos manuales de este perfil.');
+    if(!old||!(old.manualCreated||old.manualEdited||longShifts(rows.filter(r=>r.employeeId===employeeId),now).some(s=>s.entry.id===id||s.exit?.id===id)))throw Error('Sólo puedes eliminar movimientos manuales o de un turno de más de ocho horas de este perfil.');
     const record={...old,deleted:true,deletedAt:now,updatedAt:now,editHistory:[...(old.editHistory||[]),{action:'delete',previousTimestamp:old.timestamp,previousType:old.type,changedAt:now}]};
     return{record,records:rows.map(r=>r.id===id?record:r)};
   }
@@ -45,5 +45,15 @@
     }
     return[...map.values()];
   }
-  window.DarkisLedger={active,analyze,upsert,remove,merge};
+  function longShifts(rows,now=Date.now()){
+    let pending=null;const result=[];
+    const add=exit=>{const end=exit?.timestamp||now,hours=(end-pending.timestamp)/3600000;if(hours>8){const fingerprint=JSON.stringify([pending.id,pending.timestamp,exit?.id||null,exit?.timestamp||null]);result.push({entry:pending,exit:exit||null,hours,fingerprint,confirmed:pending.shiftReview?.fingerprint===fingerprint})}};
+    for(const row of active(rows)){if(row.timestamp>now)break;if(row.type==='entry')pending=row;else if(pending){add(row);pending=null}}
+    if(pending)add(null);return result;
+  }
+  function confirmShift(rows,entryId,employeeId,now=Date.now()){
+    const shift=longShifts(rows.filter(r=>r.employeeId===employeeId),now).find(s=>s.entry.id===entryId);if(!shift)throw Error('Este turno ya cambió. Revisa sus horarios.');
+    return rows.map(r=>r.id===entryId&&r.employeeId===employeeId?{...r,updatedAt:now,shiftReview:{fingerprint:shift.fingerprint,confirmedAt:now},editHistory:[...(r.editHistory||[]),{action:'confirm-long-shift',changedAt:now,hours:shift.hours,fingerprint:shift.fingerprint}]}:r);
+  }
+  window.DarkisLedger={active,analyze,upsert,remove,merge,longShifts,confirmShift};
 })();

@@ -1,0 +1,41 @@
+DARKISISTEMA v24 — 21 octubre 2026
+
+PUBLICAR
+1. Descomprime y sube el contenido de esta carpeta a la raíz del repositorio CRM, reemplazando los archivos anteriores. index.html sigue siendo la entrada. No subas el ZIP sin descomprimirlo.
+2. Firebase → darkis-brownies → Compilación/Desarrollar → Firestore Database → Reglas. Sustituye el contenido por firestore.rules de ESTE paquete y pulsa Publicar.
+   Acceso directo: https://console.firebase.google.com/project/darkis-brownies/firestore/databases/-default-/security/rules
+3. Authentication → Método de acceso: Anónimo debe estar habilitado para Darkita. Google sigue siendo el acceso de Administrador y de la nube del Repartidor.
+4. Espera a que GitHub Pages termine de publicar. Abre https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v24.html y entra. En el checador pulsa Reintentar conexión.
+
+Los cambios están preparados y probados localmente. No se han publicado en GitHub ni en la consola Firebase desde esta entrega. La conexión real del iPhone debe comprobarse después de publicar las reglas y los archivos.
+
+CATÁLOGO
+Mikelisa y Zayda se muestran como Abarrotes Zayda, conservando contactos e historial. Se retiran del catálogo los puntos genéricos sin nombre, sin fecha y sin movimientos; no se eliminan las visitas de cero vendidos. Se guarda una constancia local de los vacíos retirados. Esto se aplica también al recibir catálogos antiguos de la nube: no vuelven a aparecer en pantalla. La limpieza de presentación no borra por la fuerza documentos remotos con posibles capturas nuevas.
+En la base incluida: 73 puntos (55 Tepa y 18 GDL/Zapopan), contando pausados, retirados y puntos sin fecha. No se fuerza una cifra de activos ni se eliminan tiendas identificadas para hacerla coincidir. Las 780 visitas aceptadas mantienen 7,956 vendidos y 1,825 retirados; cobrado histórico $182,988.
+
+GUADALAJARA / ZAPOPAN
+Se usa la quincena de tus ejemplos: 14 días transcurridos. 14 oct → 28 oct; si se adelanta al 21 oct, la próxima queda el 4 nov. Si se adelanta al 24 oct, queda el 7 nov.
+La fecha inicial se infiere del día más reciente con al menos dos puntos GDL visitados en el histórico; no se inventa una visita para la fecha de un ejemplo.
+En Guadalajara hay un recuadro de última/próxima ruta y Ajustar ruta. En Registrar visita, elige:
+- Ruta quincenal: mueve la siguiente ruta desde la fecha real si es posterior a la última ruta.
+- Sólo este cliente: atiende un rezagado sin mover toda la agenda.
+Los clientes atendidos permanecen al día hasta la fecha de la próxima ruta. Los que quedaron sin visitar en la última ruta se marcan como rezagados al día siguiente, o en cuanto pulses Terminar ruta. No aparecen amarillos a los siete días. La caducidad del producto y las banderas por cambios siguen vigentes.
+Tepatitlán conserva aviso de atención a los 7 días y urgencia a los 15. Se conserva la pausa automática después de más de 100 días.
+
+RELOJ / FIREBASE
+Se conserva la identidad anónima y los horarios locales. Se ajusta el transporte de conexión y se evita encolar la misma escritura otra vez cuando vence su espera. Se envían los registros con concurrencia limitada: un movimiento rechazado o detenido no impide intentar los demás.
+Los documentos nuevos de horarios y cortes incluyen la identidad del dispositivo en su clave. Esto evita colisiones entre dos teléfonos con el mismo perfil/semana. Las consultas siguen leyendo los documentos anteriores del mismo propietario. La base no se abre a todos y no se toma propiedad de movimientos de otra identidad.
+Verde sólo después de confirmación del servidor. Producción también necesita confirmación; no se anuncia como sincronizada cuando falla su guardado. Copiar diagnóstico incluye la etapa y el documento que falló, sin coordenadas.
+permission-denied indica un rechazo de permisos; timeout indica que no llegó la confirmación en el tiempo esperado. Los dos mensajes no prueban la misma causa. Si persiste el error tras publicar las reglas, envía el diagnóstico nuevo. No borres los datos del teléfono ni cambies su identidad mientras tenga registros pendientes.
+
+TURNOS DE MÁS DE 8 HORAS
+Aparece una tarjeta con ❗ y las horas reales, incluidos turnos aún abiertos.
+- Sí, es correcto: confirma y conserva las horas. Si se cambia la entrada o salida, vuelve a requerir revisión. Una confirmación del turno abierto se revisa otra vez al cerrarlo.
+- Revisar entrada / Revisar salida: abre el movimiento. Puede corregirse sin motivo obligatorio o eliminarse mediante dos pulsaciones. También permite eliminar un movimiento automático si pertenece a ese turno largo.
+No se descuenta ninguna hora sólo por ser sospechosa. Eliminar o corregir recalcula horas y cortes. Se conserva la auditoría y el PDF señala turnos largos pendientes/confirmados y movimientos anulados.
+
+INTERFAZ
+Tarjetas de conexión y producción con márgenes internos, botones compactos y acomodo adaptable a pantallas pequeñas. Se retiró Hecho con cariño. Conserva logo y gato originales.
+
+VALIDACIÓN
+Pruebas locales de: arranque de las tres áreas, históricos sin duplicación, fusión de clientes, filtro de vacíos conservando visitas cero, quincenas/adelantos/rezagados, confirmación y eliminación en dos pasos desde la interfaz, horas/cortes, PDF (lógica), producción, transporte simulado y persistencia de identidad. Se comprueba que todos los recursos offline existen y que los scripts tienen sintaxis válida. No sustituye una prueba real de permisos publicados ni una prueba visual en el iPhone de Sofía.

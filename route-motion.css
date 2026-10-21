@@ -16,3 +16,5 @@
 @media(hover:none){button:hover,.nav-item:hover,.location-tab:hover,.view-btn:hover{transform:none}}
 @media(max-width:720px){.modal-backdrop{padding:12px 10px max(10px,env(safe-area-inset-bottom));align-items:flex-end}.modal{width:100%;max-height:calc(100dvh - 34px);border-radius:26px 26px 20px 20px}.route-client-grid{overflow-anchor:auto}.route-client-card{scroll-margin-top:80px}}
 @media(prefers-reduced-motion:reduce){.modal,.modal-backdrop,.route-client-card.route-card-arriving{animation:none!important}.route-card-primary,.route-card-secondary,.route-card-edit,.route-bottom-action{transition:none}}
+
+.gdl-schedule{background:#fff9ee;border-radius:22px;padding:18px;margin:12px 0;color:#70452e}.gdl-schedule[hidden]{display:none}.gdl-schedule p{font-size:13px;line-height:1.5}.gdl-schedule summary{font-weight:700;cursor:pointer;color:#087eae}.gdl-schedule input,.gdl-schedule button{display:block;max-width:100%;padding:12px;border:1px solid #bdd9e2;border-radius:12px;margin:10px 0;background:#edf8fc;color:#125c7c;font:inherit}.gdl-schedule small{display:block;font-size:12px;line-height:1.5}

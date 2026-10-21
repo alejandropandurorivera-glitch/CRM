@@ -1,6 +1,7 @@
 /* Mensajes compartidos: el error real se conserva para poder diagnosticarlo. */
 (() => {
   const messages = {
+    'clock/owner-mismatch':'Este movimiento pertenece a otra identidad del reloj. Conserva los registros y comparte el diagnóstico con el administrador.',
     'permission-denied':'Firestore rechazó el permiso. Comprueba las reglas publicadas y el rol de esta cuenta.',
     'auth/operation-not-allowed':'Activa el proveedor de acceso correspondiente en Firebase Authentication.',
     'auth/admin-restricted-operation':'Activa el acceso anónimo de Darkita en Firebase Authentication.',

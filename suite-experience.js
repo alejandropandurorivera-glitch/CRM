@@ -155,8 +155,8 @@
       const expired = active.filter(c => c.stockExpiry && c.stockExpiry < today);
       if (expired.length) notify('urgent-expiry-' + today, 'Vuelta urgente · Darkis', `${expired.length} tienda(s) tienen producto caducado: ${expired.slice(0, 3).map(c => c.name).join(', ')}.`);
       else {
-        const old = active.filter(c => c.lastAttention && Math.round((new Date(today + 'T12:00:00') - new Date(c.lastAttention + 'T12:00:00')) / 86400000) >= 15);
-        if (old.length) notify('attention-' + today, 'Clientes por visitar', `${old.length} tienda(s) llevan al menos 15 días sin atención.`);
+        const old = active.filter(c => window.DarkisRouteSchedule?.isGdl(c)?['warning','overdue'].includes(window.DarkisRouteSchedule.attention(c,clients,today).level):c.lastAttention && Math.round((new Date(today + 'T12:00:00') - new Date(c.lastAttention + 'T12:00:00')) / 86400000) >= 15);
+        if (old.length) notify('attention-' + today, 'Clientes por visitar', `${old.length} tienda(s) requieren atención según su ruta.`);
       }
     }
     if (page === 'administrador' && !document.body.classList.contains('admin-locked')) {

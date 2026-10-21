@@ -37,8 +37,8 @@
     const imageId = add(`<< /Type /XObject /Subtype /Image /Width ${image.width} /Height ${image.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${image.data.length} >>\nstream\n${image.data}\nendstream`);
     const chunks = []; let chunk = [], used = 0;
     for (const r of [...report.records,...(report.deletedRecords||[])].sort((a,b)=>a.timestamp-b.timestamp)) {
-      const notes = r.manualEdited && r.editReason ? wrap('Nota: ' + r.editReason) : [];
-      const height = r.manualEdited ? 49 + notes.length * 11 : 34;
+      const notes = r.manualEdited && r.editReason ? wrap('Nota: ' + r.editReason) : [];const long=(report.longShifts||[]).find(s=>s.entry.id===r.id||s.exit?.id===r.id);if(long)notes.push('Turno >8 h: '+(long.confirmed?'confirmado por la persona':'pendiente de revisar'));
+      const height = (r.manualEdited ? 49 : 34) + notes.length * 11;
       if (used + height > 421 && chunk.length) { chunks.push(chunk); chunk = []; used = 0; }
       chunk.push({r,notes,height}); used += height;
     }
@@ -69,8 +69,9 @@
         text(r.deleted?'ELIMINADA (NO SUMA HORAS)':r.manualEdited?(r.manualCreated?'AGREGADA MANUALMENTE':'MODIFICADA MANUALMENTE'):'Automático',340,y-16,r.manualEdited?8:9,r.manualEdited?'0.65 0.24 0.06':blue,Boolean(r.manualEdited));
         if (r.manualEdited) {
           text(r.deleted?'Anulada el '+date(r.deletedAt)+' '+time(r.deletedAt):Number.isFinite(r.originalTimestamp)?'Hora original: '+date(r.originalTimestamp)+' '+time(r.originalTimestamp):'Sin marcación automática original',46,y-32,8);
-          notes.forEach((line,i)=>text(line,46,y-44-i*11,8));
+
         }
+        notes.forEach((line,i)=>text(line,46,y-(r.manualEdited?44:29)-i*11,8));
         y -= height;
       }
       rect(36,79,540,1,'0.84 0.89 0.91');

@@ -29,7 +29,7 @@
     if(!snapshot.metadata.fromCache)announce('online','Firebase conectado');
     handler(snapshot.docs.map(doc=>doc.data()?.data).filter(Boolean));
   },error=>announce('offline','No se pudieron leer los datos: '+error.code)))}
-  function subscribe(){clearSubscriptions();if(!currentUser)return;
+  function subscribe(){clearSubscriptions();if(!currentUser)return;if(role==='admin'||role==='route')listen(['routeSchedules'],rows=>dispatchEvent(new CustomEvent('darkis-route-schedules-data',{detail:rows})));
     if(role==='admin'){listen(['routeClients'],rows=>dispatchEvent(new CustomEvent('darkis-route-clients-data',{detail:rows})));listen(['routeContributions'],mergeContributions);listen(['timeclockEmployees'],devices=>dispatchEvent(new CustomEvent('darkis-clock-data',{detail:devices})));unsubscribers.push(sdk.onSnapshot(sdk.collection(db,'productionRecords'),snapshot=>{window.darkisProductionCloudDetail=snapshot.metadata?.fromCache?'Mostrando copia local de producción.':'Producción recibida de Firebase.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:snapshot.docs.map(x=>x.data().data).filter(Boolean)}))},error=>{window.darkisProductionCloudDetail='No se pudo leer producción: '+error.code+'. Publica las reglas v22.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:[]}))}));return}
     if(role==='route'){listen(['routeClients'],clients=>window.darkisRouteCloudApply?.({clients}));return}
     if(role==='socio'&&profileId){let clients=[],sales=[];const update=()=>window.darkisSocioCloudApply?.({clients,sales});listen(['socioProfiles',profileId,'clients'],rows=>{clients=rows;update()});listen(['socioProfiles',profileId,'sales'],rows=>{sales=rows;update()})}
@@ -71,6 +71,7 @@
     finally{syncing=false;if(!failed&&currentUser?.uid===user.uid&&role===area&&safeArray(QUEUE).some(x=>x.role===area&&(area!=='socio'||x.profileId===profile)))scheduleFlush()}
   }
   const api={
+    saveRouteSchedule(value){if(value?.id==='gdl')queueOperation(['routeSchedules','gdl'],value,'set',role==='admin'?'admin':'route')},
     saveRouteClient(client){if(client?.id)queueOperation(['routeClients',client.id],client,'set',role==='admin'?'admin':'route')},
     deleteRouteClient(id){if(id)queueOperation(['routeClients',id],undefined,'delete','route')},
     saveRouteContribution(item){if(item?.id)queueOperation(['routeContributions',item.id],item,'set','route')},

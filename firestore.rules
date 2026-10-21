@@ -71,6 +71,15 @@ service cloud.firestore {
         && request.resource.data.desiredRole in ['admin','route','socio'];
       allow delete: if isAdmin();
     }
+    match /routeSchedules/{id} {
+      allow read: if isRoute();
+      allow create, update: if isRoute() && envelope(id) && id == 'gdl'
+        && request.resource.data.data.lastRouteDate is string
+        && request.resource.data.data.lastRouteDate.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && request.resource.data.data.intervalDays == 14
+        && request.resource.data.data.closed is bool;
+      allow delete: if isAdmin();
+    }
     match /routeClients/{id} {
       allow read: if isRoute();
       allow create, update: if isRoute() && envelope(id);

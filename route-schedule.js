@@ -1,0 +1,13 @@
+/* Quincena comercial: 14 días transcurridos, según 14→28 y 21 oct→4 nov. */
+(()=>{'use strict';const KEY='darkis_gdl_schedule_v1',today=()=>window.DarkisClientPolicy.today(),valid=d=>/^\d{4}-\d{2}-\d{2}$/.test(d||'')&&Number.isFinite(Date.parse(d+'T12:00:00Z')),add=(d,n)=>new Date(Date.parse(d+'T12:00:00Z')+n*86400000).toISOString().slice(0,10),gdl=c=>/guadalajara|zapopan/i.test(c.city||c.zone||'');
+let stored;try{stored=JSON.parse(localStorage.getItem(KEY)||'null')}catch{}
+function infer(clients){const dates=new Map();for(const c of clients.filter(gdl))for(const sale of c.sales||[]){if(!valid(sale.date)||sale.routeMode==='followup')continue;if(!dates.has(sale.date))dates.set(sale.date,new Set());dates.get(sale.date).add(c.id)}return [...dates].filter(([d,ids])=>ids.size>=2&&d<=today()).map(([d])=>d).sort().at(-1)||''}
+function get(clients=[]){const inferred=infer(clients);return valid(stored?.lastRouteDate)?stored:{id:'gdl',lastRouteDate:inferred,intervalDays:14,closed:false,updatedAt:''}}
+function accept(value){if(value?.id!=='gdl'||!valid(value.lastRouteDate))return;const old=stored;if(!old||String(value.updatedAt||'')>String(old.updatedAt||'')){stored={...value,intervalDays:14};localStorage.setItem(KEY,JSON.stringify(stored));dispatchEvent(new Event('darkis-route-schedule-changed'))}}
+function set(date,clients=[],closed=false){if(!valid(date)||date>today())throw Error('Elige una fecha de ruta válida, hasta hoy.');stored={id:'gdl',lastRouteDate:date,intervalDays:14,closed,updatedAt:new Date().toISOString()};localStorage.setItem(KEY,JSON.stringify(stored));window.darkisSharedSync?.saveRouteSchedule?.(stored);dispatchEvent(new Event('darkis-route-schedule-changed'));return stored}
+function visit(c,date,mode,clients){if(!gdl(c)||mode==='followup')return;const current=get(clients);if(!current.lastRouteDate||date>current.lastRouteDate)set(date,clients)}
+function attention(c,clients=[],day=today()){const schedule=get(clients),anchor=schedule.lastRouteDate,last=c.lastAttention;if(!last)return{level:'empty',label:'Sin fecha',next:anchor?add(anchor,14):''};const next=anchor?add(anchor,14):add(last,14);if(anchor&&last<anchor&&(anchor<day||schedule.closed))return{level:'overdue',label:'Rezagado · faltó en la última ruta',next:anchor};if(day<next)return{level:'fresh',label:'Próxima ruta · '+next,next};return{level:day===next?'warning':'overdue',label:day===next?'Ruta hoy':'Ruta pendiente · '+next,next}}
+window.DarkisRouteSchedule={get,set,accept,visit,attention,add,isGdl:gdl};
+addEventListener('darkis-route-schedules-data',e=>{for(const row of e.detail||[])accept(row)});
+
+})();

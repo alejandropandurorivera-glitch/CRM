@@ -3,7 +3,7 @@ DARKISISTEMA v23 · ACTUALIZACIÓN COMPLETA
 PUBLICAR
 1. Extrae el ZIP y sube TODOS los archivos extraídos a la raíz del repositorio CRM. No subas sólo el ZIP ni una subcarpeta.
 2. Si ya publicaste firestore.rules de v22, no cambian las reglas en esta actualización. Si no, publica el firestore.rules incluido en Firebase → Firestore Database → Reglas.
-3. Abre https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v23.html después de terminar la publicación de GitHub Pages. Confirma «Darkisistema · v23» en Configuración.
+3. Abre https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v24.html después de terminar la publicación de GitHub Pages. Confirma «Darkisistema · v23» en Configuración.
 4. No borres datos, no reinstales y no cambies el origen de la app. Se mantienen las claves locales del checador y su identidad Firebase.
 5. Revisa Administrador → Rutas recibidas: clientes pausados por inactividad y puntos sin identificar. Los cambios de pausa se envían al conectar la cuenta autorizada.
 Esta entrega no publica por sí misma el repositorio ni modifica la consola de Firebase.
