@@ -323,19 +323,33 @@ service cloud.firestore {
         && request.resource.data.data.status in ['pending','fulfilled','cancelled'];
       allow delete: if false;
     }
+    function validReturnBase(id,d) {
+      return d.id == id && d.ownerUid == request.auth.uid
+        && d.employeeId is string && d.employeeId.size() > 0 && d.employeeId.size() <= 120
+        && d.employeeName is string && d.employeeName.size() <= 120
+        && d.pieces is int && d.pieces > 0 && d.pieces <= 10000
+        && d.creditCents == d.pieces * 1900 && d.createdAt is number;
+    }
+    function historicalReturn(d) {
+      return d.get('historical',false) == true && d.withdrawalId == ''
+        && d.issuedPieces is int && d.issuedPieces >= 0 && d.issuedPieces <= 100000
+        && (d.issuedPieces == 0 || d.issuedPieces >= d.pieces)
+        && d.totalReturnedPieces == d.pieces && d.date is string;
+    }
+    function linkedReturn(id,d) {
+      return !d.get('historical',false)
+        && get(/databases/$(database)/documents/employeeWithdrawals/$(d.withdrawalId)).data.ownerUid == request.auth.uid
+        && d.employeeId == get(/databases/$(database)/documents/employeeWithdrawals/$(d.withdrawalId)).data.data.employeeId
+        && d.issuedPieces == get(/databases/$(database)/documents/employeeWithdrawals/$(d.withdrawalId)).data.data.pieces
+        && d.totalReturnedPieces == getAfter(/databases/$(database)/documents/employeeReturnTotals/$(d.withdrawalId)).data.pieces
+        && getAfter(/databases/$(database)/documents/employeeReturnTotals/$(d.withdrawalId)).data.lastReturnId == id;
+    }
     match /employeeReturns/{id} {
       allow get: if isAdmin() || ownsRecord() || (signedIn() && id.matches('^' + request.auth.uid + '__.*'));
       allow list: if isAdmin() || ownsRecord();
       allow create: if inventoryUser() && createsOwnRecord()
-        && request.resource.data.data.id == id
-        && request.resource.data.data.ownerUid == request.auth.uid
-        && request.resource.data.data.pieces is int && request.resource.data.data.pieces > 0
-        && request.resource.data.data.creditCents == request.resource.data.data.pieces * 1900
-        && get(/databases/$(database)/documents/employeeWithdrawals/$(request.resource.data.data.withdrawalId)).data.ownerUid == request.auth.uid
-        && request.resource.data.data.employeeId == get(/databases/$(database)/documents/employeeWithdrawals/$(request.resource.data.data.withdrawalId)).data.data.employeeId
-        && request.resource.data.data.issuedPieces == get(/databases/$(database)/documents/employeeWithdrawals/$(request.resource.data.data.withdrawalId)).data.data.pieces
-        && request.resource.data.data.totalReturnedPieces == getAfter(/databases/$(database)/documents/employeeReturnTotals/$(request.resource.data.data.withdrawalId)).data.pieces
-        && getAfter(/databases/$(database)/documents/employeeReturnTotals/$(request.resource.data.data.withdrawalId)).data.lastReturnId == id;
+        && validReturnBase(id,request.resource.data.data)
+        && (historicalReturn(request.resource.data.data) || linkedReturn(id,request.resource.data.data));
       allow update, delete: if false;
     }
     match /employeeReturnTotals/{id} {

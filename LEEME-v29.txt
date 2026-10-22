@@ -10,6 +10,22 @@ La leyenda Missing or insufficient permissions confirma un rechazo de Firebase. 
 5. Si persiste el rechazo, pulsa Copiar diagnóstico y compártelo. Incluye el área, proveedor de sesión, proyecto y movimientos pendientes; no contiene coordenadas.
 No borres caché, almacenamiento ni la app con pendientes. No cierres la cuenta de origen.
 
+REVISIÓN VISUAL Y SINCRONIZACIÓN v29 (esta entrega)
+- Mi caja aparece directamente arriba en Repartidor: existencia por sabor, salida/regreso y botón ↻ de lectura del servidor. Fábrica y ajustes quedan dentro de un desplegable.
+- La lectura directa usa el mismo documento inventoryBalances/main para todas las áreas. Una copia vieja de caché no sustituye un saldo más nuevo. Al volver a la app o pulsar ↻ se verifica el servidor; se muestra hora y versión recibidas. No es necesario volver a capturar una carga que ya llegó.
+- Pedidos es una tarjeta compacta. Nuevo pedido conserva los colores, botones y campos de Darkis. Elegir cliente abre una lista con buscador.
+- Si un cliente tiene días de recepción configurados, recibe HOY y aún no se atendió hoy, aparece primero en Por visitar. Si ya se atendió hoy, deja de tener esa prioridad. Por ejemplo, Punto Guadalupe los jueves.
+- Darkita / Horas y pagos / Regresar expendios permite registrar devoluciones sin generar todavía un reporte. Se puede elegir De semanas anteriores · sin historial. Cantidad y fecha son suficientes; cuántas se llevaron es opcional. Se abonan a $19 por pieza y quedan con bandera roja para revisión porque no hay un retiro previo comprobable. Con historial, se conserva la bandera cuando las devoluciones superan el 15%.
+- El botón también está dentro de la selección de horas, aunque no haya retiros previos.
+- Se restauró el archivo completo del gato original y se regeneraron las pantallas de inicio para iPhone. Se validó que todos los PNG/JPG/WebP estén íntegros.
+- Los estilos usan una revisión nueva en sus enlaces y el service worker comprueba CSS desde la red, conservando la copia offline. Esto corrige controles nuevos que se veían con estilos antiguos.
+
+PARA ACTUALIZAR
+1. Publica firestore.rules incluido en Firebase: esta revisión añade devoluciones de semanas anteriores. No basta con subirlo a GitHub.
+2. Sube los 85 archivos de este paquete a la raíz del repositorio CRM reemplazando los anteriores.
+3. Espera a que GitHub Pages termine de publicar y vuelve a abrir la app. No borres los datos ni desinstales la app.
+4. En Repartidor pulsa ↻ de Mi caja; en Administrador, Inventarios / ↻. La hora y versión deben confirmar la lectura del servidor. En caso de error se conserva el último saldo y Copiar diagnóstico incluye las cantidades y la fuente de lectura.
+
 CAMBIOS v29 (incluye todos los cambios del paquete anterior)
 - Eliminación de cliente sólo dentro de Editar cliente, con dos confirmaciones.
 - Fotografías propias: toma o elige la foto desde Editar cliente. Se eliminó la configuración y búsqueda de Google Places; no se hacen consultas de fotos a esa API.

@@ -1,6 +1,6 @@
 /* Asistente local explicable: recomendaciones estadísticas, sin enviar datos a un modelo externo. */
 (()=>{'use strict';const flavors=['Clásicos','Red velvet','Oreo',"M&M's",'Intenso','Galleta blanca','Galleta amargo'],days=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],date=()=>DarkisClientPolicy.today(),add=(d,n)=>new Date(Date.parse(d+'T12:00:00Z')+n*86400000).toISOString().slice(0,10),weekday=d=>new Date(d+'T12:00:00Z').getUTCDay();
-const daysFor=c=>Array.isArray(c.receivingDays)?[...new Set(c.receivingDays.filter(d=>Number.isInteger(d)&&d>=0&&d<=6))]:c.id==='HIST-d0e2eca395'?[4]:[];
+const daysFor=c=>Array.isArray(c.receivingDays)?[...new Set(c.receivingDays.filter(d=>Number.isInteger(d)&&d>=0&&d<=6))]:(c.id==='HIST-d0e2eca395'||(!/guadalajara|zapopan/i.test(c.city||'')&&['guadalupe','puntoguadalupe','minisuperguadalupe'].includes(String(c.name||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,''))))?[4]:[];
 function reception(c,day=date()){const selected=daysFor(c);if(!selected.length)return{allowed:true,label:'Sin restricción de día',next:day};let n=0;while(n<7&&!selected.includes(weekday(add(day,n))))n++;return{allowed:selected.includes(weekday(day)),label:'Recibe '+selected.map(d=>days[d]).join(', '),next:add(day,n)}}
 const quantity=(s,k)=>Number(s[k+'Total'])||(s[k]||[]).reduce((n,r)=>n+Number(r.qty||0),0);
 // Regresión ridge pequeña entrenada en las visitas anteriores de este punto.

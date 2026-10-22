@@ -1,3 +1,5 @@
+Revisión visual v29: caja integrada en ruta, pedidos compactos con buscador, prioridad por día de recepción, lectura directa de inventario, expendios históricos y gato original completo. Consulta LEEME-v29.txt.
+
 Darkisistema v29. Consulta LEEME-v29.txt para instalar, publicar las reglas de Firestore y recuperar capturas pendientes. Esta revisión mantiene v29 y añade imagen de nómina, abonos de expendio, caja única de ruta, pedidos pendientes y fotos propias.
 
 # Darkisistema v29
