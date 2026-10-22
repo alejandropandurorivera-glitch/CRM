@@ -253,7 +253,8 @@ service cloud.firestore {
         && (e.kind != 'waste' || e.reason.size() > 0)
         && stockMath(a.factory,b.factory,e.delta.factory) && stockMath(a.car,b.car,e.delta.car)
         && stockMath(a.box,b.get('box',[0,0,0,0,0,0,0]),e.delta.get('box',[0,0,0,0,0,0,0]))
-        && (request.auth.token.firebase.sign_in_provider != 'anonymous' || (a.car == b.car && (e.kind == 'prepare' || a.box == b.get('box',[0,0,0,0,0,0,0]))));
+        && a.get('boxAway',false) == (e.kind == 'load' ? true : e.kind == 'unload' ? false : b.get('boxAway',b.car != [0,0,0,0,0,0,0]))
+        && (request.auth.token.firebase.sign_in_provider != 'anonymous' || (a.get('boxAway',false) == b.get('boxAway',b.car != [0,0,0,0,0,0,0]) && a.car == b.car && (e.kind == 'prepare' || a.box == b.get('box',[0,0,0,0,0,0,0]))));
     }
     function validInventoryBalance() {
       let after = request.resource.data;
@@ -312,6 +313,53 @@ service cloud.firestore {
         && request.resource.data.data.paidCents <= get(/databases/$(database)/documents/employeeWithdrawals/$(id)).data.data.amountCents
         && (!exists(/databases/$(database)/documents/payrollDeductionClaims/$(id)) || request.resource.data.data.paidCents >= resource.data.data.paidCents);
       allow delete: if false;
+    }
+    match /routeOrders/{id} {
+      allow read: if isRoute();
+      allow create: if isRoute() && request.resource.data.data.id == id
+        && request.resource.data.data.status == 'pending' && request.resource.data.data.total is number && request.resource.data.data.total > 0;
+      allow update: if isRoute() && request.resource.data.data.id == id
+        && (resource.data.data.status == 'pending' || request.resource.data.data == resource.data.data)
+        && request.resource.data.data.status in ['pending','fulfilled','cancelled'];
+      allow delete: if false;
+    }
+    match /employeeReturns/{id} {
+      allow get: if isAdmin() || ownsRecord() || (signedIn() && id.matches('^' + request.auth.uid + '__.*'));
+      allow list: if isAdmin() || ownsRecord();
+      allow create: if inventoryUser() && createsOwnRecord()
+        && request.resource.data.data.id == id
+        && request.resource.data.data.ownerUid == request.auth.uid
+        && request.resource.data.data.pieces is int && request.resource.data.data.pieces > 0
+        && request.resource.data.data.creditCents == request.resource.data.data.pieces * 1900
+        && get(/databases/$(database)/documents/employeeWithdrawals/$(request.resource.data.data.withdrawalId)).data.ownerUid == request.auth.uid
+        && request.resource.data.data.employeeId == get(/databases/$(database)/documents/employeeWithdrawals/$(request.resource.data.data.withdrawalId)).data.data.employeeId
+        && request.resource.data.data.issuedPieces == get(/databases/$(database)/documents/employeeWithdrawals/$(request.resource.data.data.withdrawalId)).data.data.pieces
+        && request.resource.data.data.totalReturnedPieces == getAfter(/databases/$(database)/documents/employeeReturnTotals/$(request.resource.data.data.withdrawalId)).data.pieces
+        && getAfter(/databases/$(database)/documents/employeeReturnTotals/$(request.resource.data.data.withdrawalId)).data.lastReturnId == id;
+      allow update, delete: if false;
+    }
+    match /employeeReturnTotals/{id} {
+      allow get: if isAdmin() || ownsRecord() || (signedIn() && get(/databases/$(database)/documents/employeeWithdrawals/$(id)).data.ownerUid == request.auth.uid);
+      allow list: if isAdmin() || ownsRecord();
+      allow create, update: if inventoryUser() && request.resource.data.ownerUid == request.auth.uid
+        && get(/databases/$(database)/documents/employeeWithdrawals/$(id)).data.ownerUid == request.auth.uid
+        && request.resource.data.pieces is int && request.resource.data.pieces > 0
+        && request.resource.data.pieces <= get(/databases/$(database)/documents/employeeWithdrawals/$(id)).data.data.pieces
+        && request.resource.data.pieces == (exists(/databases/$(database)/documents/employeeReturnTotals/$(id)) ? resource.data.pieces : 0)
+          + getAfter(/databases/$(database)/documents/employeeReturns/$(request.resource.data.lastReturnId)).data.data.pieces
+        && !exists(/databases/$(database)/documents/employeeReturns/$(request.resource.data.lastReturnId))
+        && getAfter(/databases/$(database)/documents/employeeReturns/$(request.resource.data.lastReturnId)).data.data.withdrawalId == id;
+      allow delete: if false;
+    }
+    match /payrollReturnClaims/{id} {
+      allow get: if isAdmin() || ownsRecord();
+      allow list: if isAdmin() || ownsRecord();
+      allow create: if isAdmin()
+        && request.resource.data.data.id == id
+        && request.resource.data.ownerUid == get(/databases/$(database)/documents/employeeReturns/$(id)).data.ownerUid
+        && request.resource.data.data.creditCents == get(/databases/$(database)/documents/employeeReturns/$(id)).data.data.creditCents
+        && getAfter(/databases/$(database)/documents/payrollPayments/$(request.resource.data.data.requestId)).data.ownerUid == request.resource.data.ownerUid;
+      allow update, delete: if false;
     }
     match /{document=**} { allow read, write: if false; }
   }

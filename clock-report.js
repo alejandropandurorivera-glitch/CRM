@@ -98,5 +98,20 @@
     output += `trailer\n<< /Size ${objects.length} /Root ${catalog} 0 R >>\nstartxref\n${xref}\n%%EOF`;
     return new Blob([bytes(output)],{type:'application/pdf'});
   }
-  window.DarkisReport = {build};
+    async function buildImage(r){
+    const money=n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN'}).format(n),date=n=>new Date(n).toLocaleString('es-MX',{timeZone:'America/Mexico_City',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}),alloc=r.allocations||[],ded=r.deductions||[],credits=r.returns||[];
+    const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1080+alloc.length*114+ded.length*70+credits.length*80;const c=canvas.getContext('2d');c.fillStyle='#fffaf0';c.fillRect(0,0,1080,canvas.height);c.fillStyle='#087eab';c.fillRect(0,0,1080,270);const image=new Image();image.src=new URL('./logo.png',document.baseURI).href;await image.decode();const w=330,h=w*image.height/image.width;c.drawImage(image,64,32,w,h);
+    function text(value,x,y,size=28,color='#412b24',weight=500){c.font=weight+' '+size+'px Arial,sans-serif';c.fillStyle=color;c.fillText(String(value),x,y,940)}
+    text('REPORTE DE NÓMINA',64,220,32,'#fff',700);text(r.employeeName,64,340,48,'#713e28',700);text('Folio '+r.id.slice(-8)+' · '+new Date(r.createdAt).toLocaleDateString('es-MX'),64,390,25,'#667d86');
+    let y=465;text((r.totalMinutes/60).toFixed(2)+' horas seleccionadas',64,y,36,'#087eab',700);y+=65;text('Horas × $50',64,y);text(money(r.grossAmount??r.amount),760,y,30);y+=52;text('Descuentos',64,y);text('− '+money((r.deductionCents||0)/100),760,y,30);y+=52;text('Expendios regresados',64,y);text('+ '+money((r.returnCreditCents||0)/100),760,y,30);y+=38;
+    c.fillStyle='#ff6029';c.fillRect(52,y,976,98);text('A PERCIBIR',76,y+61,30,'#fff',700);text(money(r.amount),720,y+64,42,'#fff',700);y+=145;
+    if(r.returnRedFlag){text('⚑ DEVOLUCIONES MAYORES AL 15%',64,y,30,'#be2f34',700);y+=50}
+    text('TURNOS INCLUIDOS',64,y,27,'#087eab',700);y+=55;
+    for(const a of alloc){text(date(a.start)+' → '+date(a.end),64,y,27);y+=36;text((a.minutes/60).toFixed(2)+' h de '+(a.capacityMinutes/60).toFixed(2)+' h'+(a.manualEdited?' · Ajuste manual':''),64,y,24,a.manualEdited?'#a66616':'#667d86');y+=72;c.fillStyle='#e4dfd5';c.fillRect(64,y-35,952,2)}
+    if(ded.length){text('DESCUENTOS APLICADOS',64,y,26,'#087eab',700);y+=48;for(const d of ded){text(d.description||'Retiro personal',64,y,24);text(money(d.cents/100),830,y,24);y+=70}}
+    if(credits.length){text('ABONOS DE EXPENDIO',64,y,26,'#087eab',700);y+=48;for(const d of credits){text(d.pieces+(d.pieces===1?' pieza · ':' piezas · ')+Math.round(d.totalReturnedPieces/d.issuedPieces*100)+'% del retiro original',64,y,24,d.totalReturnedPieces/d.issuedPieces>.15?'#be2f34':'#412b24');text(money(d.creditCents/100),830,y,24);y+=80}}
+    text(r.status==='paid'?'Pago confirmado':'Selección pendiente de pago',64,canvas.height-60,24,'#667d86');return new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('No se pudo crear la imagen.')),'image/png'));
+  }
+
+  window.DarkisReport = {build,buildImage};
 })();

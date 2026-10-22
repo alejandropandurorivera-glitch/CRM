@@ -1,0 +1,34 @@
+DARKISISTEMA v29 — revisión completa (misma versión)
+
+PARA LA CAPTURA ACTUAL: NO REPITAS LA CARGA
+La leyenda Missing or insufficient permissions confirma un rechazo de Firebase. No significa que alguien deba aprobar la caja. El movimiento permanece guardado en el dispositivo donde se capturó; al corregir los permisos se reintenta con el MISMO identificador, sin duplicarlo.
+
+1. Abre https://console.firebase.google.com/project/darkis-brownies/firestore/databases/-default-/security/rules
+2. Abre firestore.rules incluido en este paquete, copia TODO el contenido y reemplaza el editor de reglas de Firestore. Pulsa PUBLICAR. Subir ese archivo a GitHub NO lo publica en Firebase.
+3. Sube a GitHub el contenido descomprimido de v29, reemplazando los archivos anteriores, y espera a que Pages termine.
+4. Abre Darkita en el dispositivo original y pulsa Reintentar sincronización en Inventario. No uses Cargar a caja otra vez. Cuando Firebase confirme la operación, fábrica bajará y Caja para ruta subirá en Repartidor.
+5. Si persiste el rechazo, pulsa Copiar diagnóstico y compártelo. Incluye el área, proveedor de sesión, proyecto y movimientos pendientes; no contiene coordenadas.
+No borres caché, almacenamiento ni la app con pendientes. No cierres la cuenta de origen.
+
+CAMBIOS v29 (incluye todos los cambios del paquete anterior)
+- Eliminación de cliente sólo dentro de Editar cliente, con dos confirmaciones.
+- Fotografías propias: toma o elige la foto desde Editar cliente. Se eliminó la configuración y búsqueda de Google Places; no se hacen consultas de fotos a esa API.
+- Asistente de surtido breve; Sabor / Dejados / Retirados aparece inmediatamente encima de los campos.
+- Pedidos pendientes en Repartidor: cliente existente o nuevo, fecha y productos; brownies/galletas a $23 calculados automáticamente, o producto y monto libre. Los pedidos de hoy y atrasados aparecen primero; los futuros en Próximos pedidos.
+- Atender pedido requiere confirmar entrega Y cobro. Crea una visita con identificador estable, un ingreso y un movimiento de inventario para brownies/galletas. Otro producto registra el importe sin inventar unidades de brownie. Si aún no cobraste, déjalo pendiente.
+- Una caja de ruta: Cargar a caja traslada de fábrica a la caja. Repartidor confirma la caja subida al carro; se oculta la caja a las Darkitas mientras está en ruta. Confirmar regreso a fábrica devuelve todo el sobrante, ya descontadas las entregas. La existencia de fábrica está en un desplegable en Repartidor.
+- Antes de confirmar salida, espera a que se sincronicen las cargas a caja. No se requieren capturar dos veces las mismas piezas.
+- Los reportes de horas se descargan como imagen PNG para WhatsApp, con logo transparente. Los documentos antiguos y pagos no se borran.
+- Regresar expendios está dentro de Elegir horas para el reporte: registra piezas contra un retiro personal original. Se abonan a $19. Si el retiro ya fue descontado, aumenta lo que se recibe; si no, compensa el descuento. No se agregan al inventario vendible. El porcentaje se calcula como devoluciones acumuladas / piezas de ese retiro; si supera (no iguala) 15%, hay bandera roja.
+- Cada crédito se utiliza una sola vez al pagar. Cancelar una selección libera sus horas y sus abonos para otro reporte; no borra la devolución física.
+- Cada reporte puede aplicar hasta 6 retiros y 6 abonos de expendio; lo restante queda pendiente para la siguiente selección. Hasta 20 turnos por reporte, completos o parciales.
+- El envío de reportes es independiente de los errores del reloj y de otros reportes. Horas y pagos muestra Recibido en Firebase cuando el servidor confirma. Se puede pulsar Reenviar reportes pendientes sin generar otro folio.
+- Administrador / Horas y pagos incluye Actualizar reportes de Firebase. Si Sofi tiene un nuevo reporte sólo en su teléfono, pulsa Reenviar reportes pendientes en ese teléfono y después Actualizar reportes en Administrador. No regeneres ni borres datos.
+
+INSTALACIÓN
+Publica firestore.rules en la consola de Firebase y sube TODOS los archivos de este paquete en la raíz del repositorio CRM. El ZIP contiene menos de 100 archivos; no subas el ZIP como la aplicación.
+No hace falta cerrar un turno para actualizar. No borres el almacenamiento de los teléfonos ni desinstales la PWA con capturas pendientes.
+Esta entrega no modifica por sí sola las reglas publicadas en Firebase ni el sitio de GitHub Pages: esos dos pasos deben realizarse con los archivos del paquete.
+
+VERIFICACIÓN
+Pruebas locales con navegador móvil/escritorio y emulador real de Firestore: captura, descarga PNG, pedidos por fecha sin duplicar visitas, caja completa y regreso del sobrante, créditos personales sin doble reembolso, separación de permisos, pagos parciales/concurrentes y reportes nuevos después de cancelar. No se escribieron datos de prueba en tu Firebase real.

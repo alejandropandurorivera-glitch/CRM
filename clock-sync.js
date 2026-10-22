@@ -61,7 +61,7 @@
           ...snapshot.cuts.map(row=>[['timeclockWeeklyCuts',user.uid+'__'+row.id],row])];
         const errors=await writeGroup(jobs);
         try{await syncProduction(snapshot.production||[])}catch(error){errors.push(error)}
-        if(!errors.length&&window.DarkisPayroll){phase='guardar-selecciones-pdf';try{await timeout(window.DarkisPayroll.sync())}catch(error){errors.push(error)}}
+        if(window.DarkisPayroll){phase='guardar-selecciones-pdf';try{await timeout(window.DarkisPayroll.sync())}catch(error){errors.push(error)}}
         if(errors.length){failedDocument=errors[0].document||'';throw errors[0]}
       }while(dirty);
       // Confirma disponibilidad del servidor aunque no haya datos nuevos.
@@ -71,7 +71,7 @@
     finally{syncing=false}
   }
   function schedule(){dirty=true;clearTimeout(timer);timer=setTimeout(sync,500)}
-  async function copyDiagnostic(){const report=['Sistema Darkis v28','Área: Darkita','Conexión: '+(window.darkisClockStatus?.state||'sin comprobar'),'Etapa: '+(lastError?.phase||phase),'Código: '+(lastError?.code||'sin error'),'Documento: '+(lastError?.document||'ninguno'),'Pendientes: '+pendingCount,'Detalle: '+(lastError?.message||window.darkisClockStatus?.detail||''),'Identidad del reloj: '+(user?.uid||'todavía sin sesión'),'Proveedor: '+(user?.isAnonymous?'anónimo':user?'sesión existente':'pendiente'),'Internet: '+navigator.onLine,'Origen: '+location.origin,'Fecha: '+new Date().toISOString()].join('\n');try{await navigator.clipboard.writeText(report);const button=document.getElementById('clockCopyConnection');if(button)button.textContent='Diagnóstico copiado'}catch{const message=document.getElementById('clockConnectionMessage');if(message)message.textContent=report}}
+  async function copyDiagnostic(){const report=['Sistema Darkis v29','Área: Darkita','Conexión: '+(window.darkisClockStatus?.state||'sin comprobar'),'Etapa: '+(lastError?.phase||phase),'Código: '+(lastError?.code||'sin error'),'Documento: '+(lastError?.document||'ninguno'),'Pendientes: '+pendingCount,'Detalle: '+(lastError?.message||window.darkisClockStatus?.detail||''),'Identidad del reloj: '+(user?.uid||'todavía sin sesión'),'Proveedor: '+(user?.isAnonymous?'anónimo':user?'sesión existente':'pendiente'),'Internet: '+navigator.onLine,'Origen: '+location.origin,'Fecha: '+new Date().toISOString()].join('\n');try{await navigator.clipboard.writeText(report);const button=document.getElementById('clockCopyConnection');if(button)button.textContent='Diagnóstico copiado'}catch{const message=document.getElementById('clockConnectionMessage');if(message)message.textContent=report}}
   window.clockCloud={schedule,sync,diagnostic:copyDiagnostic};
   document.getElementById('clockRetryConnection')?.addEventListener('click',async()=>{retryMs=5000;try{if(user&&db){await user.getIdToken?.(true);if(!syncing&&sdk.disableNetwork&&sdk.enableNetwork){await sdk.disableNetwork(db);await sdk.enableNetwork(db)}await sync()}else await start()}catch(error){problem(error);retry()}});
   document.getElementById('clockCopyConnection')?.addEventListener('click',copyDiagnostic);
