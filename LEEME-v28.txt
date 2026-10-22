@@ -1,0 +1,59 @@
+DARKISISTEMA v28 — Inventario y retiros del personal
+
+PUBLICAR
+1. Publica firestore.rules de este paquete en Firebase → Firestore Database → Reglas. Las nuevas colecciones requieren ESTAS reglas.
+2. Descomprime el ZIP y sube todos los archivos de su interior a la raíz del repositorio CRM, reemplazando los anteriores. El paquete queda debajo de 100 archivos. No subas el ZIP ni una carpeta contenedora.
+3. Al terminar GitHub Pages, abre https://alejandropandurorivera-glitch.github.io/CRM/abrir-darkis-v28.html y después la aplicación instalada. Debe indicar v28. Actualiza los celulares del equipo antes de comenzar a usar inventario; una versión anterior no genera estos movimientos.
+No se han publicado cambios automáticamente en GitHub o Firebase. No borres los datos del teléfono. Se conservan los movimientos, perfiles, turnos abiertos y claves locales de versiones anteriores.
+
+PRIMER USO: EXISTENCIA REAL, SIN INVENTAR STOCK
+El inventario nuevo empieza en cero. Antes de registrar producción o cargar la ruta, cuenta lo que existe físicamente y usa Inventario → Movimiento → Agregar manualmente (fábrica o carro). Si ya había una existencia inicial registrada, usa Corregir por conteo físico.
+No se suman la producción ni las ventas históricas de v27: hacerlo inflaría o volvería negativo el stock de hoy. Los registros nuevos de v28 sí generan movimientos. Editar un registro antiguo no lo convierte en una compra o salida actual.
+Hay tres ubicaciones: En fábrica, Caja para ruta y En el carro. Expendio y seminario son destinos de salida y NO llevan saldo disponible. Las Darkitas ven únicamente fábrica; Repartidor y Administrador ven las tres ubicaciones.
+
+CÓMO SE MUEVEN LAS PIEZAS
+- Producción agrega charolas × rendimiento por sabor; decoración no agrega piezas de nuevo. Same Day registra producción y decoración una sola vez cada etapa.
+- Galletas terminadas agrega las blancas/amargas; los brownies usados para fabricarlas salen por su sabor original.
+- Merma, seminario y basura restan del inventario de fábrica. Cada cantidad debe registrarse UNA sola vez. No vuelvas a capturar como merma un brownie que ya descontaste en Brownies usados para galletas.
+- Toda merma exige motivo y queda dirigida a expendio. Basura representa producto inutilizable y sale definitivamente del disponible.
+- Cargar a caja resta a fábrica y suma a Caja para ruta. Las Darkitas y Repartidor pueden preparar la caja.
+- Cargar a carro se hace desde Repartidor: resta de Caja para ruta y suma al carro. No descuenta de fábrica una segunda vez.
+- Regresar caja a fábrica devuelve sobrantes de la caja; Regresar del carro devuelve piezas del carro a fábrica.
+- Cada visita nueva descuenta del carro TODOS los dejados, tanto pagados como reposiciones. Ejemplo: 5 pagados + 5 cambios = 10 dejados y 10 menos en el carro. Los retirados de la tienda no vuelven al disponible: son salida a expendio, sin saldo de expendio. No los registres de nuevo como merma de fábrica/carro si nunca entraron ahí.
+- Editar una visita o producción de v28 cambia sólo la diferencia frente al último movimiento confirmado. Repetir la sincronización no repite cantidades.
+- Corregir inventario usa la CANTIDAD CORRECTA de cada sabor, no un incremento. El formulario comienza con el saldo actual. La nota es opcional: una corrección de captura NO se clasifica como merma. Una merma real se registra aparte y sí exige motivo. El historial conserva quién lo cambió, cuándo y los valores anterior y nuevo. Si otro teléfono cambia el saldo durante la corrección, se pide actualizar para no pisar ese movimiento.
+
+DARKITA: SACAR PARA VENDER
+Inventario → Sacar para vender. Registra las piezas por sabor. Se retiran de fábrica y se genera un saldo de $19 por cada pieza, a nombre del perfil que está abierto.
+Otro monto es un DESCUENTO adicional en pesos, desde cero, por ejemplo un anticipo. Si lo usas, escribe el concepto. No es una bonificación ni modifica la tarifa de $50/h.
+El retiro no genera un descuento duplicado al sincronizar. Los registros confirmados se conservan; una corrección de inventario no cancela una deuda ya registrada. Revisa antes de guardar quién tiene abierto el perfil y las cantidades. Si detectas una deuda errónea, el administrador debe revisarla antes de incluirla en un PDF.
+
+PDF Y NÓMINA
+Al seleccionar horas para el PDF aparecen los retiros y otros descuentos pendientes. Se seleccionan por defecto; puedes revisar cuáles incluir. El descuento se limita al sueldo bruto de esas horas, y el resto permanece pendiente. Se ofrecen hasta 20 retiros por selección, empezando por los más antiguos.
+Ejemplo: 1 h = $50 bruto. Hay $67 pendientes. Se aplican $50 y el neto a recibir es $0. Quedan $17 para otro pago.
+Generar el PDF reserva las horas y los descuentos; no confirma el pago. Cancelar una selección pendiente en línea libera ambos. En Administrador → Horas y pagos se ve bruto, descuentos y neto; confirmar paga la selección, registra el gasto del EFECTIVO NETO entregado y liquida el descuento hasta el importe aplicado. El detalle del bruto y las compensaciones se conserva en el registro y el PDF. No se crea un cobro en efectivo ficticio por el descuento.
+El servidor vuelve a comprobar los horarios y los saldos de cada retiro. Dos pagos concurrentes no pueden consumir el mismo saldo dos veces. Los registros privados de retiros y descuentos sólo los leen su sesión de origen y el administrador.
+El PDF usa el logo con transparencia real, colores institucionales y detalle de descuentos en páginas adicionales. La interfaz de Darkita continúa mostrando horas; el sueldo aparece en el PDF.
+
+DÓNDE VERLO
+- Darkita: En fábrica (existencias, correcciones, mermas, retiros y Cargar a caja) y Producción del día. No aparecen la tabla ni los controles del carro.
+- Repartidor: Inventario / Mi día, con fábrica, caja para ruta y carro. Si no prepararon la caja, usa Cargar a caja y después Cargar a carro. Puede corregir cualquiera de las tres ubicaciones.
+- Administrador: Inventarios, con historial de quién hizo el movimiento, fecha, motivo, cambios por sabor y pendientes de descuento. Muestra los últimos 1,000 eventos confirmados. Descargar historial consulta todos los eventos del servidor.
+Los movimientos confirmados no se borran: se corrigen con un movimiento nuevo y nota opcional. Las mermas sí requieren motivo. La fecha del movimiento y su confirmación quedan registradas.
+
+SIN CONEXIÓN Y PENDIENTES
+Las capturas se guardan en la cola del celular. Las existencias mostradas son las últimas CONFIRMADAS, no una promesa de que un movimiento pendiente ya llegó a Firebase. Los movimientos de Repartidor, Administrador y Darkita se envían sólo desde su área y cuenta correspondientes.
+Si falta inventario, la captura original se conserva y el movimiento de stock queda pendiente con una explicación. Agrega la existencia inicial real o corrige el origen y pulsa Reintentar sincronización. Una alta manual puede sincronizar aunque antes haya una salida bloqueada; después se reintenta la salida.
+Los retiros pendientes del mismo dispositivo también pueden incluirse en el borrador del PDF, pero el administrador no puede pagar sus descuentos hasta que el retiro llegue al servidor.
+Si ya se confirmó un movimiento, no se elimina físicamente. Si no llegó aún, los movimientos manuales pendientes se pueden cancelar; las visitas y producción se corrigen en su registro original.
+Conserva la sesión anónima del reloj y no borres datos si hay pendientes. Cambiar de cuenta no transfiere automáticamente sus retiros privados ni los descuentos a otra identidad. Reutiliza el mismo dispositivo/sesión o pide revisión administrativa.
+
+RECUPERACIÓN DEL ERROR v24 clock/owner-mismatch
+En Darkita, usa Recuperar y sincronizar si aparece el aviso. Primero se crea un respaldo local y se recuperan los horarios con sus identificadores y fechas, sin escribir en documentos de otra identidad. Si persiste otro error de permisos, revisa que las reglas v28 estén publicadas y copia el diagnóstico. No borres caché ni almacenamiento con movimientos pendientes.
+
+PRUEBAS
+Se comprobó en navegador móvil y escritorio, PDF real y emulador de Firestore: permisos, inventario sin negativos en operaciones simultáneas, revisiones sin duplicar, recuperación de horarios, descuentos parciales y pago único. La comprobación final en los celulares requiere publicar este paquete y las reglas.
+
+MIGRACIÓN DE v27
+Se conserva la existencia actual de fábrica y carro. La caja nueva empieza en cero, sin duplicar piezas. No reinicies el inventario ya registrado. Actualiza todos los celulares a v28 y publica sus reglas antes de usar la caja.
+Si una Darkita conserva una carga antigua pendiente directamente al carro, no se convierte silenciosamente a caja: queda para revisión. Revisa dónde están físicamente esas piezas, cancela el pendiente que no se haya confirmado y registra/corrige la ubicación desde el área correspondiente. No borres almacenamiento.

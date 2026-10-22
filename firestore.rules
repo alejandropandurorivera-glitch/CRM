@@ -233,39 +233,46 @@ service cloud.firestore {
     function stockBefore() {
       return exists(/databases/$(database)/documents/inventoryBalances/main)
         ? get(/databases/$(database)/documents/inventoryBalances/main).data
-        : {'factory':[0,0,0,0,0,0,0], 'car':[0,0,0,0,0,0,0], 'version':0};
+        : {'factory':[0,0,0,0,0,0,0], 'box':[0,0,0,0,0,0,0], 'car':[0,0,0,0,0,0,0], 'version':0};
     }
     function stockMath(a,b,d) {
-      return quantities(a,false) && d is list && d.size() == 7
-        && a[0] == b[0] + d[0]
-        && a[1] == b[1] + d[1]
-        && a[2] == b[2] + d[2]
-        && a[3] == b[3] + d[3]
-        && a[4] == b[4] + d[4]
-        && a[5] == b[5] + d[5]
-        && a[6] == b[6] + d[6]
-        ;
+      return (a == b && d == [0,0,0,0,0,0,0]) || (a is list && a.size() == 7 && d is list && d.size() == 7
+        && a[0] is int && a[0] >= 0 && a[0] == b[0] + d[0]
+        && a[1] is int && a[1] >= 0 && a[1] == b[1] + d[1]
+        && a[2] is int && a[2] >= 0 && a[2] == b[2] + d[2]
+        && a[3] is int && a[3] >= 0 && a[3] == b[3] + d[3]
+        && a[4] is int && a[4] >= 0 && a[4] == b[4] + d[4]
+        && a[5] is int && a[5] >= 0 && a[5] == b[5] + d[5]
+        && a[6] is int && a[6] >= 0 && a[6] == b[6] + d[6]);
     }
     function inventoryCommit(id,e,b,a) {
       return e.id == id && e.ownerUid == request.auth.uid
         && e.beforeVersion == b.version && e.afterVersion == a.version && a.version == b.version + 1
-        && a.lastEventId == id && e.kind in ['source','add','count','load','unload','waste','withdraw']
+        && a.lastEventId == id && e.kind in ['source','add','count','prepare','unprepare','load','unload','waste','withdraw']
         && e.detail is string && e.reason is string && e.reason.size() <= 400
-        && (!(e.kind in ['count','waste']) || e.reason.size() > 0)
-        && stockMath(a.factory,b.factory,e.delta.factory) && stockMath(a.car,b.car,e.delta.car);
+        && (e.kind != 'waste' || e.reason.size() > 0)
+        && stockMath(a.factory,b.factory,e.delta.factory) && stockMath(a.car,b.car,e.delta.car)
+        && stockMath(a.box,b.get('box',[0,0,0,0,0,0,0]),e.delta.get('box',[0,0,0,0,0,0,0]))
+        && (request.auth.token.firebase.sign_in_provider != 'anonymous' || (a.car == b.car && (e.kind == 'prepare' || a.box == b.get('box',[0,0,0,0,0,0,0]))));
+    }
+    function validInventoryBalance() {
+      let after = request.resource.data;
+      let before = stockBefore();
+      let event = getAfter(/databases/$(database)/documents/inventoryEvents/$(after.lastEventId)).data;
+      return inventoryCommit(after.lastEventId,event,before,after);
     }
     match /inventoryBalances/{id} {
       allow read: if inventoryUser();
       allow create, update: if inventoryUser() && id == 'main'
-        && inventoryCommit(request.resource.data.lastEventId,
-          getAfter(/databases/$(database)/documents/inventoryEvents/$(request.resource.data.lastEventId)).data,
-          stockBefore(), request.resource.data);
+        && validInventoryBalance();
       allow delete: if false;
     }
     match /inventoryEvents/{id} {
       allow read: if inventoryUser();
-      allow create: if inventoryUser() && inventoryCommit(id,request.resource.data,stockBefore(),
-          getAfter(/databases/$(database)/documents/inventoryBalances/main).data)
+      allow create: if inventoryUser() && request.resource.data.id == id
+        && request.resource.data.ownerUid == request.auth.uid
+        && getAfter(/databases/$(database)/documents/inventoryBalances/main).data.lastEventId == id
+        && getAfter(/databases/$(database)/documents/inventoryBalances/main).data.version == stockBefore().version + 1
         && (request.resource.data.kind != 'withdraw' ||
           getAfter(/databases/$(database)/documents/employeeWithdrawals/$(id)).data.ownerUid == request.auth.uid);
       allow update, delete: if false;
@@ -276,6 +283,7 @@ service cloud.firestore {
         && ((!exists(/databases/$(database)/documents/inventorySources/$(id)) && request.resource.data.ownerUid == request.auth.uid)
           || (exists(/databases/$(database)/documents/inventorySources/$(id)) && (ownsRecord() || isAdmin()) && request.resource.data.ownerUid == resource.data.ownerUid))
         && quantities(request.resource.data.effect.factory,true) && quantities(request.resource.data.effect.car,true)
+        && quantities(request.resource.data.effect.get('box',[0,0,0,0,0,0,0]),true)
         && request.resource.data.revision is number
         && (!exists(/databases/$(database)/documents/inventorySources/$(id)) || request.resource.data.revision > resource.data.revision)
         && getAfter(/databases/$(database)/documents/inventoryEvents/$(request.resource.data.lastEventId)).data.sourceId == id;

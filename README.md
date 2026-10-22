@@ -1,9 +1,11 @@
-# Darkisistema v27
+# Darkisistema v28
 
-Lee **LEEME-v27.txt** antes de publicar. Incluye inventario por sabor de fábrica y carro, traslados, producción, mermas con motivo, historial, retiros Darkita a $19 y otros descuentos, nómina parcial y PDF con logo transparente.
+Flujo: **En fábrica → Caja para ruta → En el carro**.
 
-Publica `firestore.rules` y después el contenido de este paquete en la raíz del repositorio CRM. El primer inventario debe ser un conteo real; no se reconstruye con movimientos antiguos. Conserva los datos de los dispositivos.
+Darkita ve fábrica y puede cargar a caja, corregir existencias, registrar mermas y retirar brownies para vender. Repartidor ve las tres ubicaciones, prepara la caja cuando haga falta y carga la caja al carro. Administrador recibe el historial, con quién hizo cada cambio y las cantidades anterior y nueva.
 
-Entradas: `index.html`, `reloj-checador.html`, `administrador.html`, `darkisocio.html`. Las claves y roles existentes permanecen. El inventario es compartido mediante operaciones atómicas de Firestore; los pendientes offline conservan su área y cuenta de origen. No usa Cloud Functions.
+La corrección de captura es libre, con nota opcional; una merma real exige motivo. Se conservan los retiros a $19, otros descuentos, PDFs y las demás funciones de v27.
 
-No se ha desplegado automáticamente. La guía completa explica los saldos pendientes de nómina, correcciones, límites y publicación.
+Publica las reglas Firestore incluidas y sube el contenido del ZIP a la raíz de CRM. Consulta **LEEME-v28.txt**. No borres los datos de los dispositivos ni reinicies existencias ya registradas. La caja nueva empieza en cero y se conservan fábrica y carro.
+
+No se ha publicado automáticamente.
