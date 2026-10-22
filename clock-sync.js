@@ -26,7 +26,7 @@
   let productionReadUid='';
   async function syncProduction(rows,uid=user?.uid){if(!uid)return;try{
     if(productionReadUid!==uid){const found=await timeout(sdk.getDocsFromServer(sdk.query(sdk.collection(db,'productionRecords'),sdk.where('ownerUid','==',uid))));window.DarkisProduction?.apply(found.docs.map(x=>x.data().data).filter(Boolean));productionReadUid=uid;}
-    for(const row of rows||[]){await write(['productionRecords',row.id],row);const coverage={id:row.id,date:row.date,activityType:row.activityType||'production',coverageStart:row.coverageStart??null,coverageEnd:row.coverageEnd??null,coverageIntervals:row.coverageIntervals||[],createdAt:row.createdAt,updatedAt:row.updatedAt,deleted:Boolean(row.deleted)};await write(['productionCoverage',row.id],coverage)}
+    for(const row of rows||[]){await write(['productionRecords',row.id],row);window.DarkisInventory?.production(row);const coverage={id:row.id,date:row.date,activityType:row.activityType||'production',coverageStart:row.coverageStart??null,coverageEnd:row.coverageEnd??null,coverageIntervals:row.coverageIntervals||[],createdAt:row.createdAt,updatedAt:row.updatedAt,deleted:Boolean(row.deleted)};await write(['productionCoverage',row.id],coverage)}
     window.DarkisProduction?.setStatus(rows?.length?'Producción confirmada en Firebase.':'Sin producción pendiente de enviar.');
   }catch(error){window.DarkisProduction?.setStatus('Producción guardada en este celular. Pendiente de nube: '+(error.code||error.message)+'. Revisa las reglas v26 y pulsa Reintentar conexión.');throw error;}}
 
@@ -51,7 +51,7 @@
     if(!navigator.onLine){status('offline','Sin internet; tus registros siguen guardados en este dispositivo.');return}
     syncing=true;clearTimeout(timer);
     try{
-      status('connecting','Comprobando y guardando los horarios en Firebase…');window.DarkisPayroll?.connect({sdk,db,user});
+      status('connecting','Comprobando y guardando los horarios en Firebase…');window.DarkisPayroll?.connect({sdk,db,user});window.DarkisInventory?.connect({sdk,db,user,role:'clock'});
       if(readyUid!==user.uid && !await read(user.uid))return;
       do{
         dirty=false;
@@ -71,7 +71,7 @@
     finally{syncing=false}
   }
   function schedule(){dirty=true;clearTimeout(timer);timer=setTimeout(sync,500)}
-  async function copyDiagnostic(){const report=['Sistema Darkis v26','Área: Darkita','Conexión: '+(window.darkisClockStatus?.state||'sin comprobar'),'Etapa: '+(lastError?.phase||phase),'Código: '+(lastError?.code||'sin error'),'Documento: '+(lastError?.document||'ninguno'),'Pendientes: '+pendingCount,'Detalle: '+(lastError?.message||window.darkisClockStatus?.detail||''),'Identidad del reloj: '+(user?.uid||'todavía sin sesión'),'Proveedor: '+(user?.isAnonymous?'anónimo':user?'sesión existente':'pendiente'),'Internet: '+navigator.onLine,'Origen: '+location.origin,'Fecha: '+new Date().toISOString()].join('\n');try{await navigator.clipboard.writeText(report);const button=document.getElementById('clockCopyConnection');if(button)button.textContent='Diagnóstico copiado'}catch{const message=document.getElementById('clockConnectionMessage');if(message)message.textContent=report}}
+  async function copyDiagnostic(){const report=['Sistema Darkis v27','Área: Darkita','Conexión: '+(window.darkisClockStatus?.state||'sin comprobar'),'Etapa: '+(lastError?.phase||phase),'Código: '+(lastError?.code||'sin error'),'Documento: '+(lastError?.document||'ninguno'),'Pendientes: '+pendingCount,'Detalle: '+(lastError?.message||window.darkisClockStatus?.detail||''),'Identidad del reloj: '+(user?.uid||'todavía sin sesión'),'Proveedor: '+(user?.isAnonymous?'anónimo':user?'sesión existente':'pendiente'),'Internet: '+navigator.onLine,'Origen: '+location.origin,'Fecha: '+new Date().toISOString()].join('\n');try{await navigator.clipboard.writeText(report);const button=document.getElementById('clockCopyConnection');if(button)button.textContent='Diagnóstico copiado'}catch{const message=document.getElementById('clockConnectionMessage');if(message)message.textContent=report}}
   window.clockCloud={schedule,sync,diagnostic:copyDiagnostic};
   document.getElementById('clockRetryConnection')?.addEventListener('click',async()=>{retryMs=5000;try{if(user&&db){await user.getIdToken?.(true);if(!syncing&&sdk.disableNetwork&&sdk.enableNetwork){await sdk.disableNetwork(db);await sdk.enableNetwork(db)}await sync()}else await start()}catch(error){problem(error);retry()}});
   document.getElementById('clockCopyConnection')?.addEventListener('click',copyDiagnostic);

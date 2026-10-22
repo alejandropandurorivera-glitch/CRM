@@ -1,7 +1,9 @@
-# Darkisistema v26
+# Darkisistema v27
 
-Paquete de publicación depurado. Lee **LEEME-v26.txt** para actualizar GitHub Pages, publicar las reglas de Firestore y recuperar los horarios pendientes del reloj.
+Lee **LEEME-v27.txt** antes de publicar. Incluye inventario por sabor de fábrica y carro, traslados, producción, mermas con motivo, historial, retiros Darkita a $19 y otros descuentos, nómina parcial y PDF con logo transparente.
 
-Entradas: `index.html`, `reloj-checador.html`, `administrador.html`, `darkisocio.html`. La configuración Firebase está documentada en `FIREBASE.md`.
+Publica `firestore.rules` y después el contenido de este paquete en la raíz del repositorio CRM. El primer inventario debe ser un conteo real; no se reconstruye con movimientos antiguos. Conserva los datos de los dispositivos.
 
-Los módulos de administración de producción y revisión de clientes ya están integrados en `administrador.html`; no requieren copias JS independientes. Se mantienen las licencias de fuentes y los recursos de inicio de iPhone.
+Entradas: `index.html`, `reloj-checador.html`, `administrador.html`, `darkisocio.html`. Las claves y roles existentes permanecen. El inventario es compartido mediante operaciones atómicas de Firestore; los pendientes offline conservan su área y cuenta de origen. No usa Cloud Functions.
+
+No se ha desplegado automáticamente. La guía completa explica los saldos pendientes de nómina, correcciones, límites y publicación.

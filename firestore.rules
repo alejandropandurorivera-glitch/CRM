@@ -181,7 +181,7 @@ service cloud.firestore {
         && d.ownerUid == request.auth.uid && d.status == 'pending'
         && d.employeeId is string && d.employeeName is string
         && d.rate == 50 && d.totalSeconds is int && d.totalSeconds > 0 && d.totalMinutes is number && d.totalMinutes > 0
-        && d.amount is number && d.amount > 0
+        && d.amount is number && d.amount >= 0
         && d.allocations is list && d.allocations.size() > 0 && d.allocations.size() <= 20
         && d.createdAt is number && d.updatedAt is number;
     }
@@ -216,6 +216,93 @@ service cloud.firestore {
         && request.resource.data.data.paidSeconds is int && request.resource.data.data.paidSeconds >= 0
         && request.resource.data.data.capacitySeconds is int
         && request.resource.data.data.paidSeconds <= request.resource.data.data.capacitySeconds;
+      allow delete: if false;
+    }
+    function inventoryUser() { return signedIn() && (request.auth.token.firebase.sign_in_provider == 'anonymous' || isRoute()); }
+    function quantities(a, negative) {
+      return a is list && a.size() == 7
+        && a[0] is int && a[0] >= (negative ? -100000 : 0) && a[0] <= 100000
+        && a[1] is int && a[1] >= (negative ? -100000 : 0) && a[1] <= 100000
+        && a[2] is int && a[2] >= (negative ? -100000 : 0) && a[2] <= 100000
+        && a[3] is int && a[3] >= (negative ? -100000 : 0) && a[3] <= 100000
+        && a[4] is int && a[4] >= (negative ? -100000 : 0) && a[4] <= 100000
+        && a[5] is int && a[5] >= (negative ? -100000 : 0) && a[5] <= 100000
+        && a[6] is int && a[6] >= (negative ? -100000 : 0) && a[6] <= 100000
+        ;
+    }
+    function stockBefore() {
+      return exists(/databases/$(database)/documents/inventoryBalances/main)
+        ? get(/databases/$(database)/documents/inventoryBalances/main).data
+        : {'factory':[0,0,0,0,0,0,0], 'car':[0,0,0,0,0,0,0], 'version':0};
+    }
+    function stockMath(a,b,d) {
+      return quantities(a,false) && d is list && d.size() == 7
+        && a[0] == b[0] + d[0]
+        && a[1] == b[1] + d[1]
+        && a[2] == b[2] + d[2]
+        && a[3] == b[3] + d[3]
+        && a[4] == b[4] + d[4]
+        && a[5] == b[5] + d[5]
+        && a[6] == b[6] + d[6]
+        ;
+    }
+    function inventoryCommit(id,e,b,a) {
+      return e.id == id && e.ownerUid == request.auth.uid
+        && e.beforeVersion == b.version && e.afterVersion == a.version && a.version == b.version + 1
+        && a.lastEventId == id && e.kind in ['source','add','count','load','unload','waste','withdraw']
+        && e.detail is string && e.reason is string && e.reason.size() <= 400
+        && (!(e.kind in ['count','waste']) || e.reason.size() > 0)
+        && stockMath(a.factory,b.factory,e.delta.factory) && stockMath(a.car,b.car,e.delta.car);
+    }
+    match /inventoryBalances/{id} {
+      allow read: if inventoryUser();
+      allow create, update: if inventoryUser() && id == 'main'
+        && inventoryCommit(request.resource.data.lastEventId,
+          getAfter(/databases/$(database)/documents/inventoryEvents/$(request.resource.data.lastEventId)).data,
+          stockBefore(), request.resource.data);
+      allow delete: if false;
+    }
+    match /inventoryEvents/{id} {
+      allow read: if inventoryUser();
+      allow create: if inventoryUser() && inventoryCommit(id,request.resource.data,stockBefore(),
+          getAfter(/databases/$(database)/documents/inventoryBalances/main).data)
+        && (request.resource.data.kind != 'withdraw' ||
+          getAfter(/databases/$(database)/documents/employeeWithdrawals/$(id)).data.ownerUid == request.auth.uid);
+      allow update, delete: if false;
+    }
+    match /inventorySources/{id} {
+      allow read: if inventoryUser();
+      allow create, update: if inventoryUser()
+        && ((!exists(/databases/$(database)/documents/inventorySources/$(id)) && request.resource.data.ownerUid == request.auth.uid)
+          || (exists(/databases/$(database)/documents/inventorySources/$(id)) && (ownsRecord() || isAdmin()) && request.resource.data.ownerUid == resource.data.ownerUid))
+        && quantities(request.resource.data.effect.factory,true) && quantities(request.resource.data.effect.car,true)
+        && request.resource.data.revision is number
+        && (!exists(/databases/$(database)/documents/inventorySources/$(id)) || request.resource.data.revision > resource.data.revision)
+        && getAfter(/databases/$(database)/documents/inventoryEvents/$(request.resource.data.lastEventId)).data.sourceId == id;
+      allow delete: if false;
+    }
+    match /employeeWithdrawals/{id} {
+      allow read: if isAdmin() || ownsRecord();
+      allow create: if inventoryUser() && createsOwnRecord()
+        && request.resource.data.data.id == id && request.resource.data.data.ownerUid == request.auth.uid
+        && quantities(request.resource.data.data.quantities,false)
+        && request.resource.data.data.pieces == request.resource.data.data.quantities[0] + request.resource.data.data.quantities[1] + request.resource.data.data.quantities[2] + request.resource.data.data.quantities[3] + request.resource.data.data.quantities[4] + request.resource.data.data.quantities[5] + request.resource.data.data.quantities[6]
+        && request.resource.data.data.unitPrice == 19
+        && request.resource.data.data.otherCents is int && request.resource.data.data.otherCents >= 0
+        && request.resource.data.data.amountCents == request.resource.data.data.pieces * 1900 + request.resource.data.data.otherCents
+        && request.resource.data.data.amountCents > 0
+        && (request.resource.data.data.otherCents == 0 || request.resource.data.data.otherConcept.size() > 0)
+        && getAfter(/databases/$(database)/documents/inventoryEvents/$(id)).data.kind == 'withdraw'
+        && getAfter(/databases/$(database)/documents/inventoryEvents/$(id)).data.ownerUid == request.auth.uid;
+      allow update, delete: if false;
+    }
+    match /payrollDeductionClaims/{id} {
+      allow read: if isAdmin() || ownsRecord();
+      allow create, update: if isAdmin()
+        && request.resource.data.ownerUid == get(/databases/$(database)/documents/employeeWithdrawals/$(id)).data.ownerUid
+        && request.resource.data.data.paidCents is int && request.resource.data.data.paidCents >= 0
+        && request.resource.data.data.paidCents <= get(/databases/$(database)/documents/employeeWithdrawals/$(id)).data.data.amountCents
+        && (!exists(/databases/$(database)/documents/payrollDeductionClaims/$(id)) || request.resource.data.data.paidCents >= resource.data.data.paidCents);
       allow delete: if false;
     }
     match /{document=**} { allow read, write: if false; }
