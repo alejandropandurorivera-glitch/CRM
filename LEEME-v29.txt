@@ -1,3 +1,28 @@
+ANULAR DEVOLUCIONES · v29 revisión 6
+1. Publica el firestore.rules incluido en Firebase. Esta revisión SÍ añade reglas para anular devoluciones desde Administrador.
+2. Sube los 85 archivos descomprimidos reemplazando los anteriores.
+3. Administrador → Horas y pagos → Actualizar reportes de Firebase. Abajo, Devoluciones de expendio: busca Sofía, 21 de octubre, 12 piezas ($228). Pulsa Anular devolución y confirma.
+4. Cancela el reporte pendiente con el abono incorrecto. En el teléfono de Sofía vuelve a generar el reporte, conservando el descuento de 12 brownies. Si no hay otros ajustes: $769.01 − $228 = $541.01.
+5. Los abonos anteriores ahora se eligen con casillas; no se incorporan automáticamente aunque la cantidad nueva sea cero.
+Una devolución ya abonada en nómina pagada no puede anularse; requiere un ajuste separado. Se conserva el historial de anulaciones, no se alteran inventarios y no se borran movimientos del reloj.
+
+INVENTARIO DE RUTA · v29 revisión 5
+Se corrige el caso de piezas divididas entre caja y carro, aunque la pantalla muestra ambas como Mi caja. Al procesar una visita, se consolidan las piezas de ruta y se descuenta la entrega dentro de una sola transacción. No se descuenta de fábrica ni se inventan existencias. El evento conserva el traslado y descuento en el historial.
+Ejemplo probado: 10 intensos en caja + 3 en carro; visita de 7 intensos pendiente. Resultado: 0 en caja + 6 en carro. Los 44 intensos de fábrica no cambian. Reintentar no vuelve a descontar la misma visita.
+Sube los 85 archivos descomprimidos reemplazando los anteriores. Espera a que Pages publique. En el mismo teléfono donde está SportFit pendiente, abre Repartidor y pulsa ↻ en Mi caja. No repitas la venta ni corrijas cantidades para forzar el descuento.
+Se conservan las reglas de la última v29; esta corrección no requiere volver a publicarlas.
+
+CORRECCIÓN DE REPORTES · v29 revisión 4
+- Los horarios incluidos en un reporte pendiente se conservan sin pagar. Ahora la selección muestra ese reporte con Ver imagen, Reenviar y Cancelar y liberar horas.
+- Cancelar conserva los movimientos y libera las horas/descuentos sólo cuando Firebase confirma la cancelación. Un pago confirmado no puede cancelarse desde Darkita.
+- Reenviar conserva el folio: no genera otro reporte ni duplica pagos. Los errores y confirmaciones aparecen por reporte. Hay reintento al recuperar conexión, volver a la app y cada minuto mientras está abierta.
+- El envío de un reporte no espera la cola de expendios. Las devoluciones se verifican antes de pagar, como antes.
+- Administrador consulta directamente reportes y pagos al entrar a Horas y pagos, al volver a la app y con Actualizar. La hora indica si se confirmó la lista completa en Firebase o si sólo hay una copia local.
+- Esta revisión no cambia firestore.rules. Si ya publicaste las reglas de la entrega v29 anterior, puedes conservarlas.
+- Sube los 85 archivos descomprimidos a GitHub reemplazando los anteriores. Espera la publicación y vuelve a abrir la app. No borres los datos de los teléfonos ni reinstales con pendientes.
+- En el teléfono de Tania abre Horas y pagos y pulsa Reenviar. Debe decir Recibido en Firebase junto al folio. Luego entra en Horas y pagos en Administrador.
+- En Sofía puedes usar la imagen del reporte existente. Para incluir retiros nuevos o cambiar la selección, pulsa Cancelar y liberar horas en ese reporte y genera uno nuevo después de la confirmación.
+
 DARKISISTEMA v29 — revisión completa (misma versión)
 
 PARA LA CAPTURA ACTUAL: NO REPITAS LA CARGA
