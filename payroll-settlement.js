@@ -1,0 +1,45 @@
+/* Liquidación única de nómina compartida por Darkita y Administrador. */
+(()=>{'use strict';
+const dateMX=timestamp=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/Mexico_City',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(timestamp));
+async function settle(context,requestId,paymentDate,method='Efectivo',requestOwner){
+ if(!context?.user||!context.sdk||!context.db)throw Error('Conecta Firebase para confirmar el pago.');
+ const {sdk,db,user}=context;
+ if(context.role!=='admin'&&requestOwner!==user.uid)throw Error('Sólo puedes liquidar tus propios reportes.');
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(paymentDate)||paymentDate>dateMX(Date.now()))throw Error('Elige una fecha de pago válida, hasta hoy.');
+ if(!['Efectivo','Transferencia','Tarjeta'].includes(method))throw Error('Selecciona el método de pago.');
+      return sdk.runTransaction(db,async tx=>{
+        const requestRef=sdk.doc(db,'payrollRequests',requestOwner+'__'+requestId),paymentRef=sdk.doc(db,'payrollPayments',requestId),requestSnap=await tx.get(requestRef),paymentSnap=await tx.get(paymentRef);
+        if(paymentSnap.exists()){const existing=paymentSnap.data().data;if(existing.ownerUid!==requestOwner||existing.requestId!==requestId)throw Error('El folio de pago pertenece a otra identidad.');return existing}if(!requestSnap.exists())throw Error('No se encontró el reporte seleccionado.');const request=requestSnap.data().data,claimRows=[];if(request.ownerUid!==requestOwner||request.employeeId==null)throw Error('El reporte pertenece a otra identidad.');if(context.role!=='admin'&&requestOwner!==user.uid)throw Error('Sólo puedes liquidar tus propios reportes.');if(context.role!=='admin'&&!window.DarkisPayrollModel.canSelfSettle(request))throw Error('Este reporte combina más de 8 turnos, descuentos y devoluciones. El administrador puede liquidarlo completo.');
+        if(!Array.isArray(request.allocations)||request.allocations.length>20)throw Error('La selección está dañada.');
+        for(const allocation of request.allocations){
+          const claim=await tx.get(sdk.doc(db,'payrollClaims',allocation.key));if(claim.exists())claimRows.push(claim.data().data);
+          const readRecord=async id=>{let found=await tx.get(sdk.doc(db,'timeclockRecords',request.ownerUid+'__'+id));if(!found.exists())found=await tx.get(sdk.doc(db,'timeclockRecords',id));if(!found.exists())throw Error('Falta sincronizar un movimiento del reloj antes de pagar.');const raw=found.data();if(raw.ownerUid!==request.ownerUid)throw Error('La identidad del movimiento no coincide.');return raw.data};
+          const entry=await readRecord(allocation.entryId),exit=await readRecord(allocation.exitId);
+          if(entry.deleted||exit.deleted||entry.type!=='entry'||exit.type!=='exit'||entry.employeeId!==request.employeeId||exit.employeeId!==request.employeeId||entry.timestamp!==allocation.start||exit.timestamp!==allocation.end||Math.round((exit.timestamp-entry.timestamp)/1000)!==allocation.capacitySeconds||JSON.stringify([entry.id,entry.timestamp,exit.id,exit.timestamp])!==allocation.fingerprint)throw Error('Un horario del reporte cambió. Revisa o cancela esa selección y genera otra.');
+        }
+        const deductionUpdates=[],deductionIds=new Set();if((request.deductions||[]).length>20)throw Error('Demasiados descuentos en un reporte.');for(const d of request.deductions||[]){if(deductionIds.has(d.id)||!Number.isInteger(d.cents)||d.cents<=0)throw Error('Descuento inválido.');deductionIds.add(d.id);const debtRef=sdk.doc(db,'employeeWithdrawals',d.id),claimRef=sdk.doc(db,'payrollDeductionClaims',d.id),debtSnap=await tx.get(debtRef),claimSnap=await tx.get(claimRef);if(!debtSnap.exists())throw Error('Falta sincronizar el retiro de brownies antes de pagar.');const debt=debtSnap.data().data,paid=claimSnap.exists()?claimSnap.data().data.paidCents:0;if(debt.ownerUid!==request.ownerUid||debt.employeeId!==request.employeeId||paid+d.cents>debt.amountCents)throw Error('Ese descuento ya se aplicó o pertenece a otra persona.');deductionUpdates.push({ref:claimRef,data:{id:d.id,paidCents:paid+d.cents,amountCents:debt.amountCents,lastRequestId:requestId}})}
+        const returnUpdates=[],returnIds=new Set();let returnCredit=0,returnFlag=false,historicalReturn=false;if((request.returns||[]).length>20)throw Error('Demasiadas devoluciones.');for(const r of request.returns||[]){if(returnIds.has(r.id))throw Error('Devolución duplicada.');returnIds.add(r.id);const ref=sdk.doc(db,'employeeReturns',r.id),claimRef=sdk.doc(db,'payrollReturnClaims',r.id),snap=await tx.get(ref),claim=await tx.get(claimRef);if(!snap.exists())throw Error('Falta sincronizar el expendio regresado.');const data=snap.data().data;if(data.status==='voided')throw Error('El reporte incluye una devolución anulada. Cancélalo y genera uno nuevo.');if(claim.exists()||data.ownerUid!==request.ownerUid||data.employeeId!==request.employeeId||data.creditCents!==r.creditCents||data.pieces!==r.pieces||data.withdrawalId!==r.withdrawalId)throw Error('Ese expendio ya fue abonado o no corresponde.');returnCredit+=data.creditCents;returnFlag=returnFlag||Boolean(data.historical)||data.issuedPieces>0&&data.totalReturnedPieces/data.issuedPieces>.15;historicalReturn=historicalReturn||Boolean(data.historical);returnUpdates.push({ref:claimRef,data:{id:r.id,requestId,creditCents:data.creditCents}})}if(returnCredit!==(request.returnCreditCents||0))throw Error('Revisa el abono por expendios.');const updates=window.DarkisPayrollModel.validatePayment(request,claimRows),now=Date.now(),payment={id:requestId,requestId,ownerUid:request.ownerUid,employeeId:request.employeeId,employeeName:request.employeeName,allocations:request.allocations,totalMinutes:request.totalMinutes,totalSeconds:request.totalSeconds,rate:50,grossAmount:request.grossAmount??request.amount,deductionCents:request.deductionCents||0,deductions:request.deductions||[],returns:request.returns||[],returnCreditCents:request.returnCreditCents||0,returnRedFlag:returnFlag,returnHistoricalFlag:historicalReturn,amount:request.amount,paymentDate,method,paidAt:now,createdAt:now,updatedAt:now,paidBy:user.email||user.uid,settledByArea:context.role==='admin'?'admin':'clock'};
+        for(const [allocationIndex,r]of returnUpdates.entries())tx.set(r.ref,{ownerUid:request.ownerUid,data:{...r.data,employeeId:request.employeeId,allocationIndex}});for(const [allocationIndex,d]of deductionUpdates.entries())tx.set(d.ref,{ownerUid:request.ownerUid,data:{...d.data,employeeId:request.employeeId,requestId,allocationIndex,updatedAt:now},updatedAt:sdk.serverTimestamp()});for(const [allocationIndex,claim]of updates.entries())tx.set(sdk.doc(db,'payrollClaims',claim.id),{ownerUid:request.ownerUid,data:{...claim,employeeId:request.employeeId,requestId,allocationIndex,updatedAt:now,lastRequestId:requestId},updatedAt:sdk.serverTimestamp()});
+        tx.set(paymentRef,{ownerUid:request.ownerUid,data:payment,updatedAt:sdk.serverTimestamp()});tx.set(requestRef,{ownerUid:request.ownerUid,data:{...request,status:'paid',paymentId:requestId,paidAt:now,updatedAt:now},updatedAt:sdk.serverTimestamp()});return payment;
+      }).catch(async error=>{try{const confirmed=await sdk.getDocFromServer(sdk.doc(db,'payrollPayments',requestId)),payment=confirmed.exists()?confirmed.data().data:null;if(payment?.requestId===requestId&&payment.ownerUid===requestOwner)return payment}catch{}throw error});
+}
+async function addHistoricalShift(context,input){
+ const {sdk,db,user}=context||{};
+ if(!user||!sdk||!db)throw Error('Conecta Firebase.');
+ if(context.role!=='admin'&&input.ownerUid!==user.uid)throw Error('Selecciona tu propio perfil.');
+ const ownerUid=String(input.ownerUid||'');if(!ownerUid||!input.employeeId)throw Error('Selecciona la persona del reloj.');
+ const snapshot=await sdk.getDocsFromServer(sdk.query(sdk.collection(db,'timeclockRecords'),sdk.where('ownerUid','==',ownerUid)));
+ const rows=snapshot.docs.map(d=>d.data().data).filter(Boolean);
+ const pair=window.DarkisPayrollModel.historicalPair({...input,deviceId:context.role==='admin'?'admin-history':input.deviceId||'clock-history'},rows);
+ return sdk.runTransaction(db,async tx=>{
+  const profile=await tx.get(sdk.doc(db,'timeclockEmployees',ownerUid));
+  if(!profile.exists()||!(profile.data().data?.profiles||[]).some(p=>p.id===input.employeeId&&p.name===input.employeeName))throw Error('Sincroniza primero el perfil del reloj de esa persona.');
+  const refs=pair.map(r=>sdk.doc(db,'timeclockRecords',ownerUid+'__'+r.id)),snaps=await Promise.all(refs.map(ref=>tx.get(ref)));
+  if(snaps.every(s=>s.exists())){for(let i=0;i<2;i++){const d=snaps[i].data().data;if(d.employeeId!==pair[i].employeeId||d.timestamp!==pair[i].timestamp||d.type!==pair[i].type||d.deleted)throw Error('Ese horario histórico fue modificado; revísalo en el reloj.');}return pair;}
+  if(snaps.some(s=>s.exists()))throw Error('El horario está incompleto. Revisa los movimientos antes de repetirlo.');
+  for(let i=0;i<2;i++)tx.set(refs[i],{ownerUid,data:pair[i],updatedAt:sdk.serverTimestamp()});
+  return pair;
+ });
+}
+window.DarkisPayrollSettlement={settle,addHistoricalShift,dateMX};
+})();

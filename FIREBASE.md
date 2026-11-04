@@ -1,10 +1,10 @@
-# Firebase Spark — Sistema Darkis v14
+# Firebase Spark — Darkisistema v30
 
 Esta versión funciona con Authentication (Google) y Firestore en Spark, dentro de sus cuotas gratuitas. No usa Cloud Functions, Secret Manager ni facturación Blaze. Google comprueba la cuenta; los permisos se leen de documentos protegidos en Firestore. Administrador requiere Google con rol admin habilitado. El PIN 2024 de Repartidor no concede permisos de nube.
 
 ## 1. Publicar las reglas nuevas
 
-En el proyecto **darkis-brownies**, abre **Firestore Database → Reglas**, sustituye todo por `firestore.rules` de esta versión y pulsa **Publicar**. Son distintas de las reglas de v13: ya no esperan tokens emitidos por Functions.
+En el proyecto **darkis-brownies**, abre **Firestore Database → Reglas**, sustituye todo por `firestore.rules` de esta versión y pulsa **Publicar**. Incluyen minis, ventas desde Darkita y liquidación propia; reemplaza el archivo completo. Los datos de V29 siguen siendo compatibles.
 
 ## 2. Dominio y proveedor Google
 

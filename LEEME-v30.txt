@@ -1,0 +1,11 @@
+DARKISISTEMA V30
+
+1. Publica las NUEVAS reglas de firestore.rules en Firestore.
+2. Sube el contenido extraído del ZIP a la raíz de CRM y reemplaza los archivos.
+3. Espera GitHub Pages y abre de nuevo la app.
+
+No se reinician inventarios, turnos ni capturas pendientes. No borres datos del navegador.
+Consulta README.md para precios público/Darkis, minis, horas pendientes de Sammy, clientes especiales y liquidación de nómina.
+
+Sammy nueva: PIN inicial1234; si ya existía, conserva su PIN.
+No se cargaron horas ficticias.
