@@ -1,3 +1,18 @@
+V30 REVISIÓN 5 · CORRECCIÓN DE INVENTARIO
+
+Conserva las reglas R4 ya publicadas. Esta corrección está en los archivos web.
+Descomprime y reemplaza en GitHub los archivos del paquete. Espera la publicación, cierra y vuelve a abrir la app y pulsa Actualizar inventario en el mismo celular y con la misma cuenta.
+No borres datos del navegador ni recaptures ventas: la cola pendiente se conserva.
+Copiar diagnóstico ahora identifica esta revisión como v30-r5.
+
+Se normaliza el cero negativo antes de enviar las transacciones a Firestore. El diagnóstico ahora incluye fuente, revisión y efecto de cada visita pendiente.
+Pruebas con serialización que conserva -0: reproducción previa del rechazo, carga exacta de 30 piezas, ventas, edición, reintentos sin duplicar, producción, migración de 7 a 12 y permisos de administrador/repartidor.
+
+V30 REVISIÓN 4 · INVENTARIO
+Publica firestore.rules de este paquete en Firebase > Firestore Database > Reglas.
+Corrige el límite de evaluación de reglas que rechazaba transacciones válidas de inventario.
+No hace falta cambiar los archivos web si ya usas V30-r3. Conserva las capturas pendientes y pulsa Reintentar sincronización con la misma cuenta.
+
 DARKISISTEMA V30 · REVISIÓN 3
 
 Publica las reglas firestore.rules incluidas: esta revisión agrega permisos para pagos recibidos en ruta.

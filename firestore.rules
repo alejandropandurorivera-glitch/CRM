@@ -366,14 +366,20 @@ service cloud.firestore {
         && (isAdmin() || ownShiftClaim(id));
       allow delete: if false;
     }
-    function inventoryUser() { return signedIn() && (request.auth.token.firebase.sign_in_provider == 'anonymous' || isRoute()); }
+    function inventoryUser() {
+      return signedIn() && (request.auth.token.firebase.sign_in_provider == 'anonymous'
+        || (googleUser()
+          && exists(/databases/$(database)/documents/accessRoles/$(request.auth.uid))
+          && permission().get('enabled',false) == true
+          && permission().get('role','') in ['admin','route']));
+    }
     // Index 0..6 is unchanged. New mini flavours are appended at 7..11.
     function expanded(v) { return v.size() == 7 ? v.concat([0,0,0,0,0]) : v; }
     function at(v,i) { return v.size() > i ? v[i] : 0; }
     function quantities(xs, negative) {
       let a = expanded(xs);
       let low = negative ? -100000 : 0;
-      return xs is list && xs.size() in [7,12]
+      return (xs == [0,0,0,0,0,0,0] || xs == [0,0,0,0,0,0,0,0,0,0,0,0]) || (xs is list && xs.size() in [7,12]
         && a[0] is int && a[0] >= low && a[0] <= 100000
         && a[1] is int && a[1] >= low && a[1] <= 100000
         && a[2] is int && a[2] >= low && a[2] <= 100000
@@ -385,8 +391,7 @@ service cloud.firestore {
         && a[8] is int && a[8] >= low && a[8] <= 100000
         && a[9] is int && a[9] >= low && a[9] <= 100000
         && a[10] is int && a[10] >= low && a[10] <= 100000
-        && a[11] is int && a[11] >= low && a[11] <= 100000
-        ;
+        && a[11] is int && a[11] >= low && a[11] <= 100000);
     }
     function stockBefore() {
       return exists(/databases/$(database)/documents/inventoryBalances/main)
@@ -411,9 +416,9 @@ service cloud.firestore {
         ;
     }
     function stockMath(a,b,d) {
-      return (a == b && (d == [0,0,0,0,0,0,0] || d == [0,0,0,0,0,0,0,0,0,0,0,0]))
-        || ((a.size() == 12 && b.size() == 12 && d.size() == 12)
-          ? stockMath12(a,b,d) : stockMath12(expanded(a),expanded(b),expanded(d)));
+      return (d == [0,0,0,0,0,0,0,0,0,0,0,0] || d == [0,0,0,0,0,0,0])
+        ? sameStock(a,b)
+        : stockMath12(expanded(a),expanded(b),expanded(d));
     }
     function inventoryCommit(id,e,b,a) {
       return e.id == id && e.ownerUid == request.auth.uid
@@ -424,8 +429,6 @@ service cloud.firestore {
         && e.before == {'factory':expanded(b.factory),'car':expanded(b.car),'box':expanded(b.get('box',[0,0,0,0,0,0,0]))}
         && e.after == {'factory':a.factory,'car':a.car,'box':a.get('box',[0,0,0,0,0,0,0]),'boxAway':a.get('boxAway',false)}
         && stockMath(e.after.factory,e.before.factory,e.delta.factory)
-        && stockMath(e.after.car,e.before.car,e.delta.car)
-        && stockMath(e.after.get('box',[0,0,0,0,0,0,0]),e.before.get('box',[0,0,0,0,0,0,0]),e.delta.get('box',[0,0,0,0,0,0,0]))
         && a.get('boxAway',false) == (e.kind == 'load' ? true : e.kind == 'unload' ? false : b.get('boxAway',!sameStock(b.car,[0,0,0,0,0,0,0])))
         && (request.auth.token.firebase.sign_in_provider != 'anonymous' || (a.get('boxAway',false) == b.get('boxAway',!sameStock(b.car,[0,0,0,0,0,0,0])) && sameStock(a.car,b.car) && (e.kind == 'prepare' || sameStock(a.box,b.get('box',[0,0,0,0,0,0,0])))));
     }
@@ -434,7 +437,9 @@ service cloud.firestore {
       let e = getAfter(/databases/$(database)/documents/inventoryEvents/$(a.lastEventId)).data;
       return !exists(/databases/$(database)/documents/inventoryEvents/$(a.lastEventId))
         && e.afterVersion == a.version
-        && e.after == {'factory':a.factory,'car':a.car,'box':a.get('box',[0,0,0,0,0,0,0]),'boxAway':a.get('boxAway',false)};
+        && e.after == {'factory':a.factory,'car':a.car,'box':a.get('box',[0,0,0,0,0,0,0]),'boxAway':a.get('boxAway',false)}
+        && stockMath(e.after.car,e.before.car,e.delta.car)
+        && stockMath(e.after.box,e.before.box,e.delta.get('box',[0,0,0,0,0,0,0]));
     }
     match /inventoryBalances/{id} {
       allow read: if inventoryUser();
