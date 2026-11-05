@@ -113,6 +113,19 @@ service cloud.firestore {
         && (!resource.data.data.get('deleted', false) || request.resource.data.data.get('deleted', false));
       allow delete: if isRoute();
     }
+    match /routeReceipts/{id} {
+      allow read: if isRoute();
+      allow create: if isRoute() && envelope(id)
+        && request.resource.data.data.amount is number && request.resource.data.data.amount > 0
+        && request.resource.data.data.date is string
+        && request.resource.data.data.concept is string
+        && request.resource.data.data.concept.size() > 0 && request.resource.data.data.concept.size() <= 100
+        && request.resource.data.data.type in ['Anticipo','Otro pago'];
+      allow update: if (isAdmin() && preservedEnvelope(id))
+        || (isRoute() && ownsRecord() && preservedEnvelope(id)
+          && request.resource.data.data == resource.data.data);
+      allow delete: if isAdmin();
+    }
     match /routeExpenses/{id} {
       allow read: if isRoute();
       allow create, update: if isRoute() && envelope(id)

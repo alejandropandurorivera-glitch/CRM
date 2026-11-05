@@ -1,11 +1,32 @@
-DARKISISTEMA V30
+DARKISISTEMA V30 · REVISIÓN 3
 
-1. Publica las NUEVAS reglas de firestore.rules en Firestore.
-2. Sube el contenido extraído del ZIP a la raíz de CRM y reemplaza los archivos.
-3. Espera GitHub Pages y abre de nuevo la app.
+Publica las reglas firestore.rules incluidas: esta revisión agrega permisos para pagos recibidos en ruta.
+Son compatibles con la aplicación anterior; puedes publicarlas antes de subir los archivos web.
 
+1. Publica firestore.rules en Firebase > Firestore Database > Reglas.
+2. Descomprime el ZIP y sube su contenido a la raíz de CRM reemplazando los archivos.
+3. Espera la publicación de GitHub Pages y cierra y vuelve a abrir la app.
+
+Desde V30-r2, los archivos que cambiaron son:
+index.html, route-tools.js, route-motion.css, administrador.html, admin-payroll.js, shared-sync.js, firestore.rules y sw.js.
+
+GASTOS EN RUTA
+Repartidor > Mi día > Gasto en ruta: selecciona categoría, concepto y monto.
+El gasto se descuenta del importe por entregar a Darkis, no de la ganancia del repartidor.
+Si los gastos superan el importe de Darkis, se muestra el reembolso pendiente.
+Los importes se conservan con centavos.
+Al sincronizar Firebase, el gasto llega a Administrador con la categoría seleccionada.
+Puede consultarse en Movimientos (tipo Gasto) y en los reportes por categoría.
+Los gastos anteriores sin categoría conservan la clasificación Ruta.
+En cortes filtrados por plaza se muestra el importe antes de gastos: el cierre con todos los gastos se consulta en Todas las plazas.
+
+PAGOS RECIBIDOS
+Repartidor > Mi día > + Pago recibido: tipo (Anticipo de pedido u Otro pago), concepto y monto.
+Se registra efectivo recibido y se suma completo a la entrega a Darkis.
+No genera piezas vendidas, comisión, movimiento de inventario ni una venta de producto por ese cobro.
+Administrador > Movimientos > Pagos recibidos y Administrador > Caja > Pagos recibidos en ruta.
+Las entradas de efectivo se conservan aparte de los ingresos por venta de productos.
+
+Incluye la corrección del botón Repartidor de V30-r2.
 No se reinician inventarios, turnos ni capturas pendientes. No borres datos del navegador.
-Consulta README.md para precios público/Darkis, minis, horas pendientes de Sammy, clientes especiales y liquidación de nómina.
-
-Sammy nueva: PIN inicial1234; si ya existía, conserva su PIN.
-No se cargaron horas ficticias.
+Consulta README.md para el resto de funciones V30.
