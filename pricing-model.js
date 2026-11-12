@@ -1,7 +1,7 @@
 /* Precios con fecha de vigencia; los importes reales y las equivalencias no se mezclan. */
 (() => {
   'use strict';
-  const EFFECTIVE='2026-11-02', VERSION=30;
+  const EFFECTIVE='2026-11-02', VERSION=32, FT_EFFECTIVE='2026-11-11';
   const standard=['Clásicos','Red velvet','Oreo',"M&M's",'Intenso'];
   const minis=['Mini clásico','Mini red velvet','Mini Oreo',"Mini M&M's",'Mini intenso'];
   const norm=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’']/g,'').replace(/\s+/g,' ').trim();
@@ -16,21 +16,23 @@
     return `${v('year')}-${v('month')}-${v('day')}`;
   }
   function isFT(client){const text=norm(typeof client==='string'?client:client?.name||client?.customerName||client?.route||'');return /^ft(?:\s|[.\-:]|$)/.test(text)||/\bfarmacias? tepa\b/.test(text)}
+  const isProtein=product=>/protein|proteina/.test(norm(typeof product==='object'?product?.name||product?.product:product));
   const isMini=product=>/^mini(?:\s|$)/.test(norm(typeof product==='object'?product?.name||product?.product:product));
   const isCookie=product=>/\bgalletas?\b/.test(norm(typeof product==='object'?product?.name||product?.product:product));
-  function isBrownie(product){const name=norm(typeof product==='object'?product?.name||product?.product:product);return !isMini(name)&&!isCookie(name)&&!/proteina|brownieve|cheese|corazon|cajita/.test(name)&&(/\bbrownies?\b/.test(name)||['clasico','clasicos','red velvet','oreo','m&ms','m&m','intenso','chocolate intenso'].includes(name))}
+  function isBrownie(product){const name=norm(typeof product==='object'?product?.name||product?.product:product);return !isMini(name)&&!isCookie(name)&&!/brownieve|cheese|corazon|cajita/.test(name)&&(/\bbrownies?\b/.test(name)||['clasico','clasicos','red velvet','oreo','m&ms','m&m','intenso','chocolate intenso'].includes(name))}
   const equivalent=(product,qty=1)=>Number(qty||0)*(isMini(product)?.5:isBrownie(product)?1:0);
   const validPrice=value=>Number.isFinite(Number(value))&&Number(value)>0&&Number(value)<=10000;
   function entryFor(client,day){return [...(Array.isArray(client?.priceHistory)?client.priceHistory:[])].filter(h=>dateMX(h.effectiveFrom)&&h.effectiveFrom<=day).sort((a,b)=>a.effectiveFrom.localeCompare(b.effectiveFrom)||String(a.updatedAt||'').localeCompare(String(b.updatedAt||''))).at(-1)}
   function priceFor(client,product='Clásicos',raw=Date.now(),fallback=23){
-    const day=dateMX(raw)||dateMX(),h=entryFor(client,day),mini=isMini(product),cookie=isCookie(product);
-    const override=mini?h?.miniPrice:cookie?h?.cookiePrice:h?.classicPrice;
+    const day=dateMX(raw)||dateMX(),h=entryFor(client,day),mini=isMini(product),cookie=isCookie(product),protein=isProtein(product);
+    const override=protein?h?.proteinPrice:mini?h?.miniPrice:cookie?h?.cookiePrice:isFT(client)&&day>=FT_EFFECTIVE&&h?.effectiveFrom<FT_EFFECTIVE?null:h?.classicPrice;
     if(validPrice(override))return round(override);
+    if(protein)return 35;
     if(mini)return 15;
     if(cookie)return round(validPrice(client?.cookiePrice)?client.cookiePrice:validPrice(fallback)?fallback:23);
     const ftSale=isFT(client)?[...(client?.sales||[])].filter(s=>Number(s.paid)>0&&!s.items?.some(i=>isMini(i.product)||isCookie(i.product))).sort((a,b)=>String(b.date||b.createdAt||'').localeCompare(String(a.date||a.createdAt||''))).find(s=>validPrice(s.unitPrice??Number(s.total)/Number(s.paid))):null;
     const legacy=[client?.browniePrice,client?.unitPrice,client?.price,ftSale?.unitPrice,ftSale?Number(ftSale.total)/Number(ftSale.paid):null,fallback].find(validPrice);
-    if(isFT(client)||day<EFFECTIVE)return round(legacy??23);
+    if((isFT(client)&&day<FT_EFFECTIVE)||day<EFFECTIVE)return round(legacy??23);
     return isBrownie(product)?25:round(validPrice(fallback)?fallback:23);
   }
   function setClientPrice(client,input){
@@ -44,13 +46,14 @@
   }
   function darkisPriceFor(client,product,date,fallback){
     const day=dateMX(date)||dateMX(),h=entryFor(client,day);
-    const override=isMini(product)?h?.miniDarkisPrice:h?.classicDarkisPrice;
+    const override=isProtein(product)?h?.proteinDarkisPrice:isMini(product)?h?.miniDarkisPrice:isFT(client)&&day>=FT_EFFECTIVE&&h?.effectiveFrom<FT_EFFECTIVE?null:h?.classicDarkisPrice;
     if(validPrice(override))return round(override);
+    if(isProtein(product))return 31;
     if(isMini(product))return 12;
-    if(day>=EFFECTIVE&&isBrownie(product)&&!isFT(client))return 21;
+    if(day>=EFFECTIVE&&isBrownie(product)&&(!isFT(client)||day>=FT_EFFECTIVE))return 21;
     return round(validPrice(fallback)?fallback:priceFor(client,product,date));
   }
-  function withdrawalPrices(date=Date.now()){const day=dateMX(date)||dateMX();return [...standard.map(()=>day>=EFFECTIVE?2100:1900),1900,1900,...minis.map(()=>1200)];}
+  function withdrawalPrices(date=Date.now()){const day=dateMX(date)||dateMX();return [...standard.map(()=>day>=EFFECTIVE?2100:1900),1900,1900,...minis.map(()=>1200),3100];}
   function quote(client,items,date){
     const lines=(items||[]).map(item=>{
       const qty=Number(item.qty),product=String(item.product||'');
@@ -69,7 +72,7 @@
     const paid=Number(sale.paid)||0;if(!(paid>0))return sale;
     const explicit=Array.isArray(sale.items)&&sale.items.length&&sale.items.every(x=>Number.isInteger(Number(x.qty))&&Number(x.qty)>=0)&&sale.items.reduce((n,x)=>n+Number(x.qty),0)===paid;
     const items=explicit?sale.items:[{product:'Brownie sin especificar',qty:paid}];
-    if(isFT(person)&&!entryFor(person,day)&&!items.some(x=>isMini(x.product)))return sale;
+    if(isFT(person)&&day<FT_EFFECTIVE&&!entryFor(person,day)&&!items.some(x=>isMini(x.product)))return sale;
     let quoted=quote(person,items.map(x=>sale.priceOverride?{...x,priceOverride:true,unitPrice:x.unitPrice??sale.unitPrice??Number(sale.total)/paid}:x),day);if(sale.priceOverride)quoted={...quoted,total:Number(sale.total),publicTotal:Number(sale.total),margin:round(Number(sale.total)-quoted.darkisIncome)};
     const meaningful=quoted.darkisIncome!==Number(sale.darkisIncome)||quoted.total!==Number(sale.total)||(explicit&&quoted.items.some((item,i)=>item.unitPrice!==sale.items[i].unitPrice||item.total!==sale.items[i].total||item.darkisTotal!==sale.items[i].darkisTotal));
     if(!meaningful&&sale.pricingVersion===VERSION&&sale.brownieEquivalents===quoted.brownieEquivalents)return sale;
@@ -80,10 +83,10 @@
   function repriceFinancialSale(sale,client={}){
     const day=dateMX(sale.date);if(!day||day<EFFECTIVE||sale.saleClass==='Cortesía'||!(Number(sale.qty)>0)||(!isBrownie(sale.product)&&!isMini(sale.product)))return sale;
     const person={...client,name:client.name||sale.route||sale.customerName};
-    if(isFT(person)&&!entryFor(person,day)&&!isMini(sale.product))return sale;
+    if(isFT(person)&&day<FT_EFFECTIVE&&!entryFor(person,day)&&!isMini(sale.product))return sale;
     const publicUnitPrice=sale.priceOverride?Number(sale.publicUnitPrice??sale.unitPrice):priceFor(person,sale.product,day,sale.publicUnitPrice??sale.unitPrice),unitPrice=darkisPriceFor(person,sale.product,day,sale.darkisUnitPrice??sale.unitPrice),total=round(Number(sale.qty)*unitPrice),brownieEquivalents=equivalent(sale.product,sale.qty);
     if(unitPrice===sale.unitPrice&&total===sale.total&&sale.pricingVersion===VERSION&&sale.brownieEquivalents===brownieEquivalents)return sale;
     return {...sale,unitPrice,total,darkisUnitPrice:unitPrice,darkisIncome:total,publicUnitPrice,publicTotal:round(Number(sale.qty)*publicUnitPrice),expectedPrice:unitPrice,brownieEquivalents,priceStatus:'Vigencia por cliente',pricingVersion:VERSION,pricingMigration:sale.pricingMigration||{version:VERSION,effectiveFrom:EFFECTIVE,originalTotal:sale.total,originalUnitPrice:sale.unitPrice,at:new Date().toISOString()}};
   }
-  window.DarkisPricing={EFFECTIVE,VERSION,standard,minis,norm,dateMX,isFT,isMini,isCookie,isBrownie,equivalent,priceFor,darkisPriceFor,withdrawalPrices,unitPrice:priceFor,setClientPrice,quote,repriceContribution,repriceFinancialSale};
+  window.DarkisPricing={EFFECTIVE,FT_EFFECTIVE,VERSION,standard,minis,norm,dateMX,isFT,isProtein,isMini,isCookie,isBrownie,equivalent,priceFor,darkisPriceFor,withdrawalPrices,unitPrice:priceFor,setClientPrice,quote,repriceContribution,repriceFinancialSale};
 })();

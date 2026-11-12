@@ -88,7 +88,7 @@
   <div class="overlay" id="saleOverlay" hidden><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="saleTitle"><div class="sheet-handle"></div><div class="sheet-head"><div><h2 id="saleTitle">Registrar venta</h2><p>Elige cantidades por sabor. Se guardará en tu historial.</p></div><button type="button" class="icon-button" data-close="saleOverlay" aria-label="Cerrar">×</button></div><form id="saleForm"><div class="field-row"><div class="field"><label for="saleDate">Fecha</label><input id="saleDate" type="date" required></div><div class="field"><label for="salePrice">Precio por pieza</label><input id="salePrice" type="number" min="0" step="0.01" value="23" required inputmode="decimal"></div></div><div class="field"><label for="saleCustomer">Cliente</label><select id="saleCustomer"></select></div><div class="eyebrow" style="margin:17px 0 7px">Brownies vendidos</div><div class="flavor-list" id="flavors"></div><div class="field-row"><div class="field"><label for="salePayment">Cobro</label><select id="salePayment"><option>Efectivo</option><option>Transferencia</option><option>Tarjeta</option><option>Otro</option></select></div><div class="field"><label for="saleNote">Nota</label><input id="saleNote" maxlength="180" placeholder="Opcional"></div></div><div class="sale-total"><div><b id="salePieces">0 piezas</b><small>Total de la venta</small></div><strong id="saleTotal">$0</strong></div><div class="sheet-footer"><button type="button" class="button ghost" id="saleAddCustomer">＋ Cliente</button><button type="submit" class="button primary">Guardar venta</button></div></form></div></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="./firebase-errors.js?v=30r1" defer></script>
-<script src="./shared-sync.js?v=30r1" defer></script>
+<script src="./shared-sync.js?v=32" defer></script>
   <script>
     (()=>{
       'use strict';
@@ -144,7 +144,7 @@
       
     })();
   </script>
-<script src="./suite-experience.js?v=30r1" defer></script>
+<script src="./suite-experience.js?v=32" defer></script>
 <script src="./google-access.js?v=30r1" defer></script>
 </body>
 </html>

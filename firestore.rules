@@ -78,10 +78,32 @@ service cloud.firestore {
 
     // The first admin document is created manually in the Firebase console.
     // Requests and local PINs never grant permissions.
+    function invitationEmail() { return request.auth.token.get('email','').lower(); }
+    function invitedAdmin(uid) {
+      let email = invitationEmail();
+      let i = get(/databases/$(database)/documents/accessInvitations/$(email)).data;
+      return googleUser() && request.auth.token.get('email_verified',false) == true && uid == request.auth.uid
+        && i.enabled == true && i.role == 'admin' && i.claimedUid == ''
+        && request.resource.data.role == 'admin' && request.resource.data.enabled == true
+        && request.resource.data.profileId == '' && request.resource.data.email == email
+        && getAfter(/databases/$(database)/documents/accessInvitations/$(email)).data.claimedUid == uid;
+    }
+    match /accessInvitations/{email} {
+      allow get: if isAdmin() || (googleUser() && request.auth.token.get('email_verified',false) == true && invitationEmail() == email);
+      allow list: if isAdmin();
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin() || (googleUser() && request.auth.token.get('email_verified',false) == true
+        && invitationEmail() == email && resource.data.enabled == true && resource.data.role == 'admin' && resource.data.claimedUid == ''
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['claimedUid','claimedAt'])
+        && request.resource.data.claimedUid == request.auth.uid
+        && getAfter(/databases/$(database)/documents/accessRoles/$(request.auth.uid)).data.role == 'admin'
+        && getAfter(/databases/$(database)/documents/accessRoles/$(request.auth.uid)).data.enabled == true);
+    }
     match /accessRoles/{uid} {
       allow get: if (googleUser() && isOwner(uid)) || isAdmin();
       allow list: if isAdmin();
       allow create, update: if isAdmin() && uid != request.auth.uid && validGrant();
+      allow create, update: if invitedAdmin(uid) && validGrant();
       allow delete: if isAdmin() && uid != request.auth.uid;
     }
     match /accessRequests/{uid} {
@@ -190,10 +212,10 @@ service cloud.firestore {
     function nonnegativeCount(n) { return n is int && n >= 0 && n <= 100000; }
     // La validación compacta mantiene todas las categorías bajo el límite de expresiones de Firestore.
     function flavorCounts(v) {
-      return v is list && v.size() == 5 && v[0] is int && v[1] is int && v[2] is int && v[3] is int && v[4] is int
-        && v.join(',').matches('^(0|[1-9][0-9]{0,4}|100000)(,(0|[1-9][0-9]{0,4}|100000)){4}$');
+      return v is list && v.size() in [5,6] && v[0] is int && v[1] is int && v[2] is int && v[3] is int && v[4] is int && (v.size() == 5 || v[5] is int)
+        && v.join(',').matches('^(0|[1-9][0-9]{0,4}|100000)(,(0|[1-9][0-9]{0,4}|100000)){4,5}$');
     }
-    function evenPacked(v) { return v[0] % 2 == 0 && v[1] % 2 == 0 && v[2] % 2 == 0 && v[3] % 2 == 0 && v[4] % 2 == 0; }
+    function evenPacked(v) { return v[0] % 2 == 0 && v[1] % 2 == 0 && v[2] % 2 == 0 && v[3] % 2 == 0 && v[4] % 2 == 0 && (v.size() == 5 || v[5] == 0); }
     function validProduction(id) {
       let d = request.resource.data.data;
       return d.id == id && d.employeeId is string && d.employeeName is string
@@ -238,12 +260,40 @@ service cloud.firestore {
       allow update: if updatesOwnRecord() && validCoverage(id);
       allow delete: if false;
     }
+    function fixedSalary(d) { return d.get('salaryMode','') == 'weekly-fixed'; }
+    function validFixedSalary(d) {
+      return d.employeeName.lower().matches('^tania( .*)?$') && d.rate == 0
+        && d.weeklyAmount == 1050 && d.get('grossAmount',d.amount) == 1050
+        && d.salaryWeekStart is int && d.salaryWeekStart >= 1794204000000
+        && (d.salaryWeekStart - 1794204000000) % 604800000 == 0
+        && d.salaryWeekEnd == d.salaryWeekStart + 604800000
+        && d.salaryWeekKey == 'tania_' + string(d.salaryWeekStart)
+        && d.allocations[0].start >= d.salaryWeekStart
+        && d.allocations[d.allocations.size()-1].end <= d.salaryWeekEnd;
+    }
+    function weeklyPaymentProof(d) {
+      return !fixedSalary(d) || (validFixedSalary(d)
+        && !exists(/databases/$(database)/documents/payrollWeeklyClaims/$(d.salaryWeekKey))
+        && getAfter(/databases/$(database)/documents/payrollWeeklyClaims/$(d.salaryWeekKey)).data.data.requestId == d.requestId);
+    }
+    match /payrollWeeklyClaims/{id} {
+      allow get: if signedIn();
+      allow list: if isAdmin();
+      allow create: if signedIn()
+        && (isAdmin() || request.resource.data.ownerUid == request.auth.uid)
+        && request.resource.data.data.id == id
+        && getAfter(/databases/$(database)/documents/payrollPayments/$(request.resource.data.data.requestId)).data.ownerUid == request.resource.data.ownerUid
+        && getAfter(/databases/$(database)/documents/payrollPayments/$(request.resource.data.data.requestId)).data.data.salaryWeekKey == id
+        && getAfter(/databases/$(database)/documents/payrollPayments/$(request.resource.data.data.requestId)).data.data.salaryWeekStart == request.resource.data.data.weekStart
+        && request.resource.data.data.grossCents == 105000;
+      allow update, delete: if false;
+    }
     function validPayrollRequest(id) {
       let d = request.resource.data.data;
       return createsOwnRecord() && id == request.auth.uid + '__' + d.id
         && d.ownerUid == request.auth.uid && d.status == 'pending'
         && d.employeeId is string && d.employeeName is string
-        && d.rate == 50 && d.totalSeconds is int && d.totalSeconds > 0 && d.totalMinutes is number && d.totalMinutes > 0
+        && (fixedSalary(d) ? validFixedSalary(d) : d.rate == 50) && d.totalSeconds is int && d.totalSeconds > 0 && d.totalMinutes is number && d.totalMinutes > 0
         && d.amount is number && d.amount >= 0
         && d.allocations is list && d.allocations.size() > 0 && d.allocations.size() <= 20
         && d.createdAt is number && d.updatedAt is number;
@@ -283,6 +333,9 @@ service cloud.firestore {
         && d.employeeId == r.data.employeeId && d.employeeName == r.data.employeeName
         && d.totalSeconds == r.data.totalSeconds && d.totalMinutes == r.data.totalMinutes
         && d.rate == r.data.rate && d.amount == r.data.amount
+        && d.get('salaryMode','') == r.data.get('salaryMode','')
+        && d.get('salaryWeekKey','') == r.data.get('salaryWeekKey','')
+        && weeklyPaymentProof(d)
         && d.allocations == r.data.allocations
         && d.get('deductions',[]) == r.data.get('deductions',[])
         && d.get('returns',[]) == r.data.get('returns',[])
@@ -308,7 +361,7 @@ service cloud.firestore {
     }
     function ownPaymentProof(d) {
       // Bounded to Firestore's ten reads per write. Larger selections are settled by Admin.
-      return d.allocations.size() + d.get('deductions',[]).size() + d.get('returns',[]).size() <= 8
+      return d.allocations.size() + d.get('deductions',[]).size() + d.get('returns',[]).size() + (fixedSalary(d) ? 1 : 0) <= 8
         && paymentShiftProof(d,0)
         && paymentShiftProof(d,1)
         && paymentShiftProof(d,2)
@@ -374,12 +427,12 @@ service cloud.firestore {
           && permission().get('role','') in ['admin','route']));
     }
     // Index 0..6 is unchanged. New mini flavours are appended at 7..11.
-    function expanded(v) { return v.size() == 7 ? v.concat([0,0,0,0,0]) : v; }
+    function expanded(v) { return v.size() == 7 ? v.concat([0,0,0,0,0,0]) : v.size() == 12 ? v.concat([0]) : v; }
     function at(v,i) { return v.size() > i ? v[i] : 0; }
     function quantities(xs, negative) {
       let a = expanded(xs);
       let low = negative ? -100000 : 0;
-      return (xs == [0,0,0,0,0,0,0] || xs == [0,0,0,0,0,0,0,0,0,0,0,0]) || (xs is list && xs.size() in [7,12]
+      return (xs == [0,0,0,0,0,0,0,0,0,0,0,0,0] || xs == [0,0,0,0,0,0,0] || xs == [0,0,0,0,0,0,0,0,0,0,0,0]) || (xs is list && xs.size() in [7,12,13]
         && a[0] is int && a[0] >= low && a[0] <= 100000
         && a[1] is int && a[1] >= low && a[1] <= 100000
         && a[2] is int && a[2] >= low && a[2] <= 100000
@@ -391,7 +444,8 @@ service cloud.firestore {
         && a[8] is int && a[8] >= low && a[8] <= 100000
         && a[9] is int && a[9] >= low && a[9] <= 100000
         && a[10] is int && a[10] >= low && a[10] <= 100000
-        && a[11] is int && a[11] >= low && a[11] <= 100000);
+        && a[11] is int && a[11] >= low && a[11] <= 100000
+        && a[12] is int && a[12] >= low && a[12] <= 100000);
     }
     function stockBefore() {
       return exists(/databases/$(database)/documents/inventoryBalances/main)
@@ -400,7 +454,7 @@ service cloud.firestore {
     }
     function sameStock(a,b) { return expanded(a) == expanded(b); }
     function stockMath12(a,b,d) {
-      return a == [b[0]+d[0],b[1]+d[1],b[2]+d[2],b[3]+d[3],b[4]+d[4],b[5]+d[5],b[6]+d[6],b[7]+d[7],b[8]+d[8],b[9]+d[9],b[10]+d[10],b[11]+d[11]]
+      return a == [b[0]+d[0],b[1]+d[1],b[2]+d[2],b[3]+d[3],b[4]+d[4],b[5]+d[5],b[6]+d[6],b[7]+d[7],b[8]+d[8],b[9]+d[9],b[10]+d[10],b[11]+d[11],b[12]+d[12]]
         && a[0] is int && a[0] >= 0
         && a[1] is int && a[1] >= 0
         && a[2] is int && a[2] >= 0
@@ -413,10 +467,11 @@ service cloud.firestore {
         && a[9] is int && a[9] >= 0
         && a[10] is int && a[10] >= 0
         && a[11] is int && a[11] >= 0
+        && a[12] is int && a[12] >= 0
         ;
     }
     function stockMath(a,b,d) {
-      return (d == [0,0,0,0,0,0,0,0,0,0,0,0] || d == [0,0,0,0,0,0,0])
+      return (d == [0,0,0,0,0,0,0,0,0,0,0,0,0] || d == [0,0,0,0,0,0,0,0,0,0,0,0] || d == [0,0,0,0,0,0,0])
         ? sameStock(a,b)
         : stockMath12(expanded(a),expanded(b),expanded(d));
     }
@@ -426,9 +481,10 @@ service cloud.firestore {
         && a.lastEventId == id && e.kind in ['source','add','count','prepare','unprepare','load','unload','waste','withdraw']
         && e.detail is string && e.reason is string && e.reason.size() <= 400
         && (e.kind != 'waste' || e.reason.size() > 0)
-        && e.before == {'factory':expanded(b.factory),'car':expanded(b.car),'box':expanded(b.get('box',[0,0,0,0,0,0,0]))}
-        && e.after == {'factory':a.factory,'car':a.car,'box':a.get('box',[0,0,0,0,0,0,0]),'boxAway':a.get('boxAway',false)}
+        && (e.before == {'factory':b.factory,'car':b.car,'box':b.get('box',[0,0,0,0,0,0,0])} || e.before == {'factory':expanded(b.factory),'car':expanded(b.car),'box':expanded(b.get('box',[0,0,0,0,0,0,0]))})
+        && e.after.factory == a.factory && e.after.car == a.car && e.after.box == a.get('box',[0,0,0,0,0,0,0]) && e.after.boxAway == a.get('boxAway',false)
         && stockMath(e.after.factory,e.before.factory,e.delta.factory)
+        && (e.kind == 'count' || (a.get('reconciledFactoryAt',0) == b.get('reconciledFactoryAt',0) && a.get('reconciledBoxAt',0) == b.get('reconciledBoxAt',0)))
         && a.get('boxAway',false) == (e.kind == 'load' ? true : e.kind == 'unload' ? false : b.get('boxAway',!sameStock(b.car,[0,0,0,0,0,0,0])))
         && (request.auth.token.firebase.sign_in_provider != 'anonymous' || (a.get('boxAway',false) == b.get('boxAway',!sameStock(b.car,[0,0,0,0,0,0,0])) && sameStock(a.car,b.car) && (e.kind == 'prepare' || sameStock(a.box,b.get('box',[0,0,0,0,0,0,0])))));
     }
@@ -437,7 +493,7 @@ service cloud.firestore {
       let e = getAfter(/databases/$(database)/documents/inventoryEvents/$(a.lastEventId)).data;
       return !exists(/databases/$(database)/documents/inventoryEvents/$(a.lastEventId))
         && e.afterVersion == a.version
-        && e.after == {'factory':a.factory,'car':a.car,'box':a.get('box',[0,0,0,0,0,0,0]),'boxAway':a.get('boxAway',false)}
+        && e.after.factory == a.factory && e.after.car == a.car && e.after.box == a.get('box',[0,0,0,0,0,0,0]) && e.after.boxAway == a.get('boxAway',false)
         && stockMath(e.after.car,e.before.car,e.delta.car)
         && stockMath(e.after.box,e.before.box,e.delta.get('box',[0,0,0,0,0,0,0]));
     }
@@ -459,7 +515,7 @@ service cloud.firestore {
     match /inventorySources/{id} {
       allow read: if inventoryUser();
       allow create, update: if inventoryUser()
-        && ((!exists(/databases/$(database)/documents/inventorySources/$(id)) && request.resource.data.ownerUid == request.auth.uid)
+        && ((!exists(/databases/$(database)/documents/inventorySources/$(id)) && (request.resource.data.ownerUid == request.auth.uid || (isAdmin() && request.resource.data.ownerUid is string && request.resource.data.ownerUid.size() > 0)))
           || (exists(/databases/$(database)/documents/inventorySources/$(id)) && (ownsRecord() || isAdmin()) && request.resource.data.ownerUid == resource.data.ownerUid))
         && quantities(request.resource.data.effect.factory,true) && quantities(request.resource.data.effect.car,true)
         && quantities(request.resource.data.effect.get('box',[0,0,0,0,0,0,0]),true)
@@ -467,6 +523,42 @@ service cloud.firestore {
         && (!exists(/databases/$(database)/documents/inventorySources/$(id)) || request.resource.data.revision > resource.data.revision)
         && getAfter(/databases/$(database)/documents/inventoryEvents/$(request.resource.data.lastEventId)).data.sourceId == id;
       allow delete: if false;
+    }
+    function sammyProfile(p) { return p.get('canonicalKey',p.get('name','')).lower() in ['sammy','samantha','sam']; }
+    function sammyUser() {
+      let p = get(/databases/$(database)/documents/timeclockEmployees/$(request.auth.uid)).data.data.profiles;
+      return clockUser() && ((p.size() > 0 && sammyProfile(p[0])) || (p.size() > 1 && sammyProfile(p[1]))
+        || (p.size() > 2 && sammyProfile(p[2])) || (p.size() > 3 && sammyProfile(p[3]))
+        || (p.size() > 4 && sammyProfile(p[4])) || (p.size() > 5 && sammyProfile(p[5])));
+    }
+    function staffAccountUser() { return isAdmin() || sammyUser(); }
+    function validStaffPayment(p,id) {
+      let old = exists(/databases/$(database)/documents/staffBalances/sammy) ? get(/databases/$(database)/documents/staffBalances/sammy).data : {'remainingCents':348600,'version':0};
+      let next = getAfter(/databases/$(database)/documents/staffBalances/sammy).data;
+      let e = getAfter(/databases/$(database)/documents/inventoryEvents/$(p.eventId)).data;
+      let q = expanded(p.quantities);
+      return p.id == id && p.employeeKey == 'sammy' && p.ownerUid == request.auth.uid
+        && p.amountCents is int && p.amountCents > 0 && p.amountCents <= old.remainingCents
+        && p.beforeCents == old.remainingCents && p.afterCents == old.remainingCents-p.amountCents && p.beforeVersion == old.version
+        && next.remainingCents == p.afterCents && next.openingCents == 348600 && next.version == old.version+1 && next.lastPaymentId == id
+        && e.staffPaymentId == id && e.ownerUid == request.auth.uid && !exists(/databases/$(database)/documents/inventoryEvents/$(p.eventId))
+        && sameStock(e.delta.box,[0,0,0,0,0,0,0]) && sameStock(e.delta.car,[0,0,0,0,0,0,0])
+        && ((p.method == 'cash' && q == [0,0,0,0,0,0,0,0,0,0,0,0,0] && sameStock(e.delta.factory,q))
+          || (p.method == 'brownies' && quantities(q,false) && q[5] == 0 && q[6] == 0 && q[7] == 0 && q[8] == 0 && q[9] == 0 && q[10] == 0 && q[11] == 0 && q[12] == 0
+          && p.amountCents == (q[0]+q[1]+q[2]+q[3]+q[4])*2100
+          && (sameStock(e.delta.factory,[-q[0],-q[1],-q[2],-q[3],-q[4],0,0,0,0,0,0,0,0]) || e.coveredByCount == true)));
+    }
+    match /staffBalances/{id} {
+      allow read: if staffAccountUser() && id == 'sammy';
+      allow create, update: if staffAccountUser() && id == 'sammy'
+        && getAfter(/databases/$(database)/documents/staffDebtPayments/$(request.resource.data.lastPaymentId)).data.ownerUid == request.auth.uid
+        && !exists(/databases/$(database)/documents/staffDebtPayments/$(request.resource.data.lastPaymentId));
+      allow delete: if false;
+    }
+    match /staffDebtPayments/{id} {
+      allow read: if staffAccountUser();
+      allow create: if staffAccountUser() && validStaffPayment(request.resource.data,id);
+      allow update, delete: if false;
     }
     function adjustmentAllocation(a,g) {
       let d = getAfter(/databases/$(database)/documents/employeeWithdrawals/$(a.id)).data;
@@ -500,12 +592,13 @@ service cloud.firestore {
         && ((a[0].id == id && a[0].ownerUid == d.ownerUid && a[0].employeeId == d.employeeId && a[0].cents == d.amountCents)
           || (a.size() == 2 && a[1].id == id && a[1].ownerUid == d.ownerUid && a[1].employeeId == d.employeeId && a[1].cents == d.amountCents));
     }
-    function sumCounts(v) { let a=expanded(v); return a[0]+a[1]+a[2]+a[3]+a[4]+a[5]+a[6]+a[7]+a[8]+a[9]+a[10]+a[11]; }
-    function priceVector(classic) { return [classic,classic,classic,classic,classic,1900,1900,1200,1200,1200,1200,1200]; }
-    function dotPrices(q,p) { let a=expanded(q); return a[0]*p[0]+a[1]*p[1]+a[2]*p[2]+a[3]*p[3]+a[4]*p[4]+a[5]*p[5]+a[6]*p[6]+a[7]*p[7]+a[8]*p[8]+a[9]*p[9]+a[10]*p[10]+a[11]*p[11]; }
+    function sumCounts(v) { let a=expanded(v); return a[0]+a[1]+a[2]+a[3]+a[4]+a[5]+a[6]+a[7]+a[8]+a[9]+a[10]+a[11]+a[12]; }
+    function legacyPriceVector(classic) { return [classic,classic,classic,classic,classic,1900,1900,1200,1200,1200,1200,1200]; }
+    function priceVector(classic) { return [classic,classic,classic,classic,classic,1900,1900,1200,1200,1200,1200,1200,3100]; }
+    function dotPrices(q,p) { let a=expanded(q); let b=expanded(p); return a[0]*b[0]+a[1]*b[1]+a[2]*b[2]+a[3]*b[3]+a[4]*b[4]+a[5]*b[5]+a[6]*b[6]+a[7]*b[7]+a[8]*b[8]+a[9]*b[9]+a[10]*b[10]+a[11]*b[11]+a[12]*b[12]; }
     function validWithdrawalPrice(d) {
       return d.keys().hasAny(['unitCents']) ?
-        (d.unitCents == priceVector(d.date >= '2026-11-02' ? 2100 : 1900)
+        (d.unitCents in [priceVector(d.date >= '2026-11-02' ? 2100 : 1900),legacyPriceVector(d.date >= '2026-11-02' ? 2100 : 1900)]
           && d.amountCents == dotPrices(d.quantities,d.unitCents)+d.otherCents) :
         (d.quantities.size() == 7 && d.unitPrice == 19 && d.amountCents == d.pieces*1900+d.otherCents);
     }
@@ -560,7 +653,7 @@ service cloud.firestore {
         && d.employeeName is string && d.employeeName.size() <= 120
         && d.pieces is int && d.pieces > 0 && d.pieces <= 10000 && d.createdAt is number
         && (d.keys().hasAny(['unitCents']) ?
-          (d.unitCents in [priceVector(1900),priceVector(2100)] && quantities(d.quantities,false)
+          (d.unitCents in [priceVector(1900),priceVector(2100),legacyPriceVector(1900),legacyPriceVector(2100)] && quantities(d.quantities,false)
             && d.pieces == sumCounts(d.quantities) && d.creditCents == dotPrices(d.quantities,d.unitCents)) :
           (d.creditCents == d.pieces*1900 && (!d.keys().hasAny(['quantities']) ||
             (quantities(d.quantities,false) && d.pieces == sumCounts(d.quantities)))));

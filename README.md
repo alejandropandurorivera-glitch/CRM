@@ -1,64 +1,49 @@
-# Darkisistema V30
+# Darkisistema V32
 
-Actualización del CRM estático para publicar en el repositorio CRM y utilizar con el proyecto Firebase existente darkis-brownies. No es la aplicación documental SGC en Python.
+Actualización del 11 de noviembre de 2026. Conserva los turnos abiertos, los datos del navegador y las colas pendientes. No crea ni corrige existencias físicas inventadas.
 
-## Instalación
+## Instalar
 
-1. Publica el contenido completo de `firestore.rules` en Firebase → Firestore Database → Reglas → Publicar.
-2. Extrae este ZIP y sube todos sus archivos a la raíz del repositorio CRM, reemplazando los existentes. No subas el ZIP como un archivo de la página. Son menos de 100 archivos.
-3. Espera a que termine GitHub Pages y vuelve a abrir la app. En Avisos debe aparecer V30. No borres datos del navegador: las capturas pendientes y los turnos abiertos se conservan con sus mismas claves.
-4. Abre Administrador y Repartidor con Google y espera la conexión. La corrección de precios de ventas desde el 2 de noviembre se ejecuta al recibir datos del servidor; utiliza transacciones, mismos identificadores y conserva los importes originales en el historial de migración. Las reglas nuevas son necesarias.
+1. Publica `firestore.rules` de este paquete en Firestore Database → Reglas.
+2. Descomprime el ZIP y sustituye los 99 archivos de la raíz del repositorio CRM. No subas el ZIP cerrado.
+3. Cuando GitHub Pages termine, cierra y vuelve a abrir la app en todos los dispositivos. Avisos debe decir v32. No borres almacenamiento ni vuelvas a capturar ventas ya guardadas.
+4. Publicar las reglas antes de los archivos está contemplado: se siguen aceptando los vectores anteriores de 7 y 12 productos. Después de registrar Protein o hacer un conteo con V32, usa V32 en todos los teléfonos para conservar los 13 índices de inventario.
 
-Esta entrega no publica cambios automáticamente ni modifica directamente tus datos de Firebase.
+## Cambios
 
-## Precios e ingresos
+- La alerta de caducidad usa la entrega más reciente. Una reposición sin fecha de caducidad nueva deja de mostrar la fecha vencida de la entrega anterior. Una revisión sin piezas dejadas no renueva la caducidad. No se inventa una vida útil.
+- Protein brownie: costo $22.42, negocio $35, para Darkis $31. Conserva la comisión actual de $4 por brownie. Está en ventas, pedidos, inventario, producción por charolas y catálogo de administrador.
+- Minis nuevos: únicamente Mini clásico, $15. Empacar 2 minis consume 1 brownie clásico; la charola sigue rindiendo 20 brownies completos. Los índices y existencias de minis de sabores anteriores se conservan como históricos; no se convierten en clásicos ni se borran.
+- Farmacia Tepa: precio general de $25 desde el 11 de noviembre de 2026, para Darkis $21. Las ventas anteriores conservan su precio; un acuerdo manual con vigencia posterior puede cambiarlo.
+- Tania conserva $1,050 brutos fijos de lunes a domingo desde el 9 de noviembre. Sus horas muestran el importe efectivo por hora y no cambian el sueldo fijo.
+- Sammy: saldo anterior de $3,486. Darkita → perfil de Sammy → Darkis te debe → Registrar abono. Administrador → Horas y pagos muestra el mismo saldo. Efectivo reduce la deuda y se refleja como gasto de sueldo; brownies a $21 por pieza reducen deuda y fábrica en la misma transacción. Los cinco sabores de brownie clásico están disponibles para estos abonos. Protein no se entrega a $21, porque su costo supera ese precio. Cada comprobante es inmutable, no se aplica dos veces y no liquida otra nómina.
 
-Desde **2026-11-02**, calendario de México:
+## Acceso de pandurojp@gmail.com
 
-| Producto | Público | Para Darkis |
-| --- | ---: | ---: |
-| Brownie estándar | $25 | $21 |
-| Mini brownie | $15 | $12 |
+Esta descarga prepara el acceso; todavía no modifica tu Firebase en vivo. Después de instalar reglas y archivos, entra una vez con tu cuenta administradora actual y espera la conexión a Firebase. Se crea una invitación para `pandurojp@gmail.com`. Esa persona debe abrir Administrador con su cuenta de Google verificada y recibir el rol en Firebase. No requiere compartir PIN ni usar la sesión de otra persona. Una invitación consumida no vuelve a activar un acceso revocado. Puede revisarse en Administrar accesos cuando ya fue aceptada.
 
-FT / Farmacia Tepa conserva el precio y el esquema anterior. Las galletas y productos especiales conservan sus precios. Antes de esa fecha se mantiene el histórico. Un precio manual explícito se conserva; los nuevos acuerdos llevan fecha de vigencia.
+## Inventario: qué estaba causando diferencias
 
-- **Repartidor → editar cliente → Precios:** acuerdo por cliente y fecha. En la visita también puedes modificar el precio sólo para esa venta.
-- **Administrador → Catálogos → Precios por cliente:** buscador, modificación e historial. Puedes ajustar por separado el precio público y el aporte para Darkis.
-- En **Ingresos** se usa el aporte para Darkis; Rutas recibidas conserva la referencia de lo cobrado al público.
-- Las ventas personales realizadas con piezas ya retiradas se muestran para consulta. No vuelven a sumarse como ingreso financiero, porque el aporte se cobra mediante el descuento de nómina. Una venta directa desde fábrica sí genera su aporte en Ingresos.
+La revisión del código encontró tres riesgos concretos:
 
-## Mini brownies, producción e inventario
+- La venta y la salida de inventario se enviaban por separado. Una venta podía estar visible aunque la salida quedara pendiente en el dispositivo.
+- En Darkita, el origen inicial era piezas retiradas previamente. Esa selección no debe volver a descontar fábrica, pero podía utilizarse sin un retiro confirmado. Ahora el origen inicial es fábrica y las ventas personales exigen piezas retiradas disponibles.
+- La captura manual de ingresos en administrador no creaba una salida. Ahora permite elegir fábrica, caja o sólo ingreso ya registrado. Los productos que no pertenecen al inventario de brownies/galletas conservan su captura financiera sin descontar brownies.
 
-Se agregan cinco sabores mini al final del catálogo, conservando los siete índices antiguos. Los saldos de siete productos se amplían con ceros al primer movimiento, sin reiniciar existencias.
+No se ha podido comprobar cuáles afectaron tu saldo real: este paquete no contiene una lectura autenticada de tus ventas actuales ni un conteo físico. La revisión incluida permite hacerlo con tu Firebase.
 
-Cada charola nueva contiene 20 brownies completos. En **Darkita → Producción del día → Mini brownies empacados**, registra los minis por sabor: **2 minis consumen 1 completo** del mismo sabor. Si ya registraste la hornada, deja charolas en cero al empacar después. El sistema conserva las revisiones por fuente para no sumar la producción dos veces.
+## Corregir una vez y mantener el saldo
 
-Materia prima del mini: 0.5 de la pieza clásica. Tiempo de empaque: 2 veces el clásico. No se supone que el costo total del mini sea la mitad: el catálogo conserva factores separados; un costo total debe configurarse si no se conocen sus componentes.
+1. En Repartidor → En caja → Revisar ventas y descuentos de inventario → Comprobar con Firebase. En Administrador → Inventarios está la misma revisión, incluyendo producción. Muestra capturas revisadas, descuentos confirmados, pendientes y capturas incluidas en un conteo físico.
+2. Abre Darkita en cada teléfono con movimientos pendientes y deja que termine de enviarlos. No vuelvas a registrar una venta para intentar descontarla. El error de cada movimiento pendiente ahora se muestra por separado, con producto y cantidades si no alcanza inventario.
+3. Cuenta físicamente cada producto por separado en fábrica y en caja. Usa Movimientos y ajustes → Corregir inventario, elige el lugar y escribe las cantidades reales completas y el motivo. Haz los dos conteos cerca del mismo momento, sin otras capturas durante el conteo. El ajuste conserva antes/después, persona, fecha y motivo.
+4. Un conteo incluye las capturas anteriores de ese lugar. Una captura atrasada se vincula a su fuente sin volver a modificar el saldo que ya contaste. Los reintentos usan el mismo comprobante; las ediciones calculan diferencias. Fábrica y caja tienen referencias de conteo independientes.
+5. Antes de salir: cargar a caja traslada, no produce; confirmar Salir sólo marca la caja en ruta. Al registrar una visita se descuentan todos los dejados, incluidos los reemplazos, no sólo los cobrados. Los retirados de tienda no vuelven automáticamente al inventario vendible.
+6. Al regresar: envía las ventas antes de confirmar Regresar. El sobrante de caja vuelve a fábrica. Una venta atrasada que pertenece a una caja ya regresada puede descontarse de fábrica, donde quedó ese sobrante, en lugar de atascarse contra una caja vacía.
+7. Una sola persona registra cada hornada. Decoración no debe repetir las charolas ya horneadas. Si sólo empacas minis, deja producción en cero; el empacado convierte clásicos a minis. Toda merma, seminario, basura, retiro personal o abono en brownies tiene que registrarse.
 
-Los minis también se incluyen en fábrica, caja, mermas, seminario, basura y consumo para galletas. Administrador → Producción muestra los minis empacados por sabor. Las mermas siguen exigiendo motivo.
+No se marca una venta como salida confirmada hasta que su fuente existe en Firebase. Después del conteo, la revisión al conectar recupera capturas posteriores con salida faltante. Las importaciones históricas sin control de inventario se conservan y no se descuentan retroactivamente.
 
-Los nuevos retiros personales desde el 2 de noviembre se descuentan a $21 por clásico y $12 por mini; las galletas conservan $19. Los retiros anteriores conservan sus $19. Cada retiro guarda su precio original, que también se usa para las devoluciones por sabor. En devoluciones sin retiro vinculado se puede indicar $19 o $21 como precio original del clásico; mini $12. Registra sólo devoluciones efectivas.
+## Validación realizada
 
-## Sammy, horas y saldo
-
-Sammy aparece en Darkita con la foto proporcionada. Samantha y Sam se reconocen como el mismo nombre; un perfil local existente conserva su identificador y PIN. Un perfil nuevo tiene PIN inicial **1234**, modificable en ajustes.
-
-No se inventó ninguna hora ni cantidad adeudada.
-
-- Sammy puede agregar sus horarios manualmente, como las demás personas.
-- **Administrador → Horas y pagos → Registrar horas anteriores sin pagar:** elige Sammy y captura cada entrada y salida real. Primero abre/sincroniza su perfil Darkita para que aparezca en el selector.
-- **Darkita → Horas y pagos → Generar reporte:** selecciona los turnos pendientes y descarga la imagen. Se distingue saldo de reportes pendientes y horas aún sin reportar.
-- **Liquidar** está disponible tanto en Darkita (recibí el pago) como en Administrador. La transacción registra un solo pago, aplica horas, descuentos y devoluciones, y genera un solo gasto de sueldo.
-- La liquidación desde Darkita admite hasta 8 conceptos combinados (turnos + descuentos + devoluciones), por los límites de validación de Firestore. Administrador puede liquidar el reporte completo de hasta 20 turnos. La interfaz explica cuándo debe hacerlo administrador.
-
-## Ventas y clientes desde Darkita
-
-**Darkita → Mis ventas y clientes** reemplaza el acceso operativo a Darkisocio. Incluye buscador, lista de todos los clientes, Mis clientes, alta de cliente, venta anónima y selección del origen de las piezas.
-
-Selecciona **Mis piezas retiradas** si ya salieron de fábrica con un retiro de nómina: no se descuenta inventario otra vez. Si eliges **En fábrica**, la venta descuenta los productos vendidos una sola vez.
-
-**Repartidor → Venta especial → Atender** permite elegir cualquier cliente, crear uno, asignarlo a una Darkita o registrar una venta anónima. Los clientes personales y ocasionales quedan fuera de la agenda automática y no se pausan por antigüedad. Los históricos de Darkisocio se conservan para consulta.
-
-## Verificación
-
-Se probaron modelos de precios/vigencias/FT, producción y conversión a minis, inventario legado, nómina y liquidación concurrente, reportes de imagen y clientes especiales. Las reglas se compilaron y probaron contra el emulador Firestore, incluyendo retiros mixtos $21/$12, devoluciones al precio original, permisos y rechazo de pagos duplicados. Se comprobó la interfaz móvil con Chromium sin escribir datos reales.
+Probado en navegador móvil y escritorio, y con el emulador real de reglas Firestore: ventas y producción de Protein, mezcla de productos, migración 7/12/13, reintentos y ediciones, conteos por ubicación, sincronización atrasada, abonos de Sammy, límites de saldo y permisos de la invitación. También pasan las pruebas de sueldo fijo de Tania, nómina anterior y resumen de 15 días.

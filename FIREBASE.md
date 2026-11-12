@@ -1,4 +1,14 @@
-# Firebase Spark — Darkisistema v30
+# Firebase · V32
+
+Publica el firestore.rules incluido antes de actualizar los archivos. Acepta existencias de 7, 12 y 13 productos; conserva la corrección de enteros R5, las reservas de nómina y el salario fijo de Tania. Añade abonos atómicos del saldo anterior de Sammy y las invitaciones de administrador por correo verificado.
+
+Colecciones nuevas: staffBalances/sammy, staffDebtPayments y accessInvitations. La deuda inicial de Sammy es $3,486; el primer abono crea el saldo confirmado. No uses el saldo de inventario para registrar pagos en efectivo.
+
+La invitación de pandurojp@gmail.com se registra al conectar tu cuenta administradora después de instalar V32. La cuenta invitada recibe el rol al iniciar sesión con Google. La descarga sola no concede el rol en el proyecto en vivo.
+
+Consulta README.md para instalación y conciliación de inventario. Se mantienen las instrucciones técnicas anteriores como referencia:
+
+# Configuración previa de Firebase Spark
 
 Esta versión funciona con Authentication (Google) y Firestore en Spark, dentro de sus cuotas gratuitas. No usa Cloud Functions, Secret Manager ni facturación Blaze. Google comprueba la cuenta; los permisos se leen de documentos protegidos en Firestore. Administrador requiere Google con rol admin habilitado. El PIN 2024 de Repartidor no concede permisos de nube.
 

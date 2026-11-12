@@ -1,47 +1,49 @@
-V30 REVISIÓN 5 · CORRECCIÓN DE INVENTARIO
+Darkisistema V32
 
-Conserva las reglas R4 ya publicadas. Esta corrección está en los archivos web.
-Descomprime y reemplaza en GitHub los archivos del paquete. Espera la publicación, cierra y vuelve a abrir la app y pulsa Actualizar inventario en el mismo celular y con la misma cuenta.
-No borres datos del navegador ni recaptures ventas: la cola pendiente se conserva.
-Copiar diagnóstico ahora identifica esta revisión como v30-r5.
+Actualización del 11 de noviembre de 2026. Conserva los turnos abiertos, los datos del navegador y las colas pendientes. No crea ni corrige existencias físicas inventadas.
 
-Se normaliza el cero negativo antes de enviar las transacciones a Firestore. El diagnóstico ahora incluye fuente, revisión y efecto de cada visita pendiente.
-Pruebas con serialización que conserva -0: reproducción previa del rechazo, carga exacta de 30 piezas, ventas, edición, reintentos sin duplicar, producción, migración de 7 a 12 y permisos de administrador/repartidor.
+#Instalar
 
-V30 REVISIÓN 4 · INVENTARIO
-Publica firestore.rules de este paquete en Firebase > Firestore Database > Reglas.
-Corrige el límite de evaluación de reglas que rechazaba transacciones válidas de inventario.
-No hace falta cambiar los archivos web si ya usas V30-r3. Conserva las capturas pendientes y pulsa Reintentar sincronización con la misma cuenta.
+1. Publica `firestore.rules` de este paquete en Firestore Database → Reglas.
+2. Descomprime el ZIP y sustituye los 99 archivos de la raíz del repositorio CRM. No subas el ZIP cerrado.
+3. Cuando GitHub Pages termine, cierra y vuelve a abrir la app en todos los dispositivos. Avisos debe decir v32. No borres almacenamiento ni vuelvas a capturar ventas ya guardadas.
+4. Publicar las reglas antes de los archivos está contemplado: se siguen aceptando los vectores anteriores de 7 y 12 productos. Después de registrar Protein o hacer un conteo con V32, usa V32 en todos los teléfonos para conservar los 13 índices de inventario.
 
-DARKISISTEMA V30 · REVISIÓN 3
+#Cambios
 
-Publica las reglas firestore.rules incluidas: esta revisión agrega permisos para pagos recibidos en ruta.
-Son compatibles con la aplicación anterior; puedes publicarlas antes de subir los archivos web.
+- La alerta de caducidad usa la entrega más reciente. Una reposición sin fecha de caducidad nueva deja de mostrar la fecha vencida de la entrega anterior. Una revisión sin piezas dejadas no renueva la caducidad. No se inventa una vida útil.
+- Protein brownie: costo $22.42, negocio $35, para Darkis $31. Conserva la comisión actual de $4 por brownie. Está en ventas, pedidos, inventario, producción por charolas y catálogo de administrador.
+- Minis nuevos: únicamente Mini clásico, $15. Empacar 2 minis consume 1 brownie clásico; la charola sigue rindiendo 20 brownies completos. Los índices y existencias de minis de sabores anteriores se conservan como históricos; no se convierten en clásicos ni se borran.
+- Farmacia Tepa: precio general de $25 desde el 11 de noviembre de 2026, para Darkis $21. Las ventas anteriores conservan su precio; un acuerdo manual con vigencia posterior puede cambiarlo.
+- Tania conserva $1,050 brutos fijos de lunes a domingo desde el 9 de noviembre. Sus horas muestran el importe efectivo por hora y no cambian el sueldo fijo.
+- Sammy: saldo anterior de $3,486. Darkita → perfil de Sammy → Darkis te debe → Registrar abono. Administrador → Horas y pagos muestra el mismo saldo. Efectivo reduce la deuda y se refleja como gasto de sueldo; brownies a $21 por pieza reducen deuda y fábrica en la misma transacción. Los cinco sabores de brownie clásico están disponibles para estos abonos. Protein no se entrega a $21, porque su costo supera ese precio. Cada comprobante es inmutable, no se aplica dos veces y no liquida otra nómina.
 
-1. Publica firestore.rules en Firebase > Firestore Database > Reglas.
-2. Descomprime el ZIP y sube su contenido a la raíz de CRM reemplazando los archivos.
-3. Espera la publicación de GitHub Pages y cierra y vuelve a abrir la app.
+#Acceso de pandurojp@gmail.com
 
-Desde V30-r2, los archivos que cambiaron son:
-index.html, route-tools.js, route-motion.css, administrador.html, admin-payroll.js, shared-sync.js, firestore.rules y sw.js.
+Esta descarga prepara el acceso; todavía no modifica tu Firebase en vivo. Después de instalar reglas y archivos, entra una vez con tu cuenta administradora actual y espera la conexión a Firebase. Se crea una invitación para `pandurojp@gmail.com`. Esa persona debe abrir Administrador con su cuenta de Google verificada y recibir el rol en Firebase. No requiere compartir PIN ni usar la sesión de otra persona. Una invitación consumida no vuelve a activar un acceso revocado. Puede revisarse en Administrar accesos cuando ya fue aceptada.
 
-GASTOS EN RUTA
-Repartidor > Mi día > Gasto en ruta: selecciona categoría, concepto y monto.
-El gasto se descuenta del importe por entregar a Darkis, no de la ganancia del repartidor.
-Si los gastos superan el importe de Darkis, se muestra el reembolso pendiente.
-Los importes se conservan con centavos.
-Al sincronizar Firebase, el gasto llega a Administrador con la categoría seleccionada.
-Puede consultarse en Movimientos (tipo Gasto) y en los reportes por categoría.
-Los gastos anteriores sin categoría conservan la clasificación Ruta.
-En cortes filtrados por plaza se muestra el importe antes de gastos: el cierre con todos los gastos se consulta en Todas las plazas.
+#Inventario: qué estaba causando diferencias
 
-PAGOS RECIBIDOS
-Repartidor > Mi día > + Pago recibido: tipo (Anticipo de pedido u Otro pago), concepto y monto.
-Se registra efectivo recibido y se suma completo a la entrega a Darkis.
-No genera piezas vendidas, comisión, movimiento de inventario ni una venta de producto por ese cobro.
-Administrador > Movimientos > Pagos recibidos y Administrador > Caja > Pagos recibidos en ruta.
-Las entradas de efectivo se conservan aparte de los ingresos por venta de productos.
+La revisión del código encontró tres riesgos concretos:
 
-Incluye la corrección del botón Repartidor de V30-r2.
-No se reinician inventarios, turnos ni capturas pendientes. No borres datos del navegador.
-Consulta README.md para el resto de funciones V30.
+- La venta y la salida de inventario se enviaban por separado. Una venta podía estar visible aunque la salida quedara pendiente en el dispositivo.
+- En Darkita, el origen inicial era piezas retiradas previamente. Esa selección no debe volver a descontar fábrica, pero podía utilizarse sin un retiro confirmado. Ahora el origen inicial es fábrica y las ventas personales exigen piezas retiradas disponibles.
+- La captura manual de ingresos en administrador no creaba una salida. Ahora permite elegir fábrica, caja o sólo ingreso ya registrado. Los productos que no pertenecen al inventario de brownies/galletas conservan su captura financiera sin descontar brownies.
+
+No se ha podido comprobar cuáles afectaron tu saldo real: este paquete no contiene una lectura autenticada de tus ventas actuales ni un conteo físico. La revisión incluida permite hacerlo con tu Firebase.
+
+#Corregir una vez y mantener el saldo
+
+1. En Repartidor → En caja → Revisar ventas y descuentos de inventario → Comprobar con Firebase. En Administrador → Inventarios está la misma revisión, incluyendo producción. Muestra capturas revisadas, descuentos confirmados, pendientes y capturas incluidas en un conteo físico.
+2. Abre Darkita en cada teléfono con movimientos pendientes y deja que termine de enviarlos. No vuelvas a registrar una venta para intentar descontarla. El error de cada movimiento pendiente ahora se muestra por separado, con producto y cantidades si no alcanza inventario.
+3. Cuenta físicamente cada producto por separado en fábrica y en caja. Usa Movimientos y ajustes → Corregir inventario, elige el lugar y escribe las cantidades reales completas y el motivo. Haz los dos conteos cerca del mismo momento, sin otras capturas durante el conteo. El ajuste conserva antes/después, persona, fecha y motivo.
+4. Un conteo incluye las capturas anteriores de ese lugar. Una captura atrasada se vincula a su fuente sin volver a modificar el saldo que ya contaste. Los reintentos usan el mismo comprobante; las ediciones calculan diferencias. Fábrica y caja tienen referencias de conteo independientes.
+5. Antes de salir: cargar a caja traslada, no produce; confirmar Salir sólo marca la caja en ruta. Al registrar una visita se descuentan todos los dejados, incluidos los reemplazos, no sólo los cobrados. Los retirados de tienda no vuelven automáticamente al inventario vendible.
+6. Al regresar: envía las ventas antes de confirmar Regresar. El sobrante de caja vuelve a fábrica. Una venta atrasada que pertenece a una caja ya regresada puede descontarse de fábrica, donde quedó ese sobrante, en lugar de atascarse contra una caja vacía.
+7. Una sola persona registra cada hornada. Decoración no debe repetir las charolas ya horneadas. Si sólo empacas minis, deja producción en cero; el empacado convierte clásicos a minis. Toda merma, seminario, basura, retiro personal o abono en brownies tiene que registrarse.
+
+No se marca una venta como salida confirmada hasta que su fuente existe en Firebase. Después del conteo, la revisión al conectar recupera capturas posteriores con salida faltante. Las importaciones históricas sin control de inventario se conservan y no se descuentan retroactivamente.
+
+#Validación realizada
+
+Probado en navegador móvil y escritorio, y con el emulador real de reglas Firestore: ventas y producción de Protein, mezcla de productos, migración 7/12/13, reintentos y ediciones, conteos por ubicación, sincronización atrasada, abonos de Sammy, límites de saldo y permisos de la invitación. También pasan las pruebas de sueldo fijo de Tania, nómina anterior y resumen de 15 días.

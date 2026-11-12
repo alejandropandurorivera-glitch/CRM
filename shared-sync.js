@@ -35,7 +35,7 @@
     const rows=snapshot.docs.map(doc=>doc.data()?.data).filter(Boolean);if(path[0]==='payrollRequests')window.darkisPayrollRemoteRequests=rows;if(path[0]==='payrollPayments')window.darkisPayrollRemotePayments=rows;if(path[0]==='routeClients')window.DarkisClientDirectory?.ingest(rows);handler(rows);
   },error=>{if(currentUser?.uid!==uid)return;if(path[0]==='payrollRequests'||path[0]==='payrollPayments')payrollState(path[0],'error',error.code||error.message);announce('offline','No se pudieron leer los datos: '+error.code)}))}
   function subscribe(){clearSubscriptions();if(!currentUser)return;if(role==='admin'||role==='route'){listen(['routeOrders'],rows=>dispatchEvent(new CustomEvent('darkis-route-orders',{detail:rows})));}if(role==='admin'||role==='route')listen(['routeReceipts'],rows=>dispatchEvent(new CustomEvent('darkis-route-receipts',{detail:rows})));if(role==='admin'||role==='route')listen(['routeSchedules'],rows=>dispatchEvent(new CustomEvent('darkis-route-schedules-data',{detail:rows})));
-    if(role==='admin'){listen(['payrollRequests'],rows=>dispatchEvent(new CustomEvent('darkis-payroll-requests',{detail:rows})));listen(['payrollPayments'],rows=>dispatchEvent(new CustomEvent('darkis-payroll-payments',{detail:rows})));listen(['routeExpenses'],rows=>dispatchEvent(new CustomEvent('darkis-route-expenses',{detail:rows})));listen(['routeClients'],rows=>dispatchEvent(new CustomEvent('darkis-route-clients-data',{detail:rows})));listen(['routeContributions'],mergeContributions);listen(['timeclockEmployees'],devices=>dispatchEvent(new CustomEvent('darkis-clock-data',{detail:devices})));unsubscribers.push(sdk.onSnapshot(sdk.collection(db,'productionRecords'),snapshot=>{window.darkisProductionCloudDetail=snapshot.metadata?.fromCache?'Mostrando copia local de producción.':'Producción recibida de Firebase.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:snapshot.docs.map(x=>x.data().data).filter(Boolean)}))},error=>{window.darkisProductionCloudDetail='No se pudo leer producción: '+error.code+'. Publica las reglas v22.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:[]}))}));return}
+    if(role==='admin'){listen(['timeclockRecords'],rows=>dispatchEvent(new CustomEvent('darkis-clock-records-data',{detail:rows})));listen(['payrollRequests'],rows=>dispatchEvent(new CustomEvent('darkis-payroll-requests',{detail:rows})));listen(['payrollPayments'],rows=>dispatchEvent(new CustomEvent('darkis-payroll-payments',{detail:rows})));listen(['routeExpenses'],rows=>dispatchEvent(new CustomEvent('darkis-route-expenses',{detail:rows})));listen(['routeClients'],rows=>dispatchEvent(new CustomEvent('darkis-route-clients-data',{detail:rows})));listen(['routeContributions'],mergeContributions);listen(['timeclockEmployees'],devices=>dispatchEvent(new CustomEvent('darkis-clock-data',{detail:devices})));unsubscribers.push(sdk.onSnapshot(sdk.collection(db,'productionRecords'),snapshot=>{window.darkisProductionCloudDetail=snapshot.metadata?.fromCache?'Mostrando copia local de producción.':'Producción recibida de Firebase.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:snapshot.docs.map(x=>x.data().data).filter(Boolean)}))},error=>{window.darkisProductionCloudDetail='No se pudo leer producción: '+error.code+'. Publica las reglas v22.';dispatchEvent(new CustomEvent('darkis-production-data',{detail:[]}))}));return}
     if(role==='route'){listen(['routeClients'],clients=>window.darkisRouteCloudApply?.({clients}));listen(['routeContributions'],mergeContributions);return}
     if(role==='socio'&&profileId){let clients=[],sales=[];const update=()=>window.darkisSocioCloudApply?.({clients,sales});listen(['socioProfiles',profileId,'clients'],rows=>{clients=rows;update()});listen(['socioProfiles',profileId,'sales'],rows=>{sales=rows;update()})}
   }
@@ -53,7 +53,7 @@
     announce('connecting','Comprobando permisos de Google…');
     try{
       const ref=sdk.doc(db,'accessRoles',user.uid);
-      const snapshot=await timeout(sdk.getDocFromServer(ref));
+      let snapshot=await timeout(sdk.getDocFromServer(ref));if((!snapshot.exists()||snapshot.data().role!=='admin')&&await claimAdminInvitation(user))snapshot=await timeout(sdk.getDocFromServer(ref));
       if(version!==generation)return false;
       grant=snapshot.exists()?snapshot.data():null;
       accessUnsubscribe=sdk.onSnapshot(ref,{includeMetadataChanges:true},next=>{
@@ -63,9 +63,11 @@
       },()=>{});
       if(!grant){accessState('pending','Esta cuenta todavía necesita autorización.');announce('waiting','Cuenta pendiente de autorización.');return false}
       if(!canUse(grant,role,profileId)){accessState('denied','Esta cuenta no tiene permiso para abrir esta área.');announce('waiting','Cuenta sin permiso para esta área.');return false}
-      currentUser=user;if(role==='admin'||role==='route')window.DarkisInventory?.connect({sdk,db,user,role});publishRouteContext({sdk,db,user,role});accessState('authorized','Cuenta autorizada.');subscribe();flush();return true;
+      currentUser=user;if(grant.role==='admin')seedAdminInvitation(user).catch(e=>console.warn('Invitación pendiente de sincronizar',e.code||e.message));if(role==='admin'||role==='route')window.DarkisInventory?.connect({sdk,db,user,role});publishRouteContext({sdk,db,user,role});accessState('authorized','Cuenta autorizada.');subscribe();flush();return true;
     }catch(error){if(version===generation){accessState('error',window.darkisFirebaseError(error));announce('offline',window.darkisFirebaseError(error))}return false}
   }
+  async function seedAdminInvitation(user){if(grant?.role!=='admin')return;const ref=sdk.doc(db,'accessInvitations','pandurojp@gmail.com');await sdk.runTransaction(db,async tx=>{const snap=await tx.get(ref);if(!snap.exists())tx.set(ref,{email:'pandurojp@gmail.com',role:'admin',enabled:true,claimedUid:'',invitedBy:user.uid,createdAt:sdk.serverTimestamp()})})}
+  async function claimAdminInvitation(user){if(!user.emailVerified||String(user.email||'').toLowerCase()!=='pandurojp@gmail.com')return false;const email=user.email.toLowerCase();return sdk.runTransaction(db,async tx=>{const inviteRef=sdk.doc(db,'accessInvitations',email),roleRef=sdk.doc(db,'accessRoles',user.uid),snap=await tx.get(inviteRef);if(!snap.exists()||snap.data().enabled!==true||snap.data().role!=='admin'||snap.data().claimedUid)return false;tx.set(roleRef,{role:'admin',profileId:'',enabled:true,email,updatedAt:sdk.serverTimestamp()});tx.set(inviteRef,{...snap.data(),claimedUid:user.uid,claimedAt:sdk.serverTimestamp()});return true})}
   async function flush(){if(syncing||!currentUser||!db||!navigator.onLine||!canUse(grant,role,profileId))return;syncing=true;let failed=false;const user=currentUser,area=role,profile=profileId;
     try{for(const item of safeArray(QUEUE)){
       if(currentUser?.uid!==user.uid||role!==area||profileId!==profile)break;
@@ -79,6 +81,17 @@ tx.set(ref,{ownerUid:old?.ownerUid||user.uid,data,updatedAt:sdk.serverTimestamp(
     finally{syncing=false;if(!failed&&currentUser?.uid===user.uid&&role===area&&safeArray(QUEUE).some(x=>x.role===area&&(area!=='socio'||x.profileId===profile)))scheduleFlush()}
   }
   const api={
+    async refreshBriefData(){
+      if(!currentUser||grant?.role!=='admin')throw Error('Conecta la cuenta de Administrador.');const user=currentUser,version=generation;
+      const names=['routeContributions','routeExpenses','routeReceipts','productionRecords','timeclockRecords'];
+      const results=await Promise.all(names.map(async name=>{const snap=await timeout(sdk.getDocsFromServer(sdk.collection(db,name)));return[name,snap.docs.map(d=>d.data().data).filter(Boolean)]}));
+      const cuts=await timeout(sdk.getDocsFromServer(sdk.collection(db,'users',user.uid,'cuts')));
+      if(version!==generation||user.uid!==currentUser?.uid)throw Error('La cuenta cambió durante la consulta.');
+      const data=Object.fromEntries(results);mergeContributions(data.routeContributions);
+      dispatchEvent(new CustomEvent('darkis-route-expenses',{detail:data.routeExpenses}));dispatchEvent(new CustomEvent('darkis-route-receipts',{detail:data.routeReceipts}));
+      dispatchEvent(new CustomEvent('darkis-production-data',{detail:data.productionRecords}));dispatchEvent(new CustomEvent('darkis-clock-records-data',{detail:data.timeclockRecords}));
+      return{...data,routeCuts:cuts.docs.map(d=>d.data()?.data||d.data()).filter(Boolean),serverAt:new Date().toISOString()};
+    },
     async refreshPayroll(){window.DarkisInventory?.refresh();if(grant?.role!=='admin'||!currentUser)throw Error('Conecta administrador.');if(payrollRefreshPromise)return payrollRefreshPromise;const uid=currentUser.uid,version=generation;for(const name of ['payrollRequests','payrollPayments'])payrollState(name,'loading');payrollRefreshPromise=(async()=>{const results=await Promise.allSettled(['payrollRequests','payrollPayments'].map(async name=>{try{const snap=await timeout(sdk.getDocsFromServer(sdk.collection(db,name)));if(currentUser?.uid!==uid||version!==generation)return;const rows=snap.docs.map(d=>d.data().data).filter(Boolean);payrollServerSeen.add(uid+'__'+name);publishPayroll(name,rows);payrollState(name,'server');return rows}catch(error){if(currentUser?.uid===uid&&version===generation)payrollState(name,'error',error.code||error.message);throw error}}));const failed=results.find(r=>r.status==='rejected');if(failed)throw failed.reason})().finally(()=>{payrollRefreshPromise=null});return payrollRefreshPromise},
 
     async payPayroll(requestId,paymentDate,method='Efectivo',requestOwner){
