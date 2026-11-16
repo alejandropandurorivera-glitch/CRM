@@ -1,3 +1,38 @@
+# Darkisistema V33 · captura automática en Repartidor
+
+## Qué cambia
+
+- En Registrar visita ya no se capturan vendidos totales ni subtotales de minis, Protein o galletas. Se escriben únicamente las cantidades físicas en Dejados y Retirados.
+- El cobro se calcula por producto con su precio vigente: brownie $25, Protein $35 y Mini brownie $15. Se conservan precios manuales por cliente y fechas anteriores.
+- Los cambios sin cobro se emparejan primero con el mismo producto, después con su categoría y con el precio más próximo. Si una devolución se repone con un producto distinto, abre Ver cambios sin cobro y elige Reponer con para cambiar la asignación. No es necesario en una venta normal.
+- Se muestran los precios por pieza junto a cada producto y un desglose automático del cobro. Modificar precios de esta visita queda como opción secundaria.
+- Mini brownie es la etiqueta visible de la única variedad nueva de mini. Se conserva la clave interna Mini clásico para no romper historiales ni inventario. No se crean otros sabores de mini.
+- También se puede registrar sólo un retiro, sin reponer ni cobrar piezas. Los retirados de tienda no vuelven al inventario vendible.
+- El inventario sigue descontando todos los dejados, incluidos los reemplazos; el ingreso incluye únicamente las piezas cobradas. Editar una visita conserva su identificador y ajusta la misma fuente.
+- El asistente de surtido y la calculadora de cambio usan el mismo cálculo automático.
+
+## Ejemplos
+
+| Captura | Cobro |
+|---|---:|
+| 1 Protein en Dejados | $35 |
+| 1 Mini brownie en Dejados | $15 |
+| 2 clásicos + 1 Protein + 1 mini, sin retirados | $100 |
+| 3 intensos dejados y 1 intenso retirado | $50 |
+| 1 clásico retirado, sin dejados | $0 |
+
+La comisión del mini no cambia en esta actualización: precio público $15, para Darkis $12, comisión $3. El cambio solicitado afecta la captura y la etiqueta, no la política de comisiones.
+
+## Instalar
+
+Sustituye los 99 archivos de la raíz del repositorio con el contenido del ZIP. No borres los datos del navegador ni recaptures ventas pendientes. Cuando termine GitHub Pages, cierra y vuelve a abrir la aplicación y comprueba V33. Las reglas Firestore son idénticas a las de V32; si ya las publicaste, no hay que volver a cambiarlas. Si vienes de una versión anterior, publica las incluidas en el paquete.
+
+## Verificación
+
+Probado en navegador móvil: capturar un Protein en un solo campo, cobrar minis y pedidos mixtos, descontar cambios, reasignar una reposición, modificar precios opcionalmente, calcular efectivo, guardar, editar y conservar la salida de inventario. Pruebas del modelo verifican enteros, precios por cliente y conservación de piezas. Se mantienen las pruebas de nómina, producción, precios e históricos de V32.
+
+---
+
 # Darkisistema V32
 
 Actualización del 11 de noviembre de 2026. Conserva los turnos abiertos, los datos del navegador y las colas pendientes. No crea ni corrige existencias físicas inventadas.

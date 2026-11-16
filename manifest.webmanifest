@@ -2,7 +2,7 @@
   "name": "Darkisistema",
   "short_name": "Darkisistema",
   "description": "Rutas, ventas, producción y administración de Darkis Brownies.",
-  "start_url": "./index.html?v=30r1",
+  "start_url": "./index.html?v=33",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",

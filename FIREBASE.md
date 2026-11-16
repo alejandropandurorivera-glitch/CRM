@@ -1,3 +1,7 @@
+# Firebase · V33
+
+Sin cambios de reglas respecto a V32. La captura automática conserva la estructura de productos, ventas y salidas de inventario. Si ya publicaste las reglas de V32, no hay reglas adicionales que publicar.
+
 # Firebase · V32
 
 Publica el firestore.rules incluido antes de actualizar los archivos. Acepta existencias de 7, 12 y 13 productos; conserva la corrección de enteros R5, las reservas de nómina y el salario fijo de Tania. Añade abonos atómicos del saldo anterior de Sammy y las invitaciones de administrador por correo verificado.
